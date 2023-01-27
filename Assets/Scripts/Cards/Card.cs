@@ -1,26 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Card", order = 1)]
-
-
-public class Card : ScriptableObject
+public class Card : MonoBehaviour
 {
-    [Tooltip("Name of the Card")]
+    public Card_Basedata cardData;
+
     public string cardName;
-
-    [TextArea]
-    public string description_Main;
-
-
-    [Tooltip("Priority cost of the Card")]
     public int priorityCost;
+    public int damageDealt;
+    public TMP_Text _Text_Cost, _Text_Name;
 
 
-    public int damageDeal;
 
-    public Sprite cardImage;
-    public Sprite icon;
+    // Start is called before the first frame update
+    void Start()
+    {
+        loadCard();
+        updateCard();
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    //load card from Card_Basedata
+    public void loadCard()
+    {
+        priorityCost = cardData.priorityCost;
+        damageDealt = cardData.damageDealt;
+        cardName = cardData.cardName;
+    }
+
+
+    public void updateCard()
+    {
+        _Text_Cost.text = priorityCost.ToString();
+        _Text_Name.text = cardName.ToString();
+    }
+
 
 }

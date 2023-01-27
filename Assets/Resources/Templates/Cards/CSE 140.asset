@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
   m_Name: CSE 140
   m_EditorClassIdentifier: 
-  cardName: CSE 140
+  cardName: <CSE 140>
   description_Main: Deal 10 damage to programmers
-  priorityCost: 1
-  damageDeal: 10
+  priorityCost: 2
+  damageDealt: 0
   cardImage: {fileID: 21300000, guid: 676c030a4bee5194ea2ae557ce40c306, type: 3}
   icon: {fileID: 0}

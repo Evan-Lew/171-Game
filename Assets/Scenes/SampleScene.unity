@@ -2180,7 +2180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 39.1, y: 0.7}
+  m_AnchoredPosition: {x: 26, y: 0.7}
   m_SizeDelta: {x: 11.068001, y: 5.559}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200495568
@@ -2237,7 +2237,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2916,6 +2916,7 @@ GameObject:
   - component: {fileID: 543450652483568713}
   - component: {fileID: 3469287838413212652}
   - component: {fileID: 1711813854685773606}
+  - component: {fileID: 3469287838413212653}
   m_Layer: 0
   m_Name: Card Template
   m_TagString: Untagged
@@ -2975,3 +2976,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148224270067}
   m_Mesh: {fileID: -5495902117074765545, guid: 1f89a578ed4ecee4b9b3d0429697416a, type: 3}
+--- !u!114 &3469287838413212653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148224270067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7ba80d7a3129f40ac48e41974fe3d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 11400000, guid: 48e648ffe1935264d991025afb248028, type: 2}
+  cardName: 
+  priorityCost: 0
+  damageDealt: 0
+  _Text_Cost: {fileID: 874798609}
+  _Text_Name: {fileID: 1200495568}
