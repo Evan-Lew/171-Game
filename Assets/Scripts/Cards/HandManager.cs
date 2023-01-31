@@ -20,7 +20,7 @@ public class HandManager : MonoBehaviour
 
 
         // Helper_Search_CardsInHands();
-        SetCardPositionsInHand();
+        SetCardPositionsInHand(true);
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class HandManager : MonoBehaviour
 
 
     //set card positions in hands
-    public void SetCardPositionsInHand()
+    public void SetCardPositionsInHand(bool isDrawing)
     {
         Vector3 distanceBetweenPoints = Vector3.zero;
 
@@ -56,8 +56,11 @@ public class HandManager : MonoBehaviour
             player_hands_holdCards[i].handPosition = i;
             player_hands_holdCards[i].cardState = Card.state.Handcard;
 
-            //set all cards to deck's posisiton
-            player_hands_holdCards[i].transform.position = deckPos.position;
+            if (isDrawing)
+            {
+                //set all cards to deck's posisiton and draw it from there
+                player_hands_holdCards[i].transform.position = deckPos.position;
+            }
 
             //find the distance between each card
             player_hands_holdsCardsPositions.Add(minPos.position + (distanceBetweenPoints * i));
@@ -74,6 +77,26 @@ public class HandManager : MonoBehaviour
 
         }
 
+
+    //=================================> Optimization needed here later on
+    //remove cards from hand
+    public void RemoveCardFromHand(Card cardToRemove)
+    {
+        //validation check to see if the card is the one we want to remove
+        if (player_hands_holdCards[cardToRemove.handPosition] == cardToRemove)
+        {
+            player_hands_holdCards.RemoveAt(cardToRemove.handPosition);
+
+            
+        }
+        else
+        {
+            Debug.LogError("Card at position " + cardToRemove.handPosition + " is not the correct card for removing!");
+        }
+
+        //reset the card position
+        SetCardPositionsInHand(false);
+    } 
 
 
 
