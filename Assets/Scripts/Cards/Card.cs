@@ -5,6 +5,7 @@ using TMPro;
 
 public class Card : MonoBehaviour
 {
+    public enum state { Handcard, Deck, Others, None};
 
     public Card_Basedata cardData;
     public string cardName;
@@ -12,7 +13,19 @@ public class Card : MonoBehaviour
 
     public int priorityCost;
     public int damageDealt;
+    public state cardState = state.None;
 
+    
+    //hovering
+    [HideInInspector]public bool isInHand;
+    [HideInInspector]public int handPosition;
+    private HandManager handManager;            //use to pair with hand manager
+    public Vector3 cardHoveringPosAdjustment = new Vector3(0f, 1f, 0.5f);
+
+
+    //Selecting
+    [HideInInspector] public bool isSelected;
+    private Collider theCollider;
 
 
 
@@ -24,8 +37,13 @@ public class Card : MonoBehaviour
     private Vector3 targetPoint;
     private Quaternion targetRotation;
     //lerp between 0 to 1
-    public float cardMovingSpeed_Lerp = 0.3f;
+    [Range(0.0f, 1.0f)] public float cardMovingSpeed_Lerp = 0.2f;
     public float rotateSpeed = 100f;
+
+
+
+    
+
 
 
     // Start is called before the first frame update
@@ -33,17 +51,30 @@ public class Card : MonoBehaviour
     {
         loadCard();
         updateCard();
+
+        handManager = FindObjectOfType<HandManager>();
+        theCollider = GetComponent<Collider>();
+        
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        //let card move slowly
-        transform.position = Vector3.Lerp(transform.position, targetPoint, cardMovingSpeed_Lerp );
-        //let card rotate to sorted view quickly
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        if (cardState == Card.state.Handcard)
+        {
+            Actions_Handcards();
+        }
+
+        //reset the mouse input bool
+        justPressed = false;
     }
+
+
+
+
+
+
 
     //load card from Card_Basedata
     public void loadCard()
@@ -68,4 +99,111 @@ public class Card : MonoBehaviour
         targetPoint = pos_MoveTo;
         targetRotation= rot_MoveTo;
     }
+
+    //======================================================
+    //                  Cards Actions   
+    //======================================================
+
+    private bool justPressed;
+    public LayerMask _Mask_AreaForCardsInteraction;
+    public LayerMask _Mask_AreaForCardsActivation;
+    //hands card action: select, play, hovering
+    private void Actions_Handcards()
+    {
+
+
+        //let card move slowly
+        transform.position = Vector3.Lerp(transform.position, targetPoint, cardMovingSpeed_Lerp);
+        //let card rotate to sorted view quickly
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+
+
+        //create a line where the mouse is, and use that line to check the collision
+        if (isSelected)
+        {
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+      
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsInteraction))
+            {
+                MoveToPoint(hit.point + new Vector3(0, 2f, 0f), Quaternion.identity);
+            }
+
+            //0 left click  1 right click
+            if (Input.GetMouseButtonDown(1))
+            {
+                ReturnToHand();
+            }
+
+            //0 left click  1 right click
+            if (Input.GetMouseButtonDown(0) && !justPressed)
+            {
+                //use the card if the area is correct, otherwise, return to the hand
+                if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsActivation))
+                {
+                    
+                }
+                else
+                {
+                    ReturnToHand();
+                }
+
+            }
+        }
+
+    }
+
+    //make the card return to the hand
+    public void ReturnToHand()
+    {
+        isSelected= false;
+        theCollider.enabled = true;
+
+        MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition], handManager.minPos.rotation);
+
+    }
+
+
+
+    //======================================================
+    //                  Mouse Action    
+    //======================================================
+
+    //let card move top when it's hovering
+    private void OnMouseOver()
+    {
+        if (isInHand)
+        {
+            //find the card and rise it and move up
+            MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, this.transform.rotation);
+        }
+
+
+    }
+
+    private void OnMouseExit()
+    {
+        if (isInHand)
+        {
+            //find the card and rise it and move up
+            MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition], handManager.minPos.rotation);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (isInHand)
+        {
+            isSelected = true;
+            theCollider.enabled = false;
+            justPressed = true;
+        }
+    }
+
+    //==============================================
+    //         Helper Function for this script
+    //==============================================
+
+
 }
