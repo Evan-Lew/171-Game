@@ -864,9 +864,9 @@ MonoBehaviour:
   minPos: {fileID: 142253396}
   maxPos: {fileID: 924936199}
   deckPos: {fileID: 1709679505}
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  _script_PrioritySystem: {fileID: 0}
+  player: {fileID: 950755192}
+  enemy: {fileID: 24645405}
+  _script_PrioritySystem: {fileID: 1368281155}
 --- !u!4 &409527557
 Transform:
   m_ObjectHideFlags: 0

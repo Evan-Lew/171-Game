@@ -13,30 +13,6 @@ public class PrioritySystem : MonoBehaviour
     public Dictionary <Character, double> priorityDict = new Dictionary <Character, double> ();
     double initialPriority;
 
-    [SerializeField] Character player, enemy;
-
-    private void Start()
-    {
-        //Player = 01;
-        //Enemy = 02;
-        //AddCharacters(player);
-        //AddCharacters(enemy);
-
-        //AddCost(player, 1);
-        //AddCost(enemy, 0);
-
-        //Debug.Log("return : " + getNextTurnCharacter());
-        //AddCost(01, 1);
-
-    }
-
-    private void Update()
-    {
-        // AddCost(01, 1);
-        // Helper_TestCostWithKey(KeyCode.P, Player, 1);
-
-
-    }
 
 
     //Adds a character to the dictionary, catches error if already in dict
@@ -79,15 +55,9 @@ public class PrioritySystem : MonoBehaviour
         initialPriority = 0.0;
     }
 
-
-
-   
- 
-
     public Character getNextTurnCharacter(){
-      
+
         Character nextChar = priorityDict.OrderBy(kvp => kvp.Value).FirstOrDefault().Key;
-        Debug.Log(nextChar.name + "turn starts.");
         return nextChar;
     }
 
