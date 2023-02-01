@@ -9,6 +9,9 @@ public class Card_Basedata : ScriptableObject
     [Tooltip("Name of the Card")]
     public string cardName;
 
+    [Tooltip("Unique ID of the Cards")]
+    public int ID;
+
     [TextArea]
     public string description_Main;
 

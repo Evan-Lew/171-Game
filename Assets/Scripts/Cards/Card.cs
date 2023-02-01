@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     public Card_Basedata cardData;
     public string cardName;
     public string descriptionMain;
+    public int cardID;
 
     public int priorityCost;
     public int damageDealt;
@@ -43,7 +44,11 @@ public class Card : MonoBehaviour
     public float rotateSpeed = 100f;
 
 
-
+    void Awake()
+    {
+        loadObjects();
+        loadCard();
+    }
     
 
 
@@ -51,8 +56,7 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadObjects();
-        loadCard();
+
         updateCard();
 
     }
@@ -89,6 +93,7 @@ public class Card : MonoBehaviour
         damageDealt = cardData.damageDealt;
         cardName = cardData.cardName;
         descriptionMain = cardData.description_Main;
+        cardID = cardData.ID;
     }
 
     //update the card

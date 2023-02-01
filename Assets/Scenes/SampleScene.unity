@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 214521881}
   - component: {fileID: 214521880}
   - component: {fileID: 214521879}
+  - component: {fileID: 214521883}
   m_Layer: 0
   m_Name: Test Cube
   m_TagString: Untagged
@@ -635,8 +636,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &214521883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214521878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00293ba7d3a80c499a3ba2d04558c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Card: {fileID: 558189742}
 --- !u!4 &245757461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1972807442340114449, guid: fea39146c50699f4bb494c630585c051,
@@ -1134,7 +1148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &452436898 stripped
 Transform:
@@ -2515,7 +2529,7 @@ Transform:
   m_Children:
   - {fileID: 378196854}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002126320
 GameObject:
@@ -4280,7 +4294,7 @@ Transform:
   - {fileID: 245757461}
   - {fileID: 928851818}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898761244
 GameObject:

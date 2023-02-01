@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CSE 171
   m_EditorClassIdentifier: 
   cardName: <CSE 171>
+  ID: 1002
   description_Main: Deal 1 damage to programmers
   priorityCost: 1
   damageDealt: 1
