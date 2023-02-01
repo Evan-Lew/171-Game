@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 7fb43fc90b9c80c4081d662908b3c9c4
+=======
 guid: 915328785cf9e3043bc9cf1d082337e8
+>>>>>>> parent of 1e0d0f7 (Revert "Merge branch 'card-combat-system-turns'")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
