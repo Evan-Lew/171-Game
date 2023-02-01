@@ -8,10 +8,14 @@ public class TurnsManager : MonoBehaviour
     public TurnOrder currentPhase;
     [HideInInspector]public bool isUsingExtraPhase;
 
+    [SerializeField] private PrioritySystem _script_prioritySystem;
+
+    public Character player, enemy;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        TestPlay();
     }
 
     // Update is called once per frame
@@ -20,6 +24,17 @@ public class TurnsManager : MonoBehaviour
         Helper_TestPhaseWithKey(KeyCode.T);
     }
 
+
+    public void TestPlay()
+    {
+        _script_prioritySystem.AddCharacters(player);
+        _script_prioritySystem.AddCharacters(enemy);
+
+
+       
+
+
+    }
 
     public void AdvanceTurn()
     {
@@ -71,5 +86,10 @@ public class TurnsManager : MonoBehaviour
             AdvanceTurn();
         }
     }
+
+
+
+
+
 
 }

@@ -9,37 +9,38 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class PrioritySystem : MonoBehaviour
 {
 
-    public int Enemy, Player;
-    
-
-
     //initialize empty dictionary and starting priorities
-    public Dictionary <int, double> priorityDict = new Dictionary <int, double> ();
-    double initialPriority = 0.0;
+    public Dictionary <Character, double> priorityDict = new Dictionary <Character, double> ();
+    double initialPriority;
 
+    [SerializeField] Character player, enemy;
 
     private void Start()
     {
-        Player = 01;
-        Enemy = 02;
-        AddCharacters(Player);
-        AddCharacters(Enemy);
+        //Player = 01;
+        //Enemy = 02;
+        //AddCharacters(player);
+        //AddCharacters(enemy);
 
-        AddCost(01, 1);
-        Debug.Log("Player:  " + priorityDict[Player]);
-        Debug.Log("Enemy:  " + priorityDict[Enemy]);
+        //AddCost(player, 1);
+        //AddCost(enemy, 0);
+
+        //Debug.Log("return : " + getNextTurnCharacter());
+        //AddCost(01, 1);
 
     }
 
     private void Update()
     {
-       // AddCost(01, 1);
-        Helper_TestCostWithKey(KeyCode.P, Player, 1);
+        // AddCost(01, 1);
+        // Helper_TestCostWithKey(KeyCode.P, Player, 1);
+
+
     }
 
 
     //Adds a character to the dictionary, catches error if already in dict
-    public void AddCharacters(int character){
+    public void AddCharacters(Character character){
         try
         {        
             priorityDict.Add(character, initialPriority);
@@ -52,8 +53,9 @@ public class PrioritySystem : MonoBehaviour
     }
 
     //Adds priority cost to character in dictionary
-    public void AddCost(int character, double cost){
+    public void AddCost(Character character, double cost){
 
+        priorityDict[character] = character.Priority_Current;
         priorityDict[character] = Math.Floor(priorityDict[character]);
         priorityDict[character] += cost;
 
@@ -69,7 +71,7 @@ public class PrioritySystem : MonoBehaviour
             }
         }
         priorityDict[character] = temp_changeCost;
-
+        character.Priority_Current = priorityDict[character];
     }
 
     public void ResetPriority(){
@@ -77,8 +79,15 @@ public class PrioritySystem : MonoBehaviour
         initialPriority = 0.0;
     }
 
-    public int getNextTurnCharacter(){
-        int nextChar = priorityDict.OrderBy(kvp => kvp.Value).FirstOrDefault().Key;
+
+
+   
+ 
+
+    public Character getNextTurnCharacter(){
+      
+        Character nextChar = priorityDict.OrderBy(kvp => kvp.Value).FirstOrDefault().Key;
+        Debug.Log(nextChar.name + "turn starts.");
         return nextChar;
     }
 
@@ -89,16 +98,12 @@ public class PrioritySystem : MonoBehaviour
     //==============================================
 
     //used to test if the turn will be advanced
-    void Helper_TestCostWithKey(KeyCode inputKey, int character, double cost)
+    void Helper_TestCostWithKey(KeyCode inputKey, Character character, double cost)
     {
         if (Input.GetKeyDown(inputKey))
         {
             AddCost(character, cost);
-
-            Debug.Log("Player:  " + priorityDict[Player]);
-            Debug.Log("Enemy:  " + priorityDict[Enemy]);
         }
-
 
     }
 }

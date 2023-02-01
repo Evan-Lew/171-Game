@@ -166,8 +166,8 @@ public class Card : MonoBehaviour
 
         void ProcessCardEffect()
         {
-            Debug.Log(Enemy.Health_Current);
-            Debug.Log(damageDealt);
+            Debug.Log("Enemy Health: " + Enemy.Health_Current);
+            Debug.Log("Damage Dealt: " + damageDealt);
             //effect that deals damage 
             if (damageDealt >= 0)
             {
@@ -176,6 +176,9 @@ public class Card : MonoBehaviour
         }
 
     }
+
+
+
 
     //make the card return to the hand
     public void ReturnToHand()
