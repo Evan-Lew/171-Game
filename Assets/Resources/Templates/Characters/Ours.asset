@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   description_Main: 
-  Health_Total: 0
-  Health_Current: 0
+  Health_Total: 20
+  Health_Current: 20
