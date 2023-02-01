@@ -12,15 +12,12 @@ public class HandManager : MonoBehaviour
     public Transform minPos, maxPos;
     public Transform deckPos;
 
-    [SerializeField] Character player;
-    [SerializeField] Character enemy;
-    [SerializeField] PrioritySystem _script_PrioritySystem;
 
 
     // Start is called before the first frame update
     void Start()
     {
-   
+
 
         // Helper_Search_CardsInHands();
         SetCardPositionsInHand(true);
@@ -89,7 +86,6 @@ public class HandManager : MonoBehaviour
         if (player_hands_holdCards[cardToRemove.handPosition] == cardToRemove)
         {
             player_hands_holdCards.RemoveAt(cardToRemove.handPosition);
-            Calculation(enemy, player, cardToRemove);
 
             
         }
@@ -100,20 +96,9 @@ public class HandManager : MonoBehaviour
 
         //reset the card position
         SetCardPositionsInHand(false);
-    }
-
-    void Calculation(Character target, Character caster, Card usedCard)
-    {
-        caster.Priority_Current += usedCard.priorityCost;
-        target.Health_Current -= usedCard.damageDealt;
+    } 
 
 
-
-        Debug.Log("player Priority: " + player.Priority_Current);
-        Debug.Log("Enemy Priority: " + enemy.Priority_Current);
-        Character nextCharacter = _script_PrioritySystem.getNextTurnCharacter();
-
-    }
 
 
 

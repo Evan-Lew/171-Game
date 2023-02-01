@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CSE 171
   m_EditorClassIdentifier: 
   cardName: <CSE 171>
-  description_Main: Deal 1 damage to programmers
+  description_Main: Deal 0 damage to programmers
   priorityCost: 1
   damageDealt: 1
   cardImage: {fileID: 21300000, guid: 676c030a4bee5194ea2ae557ce40c306, type: 3}
