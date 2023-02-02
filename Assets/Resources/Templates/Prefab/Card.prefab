@@ -133,12 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardState: 0
-  cardData: {fileID: 11400000, guid: 48e648ffe1935264d991025afb248028, type: 2}
+  cardData: {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   cardName: 
   descriptionMain: 
   cardID: 0
   priorityCost: 0
-  damageDealt: 0
   isInHand: 0
   handPosition: 0
   cardHoveringPosAdjustment: {x: 0, y: 1, z: 0.5}

@@ -6,11 +6,15 @@ using UnityEngine;
 
 public class DeckSystem : MonoBehaviour
 {
+
     public HandManager HandManager;
 
     // deckToUse is a public list for the cards we want to use
     // activeCards are the cards being played
     public List<Card_Basedata> deckToUse = new List<Card_Basedata>();
+    //this is used to handle banish
+    public List<Card_Basedata> deckForCurrentBattle = new List<Card_Basedata>();
+
     [SerializeField] private List<Card_Basedata> activeCards = new List<Card_Basedata>();
 
     // Reference to card that will be made in the world
@@ -22,10 +26,12 @@ public class DeckSystem : MonoBehaviour
 
     private void Awake()
     {
+        initDeck();
     }
 
     void Start()
     {
+        
         SetupDeck();
     }
     void Update()
@@ -37,16 +43,24 @@ public class DeckSystem : MonoBehaviour
         }
     }
 
+    //copy prepared deck to the current battle deck
+    void initDeck()
+    {
+        deckForCurrentBattle.Clear();
+        deckForCurrentBattle.AddRange(deckToUse);
+    }
 
-    // Setup the activeCards deck
+
+    // Setup the activeCards deck. Note the deckForCurrentBattle will change if banish happened
     public void SetupDeck()
     {
         List<Card_Basedata> tempDeck = new List<Card_Basedata>();
         activeCards.Clear();
         tempDeck.Clear();
         //throw all cards into temp deck
-        tempDeck.AddRange(deckToUse);
-       
+        tempDeck.AddRange(deckForCurrentBattle);
+
+        //tempDeck.AddRange(deckToUse);
 
         // Randomly add cards from deckToUse to activeCards
         while (tempDeck.Count > 0)
@@ -62,6 +76,7 @@ public class DeckSystem : MonoBehaviour
     // Draw cards from activeCards
     public void DrawCardToHand()
     {
+        //Debug.Log(activeCards.Count);
         //draw only if the hand cards not reaching the limit
         if (HandManager.player_hands_holdCards.Count <= drawLimit)
         {

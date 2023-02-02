@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Card_Basedata : ScriptableObject
 {
+    public enum theme { Grey, Red, Blue, Enemy}
+    public theme cardColor;
+
     [Tooltip("Name of the Card")]
     public string cardName;
 
@@ -18,11 +21,15 @@ public class Card_Basedata : ScriptableObject
 
     [Tooltip("Priority cost of the Card")]
     public int priorityCost;
+    //public int NumInHand;
 
-
-    public int damageDealt;
+    //public int damageDealt;
 
     public Sprite cardImage;
     public Sprite icon;
+
+
+
+    
 
 }

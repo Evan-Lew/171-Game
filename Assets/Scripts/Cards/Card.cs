@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.Burst.CompilerServices;
 
 public class Card : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class Card : MonoBehaviour
     public int cardID;
 
     public int priorityCost;
-    public int damageDealt;
+    //public int damageDealt;
 
 
 
@@ -46,7 +45,7 @@ public class Card : MonoBehaviour
 
 
     //from battle control
-    [SerializeField] private BattleController _script_BattleController;
+    private BattleController _script_BattleController;
 
 
     void Awake()
@@ -84,10 +83,10 @@ public class Card : MonoBehaviour
 
     public void loadObjects()
     {
-
         handManager = FindObjectOfType<HandManager>();
         theCollider = GetComponent<Collider>();
         Enemy = GameObject.Find("Enemy").GetComponent<Character>();
+        _script_BattleController = GameObject.Find("Battle Controller").GetComponent<BattleController>();
     }
 
 
@@ -95,7 +94,7 @@ public class Card : MonoBehaviour
     public void loadCard()
     {
         priorityCost = cardData.priorityCost;
-        damageDealt = cardData.damageDealt;
+        //damageDealt = cardData.damageDealt;
         cardName = cardData.cardName;
         descriptionMain = cardData.description_Main;
         cardID = cardData.ID;
@@ -136,7 +135,7 @@ public class Card : MonoBehaviour
         //create a line where the mouse is, and use that line to check the collision
         if (isSelected)
         {
-
+            selectAndUseACard();
         }
 
 
@@ -172,9 +171,9 @@ public class Card : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsActivation))
             {
 
-              //  ProcessCardEffect();
-              //  this.gameObject.SetActive(false);
-               // handManager.RemoveCardFromHand(this);
+                ProcessCardEffect();
+                this.gameObject.SetActive(false);
+                handManager.RemoveCardFromHand(this);
             }
             else
             {
@@ -186,13 +185,7 @@ public class Card : MonoBehaviour
 
     void ProcessCardEffect()
     {
-        Debug.Log("Enemy Health: " + Enemy.Health_Current);
-        Debug.Log("Damage Dealt: " + damageDealt);
-        //effect that deals damage 
-        if (damageDealt >= 0)
-        {
-            Enemy.Health_Current -= damageDealt;
-        }
+        EffectDictionary.instance.effectDictionary_Players[cardID]();
     }
 
 
@@ -235,7 +228,8 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (isInHand )
+        //only activated in player turn
+        if (isInHand && _script_BattleController.currentPhase == BattleController.TurnOrder.playerPhase)
         {
             isSelected = true;
             theCollider.enabled = false;

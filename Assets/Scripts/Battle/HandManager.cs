@@ -6,7 +6,6 @@ using UnityEngine;
 public class HandManager : MonoBehaviour
 {
     // HandManager static instance
-    public DeckSystem DeckSystem;
  
 
     //list for cards on the hand
@@ -93,7 +92,7 @@ public class HandManager : MonoBehaviour
         if (player_hands_holdCards[cardToRemove.handPosition] == cardToRemove)
         {
             player_hands_holdCards.RemoveAt(cardToRemove.handPosition);
-            Calculation(enemy, player, cardToRemove);
+            //Calculation(enemy, player, cardToRemove);
 
             
         }
@@ -114,18 +113,18 @@ public class HandManager : MonoBehaviour
     }
     
 
-    void Calculation(Character target, Character caster, Card usedCard)
-    {
-        caster.Priority_Current += usedCard.priorityCost;
-        target.Health_Current -= usedCard.damageDealt;
+    //void Calculation(Character target, Character caster, Card usedCard)
+    //{
+    //    caster.Priority_Current += usedCard.priorityCost;
+    //    target.Health_Current -= usedCard.damageDealt;
 
 
 
-        Debug.Log("player Priority: " + player.Priority_Current);
-        Debug.Log("Enemy Priority: " + enemy.Priority_Current);
-        Character nextCharacter = _script_PrioritySystem.getNextTurnCharacter();
+    //    Debug.Log("player Priority: " + player.Priority_Current);
+    //    Debug.Log("Enemy Priority: " + enemy.Priority_Current);
+    //    Character nextCharacter = _script_PrioritySystem.getNextTurnCharacter();
 
-    }
+    //}
 
 
 
