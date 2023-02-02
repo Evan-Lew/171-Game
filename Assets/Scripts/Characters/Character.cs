@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Character : MonoBehaviour
     public string descriptionMain;
 
     public TMP_Text _Text_HP;
+    public Image HP_Bar;
 
 
     [Header("<Update Runtime>")]
@@ -48,6 +50,7 @@ public class Character : MonoBehaviour
         if(Armor_Current == 0)
         {
             _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
+            HP_Bar.fillAmount = (float)System.Math.Round(Health_Current, 0) / (float)System.Math.Round(Health_Total, 0);
         }
         else
         {
