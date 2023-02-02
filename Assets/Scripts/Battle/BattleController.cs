@@ -42,12 +42,11 @@ public class BattleController : MonoBehaviour
     void Update()
     {
         updateText();
-        playerUseCard();
-        enemyUseCard();
 
-        changeTurnWithKey(KeyCode.Keypad0);
         TurnUpdate();
-
+        //playerUseCard();
+        //enemyUseCard();
+        //changeTurnWithKey(KeyCode.Keypad0);
     }
 
 

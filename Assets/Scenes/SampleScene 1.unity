@@ -2628,7 +2628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 11400000, guid: dfa42893f3f8c5244b080e1e2fb49d1e, type: 2}
-  amountOfTime: 5
+  amountOfTimeWaiting: 3
   Actions:
   - {fileID: 11400000, guid: d772ff93f3989d5419cfe8be94eeda1e, type: 2}
   - {fileID: 11400000, guid: d772ff93f3989d5419cfe8be94eeda1e, type: 2}
