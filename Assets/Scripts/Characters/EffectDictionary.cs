@@ -75,7 +75,7 @@ public class EffectDictionary : MonoBehaviour
         //increment priority
         _script_PrioritySystem.AddCost(Target, Cost);
         //update the meter/UI
-        BattleController.instance.ProcessPriorityTurnControl();
+        //BattleController.instance.ProcessPriorityTurnControl();
     }
 
     //-----------------------------------------------------------------

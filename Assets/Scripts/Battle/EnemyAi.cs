@@ -10,7 +10,7 @@ public class EnemyAi : MonoBehaviour
     public Character_Basedata Enemy;
     
 
-    public float amountOfTime ;
+    public float amountOfTimeWaiting ;
     [Header("Action# = index")]
     public List<Card_Basedata> Actions;
     List<int> attackPattern;
@@ -19,6 +19,7 @@ public class EnemyAi : MonoBehaviour
 
     public TMP_Text _Text_Log;
 
+    bool isActioned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,19 +39,22 @@ public class EnemyAi : MonoBehaviour
 
     public void EnemyUseAction()
     {
+        if (!isActioned)
+        {
+            isActioned = true;
+            if (currentPatternIndex < enemyDictionary[Enemy.name].Count)
+            {
+                EnemyEffect(attackPattern[currentPatternIndex]);
+                currentPatternIndex++;
+                StartCoroutine(waitLogReading(amountOfTimeWaiting));
+            }
+            else
+            {
+                currentPatternIndex = 0;
+                EnemyEffect(attackPattern[currentPatternIndex]);
+                StartCoroutine(waitLogReading(amountOfTimeWaiting));
 
-        if(currentPatternIndex < enemyDictionary[Enemy.name].Count)
-        {
-            EnemyEffect(attackPattern[currentPatternIndex]);
-            currentPatternIndex++;
-            Debug.Log(amountOfTime);
-            StartCoroutine(waitLogReading(amountOfTime));
-        }
-        else
-        {
-            currentPatternIndex = 0;
-            StartCoroutine(waitLogReading(amountOfTime));
-            
+            }
         }
     }
 
@@ -58,15 +62,18 @@ public class EnemyAi : MonoBehaviour
     void EnemyEffect(int ActionID)
     {
         EffectDictionary.instance.effectDictionary_Enemies[ActionID]();
-        
+        _Text_Log.text = Enemy.name + "\n" + "Using " + Actions[currentPatternIndex].name + "\n" + Actions[currentPatternIndex].description_Main;
+
+
     }
 
     //after certain amount of time, the priority controller will calculate the turn result, and will automatically update the turn
     IEnumerator waitLogReading(float amountOfTime)
     {
-        Debug.Log("into this");
         yield return new WaitForSeconds(amountOfTime);
         BattleController.instance.ProcessPriorityTurnControl();
         _Text_Log.text = "Next";
+        isActioned = false;
+
     }
 }
