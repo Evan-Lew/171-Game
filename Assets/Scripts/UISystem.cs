@@ -9,6 +9,6 @@ public class UISystem : MonoBehaviour
     // Draw card when button is clicked
     public void DrawCard()
     {
-        DeckSystem.instance.DrawCardForPriority();
+       // DeckSystem.instance.DrawCardForPriority();
     }
 }

@@ -16,7 +16,7 @@ public class DictionaryTest : MonoBehaviour
 
     void printCardName(Card card)
     {
-        Debug.Log(card.cardName);
+        //Debug.Log(card.cardName);
     }
 
     void printCardID(Card card)
@@ -48,6 +48,4 @@ public class DictionaryTest : MonoBehaviour
         //}
     }
 
-
-   
 }

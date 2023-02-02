@@ -19,7 +19,7 @@ public class TurnsManager : MonoBehaviour
     void Start()
     {
         TestPlay();
-        DeckSystem.instance.DrawMultipleCards(startingCardsAmount);
+        //DeckSystem.instance.DrawMultipleCards(startingCardsAmount);
     }
 
     // Update is called once per frame

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Burst.CompilerServices;
 
 public class Card : MonoBehaviour
 {
-    public enum state { Handcard, Deck, Others, None};
+    public enum state { Handcard, Deck, Others, None };
     public state cardState = state.None;
 
     public Card_Basedata cardData;
@@ -17,9 +18,9 @@ public class Card : MonoBehaviour
     public int damageDealt;
 
 
-    
+
     //hovering
-    [HideInInspector]public bool isInHand;
+    [HideInInspector] public bool isInHand;
     public int handPosition;
     private HandManager handManager;            //use to pair with hand manager
     public Vector3 cardHoveringPosAdjustment = new Vector3(0f, 1f, 0.5f);
@@ -44,12 +45,16 @@ public class Card : MonoBehaviour
     public float rotateSpeed = 100f;
 
 
+    //from battle control
+    [SerializeField] private BattleController _script_BattleController;
+
+
     void Awake()
     {
         loadObjects();
         loadCard();
     }
-    
+
 
 
 
@@ -108,7 +113,7 @@ public class Card : MonoBehaviour
     public void MoveToPoint(Vector3 pos_MoveTo, Quaternion rot_MoveTo)
     {
         targetPoint = pos_MoveTo;
-        targetRotation= rot_MoveTo;
+        targetRotation = rot_MoveTo;
     }
 
     //======================================================
@@ -122,73 +127,79 @@ public class Card : MonoBehaviour
     private void Actions_Handcards()
     {
 
-
         //let card move slowly
         transform.position = Vector3.Lerp(transform.position, targetPoint, cardMovingSpeed_Lerp);
         //let card rotate to sorted view quickly
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
-
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10f);
 
         //create a line where the mouse is, and use that line to check the collision
         if (isSelected)
         {
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-      
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsInteraction))
-            {
-                MoveToPoint(hit.point + new Vector3(0, 2f, 0f), Quaternion.identity);
-            }
-
-            //selecting a card
-            //0 left click  1 right click
-            if (Input.GetMouseButtonDown(1))
-            {
-                ReturnToHand();
-            }
-
-            //left click after selecting the card. Trigger the card effect! and update the handcards
-            //0 left click  1 right click
-            if (Input.GetMouseButtonDown(0) && !justPressed)
-            {
-                //use the card if the area is correct, otherwise, return to the hand
-                if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsActivation))
-                {
-                    ProcessCardEffect();
-                    this.gameObject.SetActive(false);
-                    handManager.RemoveCardFromHand(this);
-                }
-                else
-                {
-                    ReturnToHand();
-                }
-
-            }
         }
 
-
-
-        void ProcessCardEffect()
-        {
-            Debug.Log("Enemy Health: " + Enemy.Health_Current);
-            Debug.Log("Damage Dealt: " + damageDealt);
-            //effect that deals damage 
-            if (damageDealt >= 0)
-            {
-                Enemy.Health_Current -= damageDealt;
-            }
-        }
 
     }
 
 
+    private void selectAndUseACard()
+    {
+        //left click after selecting the card. Trigger the card effect! and update the handcards
+        //0 left click  1 right click
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsInteraction))
+        {
+
+
+            MoveToPoint(hit.point + new Vector3(0, 2f, 0f), Quaternion.identity);
+        }
+
+        //selecting a card
+        //0 left click  1 right click
+        if (Input.GetMouseButtonDown(1))
+        {
+
+            ReturnToHand();
+        }
+
+        if (Input.GetMouseButtonDown(0) && !justPressed)
+        {
+
+            //use the card if the area is correct, otherwise, return to the hand
+            if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsActivation))
+            {
+
+              //  ProcessCardEffect();
+              //  this.gameObject.SetActive(false);
+               // handManager.RemoveCardFromHand(this);
+            }
+            else
+            {
+                ReturnToHand();
+            }
+
+        }
+    }
+
+    void ProcessCardEffect()
+    {
+        Debug.Log("Enemy Health: " + Enemy.Health_Current);
+        Debug.Log("Damage Dealt: " + damageDealt);
+        //effect that deals damage 
+        if (damageDealt >= 0)
+        {
+            Enemy.Health_Current -= damageDealt;
+        }
+    }
 
 
     //make the card return to the hand
     public void ReturnToHand()
     {
-        isSelected= false;
+        isSelected = false;
         theCollider.enabled = true;
 
         MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition], handManager.minPos.rotation);
@@ -224,7 +235,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (isInHand)
+        if (isInHand )
         {
             isSelected = true;
             theCollider.enabled = false;

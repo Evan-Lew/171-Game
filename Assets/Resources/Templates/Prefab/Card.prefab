@@ -132,12 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7ba80d7a3129f40ac48e41974fe3d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardState: 0
   cardData: {fileID: 11400000, guid: 48e648ffe1935264d991025afb248028, type: 2}
   cardName: 
   descriptionMain: 
+  cardID: 0
   priorityCost: 0
   damageDealt: 0
-  cardState: 3
   isInHand: 0
   handPosition: 0
   cardHoveringPosAdjustment: {x: 0, y: 1, z: 0.5}
@@ -149,7 +150,10 @@ MonoBehaviour:
   rotateSpeed: 100
   _Mask_AreaForCardsInteraction:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
+  _Mask_AreaForCardsActivation:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!65 &3289609946805753711
 BoxCollider:
   m_ObjectHideFlags: 0

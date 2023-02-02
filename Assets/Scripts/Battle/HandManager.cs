@@ -6,8 +6,9 @@ using UnityEngine;
 public class HandManager : MonoBehaviour
 {
     // HandManager static instance
-    public static HandManager instance;
-    
+    public DeckSystem DeckSystem;
+ 
+
     //list for cards on the hand
     public List<Card> player_hands_holdCards = new List<Card>();
     //list for all card position can be hold in hands
@@ -20,10 +21,6 @@ public class HandManager : MonoBehaviour
     [SerializeField] Character enemy;
     [SerializeField] PrioritySystem _script_PrioritySystem;
 
-    private void Awake()
-    {
-        instance = this;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +28,7 @@ public class HandManager : MonoBehaviour
    
 
         // Helper_Search_CardsInHands();
-        SetCardPositionsInHand(true);
+        SetCardPositionsInHand();
     }
 
     // Update is called once per frame
@@ -43,8 +40,12 @@ public class HandManager : MonoBehaviour
 
 
     //set card positions in hands
-    public void SetCardPositionsInHand(bool isDrawing)
+    public void SetCardPositionsInHand()
     {
+        // public void SetCardPositionsInHand(isDrawing)
+        //abandoned preremeter
+
+
         Vector3 distanceBetweenPoints = Vector3.zero;
 
         //reset the hands
@@ -67,11 +68,11 @@ public class HandManager : MonoBehaviour
             player_hands_holdCards[i].handPosition = i;
             player_hands_holdCards[i].cardState = Card.state.Handcard;
 
-            if (isDrawing)
-            {
-                //set all cards to deck's posisiton and draw it from there
-                player_hands_holdCards[i].transform.position = deckPos.position;
-            }
+            //if (isDrawing)
+            //{
+            //    //set all cards to deck's posisiton and draw it from there
+            //    //player_hands_holdCards[i].transform.position = deckPos.position;
+            //}
 
             //find the distance between each card
             player_hands_holdsCardsPositions.Add(minPos.position + (distanceBetweenPoints * i));
@@ -102,13 +103,14 @@ public class HandManager : MonoBehaviour
         }
 
         //reset the card position
-        SetCardPositionsInHand(false);
+        SetCardPositionsInHand();
     }
     
+    //add card to hand
     public void AddCardToHand(Card cardToAdd)
     {
         player_hands_holdCards.Add(cardToAdd);
-        SetCardPositionsInHand(true);
+        SetCardPositionsInHand();
     }
     
 
