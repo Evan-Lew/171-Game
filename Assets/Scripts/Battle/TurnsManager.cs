@@ -11,11 +11,15 @@ public class TurnsManager : MonoBehaviour
     [SerializeField] private PrioritySystem _script_prioritySystem;
 
     public Character player, enemy;
+    
+    // Starting amount of cards
+    public int startingCardsAmount = 6;
 
     // Start is called before the first frame update
     void Start()
     {
         TestPlay();
+        DeckSystem.instance.DrawMultipleCards(startingCardsAmount);
     }
 
     // Update is called once per frame

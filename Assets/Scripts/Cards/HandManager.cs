@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HandManager : MonoBehaviour
 {
+    // HandManager static instance
+    public static HandManager instance;
+    
     //list for cards on the hand
     public List<Card> player_hands_holdCards = new List<Card>();
     //list for all card position can be hold in hands
@@ -16,6 +20,10 @@ public class HandManager : MonoBehaviour
     [SerializeField] Character enemy;
     [SerializeField] PrioritySystem _script_PrioritySystem;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -72,13 +80,8 @@ public class HandManager : MonoBehaviour
             //player_hands_holdCards[i].transform.position = player_hands_holdsCardsPositions[i];
             //player_hands_holdCards[i].transform.rotation = minPos.rotation;
             player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositions[i], minPos.rotation);
-
-
-
-
         }
-
-        }
+    }
 
 
     //=================================> Optimization needed here later on
@@ -101,6 +104,13 @@ public class HandManager : MonoBehaviour
         //reset the card position
         SetCardPositionsInHand(false);
     }
+    
+    public void AddCardToHand(Card cardToAdd)
+    {
+        player_hands_holdCards.Add(cardToAdd);
+        SetCardPositionsInHand(true);
+    }
+    
 
     void Calculation(Character target, Character caster, Card usedCard)
     {
