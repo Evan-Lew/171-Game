@@ -20,6 +20,8 @@ public class Character : MonoBehaviour
     public double Priority_Initial;
     public double Priority_Current;
 
+    public double Armor_Current;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,17 +32,27 @@ public class Character : MonoBehaviour
         Health_Current = CharacterData.Health_Current;
         Priority_Initial = CharacterData.Priority_Initial;
         Priority_Current = CharacterData.Priority_Current;
+
+        Armor_Current = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        updateHealth();
+        updateHealthAndShield();
     }
 
 
-    void updateHealth()
+    void updateHealthAndShield()
     {
-        _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
+        if(Armor_Current == 0)
+        {
+            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
+        }
+        else
+        {
+            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString() + " + " + System.Math.Round(Armor_Current, 0).ToString();
+        }
+        
     }
 }
