@@ -14,8 +14,8 @@ public class DeckSystem : MonoBehaviour
     public List<Card_Basedata> deckToUse = new List<Card_Basedata>();
     //this is used to handle banish
     public List<Card_Basedata> deckForCurrentBattle = new List<Card_Basedata>();
-
-    [SerializeField] private List<Card_Basedata> activeCards = new List<Card_Basedata>();
+    //cards still in the current deck waiting for draw
+    public List<Card_Basedata> activeCards = new List<Card_Basedata>();
 
     // Reference to card that will be made in the world
     public Card cardToSpawn;

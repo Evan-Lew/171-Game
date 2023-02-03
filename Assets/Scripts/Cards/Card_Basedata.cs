@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Card_Basedata : ScriptableObject
 {
-    public enum theme { Grey, Red, Blue, Enemy}
+    public enum theme { Grey, Red, Blue, Enemy, Green}
     public theme cardColor;
 
     [Tooltip("Name of the Card")]

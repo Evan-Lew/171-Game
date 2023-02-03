@@ -5,7 +5,8 @@ using UnityEngine;
 public class EffectDictionary : MonoBehaviour
 {
 
-
+    //move any extra caculation to the card effect fucntion for optimization.
+    //make tagged function SIMPLY.
     //ez called from all other script without referencing
     //example:
     public static EffectDictionary instance;
@@ -19,8 +20,10 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] Character player, enemy;
 
- 
+    [Header("list of banished cards")]
     public List<Card_Basedata> BanishPool;
+    [Header("list of return cards")]
+    public List<Card_Basedata> ReturnPool;
 
     [HideInInspector] public delegate void funcHolder();
     [HideInInspector] public funcHolder funcHolder_EffectFunc;
@@ -69,11 +72,29 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
+    private void Heal_ToTarget(Character Target, double hpAdded)
+    {
+        if((Target.Health_Current + hpAdded) > Target.Health_Total)
+        {
+            Target.Health_Current = Target.Health_Total;
+        }else
+        {
+            Target.Health_Current = Target.Health_Current + hpAdded;
+        }
+    }
+
+    private void ReturnHand_Card(Card_Basedata TargetCard)
+    {
+        _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(TargetCard)]);
+        _script_DeckSystem.DrawCardToHand();
+    }
+
 
     private void PriorityIncrement(Character Target, double Cost)
     {
         //increment priority
-        _script_PrioritySystem.AddCost(Target, Cost);
+        _script_PrioritySystem.AddCost(Target, Cost + nextcardcost);
+        nextcardcost = 0;
         //update the meter/UI
         //BattleController.instance.ProcessPriorityTurnControl();
     }
@@ -99,7 +120,13 @@ public class EffectDictionary : MonoBehaviour
     //deal 3 damage, cost 2
     public void ID1002_Whack()
     {
-        DealDamage_ToTarget(enemy, 3);
+        double damage = 3;
+        if(doubledamage == true){
+            damage = damage * 2;
+            doubledamage = false;
+        }
+        DealDamage_ToTarget(enemy, damage + nextcarddeal);
+        nextcarddeal = 0;
         PriorityIncrement(player, 2);
     }
 
@@ -121,9 +148,70 @@ public class EffectDictionary : MonoBehaviour
     //draw 2 cards, gain 3 armors, cost 1
     public void ID2001_ForbiddenVenom()
     {
-        DealDamage_ToTarget(enemy, 3);
+        double damage = 3;
+        if(doubledamage == true){
+            damage = damage * 2;
+            doubledamage = false;
+        }
+        DealDamage_ToTarget(enemy, damage + nextcarddeal);
+        nextcarddeal = 0;
         Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2001));
         PriorityIncrement(player, 1);
+    }
+
+    //deal 6 damage, the next card you play deal 4 more damage
+    public void ID2002_SerpentCutlass()
+    {
+        double damage = 6;
+        if(doubledamage == true){
+            damage = damage * 2;
+            doubledamage = false;
+        }
+        DealDamage_ToTarget(enemy, damage + nextcarddeal);
+        nextcarddeal = 0;
+        Next_Card_Deal(4);
+        PriorityIncrement(player,5);
+    }
+
+        //next card deal double damage
+    public void ID2003_WisdomOfWisteria()
+    {
+        Double_the_Damage();
+        PriorityIncrement(player,3);
+    }
+
+    //deal 1 damage, return card to hand
+    public void ID2004_DemonFang()
+    {
+        double damage = 1;
+        if(doubledamage == true){
+            damage = damage * 2;
+            doubledamage = false;
+        }
+        DealDamage_ToTarget(enemy, damage + nextcarddeal);
+        nextcarddeal = 0;
+        ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
+        PriorityIncrement(player,1);
+    }
+
+    //draw 2
+    public void ID3001_FortoldFortune()
+    {
+        DrawCards_Player(2);
+        PriorityIncrement(player, 2);
+    }
+
+    //heal 6
+    public void ID4001_JadeSpirit()
+    {
+        Heal_ToTarget(player, 6);
+        PriorityIncrement(player, 2);
+    }
+
+    //next card cost 1 more
+    public void ID5001_Burden()
+    {
+        Next_Card_Costmore(1);
     }
 
 
@@ -131,14 +219,27 @@ public class EffectDictionary : MonoBehaviour
     //                      PLAYER CARDS EFFECTS
     //=================================================================
 
+    private double nextcarddeal = 0;
+    private double nextcardcost = 0;
+    private bool doubledamage = false;
+    //return to hand effect
 
+    private void Double_the_Damage()
+    {
+        doubledamage = true;
+    }
 
+    //next card deal more damage
+    private void Next_Card_Deal(double damage)
+    {
+        nextcarddeal = damage;
+    }
 
-
-
-
-
-
+    //next card cost more
+    private void Next_Card_Costmore(double cost)
+    {
+        nextcardcost = cost;
+    }
 
     //=================================================================
     //                        ENEMY EFFECTS
@@ -172,6 +273,12 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(1003, ID1003_WhiteScales);
         effectDictionary_Players.Add(1004, ID1004_ShedSkin);
         effectDictionary_Players.Add(2001, ID2001_ForbiddenVenom);
+        effectDictionary_Players.Add(2002, ID2002_SerpentCutlass);
+        effectDictionary_Players.Add(2003, ID2003_WisdomOfWisteria);
+        effectDictionary_Players.Add(2004, ID2004_DemonFang);
+        effectDictionary_Players.Add(3001, ID3001_FortoldFortune);
+        effectDictionary_Players.Add(4001, ID4001_JadeSpirit);
+        effectDictionary_Players.Add(5001, ID5001_Burden);
 
 
         effectDictionary_Enemies.Add(1, Action_01_Stomp);
