@@ -36,9 +36,9 @@ public class PrioritySystem : MonoBehaviour
         priorityDict[character] += cost;
 
         double temp_changeCost = priorityDict[character];
-        foreach (double c in priorityDict.Values)
+        foreach (var kvp in priorityDict)
         {
-            if (c == priorityDict[character])
+            if (kvp.Value == priorityDict[character] && kvp.Key != character)
             {
                 temp_changeCost += 0.1;
                 //something weird happened on next line 
