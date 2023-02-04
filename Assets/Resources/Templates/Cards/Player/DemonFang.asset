@@ -15,7 +15,7 @@ MonoBehaviour:
   cardColor: 1
   cardName: Demon Fang
   ID: 2004
-  description_Main: Deal 1 damage, Colon.
+  description_Main: Deal 1 damage, Clone.
   priorityCost: 1
   cardImage: {fileID: 0}
   icon: {fileID: 0}

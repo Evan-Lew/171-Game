@@ -48,10 +48,12 @@ public class Card : MonoBehaviour
     private BattleController _script_BattleController;
 
 
+
     void Awake()
     {
         loadObjects();
         loadCard();
+
     }
 
 
@@ -122,6 +124,7 @@ public class Card : MonoBehaviour
     private bool justPressed;
     public LayerMask _Mask_AreaForCardsInteraction;
     public LayerMask _Mask_AreaForCardsActivation;
+
     //hands card action: select, play, hovering
     private void Actions_Handcards()
     {
@@ -148,10 +151,11 @@ public class Card : MonoBehaviour
         //0 left click  1 right click
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+     
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsInteraction))
         {
-
+           
 
             MoveToPoint(hit.point + new Vector3(0, 2f, 0f), Quaternion.identity);
         }
@@ -211,6 +215,7 @@ public class Card : MonoBehaviour
     {
         if (isInHand)
         {
+           
             //find the card and rise it and move up
             MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, this.transform.rotation);
         }

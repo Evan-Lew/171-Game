@@ -23,6 +23,7 @@ public class DeckSystem : MonoBehaviour
     public float timeBetweenDrawingCards = 5f;
 
     public int drawLimit = 7;
+    public Transform drawFromPos;
 
     private void Awake()
     {
@@ -87,7 +88,7 @@ public class DeckSystem : MonoBehaviour
             }
 
             // Create a copy of the card prefab
-            Card newCard = Instantiate(cardToSpawn, transform.position, transform.rotation);
+            Card newCard = Instantiate(cardToSpawn, drawFromPos.position, transform.rotation);
             newCard.cardData = activeCards[0];
             newCard.loadCard();
 

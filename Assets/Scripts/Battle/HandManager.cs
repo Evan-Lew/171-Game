@@ -14,7 +14,6 @@ public class HandManager : MonoBehaviour
     public List<Vector3> player_hands_holdsCardsPositions = new List<Vector3>();
 
     public Transform minPos, maxPos;
-    public Transform deckPos;
 
     [SerializeField] Character player;
     [SerializeField] Character enemy;
