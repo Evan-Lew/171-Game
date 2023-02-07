@@ -12,7 +12,14 @@ public class PrioritySystem : MonoBehaviour
     //initialize empty dictionary and starting priorities
     public Dictionary <Character, double> priorityDict = new Dictionary <Character, double> ();
     double initialPriority;
+    Character playerKey;
+    bool playerAdded = false;
 
+    PriorityBar priorityBar;
+
+    void Awake(){
+        priorityBar = GameObject.Find("PriorityBar").GetComponent<PriorityBar>();
+    }
 
 
     //Adds a character to the dictionary, catches error if already in dict
@@ -21,6 +28,11 @@ public class PrioritySystem : MonoBehaviour
         {        
             priorityDict.Add(character, initialPriority);
             initialPriority += 0.1;
+
+            if(!playerAdded){
+                playerKey = character;
+                playerAdded = true;
+            }
             }
         catch (ArgumentException)
         {
@@ -34,10 +46,11 @@ public class PrioritySystem : MonoBehaviour
         priorityDict[character] = character.Priority_Current;
         priorityDict[character] = Math.Floor(priorityDict[character]);
         priorityDict[character] += cost;
-
+        double totalPriority = 0;
         double temp_changeCost = priorityDict[character];
         foreach (var kvp in priorityDict)
         {
+            totalPriority += kvp.Value;
             if (kvp.Value == priorityDict[character] && kvp.Key != character)
             {
                 temp_changeCost += 0.1;
@@ -48,11 +61,18 @@ public class PrioritySystem : MonoBehaviour
         }
         priorityDict[character] = temp_changeCost;
         character.Priority_Current = priorityDict[character];
+
+        Debug.Log(priorityDict[playerKey]/totalPriority);
+        if(priorityDict[playerKey]/totalPriority < 0.5){
+            priorityBar.moveBar(.75);
+        } else {
+            priorityBar.moveBar(.25);
+        }
     }
 
     public void ResetPriority(){
         priorityDict.Clear();
-        initialPriority = 0.0;
+        initialPriority = 1.0;
     }
 
     public Character getNextTurnCharacter(){
