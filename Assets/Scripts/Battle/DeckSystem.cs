@@ -86,6 +86,7 @@ public class DeckSystem : MonoBehaviour
             {
                 SetupDeck();
             }
+
             // Create a copy of the card prefab
             Card newCard = Instantiate(cardToSpawn, drawFromPos.position, transform.rotation);
             newCard.cardData = activeCards[0];

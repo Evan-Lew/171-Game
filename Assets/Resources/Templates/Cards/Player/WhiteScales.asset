@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: Burden
+  m_Name: WhiteScales
   m_EditorClassIdentifier: 
   cardColor: 0
-  cardName: Burden
-  ID: 5001
-  description_Main: Your next card cost +1.
-  priorityCost: 0
+  cardName: White Scales
+  ID: 1003
+  description_Main: Gain 2 Armor
+  priorityCost: 1
   cardImage: {fileID: 0}
   icon: {fileID: 0}

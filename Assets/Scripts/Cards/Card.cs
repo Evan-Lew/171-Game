@@ -2,28 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-
 
 public class Card : MonoBehaviour
 {
-    //for preloading
     public enum state { Handcard, Deck, Others, None };
     public state cardState = state.None;
-    public Card_Basedata.theme cardType;
+
     public Card_Basedata cardData;
     public string cardName;
     public string descriptionMain;
     public int cardID;
 
     public int priorityCost;
-    //public Sprite card_sprite;
+    //public int damageDealt;
 
-    
-    public TMP_Text _Text_Cost, _Text_Name, _Text_DescriptionMain;
-    public Image _Image_Card;
-    [Header("Don't change the list order")]
-    [SerializeField] private List<GameObject> _CardTypeList;
+
 
     //hovering
     [HideInInspector] public bool isInHand;
@@ -40,6 +33,9 @@ public class Card : MonoBehaviour
     private Character Enemy;
 
 
+    public TMP_Text _Text_Cost, _Text_Name, _Text_DescriptionMain;
+
+
     //for card moving animation
     private Vector3 targetPoint;
     private Quaternion targetRotation;
@@ -53,19 +49,11 @@ public class Card : MonoBehaviour
 
 
 
-
-
-   
-   
-
-
-
-
     void Awake()
     {
         loadObjects();
         loadCard();
-    
+
     }
 
 
@@ -90,8 +78,6 @@ public class Card : MonoBehaviour
 
         //reset the mouse input bool
         justPressed = false;
-       
-
     }
 
 
@@ -101,7 +87,6 @@ public class Card : MonoBehaviour
     {
         handManager = FindObjectOfType<HandManager>();
         theCollider = GetComponent<Collider>();
-  
         Enemy = GameObject.Find("Enemy").GetComponent<Character>();
         _script_BattleController = GameObject.Find("Battle Controller").GetComponent<BattleController>();
     }
@@ -110,28 +95,19 @@ public class Card : MonoBehaviour
     //load card from Card_Basedata
     public void loadCard()
     {
-        cardType = cardData.cardColor;
         priorityCost = cardData.priorityCost;
+        //damageDealt = cardData.damageDealt;
         cardName = cardData.cardName;
         descriptionMain = cardData.description_Main;
         cardID = cardData.ID;
-        //card_sprite = cardData.Card_Front;
-        //_Image_Card = cardData.Card_Front;
-
     }
 
     //update the card
     public void updateCard()
     {
-        setModel();
         _Text_Cost.text = priorityCost.ToString();
         _Text_Name.text = cardName.ToString();
         _Text_DescriptionMain.text = descriptionMain.ToString();
-        _Image_Card.sprite = cardData.Card_Front;
-
-        //_Material_CardFront.SetTexture("_Base_Texture", _Texture_CardType);
-
-        //Debug.Log(gameObject.sGetTexture("_Base_Texture"));
     }
 
     //move card to a pont
@@ -270,37 +246,6 @@ public class Card : MonoBehaviour
     //==============================================
     //         Helper Function for this script
     //==============================================
-    //select the card front for the card
-    private void setModel()
-    {
-
-       
-        if (cardData.cardColor == Card_Basedata.theme.White)
-        {
-            _CardTypeList[1].SetActive(true);
-
-        }
-        else if (cardData.cardColor == Card_Basedata.theme.Gold)
-        {
-            _CardTypeList[2].SetActive(true);
-        }
-        else if (cardData.cardColor == Card_Basedata.theme.Jade)
-        {
-            _CardTypeList[3].SetActive(true);
-        }
-        else if (cardData.cardColor == Card_Basedata.theme.Purple)
-        {
-            _CardTypeList[4].SetActive(true);
-        }
-        else
-        {
-            Debug.Log("Error: No card front material found");
-            _CardTypeList[0].SetActive(true);
-
-
-        }
-
-    }
 
 
 }

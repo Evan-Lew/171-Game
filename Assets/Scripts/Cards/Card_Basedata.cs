@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Card_Basedata : ScriptableObject
 {
-    public enum theme { White, Gold, Jade, Purple}
+    public enum theme { Grey, Red, Blue, Enemy, Green}
     public theme cardColor;
 
     [Tooltip("Name of the Card")]
@@ -25,9 +25,11 @@ public class Card_Basedata : ScriptableObject
 
     //public int damageDealt;
 
-    public Sprite Card_Front;
+    public Sprite cardImage;
     public Sprite icon;
 
 
+
+    
 
 }

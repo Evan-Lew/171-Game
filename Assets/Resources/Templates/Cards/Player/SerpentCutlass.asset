@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: Burden
+  m_Name: SerpentCutlass
   m_EditorClassIdentifier: 
-  cardColor: 0
-  cardName: Burden
-  ID: 5001
-  description_Main: Your next card cost +1.
-  priorityCost: 0
+  cardColor: 1
+  cardName: Serpent Cutlass
+  ID: 2002
+  description_Main: Deal 6 damage. Next card +4 damage.
+  priorityCost: 5
   cardImage: {fileID: 0}
   icon: {fileID: 0}
