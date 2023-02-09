@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Playable Prototype.unity
     guid: 67e97645a2d368b478a0c83c845e23c5
+  - enabled: 1
+    path: Assets/Scenes/Staging Prototype.unity
+    guid: 6ccf63c79f0892c4599527004f711951
   m_configObjects: {}
