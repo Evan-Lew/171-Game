@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using static EffectDictionary;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class EnemyAi : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class EnemyAi : MonoBehaviour
 
     bool isActioned = false;
 
+
+  
+  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,13 @@ public class EnemyAi : MonoBehaviour
 
         //Debug.Log(enemyDictionary["Laihong"][0]);
     }
+
+
+    public void SetUp()
+    {
+        _Text_Log = GameObject.Find("Enemy Log").GetComponent<TMP_Text>();
+    }
+
 
     void uploadEnemies()
     {

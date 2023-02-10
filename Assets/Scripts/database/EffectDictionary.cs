@@ -10,6 +10,9 @@ public class EffectDictionary : MonoBehaviour
     //ez called from all other script without referencing
     //example:
     public static EffectDictionary instance;
+
+
+
     private void Awake()
     {
         instance = this;
@@ -18,7 +21,13 @@ public class EffectDictionary : MonoBehaviour
 
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
-    [SerializeField] Character player, enemy;
+     Character player, enemy;
+
+ 
+
+    
+
+
 
     [Header("list of banished cards")]
     public List<Card_Basedata> BanishPool;
@@ -30,6 +39,13 @@ public class EffectDictionary : MonoBehaviour
 
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Players = new Dictionary<int, funcHolder>();
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Enemies = new Dictionary<int, funcHolder>();
+
+    public void SetUp()
+    {
+        player = GameObject.Find("Player").GetComponent<Character>();
+        enemy = GameObject.Find("Enemy").GetComponent<Character>();
+    }
+
 
     //=================================================================
     //                       Tagged Effect
