@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 
 
+
+
 public class Card : MonoBehaviour
 {
     //for preloading
@@ -52,11 +54,11 @@ public class Card : MonoBehaviour
     private BattleController _script_BattleController;
 
 
+    bool enableOverEffect;
 
 
 
-   
-   
+
 
 
 
@@ -101,7 +103,7 @@ public class Card : MonoBehaviour
     {
         handManager = FindObjectOfType<HandManager>();
         theCollider = GetComponent<Collider>();
-  
+        enableOverEffect = true;
         Enemy = GameObject.Find("Enemy").GetComponent<Character>();
         _script_BattleController = GameObject.Find("Battle Controller").GetComponent<BattleController>();
     }
@@ -234,10 +236,13 @@ public class Card : MonoBehaviour
     //                  Mouse Action    
     //======================================================
 
+
+
+
     //let card move top when it's hovering
     private void OnMouseOver()
     {
-        if (isInHand)
+        if (isInHand && enableOverEffect)
         {
            
             //find the card and rise it and move up
@@ -247,10 +252,20 @@ public class Card : MonoBehaviour
 
     }
 
+  
+
     private void OnMouseExit()
     {
+        enableOverEffect = false;
+
         if (isInHand)
         {
+            
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                enableOverEffect = true;
+            }, 0.5f));
+           
             //find the card and rise it and move up
             MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition], handManager.minPos.rotation);
         }

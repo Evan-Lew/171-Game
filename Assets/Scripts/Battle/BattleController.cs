@@ -15,13 +15,14 @@ public class BattleController : MonoBehaviour
     public TurnOrder currentPhase;
 
     //for priority system
-    [SerializeField] private Character player, enemy;
+    private Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private EnemyAi _script_EnemyAi;
     public TMP_Text _Text_Turn, _Text_PlayerPriority, _Text_EnemyPriority;
 
     bool turnChangedToPlayer = false;
     //public Card_Basedata currentUsingCard; 
+
 
 
     private void Awake()
@@ -49,6 +50,11 @@ public class BattleController : MonoBehaviour
         //changeTurnWithKey(KeyCode.Keypad0);
     }
 
+    public void SetUp()
+    {
+        player = GameObject.Find("Player").GetComponent<Character>();
+        enemy = GameObject.Find("Enemy").GetComponent<Character>();
+    }
 
     void init()
     {

@@ -15,8 +15,8 @@ public class HandManager : MonoBehaviour
 
     public Transform minPos, maxPos;
 
-    [SerializeField] Character player;
-    [SerializeField] Character enemy;
+    Character player;
+    Character enemy;
     [SerializeField] PrioritySystem _script_PrioritySystem;
 
 
@@ -35,7 +35,11 @@ public class HandManager : MonoBehaviour
         
     }
 
-
+    public void SetUp()
+    {
+        player = GameObject.Find("Player").GetComponent<Character>();
+        enemy = GameObject.Find("Enemy").GetComponent<Character>();
+    }
 
     //set card positions in hands
     public void SetCardPositionsInHand()
