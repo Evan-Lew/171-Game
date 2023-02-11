@@ -27,7 +27,7 @@ public class PrioritySystem : MonoBehaviour
         try
         {        
             priorityDict.Add(character, initialPriority);
-            initialPriority += 0.1;
+            initialPriority += 0.5;
 
             if(!playerAdded){
                 playerKey = character;
@@ -50,23 +50,34 @@ public class PrioritySystem : MonoBehaviour
         double temp_changeCost = priorityDict[character];
         foreach (var kvp in priorityDict)
         {
-            totalPriority += kvp.Value;
+
             if (kvp.Value == priorityDict[character] && kvp.Key != character)
             {
-                temp_changeCost += 0.1;
+                temp_changeCost += 0.5;
                 //something weird happened on next line 
                 //priorityDict[character] = priorityDict[character] + 0.1;
                 //Debug.Log(temp_changeCost);
             }
+            totalPriority += temp_changeCost;
         }
         priorityDict[character] = temp_changeCost;
         character.Priority_Current = priorityDict[character];
 
-        Debug.Log(priorityDict[playerKey]/totalPriority);
-        if(priorityDict[playerKey]/totalPriority < 0.5){
+        double priorityDifference = priorityDict[playerKey]*2 - totalPriority;
+        //Debug.Log(priorityDict[playerKey]/totalPriority);
+        //Debug.Log(priorityDict[playerKey]/totalPriority < 1-(priorityDict[playerKey]/totalPriority));
+        if(priorityDifference >= 4){
+            priorityBar.moveBar(.15);
+        } else if(priorityDifference < 4 && priorityDifference >=2){
+            priorityBar.moveBar(.25);
+        } else if(priorityDifference < 2 && priorityDifference > 0){
+            priorityBar.moveBar(.4);
+        } else if(priorityDifference > -2 && priorityDifference < 0) {
+            priorityBar.moveBar(.6);
+        } else if(priorityDifference > -4 && priorityDifference <= -2) {
             priorityBar.moveBar(.75);
         } else {
-            priorityBar.moveBar(.25);
+            priorityBar.moveBar(.85);
         }
     }
 
