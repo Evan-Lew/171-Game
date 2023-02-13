@@ -15,12 +15,7 @@ public class PrioritySystem : MonoBehaviour
     Character playerKey;
     bool playerAdded = false;
 
-    PriorityBar priorityBar;
-
-    void Awake(){
-        priorityBar = GameObject.Find("PriorityBar").GetComponent<PriorityBar>();
-    }
-
+    [SerializeField] PriorityBar priorityBar;
 
     //Adds a character to the dictionary, catches error if already in dict
     public void AddCharacters(Character character){
@@ -107,4 +102,6 @@ public class PrioritySystem : MonoBehaviour
         }
 
     }
+
+     
 }

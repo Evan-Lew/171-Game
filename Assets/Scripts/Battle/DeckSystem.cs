@@ -7,6 +7,10 @@ using UnityEngine;
 public class DeckSystem : MonoBehaviour
 {
 
+    bool enable_DeckSystem = false;
+
+
+
     public HandManager HandManager;
 
     // deckToUse is a public list for the cards we want to use
@@ -25,29 +29,52 @@ public class DeckSystem : MonoBehaviour
     public int drawLimit = 7;
     public Transform drawFromPos;
 
-    private void Awake()
-    {
-        initDeck();
-    }
-
-    void Start()
-    {
-        
-        SetupDeck();
-    }
     void Update()
     {
-        //old version to draw card
-         if (Input.GetKeyDown(KeyCode.D))
+
+        if (enable_DeckSystem)
         {
-            DrawCardToHand();
+            //reserved for any check
         }
     }
+
+
+    public void SetActive(bool setFlag)
+    {
+        if (setFlag)
+        {
+            enable_DeckSystem = true;
+        }
+        else
+        {
+            enable_DeckSystem = false;
+        }
+    }
+
+
+    public void SetUp()
+    {
+        Clear();
+        initDeck();
+        SetupDeck();
+        SetActive(true);
+    }
+
+
+    public void Clear()
+    {
+        deckForCurrentBattle.Clear();
+        activeCards.Clear();
+    }
+
+
+
 
     //copy prepared deck to the current battle deck
     void initDeck()
     {
         deckForCurrentBattle.Clear();
+        //copy Deck to currentDeck for this battle
         deckForCurrentBattle.AddRange(deckToUse);
     }
 
@@ -97,13 +124,6 @@ public class DeckSystem : MonoBehaviour
             HandManager.AddCardToHand(newCard);
         }
     }
-
-
-    ////// IMPORTANT: need to implement priority system into here
-    ////public void DrawCardForPriority()
-    ////{
-    ////    DrawCardToHand();
-    ////}
 
     public void DrawMultipleCards(int amountToDraw)
     {

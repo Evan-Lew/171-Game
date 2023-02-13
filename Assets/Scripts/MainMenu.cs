@@ -9,15 +9,16 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        _script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
+        
     }
 
 
     public void PlayGame()
     {
+        _script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
         //ask for setup combat system
-        _script_GameController.setupFlag = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //_script_GameController.setupFlag = true;
+        SceneManager.LoadScene("Template");
     }
 
     public void QuitGame()

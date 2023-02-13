@@ -5,6 +5,8 @@ using TMPro;
 
 public class BattleController : MonoBehaviour
 {
+    [HideInInspector] bool enable_BattleController = false;
+
     //main core script that will be called in different other objects
     public static BattleController instance;
 
@@ -24,40 +26,40 @@ public class BattleController : MonoBehaviour
     //public Card_Basedata currentUsingCard; 
 
 
-
     private void Awake()
     {
         instance = this;
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        init();
-    }
-
-
-   
     // Update is called once per frame
     void Update()
     {
-        updateText();
-
-        TurnUpdate();
-        //playerUseCard();
-        //enemyUseCard();
-        //changeTurnWithKey(KeyCode.Keypad0);
+        if (enable_BattleController)
+        {
+            updateText();
+            TurnUpdate();
+        }
     }
 
+
+    //set this overall script active
+    public void SetActive(bool setFlag)
+    {
+        if (setFlag)
+        {
+            enable_BattleController = true;
+        }
+        else
+        {
+            enable_BattleController = false;
+        }
+    }
+
+    //setup this function
     public void SetUp()
     {
         player = GameObject.Find("Player").GetComponent<Character>();
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
-    }
-
-    void init()
-    {
         if (startDrawingCrads)
         {
             _script_DeckSystem.DrawMultipleCards(startingCardsAmount);
@@ -65,6 +67,7 @@ public class BattleController : MonoBehaviour
         currentPhase = TurnOrder.playerPhase;
         _script_PrioritySystem.AddCharacters(player);
         _script_PrioritySystem.AddCharacters(enemy);
+        SetActive(true);
     }
 
 
@@ -134,35 +137,35 @@ public class BattleController : MonoBehaviour
     //====================================
 
 
-    void playerUseCard()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad7))
-        {
-            _script_PrioritySystem.AddCost(player, 2);
-            ProcessPriorityTurnControl();
-            _Text_PlayerPriority.text = _script_PrioritySystem.priorityDict[player].ToString();
-        }
-    }
+    //void playerUseCard()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Keypad7))
+    //    {
+    //        _script_PrioritySystem.AddCost(player, 2);
+    //        ProcessPriorityTurnControl();
+    //        _Text_PlayerPriority.text = _script_PrioritySystem.priorityDict[player].ToString();
+    //    }
+    //}
 
-    void enemyUseCard()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad8))
-        {
-            _script_PrioritySystem.AddCost(enemy, 1);
-            ProcessPriorityTurnControl();
-            _Text_EnemyPriority.text = _script_PrioritySystem.priorityDict[enemy].ToString();
-        }
-    }
+    //void enemyUseCard()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Keypad8))
+    //    {
+    //        _script_PrioritySystem.AddCost(enemy, 1);
+    //        ProcessPriorityTurnControl();
+    //        _Text_EnemyPriority.text = _script_PrioritySystem.priorityDict[enemy].ToString();
+    //    }
+    //}
 
 
-    public void changeTurnWithKey(KeyCode key)
-    {
-        if (Input.GetKeyDown(key))
-        {
-            currentPhase++;
+    //public void changeTurnWithKey(KeyCode key)
+    //{
+    //    if (Input.GetKeyDown(key))
+    //    {
+    //        currentPhase++;
 
-        }
-    }
+    //    }
+    //}
     //====================================
     //         Debug End
     //====================================

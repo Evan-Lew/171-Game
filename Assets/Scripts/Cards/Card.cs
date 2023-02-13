@@ -92,8 +92,6 @@ public class Card : MonoBehaviour
 
         //reset the mouse input bool
         justPressed = false;
-       
-
     }
 
 
@@ -242,13 +240,16 @@ public class Card : MonoBehaviour
     //let card move top when it's hovering
     private void OnMouseOver()
     {
+
         if (isInHand && enableOverEffect)
         {
            
             //find the card and rise it and move up
             MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, this.transform.rotation);
+            
         }
 
+        enableOverEffect = false;
 
     }
 
@@ -256,15 +257,15 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
-        enableOverEffect = false;
+        enableOverEffect = true;
 
         if (isInHand)
         {
             
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                enableOverEffect = true;
-            }, 0.5f));
+            //StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            //{
+            //    enableOverEffect = true;
+            //}, 0.5f));
            
             //find the card and rise it and move up
             MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition], handManager.minPos.rotation);
@@ -289,7 +290,6 @@ public class Card : MonoBehaviour
     private void setModel()
     {
 
-       
         if (cardData.cardColor == Card_Basedata.theme.White)
         {
             _CardTypeList[1].SetActive(true);
@@ -311,7 +311,6 @@ public class Card : MonoBehaviour
         {
             Debug.Log("Error: No card front material found");
             _CardTypeList[0].SetActive(true);
-
 
         }
 

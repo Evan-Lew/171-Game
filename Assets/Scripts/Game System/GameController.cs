@@ -12,13 +12,8 @@ public class GameController : MonoBehaviour
     [SerializeField] BattleController _script_BattleController;
     [SerializeField] HandManager _script_HandManager;
     [SerializeField] EffectDictionary _script_EffectDictionary;
-
-
-    private void Awake()
-    {
-        BattleSystemSetUp();
-    }
-
+    [SerializeField] PrioritySystem _script_PrioritySystem;
+    [SerializeField] DeckSystem _script_DeckSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +24,17 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("Main Menu");
         }
+
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            BattleSystemSetUp();
+        }
+
 
         if (setupFlag)
         {
@@ -44,8 +46,10 @@ public class GameController : MonoBehaviour
     //setup card system
     void BattleSystemSetUp()
     {
-        _script_BattleController.SetUp();
+        //don't change order of this before you read all SetUp();
         _script_HandManager.SetUp();
+        _script_DeckSystem.SetUp();
+        _script_BattleController.SetUp();
         _script_EffectDictionary.SetUp();
     }
 

@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HandManager : MonoBehaviour
 {
-    // HandManager static instance
- 
+    bool enable_HandManager = false;
+
 
     //list for cards on the hand
     public List<Card> player_hands_holdCards = new List<Card>();
@@ -20,38 +18,50 @@ public class HandManager : MonoBehaviour
     [SerializeField] PrioritySystem _script_PrioritySystem;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-   
-
-        // Helper_Search_CardsInHands();
-        SetCardPositionsInHand();
+        if (enable_HandManager)
+        {
+            //reserved for any check
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void SetActive(bool setFlag)
     {
-        
+        if (setFlag)
+        {
+            enable_HandManager = true;
+        }
+        else
+        {
+            enable_HandManager = false;
+        }
     }
+
 
     public void SetUp()
     {
+        Clear();
         player = GameObject.Find("Player").GetComponent<Character>();
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
+        player_hands_holdsCardsPositions.Clear();
+        SetCardPositionsInHand();
+        SetActive(true);
+    }
+
+    public void Clear()
+    {
+        player_hands_holdCards.Clear();
+        player_hands_holdsCardsPositions.Clear();
     }
 
     //set card positions in hands
     public void SetCardPositionsInHand()
     {
-        // public void SetCardPositionsInHand(isDrawing)
-        //abandoned preremeter
-
-
-        Vector3 distanceBetweenPoints = Vector3.zero;
-
-        //reset the hands
+        //reset
         player_hands_holdsCardsPositions.Clear();
+        Vector3 distanceBetweenPoints = Vector3.zero;
 
         //Debug.Log(player_hands_holdCards.Count);
 
@@ -70,18 +80,10 @@ public class HandManager : MonoBehaviour
             player_hands_holdCards[i].handPosition = i;
             player_hands_holdCards[i].cardState = Card.state.Handcard;
 
-            //if (isDrawing)
-            //{
-            //    //set all cards to deck's posisiton and draw it from there
-            //    //player_hands_holdCards[i].transform.position = deckPos.position;
-            //}
-
             //find the distance between each card
             player_hands_holdsCardsPositions.Add(minPos.position + (distanceBetweenPoints * i));
 
             //move card &&  adjust the angle to make it layerly sorted
-            //player_hands_holdCards[i].transform.position = player_hands_holdsCardsPositions[i];
-            //player_hands_holdCards[i].transform.rotation = minPos.rotation;
             player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositions[i], minPos.rotation);
         }
     }
@@ -116,36 +118,9 @@ public class HandManager : MonoBehaviour
     }
     
 
-    //void Calculation(Character target, Character caster, Card usedCard)
-    //{
-    //    caster.Priority_Current += usedCard.priorityCost;
-    //    target.Health_Current -= usedCard.damageDealt;
-
-
-
-    //    Debug.Log("player Priority: " + player.Priority_Current);
-    //    Debug.Log("Enemy Priority: " + enemy.Priority_Current);
-    //    Character nextCharacter = _script_PrioritySystem.getNextTurnCharacter();
-
-    //}
-
-
-
 
         //==============================================
         //         Helper Function for this script
         //==============================================
-
-        void Helper_Search_CardsInHands()
-    {
-        //GameObject targetObject = this.gameObject.transform.Find("Player Cards").gameObject;
-        //int count = targetObject.transform.childCount;
-        //Debug.Log(count);
-        //for(int i = 0; i < count; i++)
-        //{
-        //    player_hands_holdCards.Add(targetObject.transform.GetChild(i).gameObject);
-        //}
-    }
-
 
 }
