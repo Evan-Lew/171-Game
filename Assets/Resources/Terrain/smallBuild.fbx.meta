@@ -13,17 +13,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House
-    second: {fileID: 2100000, guid: 4aec256921ba442388b6e50b011cb68a, type: 2}
+    second: {fileID: 2100000, guid: ebb299c0301974c1baa10d8a1cc5a408, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: roof
-    second: {fileID: 2100000, guid: c6820efa1a7a842d5ad1712071403ace, type: 2}
+    second: {fileID: 2100000, guid: ebb299c0301974c1baa10d8a1cc5a408, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: tiles
-    second: {fileID: 2100000, guid: 4a6589f409f1e7643a7fc0b476817937, type: 2}
+    second: {fileID: 2100000, guid: ebb299c0301974c1baa10d8a1cc5a408, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
