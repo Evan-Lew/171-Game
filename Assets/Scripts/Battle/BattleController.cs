@@ -43,12 +43,12 @@ public class BattleController : MonoBehaviour
             TurnUpdate();
         }
 
-        ////for testing, comment it out if you see this during the testing
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    animator_fadeInOut.SetTrigger("Play");
-        //    animator_PlayerTurn.SetTrigger("Play");
-        //}
+        //for testing, comment it out if you see this during the testing
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            animator_fadeInOut.SetTrigger("Play");
+            animator_PlayerTurn.SetTrigger("Play");
+        }
 
 
         //if (animator_fadeInOut.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
@@ -56,12 +56,12 @@ public class BattleController : MonoBehaviour
         //    Debug.Log("Animation finished!");
         //}
 
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    animator_fadeInOut.SetTrigger("Play");
-        //    animator_Enemy.SetTrigger("Play");
-        //}
-        ////test done
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            animator_fadeInOut.SetTrigger("Play");
+            animator_Enemy.SetTrigger("Play");
+        }
+        //test done
 
     }
 
