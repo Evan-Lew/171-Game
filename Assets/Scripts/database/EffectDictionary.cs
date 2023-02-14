@@ -11,8 +11,6 @@ public class EffectDictionary : MonoBehaviour
     //example:
     public static EffectDictionary instance;
 
-
-
     private void Awake()
     {
         instance = this;
@@ -22,12 +20,6 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
      Character player, enemy;
-
- 
-
-    
-
-
 
     [Header("list of banished cards")]
     public List<Card_Basedata> BanishPool;
@@ -65,7 +57,6 @@ public class EffectDictionary : MonoBehaviour
             Target.Health_Current -= damageDealt - Target.Armor_Current;
             Target.Armor_Current = 0;
         }
-        
     }
 
 
@@ -111,7 +102,6 @@ public class EffectDictionary : MonoBehaviour
         //increment priority
         _script_PrioritySystem.AddCost(Target, Cost + nextcardcost);
         nextcardcost = 0;
-        //update the meter/UI
         //BattleController.instance.ProcessPriorityTurnControl();
     }
 
@@ -124,6 +114,16 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                        PLAYER CARDS
     //-----------------------------------------------------------------
+
+
+    bool isDoubleDamaged = false;
+    //bool DoubleDamage()
+    //{
+
+    //}
+
+
+
 
 
     //draw 2 cards, cost 3

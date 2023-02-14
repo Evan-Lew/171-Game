@@ -25,6 +25,8 @@ public class BattleController : MonoBehaviour
     bool turnChangedToPlayer = false;
     //public Card_Basedata currentUsingCard; 
 
+    [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_Enemy;
+
 
     private void Awake()
     {
@@ -34,11 +36,33 @@ public class BattleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //the battle controll will be enabled only if the battle is happened
         if (enable_BattleController)
         {
             updateText();
             TurnUpdate();
         }
+
+        ////for testing, comment it out if you see this during the testing
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    animator_fadeInOut.SetTrigger("Play");
+        //    animator_PlayerTurn.SetTrigger("Play");
+        //}
+
+
+        //if (animator_fadeInOut.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        //{
+        //    Debug.Log("Animation finished!");
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    animator_fadeInOut.SetTrigger("Play");
+        //    animator_Enemy.SetTrigger("Play");
+        //}
+        ////test done
+
     }
 
 
