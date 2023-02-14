@@ -19,8 +19,7 @@ public class EffectDictionary : MonoBehaviour
 
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
-     Character player, enemy;
-
+    Character player, enemy;
     [Header("list of banished cards")]
     public List<Card_Basedata> BanishPool;
     [Header("list of return cards")]
@@ -31,6 +30,26 @@ public class EffectDictionary : MonoBehaviour
 
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Players = new Dictionary<int, funcHolder>();
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Enemies = new Dictionary<int, funcHolder>();
+
+
+
+    //basic variable
+    double Player_damageDealing = 0;
+    double Player_extraDamage = 0;
+    double Player_armorCreate = 0;
+    double Player_healing = 0;
+    int Player_cardsDrawing = 0;
+    double Player_priorityInc = 0;
+    double Player_extraPriorityCost = 0;
+
+
+
+    double Enemy_damageDealing = 0;
+    double Enemy_armorCreate = 0;
+    double Enemy_priorityInc = 0;
+
+
+
 
     public void SetUp()
     {
@@ -100,9 +119,7 @@ public class EffectDictionary : MonoBehaviour
     private void PriorityIncrement(Character Target, double Cost)
     {
         //increment priority
-        _script_PrioritySystem.AddCost(Target, Cost + nextcardcost);
-        nextcardcost = 0;
-        //BattleController.instance.ProcessPriorityTurnControl();
+        _script_PrioritySystem.AddCost(Target, Cost);
     }
 
     //-----------------------------------------------------------------
@@ -116,118 +133,140 @@ public class EffectDictionary : MonoBehaviour
     //-----------------------------------------------------------------
 
 
-    bool isDoubleDamaged = false;
-    //bool DoubleDamage()
-    //{
-
-    //}
-
-
-
-
-
     //draw 2 cards, cost 3
     public void ID1001_Payment()
     {
-        DrawCards_Player(2);
-        PriorityIncrement(player, 3);
+        Player_cardsDrawing = 2;
+        Player_priorityInc = 3;
+        Manipulator_Player();
+
+        DrawCards_Player(Player_cardsDrawing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //deal 3 damage, cost 2
     public void ID1002_Whack()
     {
-        double damage = 3;
-        if(doubledamage == true){
-            damage = damage * 2;
-            doubledamage = false;
-        }
-        DealDamage_ToTarget(enemy, damage + nextcarddeal);
-        nextcarddeal = 0;
-        PriorityIncrement(player, 2);
+        Player_damageDealing = 3;
+        Player_priorityInc = 2;
+        Manipulator_Player();
+
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //gain 2 armor, cost 2
     public void ID1003_WhiteScales()
     {
-        CreateArmor_ToTarget(player, 2);
-        PriorityIncrement(player, 1);
+        Player_armorCreate = 2;
+        Player_priorityInc = 1;
+        Manipulator_Player();
+
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //draw 2 cards, gain 3 armors, cost 4
     public void ID1004_ShedSkin()
     {
-        DrawCards_Player(2);
-        CreateArmor_ToTarget(player, 3);
-        PriorityIncrement(player, 4);
+        Player_armorCreate = 3;
+        Player_cardsDrawing = 2;
+        Player_priorityInc = 4;
+        Manipulator_Player();
+
+        DrawCards_Player(Player_cardsDrawing);
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //draw 2 cards, gain 3 armors, cost 1
     public void ID2001_ForbiddenVenom()
     {
-        double damage = 3;
-        if(doubledamage == true){
-            damage = damage * 2;
-            doubledamage = false;
-        }
-        DealDamage_ToTarget(enemy, damage + nextcarddeal);
-        nextcarddeal = 0;
+        Player_damageDealing = 3;
+        Player_priorityInc = 1;
+        Manipulator_Player();
+
+        DealDamage_ToTarget(enemy, Player_damageDealing);
         Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2001));
-        PriorityIncrement(player, 1);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //deal 6 damage, the next card you play deal 4 more damage
     public void ID2002_SerpentCutlass()
     {
-        double damage = 6;
-        if(doubledamage == true){
-            damage = damage * 2;
-            doubledamage = false;
-        }
-        DealDamage_ToTarget(enemy, damage + nextcarddeal);
-        nextcarddeal = 0;
-        Next_Card_Deal(4);
-        PriorityIncrement(player,5);
+        Player_damageDealing = 6;
+        Player_priorityInc = 5;
+        Manipulator_Player();
+
+
+        Player_extraDamage = 4;
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
         //next card deal double damage
     public void ID2003_WisdomOfWisteria()
     {
-        Double_the_Damage();
-        PriorityIncrement(player,3);
+        Player_priorityInc = 3;
+        Manipulator_Player();
+
+        isDealingDoubleDmg = true;
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //deal 1 damage, return card to hand
     public void ID2004_DemonFang()
     {
-        double damage = 1;
-        if(doubledamage == true){
-            damage = damage * 2;
-            doubledamage = false;
-        }
-        DealDamage_ToTarget(enemy, damage + nextcarddeal);
-        nextcarddeal = 0;
+
+        Player_damageDealing = 1;
+        Player_priorityInc = 1;
+        Manipulator_Player();
+
+        DealDamage_ToTarget(enemy, Player_damageDealing);
         ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
-        PriorityIncrement(player,1);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //draw 2
     public void ID3001_FortoldFortune()
     {
-        DrawCards_Player(2);
-        PriorityIncrement(player, 2);
+        Player_cardsDrawing = 2;
+        Player_priorityInc = 2;
+        Manipulator_Player();
+
+        DrawCards_Player(Player_cardsDrawing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
     //heal 6
     public void ID4001_JadeSpirit()
     {
-        Heal_ToTarget(player, 6);
-        PriorityIncrement(player, 2);
-    }
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        Manipulator_Player();
 
-    //next card cost 1 more
-    public void ID5001_Burden()
-    {
-        Next_Card_Costmore(1);
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
     }
 
 
@@ -235,27 +274,7 @@ public class EffectDictionary : MonoBehaviour
     //                      PLAYER CARDS EFFECTS
     //=================================================================
 
-    private double nextcarddeal = 0;
-    private double nextcardcost = 0;
-    private bool doubledamage = false;
-    //return to hand effect
 
-    private void Double_the_Damage()
-    {
-        doubledamage = true;
-    }
-
-    //next card deal more damage
-    private void Next_Card_Deal(double damage)
-    {
-        nextcarddeal = damage;
-    }
-
-    //next card cost more
-    private void Next_Card_Costmore(double cost)
-    {
-        nextcardcost = cost;
-    }
 
     //=================================================================
     //                        ENEMY EFFECTS
@@ -263,15 +282,27 @@ public class EffectDictionary : MonoBehaviour
     //deal 4 damage, cost 2
     public void Action_01_Stomp()
     {
-        DealDamage_ToTarget(player, 4);
-        PriorityIncrement(enemy, 2);
+        Enemy_damageDealing = 4;
+        Enemy_priorityInc = 2;
+        Manipulator_Enemy();
+
+        DealDamage_ToTarget(player, Enemy_damageDealing);
+        PriorityIncrement(enemy, Enemy_priorityInc);
+
+        Manipulator_Enemy_Reset();
     }
 
     //gain 4 armor, cost 2
     public void Action_10_Solidify()
     {
-        CreateArmor_ToTarget(enemy, 4);
-        PriorityIncrement(enemy, 2);
+        Enemy_armorCreate = 4;
+        Enemy_priorityInc = 2;
+        Manipulator_Enemy();
+
+        CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+        PriorityIncrement(enemy, Enemy_priorityInc);
+
+        Manipulator_Enemy_Reset();
     }
 
 
@@ -281,7 +312,93 @@ public class EffectDictionary : MonoBehaviour
 
 
 
-    // testing the dictionary
+    //=================================================================
+    //                        Manipulator 
+    //-----------------------------------------------------------------
+    //Note manipulator must be called at the effect funtion after basic data is loaded
+    //and reset must be called at the end of the effect function
+    bool isDealingExtraDmg = false;
+    bool isDealingDoubleDmg = false;
+    bool isCostingExtraPriority = false;
+
+    //<-----------Player-------------------------------------------------
+    //this will be called for all player effect to check all flags
+    void Manipulator_Player()
+    {
+        Manipulator_Player_DealingExtra();
+        Manipulator_Player_CostExtra();
+        Manipulator_Player_DealingDouble();
+    }
+
+    //this will be called for all player effect to turn off all flags
+    void Manipulator_Player_Reset()
+    {
+        Player_damageDealing = 0;
+        Player_priorityInc = 0;
+        Player_cardsDrawing = 0;
+        Player_armorCreate = 0;
+        Player_healing = 0;
+    }
+
+    //Helper func :  Next Card dealing extra
+    void Manipulator_Player_DealingExtra()
+    {
+        //cards that apply extra damage
+        //setup the extra damage and turn the flag to off
+        if (isDealingExtraDmg && Player_damageDealing != 0)
+        {
+            Player_damageDealing += Player_extraDamage;
+            isDealingExtraDmg = false;
+            Player_damageDealing = 0;
+        }
+    }
+
+    //Helper func :  Next Card dealing double
+    void Manipulator_Player_DealingDouble()
+    {
+        //cards that apply extra damage
+        //setup the extra damage and turn the flag to off
+        if (isDealingDoubleDmg && Player_damageDealing != 0)
+        {
+            Player_damageDealing += Player_damageDealing;
+            isDealingDoubleDmg = false;
+        }
+    }
+
+
+    //Helper func :  Next Card costing more
+    void Manipulator_Player_CostExtra()
+    {
+        if(isCostingExtraPriority && Player_extraPriorityCost != 0)
+        {
+            Player_priorityInc += Player_extraPriorityCost;
+            isCostingExtraPriority = false;
+            Player_extraPriorityCost = 0;
+        }
+       
+    }
+
+
+    //<-----------Enemy-------------------------------------------------
+    void Manipulator_Enemy()
+    {
+
+    }
+
+    void Manipulator_Enemy_Reset()
+    {
+        Enemy_damageDealing = 0;
+        Enemy_priorityInc = 0;;
+        Enemy_armorCreate = 0;
+    }
+
+    //=================================================================
+    //                        Manipulator End
+    //-----------------------------------------------------------------
+
+
+
+
     void Start()
     {
         effectDictionary_Players.Add(1001, ID1001_Payment);
@@ -294,7 +411,6 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(2004, ID2004_DemonFang);
         effectDictionary_Players.Add(3001, ID3001_FortoldFortune);
         effectDictionary_Players.Add(4001, ID4001_JadeSpirit);
-        effectDictionary_Players.Add(5001, ID5001_Burden);
 
 
         effectDictionary_Enemies.Add(1, Action_01_Stomp);
