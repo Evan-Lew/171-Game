@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 20.5, y: 40.2}
-  m_SizeDelta: {x: 10.46, y: 10.6}
+  m_AnchoredPosition: {x: 18.3, y: 40.3}
+  m_SizeDelta: {x: 15.67, y: 9.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1972807442432284694
 MeshRenderer:
@@ -345,8 +345,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.71100384, z: 0, w: 0}
+  m_margin: {x: 0, y: 2.43, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -409,7 +409,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972807442752274714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -418,8 +418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 21.6, y: -15.2}
-  m_SizeDelta: {x: 11.068001, y: 5.559}
+  m_AnchoredPosition: {x: 49.79, y: -27.2}
+  m_SizeDelta: {x: 67.46, y: 20.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1972807442752274725
 MeshRenderer:
@@ -441,7 +441,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  - {fileID: -4358176905725018011, guid: 5a4b2bf3b6676524798798bf35b48dc1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -483,10 +483,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description
+  m_text: 'I am the description. I will do 6 damage. And I will draw one  '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5a4b2bf3b6676524798798bf35b48dc1, type: 2}
+  m_sharedMaterial: {fileID: -4358176905725018011, guid: 5a4b2bf3b6676524798798bf35b48dc1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -510,13 +511,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 47.94
+  m_fontSizeBase: 47.94
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -546,7 +547,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.71100384, z: -59.312756, w: -20.58701}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -590,8 +591,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50.8, y: -8.1}
-  m_SizeDelta: {x: 68.55, y: 30.32}
+  m_AnchoredPosition: {x: 50.8, y: -6.89}
+  m_SizeDelta: {x: 68.55, y: 23.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1972807443293806037
 MeshRenderer:
@@ -655,7 +656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tessst Tesst
+  m_text: Tessst Tests
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9717f29c1cf97ce4e80321a5c5ee9525, type: 2}
   m_sharedMaterial: {fileID: -4358176905725018011, guid: 9717f29c1cf97ce4e80321a5c5ee9525,
@@ -668,12 +669,12 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
-  m_colorMode: 2
+  m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 0.4811321, g: 0.16113387, b: 0.4766474, a: 1}
-    bottomRight: {r: 0.4811321, g: 0.16113387, b: 0.4766474, a: 1}
+    bottomLeft: {r: 0.45851126, g: 0, b: 0.8584906, a: 1}
+    bottomRight: {r: 0.45851126, g: 0, b: 0.8584906, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
