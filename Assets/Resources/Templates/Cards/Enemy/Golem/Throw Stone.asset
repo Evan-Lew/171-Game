@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 4
   cardName: Throw Stone
-  ID: 19
+  ID: 1
   description_Main: It's not his poop, isn't it...
   priorityCost: 2
   Card_Front: {fileID: 0}

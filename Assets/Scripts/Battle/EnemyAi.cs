@@ -44,9 +44,10 @@ public class EnemyAi : MonoBehaviour
 
     void uploadEnemies()
     {
-        attackPattern = new List<int>() {1, 10};
+        attackPattern = new List<int>() {1, 2};
         enemyDictionary.Add("Laihong", attackPattern);
     }
+
 
 
     public void EnemyUseAction()
@@ -54,12 +55,14 @@ public class EnemyAi : MonoBehaviour
         if (!isActioned)
         {
             isActioned = true;
+            //loop through the pattern
             if (currentPatternIndex < enemyDictionary[Enemy.name].Count)
             {
                 EnemyEffect(attackPattern[currentPatternIndex]);
                 currentPatternIndex++;
                 StartCoroutine(waitLogReading(amountOfTimeWaiting));
             }
+            //roll back to index 0 in parttern
             else
             {
                 currentPatternIndex = 0;

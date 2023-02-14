@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static SoundManager;
+using static CoroutineUtil;
+
+
 
 public class EffectDictionary : MonoBehaviour
 {
@@ -20,6 +24,7 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     Character player, enemy;
+
     [Header("list of banished cards")]
     public List<Card_Basedata> BanishPool;
     [Header("list of return cards")]
@@ -30,6 +35,8 @@ public class EffectDictionary : MonoBehaviour
 
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Players = new Dictionary<int, funcHolder>();
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Enemies = new Dictionary<int, funcHolder>();
+
+
 
 
 
@@ -50,9 +57,23 @@ public class EffectDictionary : MonoBehaviour
 
 
 
+    //used for particle system
+    public struct particleEffect
+    {
+        public GameObject particleObj;
+        public float totalPlayTime;
+        public int ID;
+    }
+    public List<GameObject> PrefabsList_Enemy = new List<GameObject>();
+    private List<particleEffect> PrefabsPool_Enemy = new List<particleEffect>();
+    public float TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
+
+
+
 
     public void SetUp()
     {
+        PrefabsPool_Enemy.Clear();
         player = GameObject.Find("Player").GetComponent<Character>();
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
     }
@@ -122,6 +143,98 @@ public class EffectDictionary : MonoBehaviour
         _script_PrioritySystem.AddCost(Target, Cost);
     }
 
+
+
+
+    //add unique ID for action
+    private void ParticleEvent(Character target, int ID, float duration)
+    {
+        particleEffect foundEffect = PrefabsPool_Enemy.Find(effect => effect.ID == ID);
+
+        //not find instantiate it, if find, settoActive
+        if (foundEffect.particleObj == null)
+        {
+
+            //instantiate it
+            particleEffect newEffect = new particleEffect();
+            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == "ThrowStone");
+            GameObject newParticle = Instantiate(particleInstance, target.transform.position, particleInstance.transform.rotation);
+            //store in pool
+            newEffect.particleObj = newParticle;
+            newEffect.totalPlayTime = duration;
+            newEffect.ID = ID;
+            PrefabsPool_Enemy.Add(newEffect);
+
+
+            //set object to deactivate after it's been played//pool idea
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                newEffect.particleObj.SetActive(false);
+                //tell battle controller to run turn change
+                TurnsManagerFlag_RunTurnSwitchAfterSeconds = newEffect.totalPlayTime;
+            }, newEffect.totalPlayTime));
+
+        }
+        else
+        {
+            //if it existing in pool then just active it and then after the effect set it to deactive
+            foundEffect.particleObj.SetActive(true);
+            //set it to deactive after it;s been played
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                // Debug.Log("test2");
+                foundEffect.particleObj.SetActive(false);
+                TurnsManagerFlag_RunTurnSwitchAfterSeconds = foundEffect.totalPlayTime;
+            }, foundEffect.totalPlayTime));
+        }
+    }
+
+
+    //add unique ID for action
+    //override for some sepcial pos instead of player/enemy
+    private void ParticleEvent(Character target, GameObject overrideObj, int ID, float duration)
+    {
+        particleEffect foundEffect = PrefabsPool_Enemy.Find(effect => effect.ID == ID);
+
+        //not find instantiate it, if find, settoActive
+        if (foundEffect.particleObj == null)
+        {
+
+            //instantiate it
+            particleEffect newEffect = new particleEffect();
+            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == "ThrowStone");
+            GameObject newParticle = Instantiate(particleInstance, overrideObj.transform.position, particleInstance.transform.rotation);
+            //store in pool
+            newEffect.particleObj = newParticle;
+            newEffect.totalPlayTime = duration;
+            newEffect.ID = ID;
+            PrefabsPool_Enemy.Add(newEffect);
+
+
+            //set object to deactivate after it's been played//pool idea
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                newEffect.particleObj.SetActive(false);
+                //tell battle controller to run turn change
+                TurnsManagerFlag_RunTurnSwitchAfterSeconds = newEffect.totalPlayTime;
+            }, newEffect.totalPlayTime));
+
+        }
+        else
+        {
+            //if it existing in pool then just active it and then after the effect set it to deactive
+            foundEffect.particleObj.SetActive(true);
+            //set it to deactive after it;s been played
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                // Debug.Log("test2");
+                foundEffect.particleObj.SetActive(false);
+                TurnsManagerFlag_RunTurnSwitchAfterSeconds = foundEffect.totalPlayTime;
+            }, foundEffect.totalPlayTime));
+        }
+    }
+
+
     //-----------------------------------------------------------------
     //                      Tagged Effect Ends
     //=================================================================
@@ -168,6 +281,9 @@ public class EffectDictionary : MonoBehaviour
 
         CreateArmor_ToTarget(player, Player_armorCreate);
         PriorityIncrement(player, Player_priorityInc);
+
+
+
 
         Manipulator_Player_Reset();
     }
@@ -279,10 +395,10 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                        ENEMY EFFECTS
     //-----------------------------------------------------------------
-    //deal 4 damage, cost 2
-    public void Action_01_Stomp()
+    //deal 3 damage, cost 2
+    public void Action_01_ThrowStone()
     {
-        Enemy_damageDealing = 4;
+        Enemy_damageDealing = 3;
         Enemy_priorityInc = 2;
         Manipulator_Enemy();
 
@@ -290,20 +406,73 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(enemy, Enemy_priorityInc);
 
         Manipulator_Enemy_Reset();
+
+        //example of calling sound after certain seconds
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Action_01_ThrowStone", 1);
+        }, 3f));
+
+        //SoundManager.PlaySound("sfx_Action_01_ThrowStone", 1);
+        ParticleEvent(enemy, 1, 4f) ;
+
     }
 
-    //gain 4 armor, cost 2
-    public void Action_10_Solidify()
+
+
+
+
+    //deal damage to player equal to his health, cost 2
+    public void Action_02_ThrowHimself()
     {
-        Enemy_armorCreate = 4;
+        Enemy_damageDealing = enemy.Armor_Current;
         Enemy_priorityInc = 2;
         Manipulator_Enemy();
 
-        CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+        DealDamage_ToTarget(player, Enemy_damageDealing);
         PriorityIncrement(enemy, Enemy_priorityInc);
 
         Manipulator_Enemy_Reset();
+
+        SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
     }
+
+    //end of player turn, gain 2 armor
+    public void Action_03_Stubborn()
+    {
+        Enemy_armorCreate = 1;
+        Manipulator_Enemy();
+
+        CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+
+        Manipulator_Enemy_Reset();
+    }
+
+    ////deal 4 damage, cost 2
+    //public void Action_01_Stomp()
+    //{
+    //    Enemy_damageDealing = 4;
+    //    Enemy_priorityInc = 2;
+    //    Manipulator_Enemy();
+
+    //    DealDamage_ToTarget(player, Enemy_damageDealing);
+    //    PriorityIncrement(enemy, Enemy_priorityInc);
+
+    //    Manipulator_Enemy_Reset();
+    //}
+
+    ////gain 4 armor, cost 2
+    //public void Action_10_Solidify()
+    //{
+    //    Enemy_armorCreate = 4;
+    //    Enemy_priorityInc = 2;
+    //    Manipulator_Enemy();
+
+    //    CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+    //    PriorityIncrement(enemy, Enemy_priorityInc);
+
+    //    Manipulator_Enemy_Reset();
+    //}
 
 
     //-----------------------------------------------------------------
@@ -413,8 +582,9 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(4001, ID4001_JadeSpirit);
 
 
-        effectDictionary_Enemies.Add(1, Action_01_Stomp);
-        effectDictionary_Enemies.Add(10, Action_10_Solidify);
+        effectDictionary_Enemies.Add(1, Action_01_ThrowStone);
+        effectDictionary_Enemies.Add(2, Action_02_ThrowHimself);
+        effectDictionary_Enemies.Add(3, Action_03_Stubborn);
     }
 
     private void Update()

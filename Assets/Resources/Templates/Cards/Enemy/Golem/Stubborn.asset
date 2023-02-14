@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 4
   cardName: Stubborn
-  ID: 21
+  ID: 3
   description_Main: Literally Stubborn
   priorityCost: 0
   Card_Front: {fileID: 0}

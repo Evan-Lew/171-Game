@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 4
   cardName: Throw Himself
-  ID: 20
+  ID: 2
   description_Main: 'Big rock coming through!!! '
   priorityCost: 2
   Card_Front: {fileID: 0}

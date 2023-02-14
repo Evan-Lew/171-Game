@@ -23,6 +23,7 @@ public class BattleController : MonoBehaviour
     public TMP_Text _Text_Turn, _Text_PlayerPriority, _Text_EnemyPriority;
 
     bool turnChangedToPlayer = false;
+
     //public Card_Basedata currentUsingCard; 
 
     [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_Enemy;
@@ -95,57 +96,74 @@ public class BattleController : MonoBehaviour
     }
 
 
+    //testing for golem
     public void ProcessPriorityTurnControl()
     {
         Character result;
         result = _script_PrioritySystem.getNextTurnCharacter();
         if (result == player)
         {
-            currentPhase = TurnOrder.playerPhase;
+            //switch to player turn, trigger the animation
+            currentPhase = TurnOrder.playerPhase;       
+            animator_fadeInOut.SetTrigger("Play");
+            animator_PlayerTurn.SetTrigger("Play");
         }
         else
         {
+            //switch to enemy turn, trigger the animation
             currentPhase = TurnOrder.EnemyPhase;
+            animator_fadeInOut.SetTrigger("Play");
+            animator_Enemy.SetTrigger("Play");
+            //just for testing golem
+            EffectDictionary.instance.effectDictionary_Enemies[3]();
         }
     }
 
 
     void TurnUpdate()
     {
-
-        //check if current phase is the last one
-        if ((int)currentPhase >= System.Enum.GetValues(typeof(TurnOrder)).Length)
+        //the turn switch will be called only effect animation is played
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            currentPhase = 0;
 
-        }
+            //check if current phase is the last one
+            if ((int)currentPhase >= System.Enum.GetValues(typeof(TurnOrder)).Length)
+            {
+                currentPhase = 0;
 
-        //trigger action function
-        switch (currentPhase)
-        {
-            case TurnOrder.playerPhase:
-                //Debug.Log("Right now is playerPhase");
+            }
 
-                if (turnChangedToPlayer)
-                {
-                    _script_DeckSystem.DrawCardToHand();
-                }
-                turnChangedToPlayer = false;
+            //trigger action function
+            switch (currentPhase)
+            {
+                case TurnOrder.playerPhase:
+                    //Debug.Log("Right now is playerPhase");
+
+                    if (turnChangedToPlayer)
+                    {
+                        _script_DeckSystem.DrawCardToHand();
+                    }
+                    turnChangedToPlayer = false;
 
 
-                _Text_Turn.text = currentPhase.ToString();
-                _Text_Turn.color = Color.white;
-                break;
+                    _Text_Turn.text = currentPhase.ToString();
+                    _Text_Turn.color = Color.white;
+                    break;
 
-            case TurnOrder.EnemyPhase:
-                turnChangedToPlayer = true;
-                _script_EnemyAi.EnemyUseAction();
-                //Debug.Log("Right now is EnemyPhase");
-                _Text_Turn.text = currentPhase.ToString();
-                _Text_Turn.color = Color.red;
-                break;
-        }
+                case TurnOrder.EnemyPhase:
+                    turnChangedToPlayer = true;
+                    _script_EnemyAi.EnemyUseAction();
+                    //Debug.Log("Right now is EnemyPhase");
+                    _Text_Turn.text = currentPhase.ToString();
+                    _Text_Turn.color = Color.red;
+                    break;
+            }
 
+
+            EffectDictionary.instance.TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
+        },EffectDictionary.instance.TurnsManagerFlag_RunTurnSwitchAfterSeconds));
+
+        
     }
 
     void updateText()
