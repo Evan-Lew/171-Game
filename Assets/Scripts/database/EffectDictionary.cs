@@ -63,14 +63,13 @@ public class EffectDictionary : MonoBehaviour
         public GameObject particleObj;
         public float totalPlayTime;
         public int ID;
+        public string effectName;
     }
     public List<GameObject> PrefabsList_Enemy = new List<GameObject>();
     private List<particleEffect> PrefabsPool_Enemy = new List<particleEffect>();
     public float TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
 
-
-
-
+    
     public void SetUp()
     {
         PrefabsPool_Enemy.Clear();
@@ -139,47 +138,44 @@ public class EffectDictionary : MonoBehaviour
 
     private void PriorityIncrement(Character Target, double Cost)
     {
-        //increment priority
+        // Increment priority
         _script_PrioritySystem.AddCost(Target, Cost);
     }
-
-
-
-
-    //add unique ID for action
-    private void ParticleEvent(Character target, int ID, float duration)
+    
+    // Object Pool: instantiate the particle gameObject prefab if it does not exist and disable it after effect is played
+    // If it already exists, set it to active, and when the effect is played it will be set to disabled again
+    // Particle will be played on the target (player or enemy)
+    private void ParticleEvent(string effectName, int ID, float duration, Character target)
     {
         particleEffect foundEffect = PrefabsPool_Enemy.Find(effect => effect.ID == ID);
 
-        //not find instantiate it, if find, settoActive
+        // If the effect does not exist find it and setToActive
         if (foundEffect.particleObj == null)
         {
-
-            //instantiate it
+            // Instantiate it
             particleEffect newEffect = new particleEffect();
-            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == "ThrowStone");
+            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == effectName);
             GameObject newParticle = Instantiate(particleInstance, target.transform.position, particleInstance.transform.rotation);
-            //store in pool
+            // Store it in the pool
             newEffect.particleObj = newParticle;
             newEffect.totalPlayTime = duration;
             newEffect.ID = ID;
+            newEffect.effectName = effectName;
             PrefabsPool_Enemy.Add(newEffect);
-
-
-            //set object to deactivate after it's been played//pool idea
+            
+            // Set object to deactivate after it's been played (object pool idea)
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 newEffect.particleObj.SetActive(false);
-                //tell battle controller to run turn change
+                // Tell battle controller to run turn change
                 TurnsManagerFlag_RunTurnSwitchAfterSeconds = newEffect.totalPlayTime;
             }, newEffect.totalPlayTime));
-
         }
         else
         {
-            //if it existing in pool then just active it and then after the effect set it to deactive
+            // If it exists in the pool then activate it and then set the effect to deActive
             foundEffect.particleObj.SetActive(true);
-            //set it to deactive after it;s been played
+            // Set it to deActive after it has been played
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 // Debug.Log("test2");
@@ -188,43 +184,41 @@ public class EffectDictionary : MonoBehaviour
             }, foundEffect.totalPlayTime));
         }
     }
-
-
-    //add unique ID for action
-    //override for some sepcial pos instead of player/enemy
-    private void ParticleEvent(Character target, GameObject overrideObj, int ID, float duration)
+    
+    // Object Pool with special position for the particle to spawn instead of using the player/enemy pos
+    private void PositionedParticleEvent(string effectName, int ID, float duration, Character target, GameObject overrideObj)
     {
         particleEffect foundEffect = PrefabsPool_Enemy.Find(effect => effect.ID == ID);
-
-        //not find instantiate it, if find, settoActive
+    
+        // If the effect does not exist find it and setToActive
         if (foundEffect.particleObj == null)
         {
-
-            //instantiate it
+            // Instantiate it
             particleEffect newEffect = new particleEffect();
-            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == "ThrowStone");
+            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == effectName);
             GameObject newParticle = Instantiate(particleInstance, overrideObj.transform.position, particleInstance.transform.rotation);
-            //store in pool
+            // Store it in the pool
             newEffect.particleObj = newParticle;
             newEffect.totalPlayTime = duration;
             newEffect.ID = ID;
+            newEffect.effectName = effectName;
             PrefabsPool_Enemy.Add(newEffect);
-
-
-            //set object to deactivate after it's been played//pool idea
+    
+    
+            // Set object to deactivate after it's been played (object pool idea)
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 newEffect.particleObj.SetActive(false);
-                //tell battle controller to run turn change
+                // Tell battle controller to run turn change
                 TurnsManagerFlag_RunTurnSwitchAfterSeconds = newEffect.totalPlayTime;
             }, newEffect.totalPlayTime));
-
+    
         }
         else
         {
-            //if it existing in pool then just active it and then after the effect set it to deactive
+            // If it exists in the pool then activate it and then set the effect to deActive
             foundEffect.particleObj.SetActive(true);
-            //set it to deactive after it;s been played
+            // Set it to deActive after it has been played
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 // Debug.Log("test2");
@@ -398,6 +392,7 @@ public class EffectDictionary : MonoBehaviour
     //deal 3 damage, cost 2
     public void Action_01_ThrowStone()
     {
+        // Card Description
         Enemy_damageDealing = 3;
         Enemy_priorityInc = 2;
         Manipulator_Enemy();
@@ -407,20 +402,19 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Enemy_Reset();
 
-        //example of calling sound after certain seconds
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        {
-            SoundManager.PlaySound("sfx_Action_01_ThrowStone", 1);
-        }, 3f));
+        // Card SFX
+        // //example of calling sound after certain seconds
+        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        // {
+        //     SoundManager.PlaySound("sfx_Action_01_ThrowStone", 1);
+        // }, 3f));
 
         //SoundManager.PlaySound("sfx_Action_01_ThrowStone", 1);
-        ParticleEvent(enemy, 1, 4f) ;
 
+        // Call the particle function
+        //ParticleEvent("ThrowStone", 1, 4f, player);
+        PositionedParticleEvent("ThrowStone", 1, 4f, player, GameObject.Find("Player Particle Position"));
     }
-
-
-
-
 
     //deal damage to player equal to his health, cost 2
     public void Action_02_ThrowHimself()
@@ -433,8 +427,8 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(enemy, Enemy_priorityInc);
 
         Manipulator_Enemy_Reset();
-
-        SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
+        ParticleEvent("ThrowHimself", 2, 1f, player);
+        //SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
     }
 
     //end of player turn, gain 2 armor
@@ -446,6 +440,7 @@ public class EffectDictionary : MonoBehaviour
         CreateArmor_ToTarget(enemy, Enemy_armorCreate);
 
         Manipulator_Enemy_Reset();
+        PositionedParticleEvent("Stubborn", 3, 4f, player, GameObject.Find("Enemy Particle Position"));
     }
 
     ////deal 4 damage, cost 2

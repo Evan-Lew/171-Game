@@ -2,15 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5826c37-26e0-4f4c-8413-aaf263a1f675" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/HP Bar.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/HP Bar.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain 2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Free Stylized Skybox/CubeMap/Materials/Sky_Anime_11_morning_a.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/Free Stylized Skybox/CubeMap/Materials/Sky_Anime_11_morning_a.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/ProTips/Demos (safe to delete)/ProTips Legacy Text Demos.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/HDRPdecal(Upper2020HDRP).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/HDRPdecal.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/HDRPdecalMatrixFix(Upper2020HDRP).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/URPdecal.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/GammaSpaceMaterials(WithoutNormal).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/GammaSpaceMaterials.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/LinearSpaceMaterials(WithoutNormal).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/LinearSpaceMaterials.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Prefebs/OptimizedEffectsPrefebs.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Prefebs/OriginalEffectsPrefebs(WithoutDistort).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Prefebs/OriginalEffectsPrefebs.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeMaterial(GammaSpace).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeMaterial(LinearSpace).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeTextures_Part1.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeTextures_Part2.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Stone/ThrowStone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Stone/ThrowStone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Stone/ThrowStone.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Stone/ThrowStone.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Template.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Template.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/database/EffectDictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/database/EffectDictionary.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
