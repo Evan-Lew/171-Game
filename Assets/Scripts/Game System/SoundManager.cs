@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
         //sfx_Explosion = Resources.Load<AudioClip>("SFX/Explosion");
         sfx_Action_01_ThrowStone1 = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Stone");
         sfx_Action_01_ThrowStone2 = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Stone2");
-        sfx_Action_02_Throw_Himself = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Himself"); 
+        sfx_Action_02_Throw_Himself = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Himself");
         
         audioSrc = GetComponent<AudioSource>();
         // audioSrc_footStep = GameObject.Find("SFX/SoundManager/FootStep").GetComponent<AudioSource>();
@@ -50,6 +50,7 @@ public class SoundManager : MonoBehaviour
     {
         switch (clip)
         {
+            // Card Draw SFX
             case "sfx_Card_Draw":
                 audioSrc.clip = sfx_Card_Draw;
                 audioSrc.volume = volumn;
@@ -62,6 +63,7 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(audioSrc.clip);
                 break;            
 
+            // Golem SFX
             case "sfx_Action_01_ThrowStone1":
                 audioSrc.clip = sfx_Action_01_ThrowStone1;
                 audioSrc.volume = volumn;

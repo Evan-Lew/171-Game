@@ -21,9 +21,9 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     Character player, enemy;
 
-    [Header("list of banished cards")]
+    [Header("List of banished cards")]
     public List<Card_Basedata> BanishPool;
-    [Header("list of return cards")]
+    [Header("List of return cards")]
     public List<Card_Basedata> ReturnPool;
 
     [HideInInspector] public delegate void funcHolder();
@@ -54,15 +54,24 @@ public class EffectDictionary : MonoBehaviour
         public int ID;
         public string effectName;
     }
-    public List<GameObject> PrefabsList_Enemy = new List<GameObject>();
-    private List<particleEffect> PrefabsPool_Enemy = new List<particleEffect>();
+    
+    // Particle Prefabs Lists
+    [Header("List of player particle prefabs")]
+    public List<GameObject> playerParticlePrefabsList = new List<GameObject>();
+    private List<particleEffect> playerParticlePrefabsPool = new List<particleEffect>();
+    [Header("List of enemy particle prefabs")]
+    public List<GameObject> enemyParticlePrefabsList = new List<GameObject>();
+    private List<particleEffect> enemyParticlePrefabsPool = new List<particleEffect>();
+
+    
     public float TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
     public List<GameObject> ExtraPositioning = new List<GameObject>();
 
 
     public void SetUp()
     {
-        PrefabsPool_Enemy.Clear();
+        playerParticlePrefabsPool.Clear();
+        enemyParticlePrefabsPool.Clear();
         player = GameObject.Find("Player").GetComponent<Character>();
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
     }
@@ -131,24 +140,53 @@ public class EffectDictionary : MonoBehaviour
     // Object Pool: instantiate the particle gameObject prefab if it does not exist and disable it after effect is played
     // If it already exists, set it to active, and when the effect is played it will be set to disabled again
     // Particle will be played on the target (player or enemy)
-    private void ParticleEvent(string effectName, int ID, float duration, Character target)
+    private void ParticleEvent(string effectName, int ID, float duration, Character target, bool playerEffect)
     {
-        particleEffect foundEffect = PrefabsPool_Enemy.Find(effect => effect.ID == ID);
+        // Check which pool to use
+        particleEffect foundEffect;
+        if (playerEffect)
+        {
+            foundEffect = playerParticlePrefabsPool.Find(effect => effect.ID == ID);    
+        }
+        else
+        {
+            foundEffect = enemyParticlePrefabsPool.Find(effect => effect.ID == ID);    
+        }
 
         // If the effect does not exist find it and setToActive
         if (foundEffect.particleObj == null)
         {
             // Instantiate it
             particleEffect newEffect = new particleEffect();
-            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == effectName);
+            
+            // Check which particle list to use
+            GameObject particleInstance;
+            if (playerEffect)
+            {
+                particleInstance = playerParticlePrefabsList.Find(x => x.name == effectName);
+            }
+            else
+            {
+                particleInstance = enemyParticlePrefabsList.Find(x => x.name == effectName);
+            }
+            
             GameObject newParticle = Instantiate(particleInstance, target.transform.position, particleInstance.transform.rotation);
             // Store it in the pool
             newEffect.particleObj = newParticle;
             newEffect.totalPlayTime = duration;
             newEffect.ID = ID;
             newEffect.effectName = effectName;
-            PrefabsPool_Enemy.Add(newEffect);
-            
+
+            // Check which particle pool to add to
+            if (playerEffect)
+            {
+                playerParticlePrefabsPool.Add(newEffect);
+            }
+            else
+            {
+                enemyParticlePrefabsPool.Add(newEffect);   
+            }
+
             // Set object to deactivate after it's been played (object pool idea)
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
@@ -172,23 +210,52 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // Object Pool with special position for the particle to spawn instead of using the player/enemy pos
-    private void PositionedParticleEvent(string effectName, int ID, float duration, GameObject overrideObj)
+    private void PositionedParticleEvent(string effectName, int ID, float duration, GameObject overrideObj, bool playerEffect)
     {
-        particleEffect foundEffect = PrefabsPool_Enemy.Find(effect => effect.ID == ID);
+        // Check which pool to use
+        particleEffect foundEffect;
+        if (playerEffect)
+        {
+            foundEffect = playerParticlePrefabsPool.Find(effect => effect.ID == ID);    
+        }
+        else
+        {
+            foundEffect = enemyParticlePrefabsPool.Find(effect => effect.ID == ID);    
+        }
     
         // If the effect does not exist find it and setToActive
         if (foundEffect.particleObj == null)
         {
             // Instantiate it
             particleEffect newEffect = new particleEffect();
-            GameObject particleInstance = PrefabsList_Enemy.Find(x => x.name == effectName);
+
+            // Check which particle list to use
+            GameObject particleInstance;
+            if (playerEffect)
+            {
+                particleInstance = playerParticlePrefabsList.Find(x => x.name == effectName);
+            }
+            else
+            {
+                particleInstance = enemyParticlePrefabsList.Find(x => x.name == effectName);
+            }
+            
             GameObject newParticle = Instantiate(particleInstance, overrideObj.transform.position, particleInstance.transform.rotation);
             // Store it in the pool
             newEffect.particleObj = newParticle;
             newEffect.totalPlayTime = duration;
             newEffect.ID = ID;
             newEffect.effectName = effectName;
-            PrefabsPool_Enemy.Add(newEffect);
+
+            // Check which particle pool to add to
+            if (playerEffect)
+            {
+                playerParticlePrefabsPool.Add(newEffect);
+            }
+            else
+            {
+                enemyParticlePrefabsPool.Add(newEffect);   
+            }
 
             // Set object to deactivate after it's been played (object pool idea)
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -234,6 +301,11 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
+        
+        // Call the particle function
+        //ParticleEvent("ThrowStone", 1, 4f, player);
+        //extra postion player
+        //PositionedParticleEvent("ThrowStone", 1, 3f, ExtraPositioning[0], true);
     }
 
     //deal 3 damage, cost 2
@@ -400,7 +472,7 @@ public class EffectDictionary : MonoBehaviour
         // Call the particle function
         //ParticleEvent("ThrowStone", 1, 4f, player);
         //extra postion player
-        PositionedParticleEvent("ThrowStone", 1, 3f, ExtraPositioning[0]);
+        PositionedParticleEvent("ThrowStone", 1, 3f, ExtraPositioning[0], false);
     }
 
     //deal damage to player equal to his health, cost 2
@@ -418,7 +490,7 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
         
-        ParticleEvent("ThrowHimself", 2, 1f, player);
+        ParticleEvent("ThrowHimself", 2, 1f, player, false);
     }
 
     //end of player turn, gain 2 armor
@@ -431,7 +503,7 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Enemy_Reset();
         //extra postion enemy
-        PositionedParticleEvent("Stubborn", 3, 3f, ExtraPositioning[1]);
+        PositionedParticleEvent("Stubborn", 3, 3f, ExtraPositioning[1], false);
     }
 
     ////deal 4 damage, cost 2
