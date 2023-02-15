@@ -57,7 +57,9 @@ public class EffectDictionary : MonoBehaviour
     public List<GameObject> PrefabsList_Enemy = new List<GameObject>();
     private List<particleEffect> PrefabsPool_Enemy = new List<particleEffect>();
     public float TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
-    
+    public List<GameObject> ExtraPositioning = new List<GameObject>();
+
+
     public void SetUp()
     {
         PrefabsPool_Enemy.Clear();
@@ -170,7 +172,7 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // Object Pool with special position for the particle to spawn instead of using the player/enemy pos
-    private void PositionedParticleEvent(string effectName, int ID, float duration, Character target, GameObject overrideObj)
+    private void PositionedParticleEvent(string effectName, int ID, float duration, GameObject overrideObj)
     {
         particleEffect foundEffect = PrefabsPool_Enemy.Find(effect => effect.ID == ID);
     
@@ -397,7 +399,8 @@ public class EffectDictionary : MonoBehaviour
 
         // Call the particle function
         //ParticleEvent("ThrowStone", 1, 4f, player);
-        PositionedParticleEvent("ThrowStone", 1, 3f, player, GameObject.Find("Player Particle Position"));
+        //extra postion player
+        PositionedParticleEvent("ThrowStone", 1, 3f, ExtraPositioning[0]);
     }
 
     //deal damage to player equal to his health, cost 2
@@ -427,7 +430,8 @@ public class EffectDictionary : MonoBehaviour
         CreateArmor_ToTarget(enemy, Enemy_armorCreate);
 
         Manipulator_Enemy_Reset();
-        PositionedParticleEvent("Stubborn", 3, 3f, player, GameObject.Find("Enemy Particle Position"));
+        //extra postion enemy
+        PositionedParticleEvent("Stubborn", 3, 3f, ExtraPositioning[1]);
     }
 
     ////deal 4 damage, cost 2
