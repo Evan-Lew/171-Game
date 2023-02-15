@@ -4,21 +4,17 @@ using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
 
-
-
 public class EffectDictionary : MonoBehaviour
 {
-
-    //move any extra caculation to the card effect fucntion for optimization.
-    //make tagged function SIMPLY.
-    //ez called from all other script without referencing
-    //example:
+    // Move any extra calculations to the card effect function for optimization.
+    // Make tagged function SIMPLY.
+    // Easy called from all other script without referencing
+    // Example:
     public static EffectDictionary instance;
 
     private void Awake()
     {
         instance = this;
- 
     }
 
     [SerializeField] private DeckSystem _script_DeckSystem;
@@ -35,12 +31,8 @@ public class EffectDictionary : MonoBehaviour
 
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Players = new Dictionary<int, funcHolder>();
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Enemies = new Dictionary<int, funcHolder>();
-
-
-
-
-
-    //basic variable
+    
+    // Basic variable initialization
     double Player_damageDealing = 0;
     double Player_extraDamage = 0;
     double Player_armorCreate = 0;
@@ -48,16 +40,13 @@ public class EffectDictionary : MonoBehaviour
     int Player_cardsDrawing = 0;
     double Player_priorityInc = 0;
     double Player_extraPriorityCost = 0;
-
-
-
+    
+    
     double Enemy_damageDealing = 0;
     double Enemy_armorCreate = 0;
     double Enemy_priorityInc = 0;
 
-
-
-    //used for particle system
+    // Struct: used for particle system
     public struct particleEffect
     {
         public GameObject particleObj;
@@ -68,7 +57,6 @@ public class EffectDictionary : MonoBehaviour
     public List<GameObject> PrefabsList_Enemy = new List<GameObject>();
     private List<particleEffect> PrefabsPool_Enemy = new List<particleEffect>();
     public float TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
-
     
     public void SetUp()
     {
@@ -76,15 +64,14 @@ public class EffectDictionary : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Character>();
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
     }
-
-
+    
     //=================================================================
     //                       Tagged Effect
     //-----------------------------------------------------------------
     //Note: Tagged effect function will be private only.
     private void DealDamage_ToTarget(Character Target, double damageDealt)
     {
-        //check if the target has armor
+        // Check if the target has armor
         if(Target.Armor_Current == 0)
         {
             Target.Health_Current -= damageDealt;
@@ -97,8 +84,7 @@ public class EffectDictionary : MonoBehaviour
             Target.Armor_Current = 0;
         }
     }
-
-
+    
     private void DrawCards_Player(int cardAmount)
     {
         _script_DeckSystem.DrawMultipleCards(cardAmount);
@@ -115,7 +101,6 @@ public class EffectDictionary : MonoBehaviour
         {
             _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(TargetCard));
         }
-        
     }
 
     private void Heal_ToTarget(Character Target, double hpAdded)
@@ -134,7 +119,6 @@ public class EffectDictionary : MonoBehaviour
         _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(TargetCard)]);
         _script_DeckSystem.DrawCardToHand();
     }
-
 
     private void PriorityIncrement(Character Target, double Cost)
     {
@@ -203,8 +187,7 @@ public class EffectDictionary : MonoBehaviour
             newEffect.ID = ID;
             newEffect.effectName = effectName;
             PrefabsPool_Enemy.Add(newEffect);
-    
-    
+
             // Set object to deactivate after it's been played (object pool idea)
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
@@ -212,7 +195,6 @@ public class EffectDictionary : MonoBehaviour
                 // Tell battle controller to run turn change
                 TurnsManagerFlag_RunTurnSwitchAfterSeconds = newEffect.totalPlayTime;
             }, newEffect.totalPlayTime));
-    
         }
         else
         {
@@ -227,7 +209,6 @@ public class EffectDictionary : MonoBehaviour
             }, foundEffect.totalPlayTime));
         }
     }
-
 
     //-----------------------------------------------------------------
     //                      Tagged Effect Ends
@@ -403,17 +384,20 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy_Reset();
 
         // Card SFX
-        // //example of calling sound after certain seconds
-        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        // {
-        //     SoundManager.PlaySound("sfx_Action_01_ThrowStone", 1);
-        // }, 3f));
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Action_01_ThrowStone1", 1);
+            SoundManager.PlaySound("sfx_Action_01_ThrowStone2", 1);
+        }, 1f));
 
-        //SoundManager.PlaySound("sfx_Action_01_ThrowStone", 1);
+        // Play SFX
+        SoundManager.PlaySound("sfx_Action_01_ThrowStone1", 1);
+        SoundManager.PlaySound("sfx_Action_01_ThrowStone2", 1);
 
         // Call the particle function
         //ParticleEvent("ThrowStone", 1, 4f, player);
-        PositionedParticleEvent("ThrowStone", 1, 4f, player, GameObject.Find("Player Particle Position"));
+        PositionedParticleEvent("ThrowStone", 1, 3f, player, GameObject.Find("Player Particle Position"));
     }
 
     //deal damage to player equal to his health, cost 2
@@ -427,8 +411,11 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(enemy, Enemy_priorityInc);
 
         Manipulator_Enemy_Reset();
+        
+        // Play SFX
+        SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
+        
         ParticleEvent("ThrowHimself", 2, 1f, player);
-        //SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
     }
 
     //end of player turn, gain 2 armor
@@ -440,7 +427,7 @@ public class EffectDictionary : MonoBehaviour
         CreateArmor_ToTarget(enemy, Enemy_armorCreate);
 
         Manipulator_Enemy_Reset();
-        PositionedParticleEvent("Stubborn", 3, 4f, player, GameObject.Find("Enemy Particle Position"));
+        PositionedParticleEvent("Stubborn", 3, 3f, player, GameObject.Find("Enemy Particle Position"));
     }
 
     ////deal 4 damage, cost 2

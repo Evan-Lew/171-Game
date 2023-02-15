@@ -90,29 +90,29 @@ public class HandManager : MonoBehaviour
 
 
     //=================================> Optimization needed here later on
-    //remove cards from hand
+    // Remove cards from hand
     public void RemoveCardFromHand(Card cardToRemove)
     {
-        //validation check to see if the card is the one we want to remove
+        // Validate to check if the card is the one we want to remove
         if (player_hands_holdCards[cardToRemove.handPosition] == cardToRemove)
         {
+            SoundManager.PlaySound("sfx_Card_Place", 1);
             player_hands_holdCards.RemoveAt(cardToRemove.handPosition);
             //Calculation(enemy, player, cardToRemove);
-
-            
         }
         else
         {
             Debug.LogError("Card at position " + cardToRemove.handPosition + " is not the correct card for removing!");
         }
 
-        //reset the card position
+        // Reset the card position
         SetCardPositionsInHand();
     }
     
-    //add card to hand
+    // Add a card to hand
     public void AddCardToHand(Card cardToAdd)
     {
+        SoundManager.PlaySound("sfx_Card_Draw", 1);
         player_hands_holdCards.Add(cardToAdd);
         SetCardPositionsInHand();
     }

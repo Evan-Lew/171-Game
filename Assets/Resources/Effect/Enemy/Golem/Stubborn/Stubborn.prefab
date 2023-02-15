@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7343149135237627568}
   - component: {fileID: 1875581053803851852}
   - component: {fileID: 6843956142119998216}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_RingParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4893,7 +4893,7 @@ GameObject:
   - component: {fileID: 782190285233056859}
   - component: {fileID: 782190285233056852}
   - component: {fileID: 782190285233056853}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4928,7 +4928,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782190285233056854}
   serializedVersion: 8
-  lengthInSec: 8
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -9785,7 +9785,7 @@ GameObject:
   - component: {fileID: 782190285396907782}
   - component: {fileID: 782190285396907783}
   - component: {fileID: 782190285396907776}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_ParticleField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9815,7 +9815,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782190285396907777}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -14665,7 +14665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 782190285946635261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Stubborn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14699,7 +14699,7 @@ GameObject:
   - component: {fileID: 782190286403418298}
   - component: {fileID: 782190286403418299}
   - component: {fileID: 782190286403418292}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_SmokeField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14729,7 +14729,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782190286403418293}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -14804,7 +14804,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -19581,7 +19581,7 @@ GameObject:
   - component: {fileID: 7558259158827348383}
   - component: {fileID: 793063951751552541}
   - component: {fileID: 1322581282093971638}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_RingSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24463,7 +24463,7 @@ GameObject:
   - component: {fileID: 2781457760879028853}
   - component: {fileID: 5264875256475040325}
   - component: {fileID: 6037643999328386100}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_RingParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29345,7 +29345,7 @@ GameObject:
   - component: {fileID: 1781067425504890346}
   - component: {fileID: 5260081564898382024}
   - component: {fileID: 5274162148205498390}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_RingSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34227,7 +34227,7 @@ GameObject:
   - component: {fileID: 8017048839097945212}
   - component: {fileID: 5460717116263113616}
   - component: {fileID: 55884425619599646}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_17_BigRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34259,7 +34259,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7392802594745719658}
   serializedVersion: 8
-  lengthInSec: 8
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0

@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: a0f7bfdfb5b1f904b839a6bcf3e9da5b
+guid: 2745f5bdd0c85424bae53be601f7438f
 labels:
 - usfx
 - imphenzia
-- water
-- splash
+- gore
+- splat
 - mono
+- blood
+- hit
+- hurt
 AudioImporter:
   serializedVersion: 6
   defaultSettings:
