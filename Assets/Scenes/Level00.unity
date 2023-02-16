@@ -1211,7 +1211,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   ReturnPool:
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
-  playerParticlePrefabsList: []
+  playerParticlePrefabsList:
+  - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
+  - {fileID: 5511052677990246615, guid: c1a79a3a095f1a148a6dc7b0bfde3712, type: 3}
+  - {fileID: 3946140628572098603, guid: 6f872a8980f69bc449e0678b2456a46c, type: 3}
+  - {fileID: 6692962091110972259, guid: ab13b5bc973244b489ff3d3c6156ad36, type: 3}
+  - {fileID: 7005278960792100175, guid: c4777aff84c433546ae2f8cb195f0812, type: 3}
+  - {fileID: 5236437913552926457, guid: 41f91d3b7bdf4b2449b8fe88b6d5f210, type: 3}
+  - {fileID: 7389421938708674127, guid: 1d833ad574f15024ab5ad550c8646a8a, type: 3}
+  - {fileID: 1715385927650515369, guid: 9d34fcaacbcc1974b8c0b40d523a7cc3, type: 3}
   enemyParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 7960040246655339056, guid: 774acf9f373d05f48bba281b71bf6ee0, type: 3}

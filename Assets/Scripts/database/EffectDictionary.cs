@@ -288,8 +288,7 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                        PLAYER CARDS
     //-----------------------------------------------------------------
-
-
+    
     //draw 2 cards, cost 3
     public void ID1001_Payment()
     {
@@ -302,10 +301,8 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Player_Reset();
         
-        // Call the particle function
-        //ParticleEvent("ThrowStone", 1, 4f, player);
-        //extra postion player
-        //PositionedParticleEvent("ThrowStone", 1, 3f, ExtraPositioning[0], true);
+        // Particle positioned under the player
+        PositionedParticleEvent("Payment", 1001, 2f, ExtraPositioning[0], true);
     }
 
     //deal 3 damage, cost 2
@@ -319,6 +316,10 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
+        
+        // Particle positioned on the enemy
+        // --WAITING FOR CARD IMPLEMENTATION--
+        ParticleEvent("Whack", 1002, 1f, enemy, true);
     }
 
     //gain 2 armor, cost 2
@@ -330,11 +331,11 @@ public class EffectDictionary : MonoBehaviour
 
         CreateArmor_ToTarget(player, Player_armorCreate);
         PriorityIncrement(player, Player_priorityInc);
-
-
-
-
+        
         Manipulator_Player_Reset();
+        
+        // Particle positioned under the player
+        PositionedParticleEvent("WhiteScales", 1003, 2f, ExtraPositioning[0], true);
     }
 
     //draw 2 cards, gain 3 armors, cost 4
@@ -350,6 +351,9 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
+        
+        // Particle positioned under the player
+        PositionedParticleEvent("ShedSkin", 1004, 2f, ExtraPositioning[0], true);
     }
 
     //draw 2 cards, gain 3 armors, cost 1
@@ -364,6 +368,9 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
+        
+        // Particle positioned on the enemy
+        ParticleEvent("ForbiddenVenom", 2001, 3f, enemy, true);
     }
 
     //deal 6 damage, the next card you play deal 4 more damage
@@ -379,9 +386,12 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
+        
+        // Particle positioned on the enemy
+        ParticleEvent("SerpentCutlass", 2002, 3f, enemy, true);
     }
 
-        //next card deal double damage
+    //next card deal double damage
     public void ID2003_WisdomOfWisteria()
     {
         Player_priorityInc = 3;
@@ -396,7 +406,6 @@ public class EffectDictionary : MonoBehaviour
     //deal 1 damage, return card to hand
     public void ID2004_DemonFang()
     {
-
         Player_damageDealing = 1;
         Player_priorityInc = 1;
         Manipulator_Player();
@@ -406,6 +415,9 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
+        
+        // Particle positioned on the enemy
+        ParticleEvent("DemonFang", 2004, 3f, enemy, true);
     }
 
     //draw 2
@@ -468,10 +480,8 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         SoundManager.PlaySound("sfx_Action_01_ThrowStone1", 1);
         SoundManager.PlaySound("sfx_Action_01_ThrowStone2", 1);
-
-        // Call the particle function
-        //ParticleEvent("ThrowStone", 1, 4f, player);
-        //extra postion player
+        
+        // Particle positioned under the player
         PositionedParticleEvent("ThrowStone", 1, 3f, ExtraPositioning[0], false);
     }
 
@@ -490,6 +500,7 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
         
+        // Particle positioned on the player
         ParticleEvent("ThrowHimself", 2, 1f, player, false);
     }
 
@@ -502,7 +513,8 @@ public class EffectDictionary : MonoBehaviour
         CreateArmor_ToTarget(enemy, Enemy_armorCreate);
 
         Manipulator_Enemy_Reset();
-        //extra postion enemy
+        
+        // Particle positioned under the enemy
         PositionedParticleEvent("Stubborn", 3, 3f, ExtraPositioning[1], false);
     }
 
