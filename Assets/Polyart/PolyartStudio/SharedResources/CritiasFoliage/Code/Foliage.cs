@@ -75,7 +75,7 @@ namespace CritiasFoliage
     {
         public static void Config()
         {
-            Debug.LogWarning("Remove this config if you don't  want any foliage logs and delete the 'DEBUG_MODE_FOLIAGE' define from the build settings or set 'DEBUG_LEVEL' to 0!");
+            
 
 #if UNITY_EDITOR
             string buildSettings = UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(UnityEditor.EditorUserBuildSettings.selectedBuildTargetGroup);
