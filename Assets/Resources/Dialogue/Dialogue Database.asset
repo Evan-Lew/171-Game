@@ -1,0 +1,266 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935899b62f48ae5498594680ed17d133, type: 3}
+  m_Name: Dialogue Database
+  m_EditorClassIdentifier: 
+  version: 0.1
+  author: White Snake
+  description: 
+  globalUserScript: 
+  emphasisSettings:
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    bold: 0
+    italic: 0
+    underline: 0
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    bold: 0
+    italic: 0
+    underline: 0
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    bold: 0
+    italic: 0
+    underline: 0
+  - color: {r: 0, g: 0, b: 1, a: 1}
+    bold: 0
+    italic: 0
+    underline: 0
+  baseID: 1
+  actors:
+  - id: 1
+    fields:
+    - title: Name
+      value: Xu Xuan
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: The tragic male protagonist, in order to help his imprisoned wife Bai
+        Suzhen, fought against Fahai and Penghou, but unfortunately died in the battle.
+        However, through a fortunate coincidence, he was able to rescue Bai Suzhen.
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: NodeColor
+      value: Blue
+      type: 0
+      typeString: 
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 3
+    fields:
+    - title: Name
+      value: Bai She Zhuan
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: The female protagonist is the main character in this work. When Xu Xian
+        loses his soul, she does everything she can to rescue her beloved husband.
+        She is a white snake demon who cultivated into a human.
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: NodeColor
+      value: '#acf6ffff'
+      type: 0
+      typeString: 
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 8
+    fields:
+    - title: Name
+      value: Penghou
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: He was a demon who was transformed from a tree by Fahai's spell. She
+        fought with Xu Xian and ultimately destroyed his soul, preventing him from
+        reincarnating.
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: NodeColor
+      value: '#ff6f6fff'
+      type: 0
+      typeString: 
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 2
+    fields:
+    - title: Name
+      value: Fa Hai
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: The old demon monk constantly causes trouble and provokes Xu Xian, bringing
+        harm to Bai Suzhen. He is the final boss of the story, appearing as a monk
+        but in reality, he is a demon who cultivated himself into a spirit.
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: NodeColor
+      value: '#ff0000ff'
+      type: 0
+      typeString: 
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 4
+    fields:
+    - title: Name
+      value: "\u8BB8\u4ED9"
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: "\u60B2\u5267\u7684\u7537\u4E3B\u89D2\uFF0C\u4E3A\u4E86\u5E2E\u52A9\u88AB\u6349\u7684\u59BB\u5B50\u767D\u7D20\u8D1E\uFF0C\u4E0E\u6CD5\u6D77\u548C\u5F6D\u4FAF\u4E89\u6597\u4E4B\u65F6\u4E0D\u5E78\u9B42\u98DE\u9B44\u6563\u3002
+        \u4F46\u5728\u56E0\u7F18\u5DE7\u5408\u4E0B\uFF0C\u62EF\u6551\u4E86\u767D\u7D20\u8D1E\u3002"
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 6
+    fields:
+    - title: Name
+      value: "\u767D\u7D20\u8D1E"
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: "\u5973\u4E3B\u89D2\u3002 \u5728\u8BB8\u4ED9\u9B42\u9B44\u4E22\u5931\u4E4B\u65F6\uFF0C\u60F3\u5C3D\u529E\u6CD5\u62EF\u6551\u81EA\u5DF1\u7684\u7231\u4EBA\u8BB8\u4ED9\u3002\u672C\u4F5C\u7684\u4E3B\u4EBA\u516C\uFF0C\u767D\u86C7\u5996\u4FEE\u70BC\u6210\u4EBA\u3002"
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 5
+    fields:
+    - title: Name
+      value: "\u5F6D\u4FAF"
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: "\u7531\u6CD5\u6D77\u65BD\u6CD5\uFF0C\u4ECE\u6811\u6728\u5E7B\u5316\u800C\u6210\u7684\u5996\u602A\u3002\u4E0E\u8BB8\u4ED9\u4E89\u6597\uFF0C\u6700\u7EC8\u7834\u574F\u5176\u9B42\u9B44\uFF0C\u4F7F\u5176\u4E0D\u5F97\u8F6E\u56DE\u3002"
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 7
+    fields:
+    - title: Name
+      value: "\u6CD5\u6D77"
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: "\u8001\u5996\u50E7\uFF0C\u5904\u5904\u5201\u96BE\u3001\u6311\u62E8\u8BB8\u4ED9\uFF0C\u7978\u5BB3\u767D\u7D20\u8D1E\u3002\u672C\u4F5C\u7684\u6700\u7EC8BOSS\uFF0C\u5916\u5F62\u4E3A\u50E7\u4EBA\uFF0C\u5B9E\u5219\u662F\u5996\u602A\u4FEE\u70BC\u6210\u7CBE\u3002"
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  items: []
+  locations: []
+  variables:
+  - id: 1
+    fields:
+    - title: Name
+      value: Alert
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  conversations: []
+  syncInfo:
+    syncActors: 0
+    syncItems: 0
+    syncLocations: 0
+    syncVariables: 0
+    syncActorsDatabase: {fileID: 0}
+    syncItemsDatabase: {fileID: 0}
+    syncLocationsDatabase: {fileID: 0}
+    syncVariablesDatabase: {fileID: 0}
+  templateJson: 
