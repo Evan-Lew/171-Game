@@ -1477,7 +1477,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u5F6D\u7334\u6076\u72E0\u72E0\u5730\u5411\u8BB8\u4ED9\u88AD\u6765."
+        value: Penghou viciously attacked Xu Xian.
         type: 0
         typeString: 
       - title: Sequence
@@ -1504,12 +1504,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 296.40347, y: 0}
-    canvasZoom: 0.93000007
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.72000027
   - id: 3
     fields:
     - title: Title
-      value: New Conversation 3
+      value: Tutorial In Battle
       type: 0
       typeString: 
     - title: Description
@@ -1597,8 +1597,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
-        y: 20
+        x: 27
+        y: 50
         width: 160
         height: 30
     entryGroups: []
