@@ -85,6 +85,7 @@ public class BattleController : MonoBehaviour
         result = _script_PrioritySystem.getNextTurnCharacter();
         if (result == player)
         {
+            Debug.Log("switch to enemy");
             //switch to player turn, trigger the animation
             currentPhase = TurnOrder.playerPhase;
             animator_fadeInOut.SetTrigger("Play");
@@ -93,6 +94,7 @@ public class BattleController : MonoBehaviour
         else
         {
             //switch to enemy turn, trigger the animation
+            Debug.Log("switch to enemy");
             currentPhase = TurnOrder.EnemyPhase;
             animator_fadeInOut.SetTrigger("Play");
             animator_Enemy.SetTrigger("Play");
@@ -129,6 +131,9 @@ public class BattleController : MonoBehaviour
                     //player end
                     currentPhase = TurnOrder.EnemyPhase;
                     enableEndTurn = false;
+
+
+
                 }, endPhaseWaitTime));
             }
         }else if(currentPhase == TurnOrder.EnemyPhase)
