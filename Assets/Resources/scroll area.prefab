@@ -1,0 +1,565 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1395216321159449239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395216321159449236}
+  - component: {fileID: 1395216321159449243}
+  - component: {fileID: 1395216321159449242}
+  - component: {fileID: 1395216321159449237}
+  m_Layer: 5
+  m_Name: Scrollbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395216321159449236
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216321159449239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1395216322799960505}
+  m_Father: {fileID: 1395216322417203791}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 126.1, y: 0}
+  m_SizeDelta: {x: 20, y: 160}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1395216321159449243
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216321159449239}
+  m_CullTransparentMesh: 1
+--- !u!114 &1395216321159449242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216321159449239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1395216321159449237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216321159449239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1395216322187272033}
+  m_HandleRect: {fileID: 1395216322187272032}
+  m_Direction: 2
+  m_Value: 0
+  m_Size: 1
+  m_NumberOfSteps: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1395216321999223791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395216321999223788}
+  - component: {fileID: 1395216321999223762}
+  - component: {fileID: 1395216321999223789}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395216321999223788
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216321999223791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1395216322417203791}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000015720725, y: -315.15506}
+  m_SizeDelta: {x: 254.14, y: 790.56}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1395216321999223762
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216321999223791}
+  m_CullTransparentMesh: 1
+--- !u!114 &1395216321999223789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216321999223791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "The Bible (from Koine Greek \u03C4\u1F70 \u03B2\u03B9\u03B2\u03BB\u03AF\u03B1,
+    t\xE0 bibl\xEDa, 'the books') is a collection of religious texts or scriptures
+    that are held to be sacred in Christianity, Judaism, Samaritanism, and many other
+    religions. The Bible is an anthology \u2013 a compilation of texts of a variety
+    of forms \u2013 originally written in Hebrew, Aramaic, and Koine Greek. These
+    texts include instructions, stories, poetry, and prophecies, among other genres.
+    The collection of materials that are accepted as part of the Bible by a particular
+    religious tradition or community is called a biblical canon. Believers in the
+    Bible generally consider it to be a product of divine inspiration, but the way
+    they understand what that means and interpret the text can vary.\r\n\r\nThe religious
+    texts were compiled by different religious communities into various official
+    collections. The earliest contained the first five books of the Bible. It is
+    called the Torah in Hebrew and the Pentateuch (meaning five books) in Greek;
+    the second oldest part was a collection of narrative histories and prophecies
+    (the Nevi'im); the third collection (the Ketuvim) contains psalms, proverbs,
+    and narrative histories. \"Tanakh\" is an alternate term for the Hebrew Bible
+    composed of the first letters of those three parts of the Hebrew scriptures:
+    the Torah (\"Teaching\"), the Nevi'im (\"Prophets\"), and the Ketuvim (\"Writings\").
+    The Masoretic Text is the medieval version of the Tanakh, in Hebrew and Aramaic,
+    that is considered the authoritative text of the Hebrew Bible by modern Rabbinic
+    Judaism. The Septuagint (meaning the Translation of the Seventy) is a Koine Greek
+    translation of the Tanakh from the third and second centuries BCE (Before Common
+    Era); it largely overlaps with the Hebrew Bible.\r\n\r\nChristianity began as
+    an outgrowth of Judaism, using the Septuagint as the basis of the Old Testament.
+    The early Church continued the Jewish tradition of writing and incorporating
+    what it saw as inspired, authoritative religious books. The gospels, Pauline
+    epistles and other texts quickly coalesced into the New Testament.\r\n\r\nWith
+    estimated total sales of over five billion copies, the Bible is the best-selling
+    publication of all time. It has had a profound influence both on Western culture
+    and history and on cultures around the globe. The study of it through biblical
+    criticism has indirectly impacted culture and history as well. The Bible is currently
+    translated or being translated into about half of the world's languages.\r\n\r\nEtymology\r\nThe
+    term \"Bible\" can refer to the Hebrew Bible or the Christian Bible, which contains
+    both the Old and New Testaments.[1]\r\n\r\nThe English word Bible is derived
+    from Koin\u0113 Greek: \u03C4\u1F70 \u03B2\u03B9\u03B2\u03BB\u03AF\u03B1, romanized:
+    ta biblia, meaning \"the books\" (singular \u03B2\u03B9\u03B2\u03BB\u03AF\u03BF\u03BD,
+    biblion).[2] The word \u03B2\u03B9\u03B2\u03BB\u03AF\u03BF\u03BD itself had the
+    literal meaning of \"scroll\" and came to be used as the ordinary word for \"book\".[3]
+    It is the diminutive of \u03B2\u03CD\u03B2\u03BB\u03BF\u03C2 byblos, \"Egyptian
+    papyrus\", possibly so called from the name of the Phoenician sea port Byblos
+    (also known as Gebal) from whence Egyptian papyrus was exported to Greece.[4]\r\n\r\nThe
+    Greek ta biblia (\"the books\") was \"an expression Hellenistic Jews used to
+    describe their sacred books\".[5] The biblical scholar F. F. Bruce notes that
+    John Chrysostom appears to be the first writer (in his Homilies on Matthew, delivered
+    between 386 and 388) to use the Greek phrase ta biblia (\"the books\") to describe
+    both the Old and New Testaments together.[6]\r\n\r\nLatin biblia sacra \"holy
+    books\" translates Greek \u03C4\u1F70 \u03B2\u03B9\u03B2\u03BB\u03AF\u03B1 \u03C4\u1F70
+    \u1F05\u03B3\u03B9\u03B1 (t\xE0 bibl\xEDa t\xE0 h\xE1gia, \"the holy books\").[7]
+    Medieval Latin biblia is short for biblia sacra \"holy book\". It gradually came
+    to be regarded as a feminine singular noun (biblia, gen. bibliae) in medieval
+    Latin, and so the word was loaned as singular into the vernaculars of Western
+    Europe.[8]\r\n\r\nDevelopment and history\r\nSee also: Biblical manuscript, Textual
+    criticism, and Samaritan Pentateuch\r\nHebrew Bible from 1300. Genesis.\r\nHebrew
+    Bible from 1300. Genesis.\r\nThe Bible is not a single book; it is a collection
+    of books whose complex development is not completely understood. The oldest books
+    began as songs and stories orally transmitted from generation to generation.
+    Scholars are just beginning to explore \"the interface between writing, performance,
+    memorization, and the aural dimension\" of the texts. Current indications are
+    that the ancient writing\u2013reading process was supplemented by memorization
+    and oral performance in community.[9] The Bible was written and compiled by many
+    people, most of whom are unknown, from a variety of disparate cultures.[10]\r\n\r\nBritish
+    biblical scholar John K. Riches wrote:[11]\r\n\r\n[T]he biblical texts were produced
+    over a period in which the living conditions of the writers \u2013 political,
+    cultural, economic, and ecological \u2013 varied enormously. There are texts
+    which reflect a nomadic existence, texts from people with an established monarchy
+    and Temple cult, texts from exile, texts born out of fierce oppression by foreign
+    rulers, courtly texts, texts from wandering charismatic preachers, texts from
+    those who give themselves the airs of sophisticated Hellenistic writers. It is
+    a time-span which encompasses the compositions of Homer, Plato, Aristotle, Thucydides,
+    Sophocles, Caesar, Cicero, and Catullus. It is a period which sees the rise and
+    fall of the Assyrian empire (twelfth to seventh century) and of the Persian empire
+    (sixth to fourth century), Alexander's campaigns (336\u2013326), the rise of
+    Rome and its domination of the Mediterranean (fourth century to the founding
+    of the Principate, 27 BCE), the destruction of the Jerusalem Temple (70 CE),
+    and the extension of Roman rule to parts of Scotland (84 CE).\r\n\r\nThe books
+    of the Bible were initially written and copied by hand on papyrus scrolls.[12]
+    No originals survive. The age of the original composition of the texts is therefore
+    difficult to determine and heavily debated. Using a combined linguistic and historiographical
+    approach, Hendel and Joosten date the oldest parts of the Hebrew Bible (the Song
+    of Deborah in Judges 5 and the Samson story of Judges 16 and 1 Samuel) to having
+    been composed in the premonarchial early Iron Age (c.\u20091200 BCE).[13] The
+    Dead Sea Scrolls, discovered in the caves of Qumran in 1947, are copies that
+    can be dated to between 250 BCE and 100 CE. They are the oldest existing copies
+    of the books of the Hebrew Bible of any length that are not fragments.[14]"
+--- !u!1 &1395216322187272035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395216322187272032}
+  - component: {fileID: 1395216322187272038}
+  - component: {fileID: 1395216322187272033}
+  m_Layer: 5
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395216322187272032
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322187272035}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1395216322799960505}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1395216322187272038
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322187272035}
+  m_CullTransparentMesh: 1
+--- !u!114 &1395216322187272033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322187272035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1395216322236186494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395216322236186495}
+  - component: {fileID: 1395216322236186466}
+  - component: {fileID: 1395216322236186493}
+  - component: {fileID: 1395216322236186492}
+  m_Layer: 5
+  m_Name: scroll area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395216322236186495
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322236186494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1395216322417203791}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 260, y: 97}
+  m_SizeDelta: {x: -523.9252, y: -480.4159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1395216322236186466
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322236186494}
+  m_CullTransparentMesh: 1
+--- !u!114 &1395216322236186493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322236186494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1395216322236186492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322236186494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
+--- !u!1 &1395216322417203790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395216322417203791}
+  - component: {fileID: 1395216322417203788}
+  m_Layer: 5
+  m_Name: text container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395216322417203791
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322417203790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1395216321159449236}
+  - {fileID: 1395216321999223788}
+  m_Father: {fileID: 1395216322236186495}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00085449, y: -0.00099373}
+  m_SizeDelta: {x: 276.08, y: 160.25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1395216322417203788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322417203790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 1395216321999223788}
+  m_Horizontal: 0
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 5
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 1395216321159449237}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1395216322799960504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395216322799960505}
+  m_Layer: 5
+  m_Name: Sliding Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395216322799960505
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395216322799960504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1395216322187272032}
+  m_Father: {fileID: 1395216321159449236}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
