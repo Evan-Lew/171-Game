@@ -46,6 +46,8 @@ public class EffectDictionary : MonoBehaviour
     double Enemy_armorCreate = 0;
     double Enemy_priorityInc = 0;
 
+    //double ParticleDuration = 0;
+
     // Struct: used for particle system
     public struct particleEffect
     {

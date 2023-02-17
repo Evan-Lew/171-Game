@@ -13,14 +13,16 @@ public class BattleController : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     public bool startDrawingCrads = true;
     public int startingCardsAmount;
-    public enum TurnOrder { playerPhase, EnemyPhase }
+    public float drawAfterAnimationSeconds = 2f;
+    public enum TurnOrder { playerPhase, EnemyPhase}
     public TurnOrder currentPhase;
 
     //for priority system
     private Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private EnemyAi _script_EnemyAi;
-    public TMP_Text _Text_Turn, _Text_PlayerPriority, _Text_EnemyPriority;
+    public bool enableEndTurn = false;
+    public float endPhaseWaitTime = 2f;
 
     bool turnChangedToPlayer = false;
 
@@ -40,31 +42,11 @@ public class BattleController : MonoBehaviour
         //the battle controll will be enabled only if the battle is happened
         if (enable_BattleController)
         {
-            updateText();
             TurnUpdate();
         }
 
-        //for testing, comment it out if you see this during the testing
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            animator_fadeInOut.SetTrigger("Play");
-            animator_PlayerTurn.SetTrigger("Play");
-        }
-
-
-        //if (animator_fadeInOut.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
-        //{
-        //    Debug.Log("Animation finished!");
-        //}
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            animator_fadeInOut.SetTrigger("Play");
-            animator_Enemy.SetTrigger("Play");
-        }
-        //test done
-
     }
+
 
 
     //set this overall script active
@@ -103,14 +85,16 @@ public class BattleController : MonoBehaviour
         result = _script_PrioritySystem.getNextTurnCharacter();
         if (result == player)
         {
+            Debug.Log("switch to enemy");
             //switch to player turn, trigger the animation
-            currentPhase = TurnOrder.playerPhase;       
+            currentPhase = TurnOrder.playerPhase;
             animator_fadeInOut.SetTrigger("Play");
             animator_PlayerTurn.SetTrigger("Play");
         }
         else
         {
             //switch to enemy turn, trigger the animation
+            Debug.Log("switch to enemy");
             currentPhase = TurnOrder.EnemyPhase;
             animator_fadeInOut.SetTrigger("Play");
             animator_Enemy.SetTrigger("Play");
@@ -122,94 +106,53 @@ public class BattleController : MonoBehaviour
 
     void TurnUpdate()
     {
-        //the turn switch will be called only effect animation is played
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        {
-
-            //check if current phase is the last one
-            if ((int)currentPhase >= System.Enum.GetValues(typeof(TurnOrder)).Length)
-            {
-                currentPhase = 0;
-
-            }
-
-            //trigger action function
-            switch (currentPhase)
-            {
-                case TurnOrder.playerPhase:
-                    //Debug.Log("Right now is playerPhase");
-
-                    if (turnChangedToPlayer)
-                    {
-                        _script_DeckSystem.DrawCardToHand();
-                    }
-                    turnChangedToPlayer = false;
-
-
-                    _Text_Turn.text = currentPhase.ToString();
-                    _Text_Turn.color = Color.white;
-                    break;
-
-                case TurnOrder.EnemyPhase:
-                    turnChangedToPlayer = true;
-                    _script_EnemyAi.EnemyUseAction();
-                    //Debug.Log("Right now is EnemyPhase");
-                    _Text_Turn.text = currentPhase.ToString();
-                    _Text_Turn.color = Color.red;
-                    break;
-            }
-
-
-            EffectDictionary.instance.TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
-        },EffectDictionary.instance.TurnsManagerFlag_RunTurnSwitchAfterSeconds));
-
         
+        if(currentPhase == TurnOrder.playerPhase)
+        {
+            if (!enableEndTurn)
+            {
+                if (turnChangedToPlayer)
+                {
+                    StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+                    {
+                        //enmey turn end
+                        _script_DeckSystem.DrawCardToHand();
+                    }, drawAfterAnimationSeconds));
+
+
+                }
+                turnChangedToPlayer = false;
+            }
+            else
+            {
+                //end turn pause
+                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+                {
+                    //player end
+                    currentPhase = TurnOrder.EnemyPhase;
+                    enableEndTurn = false;
+
+
+
+                }, endPhaseWaitTime));
+            }
+        }else if(currentPhase == TurnOrder.EnemyPhase)
+        {
+            if (!enableEndTurn)
+            {
+                turnChangedToPlayer = true;
+                _script_EnemyAi.EnemyUseAction();
+            }
+            else
+            {
+                //end turn pause
+                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+                {
+                    //enmey turn end
+                    currentPhase = TurnOrder.playerPhase;
+                    enableEndTurn = false;
+                }, endPhaseWaitTime));
+            }
+        }
     }
-
-    void updateText()
-    {
-        _Text_PlayerPriority.text = _script_PrioritySystem.priorityDict[player].ToString();
-        _Text_EnemyPriority.text = _script_PrioritySystem.priorityDict[enemy].ToString();
-    }
-
-
-
-    //====================================
-    //         Debug Only
-    //====================================
-
-
-    //void playerUseCard()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Keypad7))
-    //    {
-    //        _script_PrioritySystem.AddCost(player, 2);
-    //        ProcessPriorityTurnControl();
-    //        _Text_PlayerPriority.text = _script_PrioritySystem.priorityDict[player].ToString();
-    //    }
-    //}
-
-    //void enemyUseCard()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Keypad8))
-    //    {
-    //        _script_PrioritySystem.AddCost(enemy, 1);
-    //        ProcessPriorityTurnControl();
-    //        _Text_EnemyPriority.text = _script_PrioritySystem.priorityDict[enemy].ToString();
-    //    }
-    //}
-
-
-    //public void changeTurnWithKey(KeyCode key)
-    //{
-    //    if (Input.GetKeyDown(key))
-    //    {
-    //        currentPhase++;
-
-    //    }
-    //}
-    //====================================
-    //         Debug End
-    //====================================
-
 }

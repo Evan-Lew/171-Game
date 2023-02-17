@@ -214,7 +214,7 @@ public class Card : MonoBehaviour
     void ProcessCardEffect()
     {
         EffectDictionary.instance.effectDictionary_Players[cardID]();
-        BattleController.instance.ProcessPriorityTurnControl();
+        BattleController.instance.enableEndTurn = true;
     }
 
 

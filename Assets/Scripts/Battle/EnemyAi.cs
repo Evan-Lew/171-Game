@@ -86,7 +86,7 @@ public class EnemyAi : MonoBehaviour
     IEnumerator waitLogReading(float amountOfTime)
     {
         yield return new WaitForSeconds(amountOfTime);
-        BattleController.instance.ProcessPriorityTurnControl();
+        //BattleController.instance.ProcessPriorityTurnControl();
         _Text_Log.text = "Next";
         isActioned = false;
 
