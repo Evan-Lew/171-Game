@@ -18,11 +18,19 @@ public class MultipleObjectsMake : _ObjectsMakeBase
     float m_count;
     float m_scalefactor;
 
-
-    void Start()
+    private void OnEnable()
     {
+        m_count = 0;
         m_Time = m_Time2 = Time.time;
         m_scalefactor = VariousEffectsScene.m_gaph_scenesizefactor; //transform.parent.localScale.x; 
+   
+
+    }
+
+    
+    void Start()
+    {
+
     }
 
 
@@ -30,6 +38,7 @@ public class MultipleObjectsMake : _ObjectsMakeBase
     {
         if (Time.time > m_Time + m_startDelay)
         {
+           
             if (Time.time > m_Time2 + m_makeDelay && m_count < m_makeCount)
             {
                 Vector3 m_pos = transform.position + GetRandomVector(m_randomPos)* m_scalefactor; 

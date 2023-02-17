@@ -18,12 +18,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        testPos = GameObject.Find("Enemy").GetComponent<Transform>();
+        
     }
-
-
-    public GameObject testEffect;
-    public Transform testPos;
 
 
     // Update is called once per frame

@@ -14637,7 +14637,7 @@ MonoBehaviour:
   MoveSpeed: 10
   AbleHit: 1
   HitDelay: 0.5
-  m_hitObject: {fileID: 8708412796869533731, guid: 84017cb636f0ef94cbc73c1347bf215d,
+  m_hitObject: {fileID: 8708412796869533731, guid: 204ae556f354482478b1eba28c6ba450,
     type: 3}
   MaxLength: 1
   DestroyTime2: 2
