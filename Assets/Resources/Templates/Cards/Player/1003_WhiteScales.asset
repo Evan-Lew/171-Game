@@ -17,6 +17,5 @@ MonoBehaviour:
   ID: 1003
   description_Main: Gain 2 Armor
   priorityCost: 1
-  Card_Front: {fileID: 21300000, guid: c922f61b3f973874aab5804421c99089, type: 3}
-  Card_Type: {fileID: 2800000, guid: a3a4213763b37624ab78feb1122c9cde, type: 3}
+  Card_Front: {fileID: 21300000, guid: ae2df38368560dd48ae186e7068a72e7, type: 3}
   icon: {fileID: 0}

@@ -17,5 +17,5 @@ MonoBehaviour:
   ID: 2001
   description_Main: Deal 3 Damage; Banish
   priorityCost: 1
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: ba7cb8b8527494d439e14087f679ad0b, type: 3}
   icon: {fileID: 0}
