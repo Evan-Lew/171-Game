@@ -15,13 +15,6 @@ public class GameController : MonoBehaviour
     [SerializeField] PrioritySystem _script_PrioritySystem;
     [SerializeField] DeckSystem _script_DeckSystem;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
     // Update is called once per frame
     void Update()
     {

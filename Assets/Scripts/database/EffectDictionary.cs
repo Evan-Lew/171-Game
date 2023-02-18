@@ -20,6 +20,7 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     Character player, enemy;
+    GameObject playerObj, enemyObj;
 
     [Header("List of banished cards")]
     public List<Card_Basedata> BanishPool;
@@ -47,6 +48,8 @@ public class EffectDictionary : MonoBehaviour
 
     float ParticleDuration = 0;
 
+    enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
+
     // Struct: used for particle system
     public struct particleEffect
     {
@@ -63,16 +66,17 @@ public class EffectDictionary : MonoBehaviour
     [Header("List of enemy particle prefabs")]
     public List<GameObject> enemyParticlePrefabsList = new List<GameObject>();
     private List<particleEffect> enemyParticlePrefabsPool = new List<particleEffect>();
-    
-    public float TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
+   
     public List<GameObject> ExtraPositioning = new List<GameObject>();
     
     public void SetUp()
     {
         playerParticlePrefabsPool.Clear();
         enemyParticlePrefabsPool.Clear();
-        player = GameObject.Find("Player").GetComponent<Character>();
-        enemy = GameObject.Find("Enemy").GetComponent<Character>();
+        playerObj = GameObject.Find("Player");
+        enemyObj = GameObject.Find("Enemy");
+        player = playerObj.GetComponent<Character>();
+        enemy = enemyObj.GetComponent<Character>();
     }
     
     //=================================================================
@@ -136,80 +140,9 @@ public class EffectDictionary : MonoBehaviour
         _script_PrioritySystem.AddCost(Target, Cost);
     }
     
-    // Object Pool: instantiate the particle gameObject prefab if it does not exist and disable it after effect is played
     // If it already exists, set it to active, and when the effect is played it will be set to disabled again
-    // Particle will be played on the target (player or enemy)
-    private void ParticleEvent(string effectName, int ID, float duration, Character target, bool playerEffect)
-    {
-        // Check which pool to use
-        particleEffect foundEffect;
-        if (playerEffect)
-        {
-            foundEffect = playerParticlePrefabsPool.Find(effect => effect.ID == ID);    
-        }
-        else
-        {
-            foundEffect = enemyParticlePrefabsPool.Find(effect => effect.ID == ID);    
-        }
-
-        // If the effect does not exist find it and setToActive
-        if (foundEffect.particleObj == null)
-        {
-            // Instantiate it
-            particleEffect newEffect = new particleEffect();
-            
-            // Check which particle list to use
-            GameObject particleInstance;
-            if (playerEffect)
-            {
-                particleInstance = playerParticlePrefabsList.Find(x => x.name == effectName);
-            }
-            else
-            {
-                particleInstance = enemyParticlePrefabsList.Find(x => x.name == effectName);
-            }
-            
-            GameObject newParticle = Instantiate(particleInstance, target.transform.position, particleInstance.transform.rotation);
-            // Store it in the pool
-            newEffect.particleObj = newParticle;
-            newEffect.totalPlayTime = duration;
-            newEffect.ID = ID;
-            newEffect.effectName = effectName;
-
-            // Check which particle pool to add to
-            if (playerEffect)
-            {
-                playerParticlePrefabsPool.Add(newEffect);
-            }
-            else
-            {
-                enemyParticlePrefabsPool.Add(newEffect);   
-            }
-
-            // Set object to deactivate after it's been played (object pool idea)
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                newEffect.particleObj.SetActive(false);
-                // Tell battle controller to run turn change
-                TurnsManagerFlag_RunTurnSwitchAfterSeconds = newEffect.totalPlayTime;
-            }, newEffect.totalPlayTime));
-        }
-        else
-        {
-            // If it exists in the pool then activate it and then set the effect to deActive
-            foundEffect.particleObj.SetActive(true);
-            // Set it to deActive after it has been played
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                // Debug.Log("test2");
-                foundEffect.particleObj.SetActive(false);
-                TurnsManagerFlag_RunTurnSwitchAfterSeconds = foundEffect.totalPlayTime;
-            }, foundEffect.totalPlayTime));
-        }
-    }
-    
     // Object Pool with special position for the particle to spawn instead of using the player/enemy pos
-    private void PositionedParticleEvent(string effectName, int ID, float duration, GameObject overrideObj, bool playerEffect)
+    private void ParticleEvent(string effectName, int ID, float duration, GameObject overrideObj, bool playerEffect)
     {
         // Check which pool to use
         particleEffect foundEffect;
@@ -260,9 +193,8 @@ public class EffectDictionary : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 newEffect.particleObj.SetActive(false);
-                // Tell battle controller to run turn change
-                TurnsManagerFlag_RunTurnSwitchAfterSeconds = newEffect.totalPlayTime;
-            }, newEffect.totalPlayTime));
+                TurnManipulator(effectName);
+            }, newEffect.totalPlayTime ));
         }
         else
         {
@@ -273,11 +205,25 @@ public class EffectDictionary : MonoBehaviour
             {
                 // Debug.Log("test2");
                 foundEffect.particleObj.SetActive(false);
-                TurnsManagerFlag_RunTurnSwitchAfterSeconds = foundEffect.totalPlayTime;
-            }, foundEffect.totalPlayTime));
+                TurnManipulator(effectName);
+
+            }, foundEffect.totalPlayTime ));
         }
     }
 
+    //for some unique particle, the turn will not changed
+    void TurnManipulator(string effectName)
+    {
+        if (effectName == "Stubborn")
+        {
+            BattleController.instance.enableTurnUpdate = true;
+        }
+        else
+        {
+            BattleController.instance.enableEndTurn = true;
+            BattleController.instance.enableTurnUpdate = true;
+        }
+    }
     //-----------------------------------------------------------------
     //                      Tagged Effect Ends
     //=================================================================
@@ -300,7 +246,7 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         // Particle positioned under the player
-        PositionedParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
         
         Manipulator_Player_Reset();
     }
@@ -308,7 +254,7 @@ public class EffectDictionary : MonoBehaviour
     // Deal 3 damage, cost 2
     public void ID1002_Whack()
     {
-        ParticleDuration = 1f;
+        ParticleDuration = 2f;
         Player_damageDealing = 3;
         Player_priorityInc = 2;
         
@@ -318,7 +264,7 @@ public class EffectDictionary : MonoBehaviour
 
         // Particle positioned on the enemy
         // --WAITING FOR CARD IMPLEMENTATION--
-        ParticleEvent("Whack", 1002, ParticleDuration, enemy, true);
+        ParticleEvent("Whack", 1002, ParticleDuration, enemyObj, true);
         
         Manipulator_Player_Reset();
     }
@@ -335,7 +281,7 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         // Particle positioned under the player
-        PositionedParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[0], true);
         
         Manipulator_Player_Reset();
     }
@@ -354,7 +300,7 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         // Particle positioned under the player
-        PositionedParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[0], true);
         
         Manipulator_Player_Reset();
     }
@@ -372,7 +318,7 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         // Particle positioned on the enemy
-        ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, enemy, true);
+        ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, enemyObj, true);
         
         Manipulator_Player_Reset();
     }
@@ -390,7 +336,7 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         // Particle positioned on the enemy
-        ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemy, true);
+        ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemyObj, true);
         
         Manipulator_Player_Reset();
     }
@@ -421,7 +367,7 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
 
         // Particle positioned on the enemy
-        ParticleEvent("DemonFang", 2004, ParticleDuration, enemy, true);
+        ParticleEvent("DemonFang", 2004, ParticleDuration, enemyObj, true);
         Manipulator_Player_Reset();
     }
 
@@ -488,7 +434,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Action_01_ThrowStone2", 1);
         
         // Particle positioned under the player
-        PositionedParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[0], false);
+        ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[0], false);
         
         Manipulator_Enemy_Reset();
     }
@@ -496,7 +442,7 @@ public class EffectDictionary : MonoBehaviour
     // Deal damage to player equal to his health, cost 2
     public void Action_02_ThrowHimself()
     {
-        ParticleDuration = 1f;
+        ParticleDuration = 2f;
         Enemy_damageDealing = enemy.Armor_Current;
         Enemy_priorityInc = 2;
         
@@ -508,11 +454,10 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
         
         // Particle positioned on the player
-        ParticleEvent("ThrowHimself", 2, ParticleDuration, player, false);
+        ParticleEvent("ThrowHimself", 2, ParticleDuration, playerObj, false);
         
         Manipulator_Enemy_Reset();
     }
-
     // At the end of player turn, gain 2 armor
     public void Action_03_Stubborn()
     {
@@ -523,38 +468,10 @@ public class EffectDictionary : MonoBehaviour
         CreateArmor_ToTarget(enemy, Enemy_armorCreate);
 
         // Particle positioned under the enemy
-        PositionedParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[1], false);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[1], false);
         
-        Manipulator_Enemy_Reset();
+        Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
     }
-
-    // // Deal 4 damage, cost 2
-    // public void Action_01_Stomp()
-    // {
-    //     ParticleDuration = 3f;
-    //     Enemy_damageDealing = 4;
-    //     Enemy_priorityInc = 2;
-    //     
-    //     Manipulator_Enemy();
-    //     DealDamage_ToTarget(player, Enemy_damageDealing);
-    //     PriorityIncrement(enemy, Enemy_priorityInc);
-    //
-    //     Manipulator_Enemy_Reset();
-    // }
-
-    // // Gain 4 armor, cost 2
-    // public void Action_10_Solidify()
-    // {
-    //     ParticleDuration = 3f;
-    //     Enemy_armorCreate = 4;
-    //     Enemy_priorityInc = 2;
-    //     
-    //     Manipulator_Enemy();
-    //     CreateArmor_ToTarget(enemy, Enemy_armorCreate);
-    //     PriorityIncrement(enemy, Enemy_priorityInc);
-    //
-    //     Manipulator_Enemy_Reset();
-    // }
 
 
     //-----------------------------------------------------------------
@@ -576,6 +493,11 @@ public class EffectDictionary : MonoBehaviour
     //this will be called for all player effect to check all flags
     void Manipulator_Player()
     {
+        //to avoid overlap with turn change animation
+        if(ParticleDuration < 2f)
+        {
+            ParticleDuration = 2f;
+        }
         Manipulator_Player_DealingExtra();
         Manipulator_Player_CostExtra();
         Manipulator_Player_DealingDouble();
@@ -584,6 +506,8 @@ public class EffectDictionary : MonoBehaviour
     //this will be called for all player effect to turn off all flags
     void Manipulator_Player_Reset()
     {
+
+
         Player_damageDealing = 0;
         Player_priorityInc = 0;
         Player_cardsDrawing = 0;
@@ -634,15 +558,33 @@ public class EffectDictionary : MonoBehaviour
     //<-----------Enemy-------------------------------------------------
     void Manipulator_Enemy()
     {
-
+        if (ParticleDuration < 2f)
+        {
+            ParticleDuration = 2f;
+        }
     }
 
     void Manipulator_Enemy_Reset()
     {
+        //enable turn change
+
         Enemy_damageDealing = 0;
         Enemy_priorityInc = 0;;
         Enemy_armorCreate = 0;
         ParticleDuration = 0;
+    }
+
+   
+
+    void Manipulator_Enemy_Reset(specialHandling castTime)
+    {
+        if (castTime == specialHandling.CastAt_playerEnd)
+        {
+            Enemy_damageDealing = 0;
+            Enemy_priorityInc = 0; ;
+            Enemy_armorCreate = 0;
+            ParticleDuration = 0;
+        }
     }
 
     //=================================================================
@@ -671,58 +613,5 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Enemies.Add(3, Action_03_Stubborn);
     }
 
-    private void Update()
-    {
-        test();
-    }
 
-
-    void test()
-    {
-        int TestID;
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            TestID = 1001;
-            ID1001_Payment();
-            Debug.Log("I am calling " + TestID);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            TestID = 1002;
-            ID1002_Whack();
-            Debug.Log("I am calling " + TestID);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            TestID = 1003;
-            ID1003_WhiteScales();
-            Debug.Log("I am calling " + TestID);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            TestID = 1004;
-            ID1004_ShedSkin();
-            Debug.Log("I am calling " + TestID);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            TestID = 1004;
-            ID1004_ShedSkin();
-            Debug.Log("I am calling " + TestID);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            TestID = 1005;
-            ID2001_ForbiddenVenom();
-            Debug.Log("I am calling " + TestID);
-        }
-    }
 }

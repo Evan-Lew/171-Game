@@ -21,4 +21,7 @@ public class Character_Basedata : ScriptableObject
     public double Priority_Initial;
     public double Priority_Current;
 
+
+    [HideInInspector] public enum PatternType { single, multiple, special, player }
+    public PatternType Pattern;
 }

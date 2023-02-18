@@ -14,19 +14,16 @@ public class BattleController : MonoBehaviour
     public bool startDrawingCrads = true;
     public int startingCardsAmount;
     public float drawAfterAnimationSeconds = 2f;
-    public enum TurnOrder { playerPhase, EnemyPhase}
+    public enum TurnOrder { playerPhase, EnemyPhase }
     public TurnOrder currentPhase;
+    private TurnOrder nextPhase;
 
     //for priority system
     private Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private EnemyAi _script_EnemyAi;
-    public bool enableEndTurn = false;
-    public float endPhaseWaitTime = 2f;
-
-    bool turnChangedToPlayer = false;
-
-    //public Card_Basedata currentUsingCard; 
+    [HideInInspector] public bool enableTurnUpdate = false;
+    [HideInInspector] public bool enableEndTurn = false;
 
     [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_Enemy;
 
@@ -42,8 +39,14 @@ public class BattleController : MonoBehaviour
         //the battle controll will be enabled only if the battle is happened
         if (enable_BattleController)
         {
-            TurnUpdate();
+
+            if (enableTurnUpdate)
+            {
+                TurnUpdate();
+            }
+
         }
+
 
     }
 
@@ -83,76 +86,101 @@ public class BattleController : MonoBehaviour
     {
         Character result;
         result = _script_PrioritySystem.getNextTurnCharacter();
-        if (result == player)
+        if (result == player && currentPhase != TurnOrder.playerPhase)
         {
-            Debug.Log("switch to enemy");
             //switch to player turn, trigger the animation
-            currentPhase = TurnOrder.playerPhase;
+            nextPhase = TurnOrder.playerPhase;
             animator_fadeInOut.SetTrigger("Play");
             animator_PlayerTurn.SetTrigger("Play");
+
         }
-        else
+        else if (result == enemy && currentPhase != TurnOrder.EnemyPhase)
         {
             //switch to enemy turn, trigger the animation
-            Debug.Log("switch to enemy");
-            currentPhase = TurnOrder.EnemyPhase;
-            animator_fadeInOut.SetTrigger("Play");
-            animator_Enemy.SetTrigger("Play");
-            //just for testing golem
-            EffectDictionary.instance.effectDictionary_Enemies[3]();
+            nextPhase = TurnOrder.EnemyPhase;
+            SpecialHandling_EndPlayerTurn();
         }
+
+        enableEndTurn = false;
+        enableTurnUpdate = true;
+        currentPhase = nextPhase;
+
     }
+
 
 
     void TurnUpdate()
     {
-        
-        if(currentPhase == TurnOrder.playerPhase)
+        // Debug.Log(currentPhase + "" + nextPhase);
+        if (currentPhase == TurnOrder.playerPhase)
         {
             if (!enableEndTurn)
             {
-                if (turnChangedToPlayer)
-                {
-                    StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-                    {
-                        //enmey turn end
-                        _script_DeckSystem.DrawCardToHand();
-                    }, drawAfterAnimationSeconds));
-
-
-                }
-                turnChangedToPlayer = false;
-            }
-            else
-            {
-                //end turn pause
-                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-                {
-                    //player end
-                    currentPhase = TurnOrder.EnemyPhase;
-                    enableEndTurn = false;
-
-
-
-                }, endPhaseWaitTime));
-            }
-        }else if(currentPhase == TurnOrder.EnemyPhase)
-        {
-            if (!enableEndTurn)
-            {
-                turnChangedToPlayer = true;
-                _script_EnemyAi.EnemyUseAction();
-            }
-            else
-            {
-                //end turn pause
+                Debug.Log("Process playerTurn");
+                enableEndTurn = false;
+                enableTurnUpdate = false;
                 StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
                 {
                     //enmey turn end
-                    currentPhase = TurnOrder.playerPhase;
-                    enableEndTurn = false;
-                }, endPhaseWaitTime));
+                    _script_DeckSystem.DrawCardToHand();
+                }, drawAfterAnimationSeconds));
             }
+            else
+            {
+                Debug.Log("Process playerEndTurn");
+                //player end
+                ProcessPriorityTurnControl();
+            }
+        }
+        else if (currentPhase == TurnOrder.EnemyPhase)
+        {
+
+            if (!enableEndTurn)
+            {
+                Debug.Log("Process EnemyTurn");
+                enableEndTurn = false;
+                enableTurnUpdate = false;
+                _script_EnemyAi.isActioned = false;
+                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+                {
+                    _script_EnemyAi.EnemyAction(enemy.CharacterName);
+                }, 3.5f));
+
+            }
+            else
+            {
+                Debug.Log("Process enemyEndTurn");
+                //enmey turn end
+                ProcessPriorityTurnControl();
+            }
+        }
+    }
+
+
+
+
+    void SpecialHandling_EndPlayerTurn()
+    {
+
+
+        if (enemy.CharacterName == "Golem")
+        {
+
+
+            _script_EnemyAi.CastUniqueAbility_Golem();
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                animator_fadeInOut.SetTrigger("Play");
+                animator_Enemy.SetTrigger("Play");
+            }, 1f));
+
+
+        }
+        else
+        {
+            animator_fadeInOut.SetTrigger("Play");
+            animator_Enemy.SetTrigger("Play");
+
         }
     }
 }
