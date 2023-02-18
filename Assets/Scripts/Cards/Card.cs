@@ -21,7 +21,7 @@ public class Card : MonoBehaviour
     public int priorityCost;
     //public Sprite card_sprite;
 
-    
+
     public TMP_Text _Text_Cost, _Text_Name, _Text_DescriptionMain;
     public Image _Image_Card;
     [Header("Don't change the list order")]
@@ -31,7 +31,7 @@ public class Card : MonoBehaviour
     [HideInInspector] public bool isInHand;
     public int handPosition;
     private HandManager handManager;            //use to pair with hand manager
-    public Vector3 cardHoveringPosAdjustment = new Vector3(0f, 1f, 0.5f);
+    public Vector3 cardHoveringPosAdjustment;
 
 
     //Selecting
@@ -53,12 +53,12 @@ public class Card : MonoBehaviour
     //from battle control
     private BattleController _script_BattleController;
 
-
+    //hovering
     bool enableOverEffect;
-
-
-
-
+    [HideInInspector] public bool isHoveringAnimationCalled = false;
+    Vector3 initializedScale;
+    Vector3 targetScale;
+    [Range(0.0f, 1.0f)] public float cardSizeChange_Lerp = 0.2f;
 
 
 
@@ -67,7 +67,6 @@ public class Card : MonoBehaviour
     {
         loadObjects();
         loadCard();
-    
     }
 
 
@@ -89,6 +88,9 @@ public class Card : MonoBehaviour
         {
             Actions_Handcards();
         }
+
+
+
 
         //reset the mouse input bool
         justPressed = false;
@@ -115,6 +117,8 @@ public class Card : MonoBehaviour
         cardName = cardData.cardName;
         descriptionMain = cardData.description_Main;
         cardID = cardData.ID;
+        initializedScale = transform.localScale;
+        targetScale = initializedScale;
         //card_sprite = cardData.Card_Front;
         //_Image_Card = cardData.Card_Front;
 
@@ -141,6 +145,12 @@ public class Card : MonoBehaviour
         targetRotation = rot_MoveTo;
     }
 
+
+
+    public void ChangeToSize(Vector3 target)
+    {
+        targetScale = target;
+    }
     //======================================================
     //                  Cards Actions   
     //======================================================
@@ -158,6 +168,7 @@ public class Card : MonoBehaviour
         //let card rotate to sorted view quickly
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10f);
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, cardSizeChange_Lerp);
 
         //create a line where the mouse is, and use that line to check the collision
         if (isSelected)
@@ -175,11 +186,11 @@ public class Card : MonoBehaviour
         //0 left click  1 right click
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-     
+
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsInteraction))
         {
-           
+
 
             MoveToPoint(hit.point + new Vector3(0, 2f, 0f), Quaternion.identity);
         }
@@ -242,17 +253,25 @@ public class Card : MonoBehaviour
 
         if (isInHand && enableOverEffect)
         {
-           
             //find the card and rise it and move up
             MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, this.transform.rotation);
-            
+            ChangeToSize(initializedScale * 1.5f);
+            if (!isHoveringAnimationCalled)
+            {
+                handManager.MoveOtherCardAtHovering(this);
+                isHoveringAnimationCalled = true;
+            }
+
         }
 
         enableOverEffect = false;
 
     }
 
-  
+
+
+
+
 
     private void OnMouseExit()
     {
@@ -260,14 +279,11 @@ public class Card : MonoBehaviour
 
         if (isInHand)
         {
-            
-            //StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            //{
-            //    enableOverEffect = true;
-            //}, 0.5f));
-           
+
             //find the card and rise it and move up
-            MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition], handManager.minPos.rotation);
+            handManager.MoveOtherCardAtHovering_Reset();
+            ChangeToSize(initializedScale);
+            isHoveringAnimationCalled = false;
         }
     }
 

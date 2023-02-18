@@ -116,7 +116,6 @@ public class BattleController : MonoBehaviour
         {
             if (!enableEndTurn)
             {
-                Debug.Log("Process playerTurn");
                 enableEndTurn = false;
                 enableTurnUpdate = false;
                 StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -127,7 +126,6 @@ public class BattleController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Process playerEndTurn");
                 //player end
                 ProcessPriorityTurnControl();
             }
@@ -137,7 +135,6 @@ public class BattleController : MonoBehaviour
 
             if (!enableEndTurn)
             {
-                Debug.Log("Process EnemyTurn");
                 enableEndTurn = false;
                 enableTurnUpdate = false;
                 _script_EnemyAi.isActioned = false;
@@ -149,7 +146,6 @@ public class BattleController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Process enemyEndTurn");
                 //enmey turn end
                 ProcessPriorityTurnControl();
             }

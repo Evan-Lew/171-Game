@@ -147,9 +147,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972807442340114448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.599, y: 0.202, z: 0}
+  m_LocalPosition: {x: 1.599, y: 0.916, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3072069118497765710}
   - {fileID: 1972807443886775220}
@@ -187,10 +187,12 @@ MonoBehaviour:
   - {fileID: 5396272600942532514}
   isInHand: 0
   handPosition: 0
-  cardHoveringPosAdjustment: {x: 0, y: 1, z: 0.5}
+  cardHoveringPosAdjustment: {x: 0, y: 1, z: 0.8}
   isSelected: 0
   cardMovingSpeed_Lerp: 0.1
   rotateSpeed: 100
+  isHovering: 0
+  cardSizeChange_Lerp: 0.2
   _Mask_AreaForCardsInteraction:
     serializedVersion: 2
     m_Bits: 192
@@ -208,8 +210,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0122847315, y: 0.001, z: 0.023151716}
-  m_Center: {x: 0.00022621632, y: 0, z: -0.0030041283}
+  m_Size: {x: 0.0122847315, y: 0.001, z: 0.025837535}
+  m_Center: {x: 0.00022621632, y: 0, z: -0.0041097295}
 --- !u!1 &1972807442432284683
 GameObject:
   m_ObjectHideFlags: 0
