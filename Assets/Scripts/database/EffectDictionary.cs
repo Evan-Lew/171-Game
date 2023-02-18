@@ -41,12 +41,11 @@ public class EffectDictionary : MonoBehaviour
     double Player_priorityInc = 0;
     double Player_extraPriorityCost = 0;
     
-    
     double Enemy_damageDealing = 0;
     double Enemy_armorCreate = 0;
     double Enemy_priorityInc = 0;
 
-    //double ParticleDuration = 0;
+    float ParticleDuration = 0;
 
     // Struct: used for particle system
     public struct particleEffect
@@ -64,12 +63,10 @@ public class EffectDictionary : MonoBehaviour
     [Header("List of enemy particle prefabs")]
     public List<GameObject> enemyParticlePrefabsList = new List<GameObject>();
     private List<particleEffect> enemyParticlePrefabsPool = new List<particleEffect>();
-
     
     public float TurnsManagerFlag_RunTurnSwitchAfterSeconds = 0;
     public List<GameObject> ExtraPositioning = new List<GameObject>();
-
-
+    
     public void SetUp()
     {
         playerParticlePrefabsPool.Clear();
@@ -81,7 +78,7 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                       Tagged Effect
     //-----------------------------------------------------------------
-    //Note: Tagged effect function will be private only.
+    // Note: Tagged effect function will be private only.
     private void DealDamage_ToTarget(Character Target, double damageDealt)
     {
         // Check if the target has armor
@@ -291,157 +288,165 @@ public class EffectDictionary : MonoBehaviour
     //                        PLAYER CARDS
     //-----------------------------------------------------------------
     
-    //draw 2 cards, cost 3
+    // Draw 2 cards, cost 3
     public void ID1001_Payment()
     {
+        ParticleDuration = 3f;
         Player_cardsDrawing = 2;
         Player_priorityInc = 3;
+        
         Manipulator_Player();
-
         DrawCards_Player(Player_cardsDrawing);
         PriorityIncrement(player, Player_priorityInc);
 
-        Manipulator_Player_Reset();
-        
         // Particle positioned under the player
-        PositionedParticleEvent("Payment", 1001, 2f, ExtraPositioning[0], true);
+        PositionedParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
+        
+        Manipulator_Player_Reset();
     }
 
-    //deal 3 damage, cost 2
+    // Deal 3 damage, cost 2
     public void ID1002_Whack()
     {
+        ParticleDuration = 1f;
         Player_damageDealing = 3;
         Player_priorityInc = 2;
+        
         Manipulator_Player();
-
         DealDamage_ToTarget(enemy, Player_damageDealing);
         PriorityIncrement(player, Player_priorityInc);
 
-        Manipulator_Player_Reset();
-        
         // Particle positioned on the enemy
         // --WAITING FOR CARD IMPLEMENTATION--
-        ParticleEvent("Whack", 1002, 1f, enemy, true);
-    }
-
-    //gain 2 armor, cost 2
-    public void ID1003_WhiteScales()
-    {
-        Player_armorCreate = 2;
-        Player_priorityInc = 1;
-        Manipulator_Player();
-
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
+        ParticleEvent("Whack", 1002, ParticleDuration, enemy, true);
         
         Manipulator_Player_Reset();
-        
-        // Particle positioned under the player
-        PositionedParticleEvent("WhiteScales", 1003, 2f, ExtraPositioning[0], true);
     }
 
-    //draw 2 cards, gain 3 armors, cost 4
+    // Gain 2 armor, cost 2
+    public void ID1003_WhiteScales()
+    {
+        ParticleDuration = 2f;
+        Player_armorCreate = 2;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+
+        // Particle positioned under the player
+        PositionedParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[0], true);
+        
+        Manipulator_Player_Reset();
+    }
+
+    // Draw 2 cards, gain 3 armors, cost 4
     public void ID1004_ShedSkin()
     {
+        ParticleDuration = 2f;
         Player_armorCreate = 3;
         Player_cardsDrawing = 2;
         Player_priorityInc = 4;
+        
         Manipulator_Player();
-
         DrawCards_Player(Player_cardsDrawing);
         CreateArmor_ToTarget(player, Player_armorCreate);
         PriorityIncrement(player, Player_priorityInc);
 
-        Manipulator_Player_Reset();
-        
         // Particle positioned under the player
-        PositionedParticleEvent("ShedSkin", 1004, 2f, ExtraPositioning[0], true);
+        PositionedParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[0], true);
+        
+        Manipulator_Player_Reset();
     }
 
-    //draw 2 cards, gain 3 armors, cost 1
+    // Draw 2 cards, gain 3 armors, cost 1
     public void ID2001_ForbiddenVenom()
     {
+        ParticleDuration = 3f;
         Player_damageDealing = 3;
         Player_priorityInc = 1;
+        
         Manipulator_Player();
-
         DealDamage_ToTarget(enemy, Player_damageDealing);
         Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2001));
         PriorityIncrement(player, Player_priorityInc);
 
-        Manipulator_Player_Reset();
-        
         // Particle positioned on the enemy
-        ParticleEvent("ForbiddenVenom", 2001, 3f, enemy, true);
+        ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, enemy, true);
+        
+        Manipulator_Player_Reset();
     }
 
-    //deal 6 damage, the next card you play deal 4 more damage
+    // Deal 6 damage, the next card you play deal 4 more damage
     public void ID2002_SerpentCutlass()
     {
+        ParticleDuration = 3f;
         Player_damageDealing = 6;
         Player_priorityInc = 5;
-        Manipulator_Player();
-
-
         Player_extraDamage = 4;
+        
+        Manipulator_Player();
         DealDamage_ToTarget(enemy, Player_damageDealing);
         PriorityIncrement(player, Player_priorityInc);
 
-        Manipulator_Player_Reset();
-        
         // Particle positioned on the enemy
-        ParticleEvent("SerpentCutlass", 2002, 3f, enemy, true);
+        ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemy, true);
+        
+        Manipulator_Player_Reset();
     }
 
-    //next card deal double damage
+    // Next card deal double damage
     public void ID2003_WisdomOfWisteria()
     {
+        ParticleDuration = 3f;
         Player_priorityInc = 3;
-        Manipulator_Player();
-
         isDealingDoubleDmg = true;
+        
+        Manipulator_Player();
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
     }
 
-    //deal 1 damage, return card to hand
+    // Deal 1 damage, return card to hand
     public void ID2004_DemonFang()
     {
+        ParticleDuration = 3f;
         Player_damageDealing = 1;
         Player_priorityInc = 1;
+        
         Manipulator_Player();
-
         DealDamage_ToTarget(enemy, Player_damageDealing);
         ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
         PriorityIncrement(player, Player_priorityInc);
 
-        Manipulator_Player_Reset();
-        
         // Particle positioned on the enemy
-        ParticleEvent("DemonFang", 2004, 3f, enemy, true);
+        ParticleEvent("DemonFang", 2004, ParticleDuration, enemy, true);
+        Manipulator_Player_Reset();
     }
 
-    //draw 2
+    // Draw 2
     public void ID3001_FortoldFortune()
     {
+        ParticleDuration = 3f;
         Player_cardsDrawing = 2;
         Player_priorityInc = 2;
+        
         Manipulator_Player();
-
         DrawCards_Player(Player_cardsDrawing);
         PriorityIncrement(player, Player_priorityInc);
 
         Manipulator_Player_Reset();
     }
 
-    //heal 6
+    // Heal 6
     public void ID4001_JadeSpirit()
     {
+        ParticleDuration = 3f;
         Player_healing = 6;
         Player_priorityInc = 2;
+        
         Manipulator_Player();
-
         Heal_ToTarget(player, Player_healing);
         PriorityIncrement(player, Player_priorityInc);
 
@@ -458,18 +463,17 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                        ENEMY EFFECTS
     //-----------------------------------------------------------------
-    //deal 3 damage, cost 2
+    // Deal 3 damage, cost 2
     public void Action_01_ThrowStone()
     {
         // Card Description
+        ParticleDuration = 3f;
         Enemy_damageDealing = 3;
         Enemy_priorityInc = 2;
+        
         Manipulator_Enemy();
-
         DealDamage_ToTarget(player, Enemy_damageDealing);
         PriorityIncrement(enemy, Enemy_priorityInc);
-
-        Manipulator_Enemy_Reset();
 
         // Card SFX
         // Play SFX with delay
@@ -484,67 +488,73 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Action_01_ThrowStone2", 1);
         
         // Particle positioned under the player
-        PositionedParticleEvent("ThrowStone", 1, 3f, ExtraPositioning[0], false);
+        PositionedParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[0], false);
+        
+        Manipulator_Enemy_Reset();
     }
 
-    //deal damage to player equal to his health, cost 2
+    // Deal damage to player equal to his health, cost 2
     public void Action_02_ThrowHimself()
     {
+        ParticleDuration = 1f;
         Enemy_damageDealing = enemy.Armor_Current;
         Enemy_priorityInc = 2;
+        
         Manipulator_Enemy();
-
         DealDamage_ToTarget(player, Enemy_damageDealing);
         PriorityIncrement(enemy, Enemy_priorityInc);
 
-        Manipulator_Enemy_Reset();
-        
         // Play SFX
         SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
         
         // Particle positioned on the player
-        ParticleEvent("ThrowHimself", 2, 1f, player, false);
+        ParticleEvent("ThrowHimself", 2, ParticleDuration, player, false);
+        
+        Manipulator_Enemy_Reset();
     }
 
-    //end of player turn, gain 2 armor
+    // At the end of player turn, gain 2 armor
     public void Action_03_Stubborn()
     {
+        ParticleDuration = 3f;
         Enemy_armorCreate = 1;
+        
         Manipulator_Enemy();
-
         CreateArmor_ToTarget(enemy, Enemy_armorCreate);
 
-        Manipulator_Enemy_Reset();
-        
         // Particle positioned under the enemy
-        PositionedParticleEvent("Stubborn", 3, 3f, ExtraPositioning[1], false);
+        PositionedParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[1], false);
+        
+        Manipulator_Enemy_Reset();
     }
 
-    ////deal 4 damage, cost 2
-    //public void Action_01_Stomp()
-    //{
-    //    Enemy_damageDealing = 4;
-    //    Enemy_priorityInc = 2;
-    //    Manipulator_Enemy();
+    // // Deal 4 damage, cost 2
+    // public void Action_01_Stomp()
+    // {
+    //     ParticleDuration = 3f;
+    //     Enemy_damageDealing = 4;
+    //     Enemy_priorityInc = 2;
+    //     
+    //     Manipulator_Enemy();
+    //     DealDamage_ToTarget(player, Enemy_damageDealing);
+    //     PriorityIncrement(enemy, Enemy_priorityInc);
+    //
+    //     Manipulator_Enemy_Reset();
+    // }
 
-    //    DealDamage_ToTarget(player, Enemy_damageDealing);
-    //    PriorityIncrement(enemy, Enemy_priorityInc);
-
-    //    Manipulator_Enemy_Reset();
-    //}
-
-    ////gain 4 armor, cost 2
-    //public void Action_10_Solidify()
-    //{
-    //    Enemy_armorCreate = 4;
-    //    Enemy_priorityInc = 2;
-    //    Manipulator_Enemy();
-
-    //    CreateArmor_ToTarget(enemy, Enemy_armorCreate);
-    //    PriorityIncrement(enemy, Enemy_priorityInc);
-
-    //    Manipulator_Enemy_Reset();
-    //}
+    // // Gain 4 armor, cost 2
+    // public void Action_10_Solidify()
+    // {
+    //     ParticleDuration = 3f;
+    //     Enemy_armorCreate = 4;
+    //     Enemy_priorityInc = 2;
+    //     
+    //     Manipulator_Enemy();
+    //     CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+    //     PriorityIncrement(enemy, Enemy_priorityInc);
+    //
+    //     Manipulator_Enemy_Reset();
+    // }
 
 
     //-----------------------------------------------------------------
@@ -579,6 +589,7 @@ public class EffectDictionary : MonoBehaviour
         Player_cardsDrawing = 0;
         Player_armorCreate = 0;
         Player_healing = 0;
+        ParticleDuration = 0;
     }
 
     //Helper func :  Next Card dealing extra
@@ -631,6 +642,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 0;
         Enemy_priorityInc = 0;;
         Enemy_armorCreate = 0;
+        ParticleDuration = 0;
     }
 
     //=================================================================

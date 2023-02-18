@@ -2345,7 +2345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
   deckToUse:
-  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -3538,12 +3539,12 @@ MonoBehaviour:
   _script_DeckSystem: {fileID: 1185248573}
   startDrawingCrads: 1
   startingCardsAmount: 4
+  drawAfterAnimationSeconds: 2
   currentPhase: 0
   _script_PrioritySystem: {fileID: 1368281155}
   _script_EnemyAi: {fileID: 939407030}
-  _Text_Turn: {fileID: 2085097442}
-  _Text_PlayerPriority: {fileID: 1351498930}
-  _Text_EnemyPriority: {fileID: 1443448141}
+  enableEndTurn: 0
+  endPhaseWaitTime: 2
   animator_fadeInOut: {fileID: 195012396}
   animator_PlayerTurn: {fileID: 560284607}
   animator_Enemy: {fileID: 454805844}
@@ -4167,9 +4168,6 @@ MonoBehaviour:
   _script_EffectDictionary: {fileID: 628737710}
   _script_PrioritySystem: {fileID: 1368281155}
   _script_DeckSystem: {fileID: 1185248573}
-  testEffect: {fileID: 7960040246655339056, guid: 57df337a000554a4ebf25acc8fa85504,
-    type: 3}
-  testPos: {fileID: 0}
 --- !u!114 &2137971097
 MonoBehaviour:
   m_ObjectHideFlags: 0
