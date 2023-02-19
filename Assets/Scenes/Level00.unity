@@ -1618,7 +1618,6 @@ GameObject:
   - component: {fileID: 457613083}
   - component: {fileID: 457613085}
   - component: {fileID: 457613084}
-  - component: {fileID: 457613087}
   - component: {fileID: 457613086}
   m_Layer: 5
   m_Name: Text (TMP)
@@ -1762,18 +1761,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 40.2, y: 37.47, z: 1}
   m_Center: {x: 65.88, y: 108.88, z: 0}
---- !u!114 &457613087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457613082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401c34cab4091454fad01b287835c1e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &494707334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2181,7 +2168,7 @@ MonoBehaviour:
   - {fileID: 7005278960792100175, guid: c4777aff84c433546ae2f8cb195f0812, type: 3}
   - {fileID: 5236437913552926457, guid: 41f91d3b7bdf4b2449b8fe88b6d5f210, type: 3}
   - {fileID: 7389421938708674127, guid: 1d833ad574f15024ab5ad550c8646a8a, type: 3}
-  - {fileID: 4143118989675900537, guid: a58ccfc1e98a90549afdbe7e01ea7e1b, type: 3}
+  - {fileID: 4143118989675900537, guid: 9d34fcaacbcc1974b8c0b40d523a7cc3, type: 3}
   enemyParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 7960040246655339056, guid: 774acf9f373d05f48bba281b71bf6ee0, type: 3}
@@ -4378,7 +4365,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
   deckToUse:
-  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: 40d2458c7cba7d845b1a093533564758, type: 2}
+  - {fileID: 11400000, guid: cd09dfccaaa4f2b4d9e0066aca4ac21c, type: 2}
+  - {fileID: 11400000, guid: 52eb4468d9db3f140afeba1ec330bdaf, type: 2}
+  - {fileID: 11400000, guid: 372a1d10da3082a4bb4261b8eb455e9c, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -5949,7 +5939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _script_DeckSystem: {fileID: 1185248573}
   startDrawingCrads: 1
-  startingCardsAmount: 1
+  startingCardsAmount: 3
   drawAfterAnimationSeconds: 2
   currentPhase: 0
   _script_PrioritySystem: {fileID: 1368281155}
