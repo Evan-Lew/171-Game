@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5826c37-26e0-4f4c-8413-aaf263a1f675" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Free Stylized Skybox/CubeMap/Materials/Sky_Anime_11_morning_a.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/Free Stylized Skybox/CubeMap/Materials/Sky_Anime_11_morning_a.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Description.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Description.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Name.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Name.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1001_Payment.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1001_Payment.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1002_Whack.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1002_Whack.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1003_WhiteScales.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1003_WhiteScales.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1004_ShedSkin.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1004_ShedSkin.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2001_ForbiddenVenom.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2001_ForbiddenVenom.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2002_SerpentCutlass.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2002_SerpentCutlass.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2003_WisdomOfWisteria.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2003_WisdomOfWisteria.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2004_DemonFang.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2004_DemonFang.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3001_FortoldFortune.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3001_FortoldFortune.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4001_JadeSpirit.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4001_JadeSpirit.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/PrioritySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/PrioritySystem.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e5826c37-26e0-4f4c-8413-aaf263a1f675" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,6 +84,7 @@
       <workItem from="1675883056831" duration="431000" />
       <workItem from="1676680175905" duration="5044000" />
       <workItem from="1676768374162" duration="3955000" />
+      <workItem from="1676833064568" duration="691000" />
     </task>
     <servers />
   </component>
