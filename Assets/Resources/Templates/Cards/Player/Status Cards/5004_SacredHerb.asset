@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 4014_JadePeril
+  m_Name: 5004_SacredHerb
   m_EditorClassIdentifier: 
-  cardColor: 2
-  cardName: Jade Peril
-  ID: 4014
-  description_Main: Replace all status in your hand + deck with a random Peril*
-  priorityCost: 4
+  cardColor: 0
+  cardName: Entangled
+  ID: 5001
+  description_Main: The next card you play heals 2 and draws 1
+  priorityCost: 0
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
   icon: {fileID: 0}

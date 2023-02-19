@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 4012_CauldronOfPeril
   m_EditorClassIdentifier: 
   cardColor: 2
-  cardName: Jade Spirit
-  ID: 4001
-  description_Main: Heal 6.
-  priorityCost: 2
+  cardName: Cauldron of Peril
+  ID: 4012
+  description_Main: Shuffle a Peril* into your deck
+  priorityCost: 3
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
   icon: {fileID: 0}

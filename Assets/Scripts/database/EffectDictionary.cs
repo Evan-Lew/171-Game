@@ -796,10 +796,146 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
+    //---STATUS CARDS---
+
     //-----------------------------------------------------------------
     //                      PLAYER CARDS EFFECTS
     //=================================================================
 
+    // NOT IMPLEMENTED
+    // Your next card costs +1. Play this card as soon as it is drawn
+    public void ID5001_Entangled()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // The next card you play is free
+    public void ID5002_SacredHerb()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // The next card you play deals +3 damage
+    public void ID5003_SacredHerb()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // The next card you play heals 2 and draws 1
+    public void ID5004_SacredHerb()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Deal 4 Damage. Banish this card
+    public void ID5005_PerilQiongQi()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Draw 3 cards. Banish this card
+    public void ID5006_PerilTaoWu()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Your opponent skips their next turn. Banish this card.
+    public void ID5007_PerilHundun()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Play this card once drawn. Take 3 self-damage. Banish this card.
+    public void ID5008_PerilTaotie()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Deal 3 damage to yourself. Draw one card. Banish this card. Add one Blood to your hand.
+    public void ID5009_Blood()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
 
 
     //=================================================================
@@ -1027,6 +1163,18 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(4014, ID4014_JadePeril);
         effectDictionary_Players.Add(4015, ID4015_SealingStakes);
         effectDictionary_Players.Add(4016, ID4016_Aegis);
+
+        // Status Cards
+        effectDictionary_Players.Add(5001, ID5001_Entangled);
+        effectDictionary_Players.Add(5002, ID5002_SacredHerb);
+        effectDictionary_Players.Add(5003, ID5003_SacredHerb);
+        effectDictionary_Players.Add(5004, ID5004_SacredHerb);
+        effectDictionary_Players.Add(5005, ID5005_PerilQiongQi);
+        effectDictionary_Players.Add(5006, ID5006_PerilTaoWu);
+        effectDictionary_Players.Add(5007, ID5007_PerilHundun);
+        effectDictionary_Players.Add(5008, ID5008_PerilTaotie);
+        effectDictionary_Players.Add(5009, ID5009_Blood);
+
 
 
         // Enemy: Golem Cards

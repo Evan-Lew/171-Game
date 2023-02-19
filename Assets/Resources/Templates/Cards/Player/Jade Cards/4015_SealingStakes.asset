@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 4015_SealingStakes
   m_EditorClassIdentifier: 
   cardColor: 2
-  cardName: Jade Spirit
-  ID: 4001
-  description_Main: Heal 6.
-  priorityCost: 2
+  cardName: Sealing Stakes
+  ID: 4015
+  description_Main: Remove all status cards from your deck and hand. Add twice as
+    many Sacred Herb* into your deck.
+  priorityCost: 3
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
   icon: {fileID: 0}

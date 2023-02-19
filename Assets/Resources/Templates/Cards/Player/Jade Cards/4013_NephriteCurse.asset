@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 4013_NephriteCurse
   m_EditorClassIdentifier: 
   cardColor: 2
-  cardName: Jade Spirit
-  ID: 4001
-  description_Main: Heal 6.
-  priorityCost: 2
+  cardName: Nephrite Curse
+  ID: 4013
+  description_Main: When you end your turn, your opponent gets +2 priority. Banish
+    this card.
+  priorityCost: 1
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
   icon: {fileID: 0}
