@@ -569,6 +569,232 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
+    // NOT IMPLEMENTED
+    // Env: All enemy cards cost 1 more
+    public void ID4002_Karma()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Draw 2, Heal 4 Health
+    public void ID4003_DauntlessDraw()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Heal 3, Remove all negative status from yourself
+    public void ID4004_LotusLeaf()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Shuffle a random Sacred Herb* into your deck
+    public void ID4005_HiddenGrotto()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Remove all status cards from your deck and hand. Deal 3 damage per Status removed
+    public void ID4006_QiBurst()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+
+    // NOT IMPLEMENTED
+    // Env: If you would heal more than your maximum hitpoints, instead deal 1 damage
+    public void ID4007_JadeResolve()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Env: All healing becomes damage instead
+    public void ID4008_MalechiteChain()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Env: Every time you play a status card, heal 2
+    public void ID4009_NurtuousNature()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // For each Herb card in your hand + deck, heal 2.
+    public void ID4010_HerbalistBrew()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Until the end of turn, every time you heal enemy priority +1. Banish this card.
+    public void ID4011_Triage()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Shuffle a Peril* into your deck
+    public void ID4012_CauldronOfPeril()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // When you end your turn, your opponent gets +2 priority. Banish this card.
+    public void ID4013_NephriteCurse()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Replace all status in your hand + deck with a random Peril*
+    public void ID4014_JadePeril()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Replace all status in your hand + deck with a random Peril*
+    public void ID4015_SealingStakes()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+
+    // NOT IMPLEMENTED
+    // You may take at most 5 damage until the start of your next turn.
+    public void ID4016_Aegis()
+    {
+        ParticleDuration = 3f;
+        Player_healing = 6;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        Heal_ToTarget(player, Player_healing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
 
     //-----------------------------------------------------------------
     //                      PLAYER CARDS EFFECTS
@@ -786,6 +1012,22 @@ public class EffectDictionary : MonoBehaviour
         
         // Jade Cards
         effectDictionary_Players.Add(4001, ID4001_JadeSpirit);
+        effectDictionary_Players.Add(4002, ID4002_Karma);
+        effectDictionary_Players.Add(4003, ID4003_DauntlessDraw);
+        effectDictionary_Players.Add(4004, ID4004_LotusLeaf);
+        effectDictionary_Players.Add(4005, ID4005_HiddenGrotto);
+        effectDictionary_Players.Add(4006, ID4006_QiBurst);
+        effectDictionary_Players.Add(4007, ID4007_JadeResolve);
+        effectDictionary_Players.Add(4008, ID4008_MalechiteChain);
+        effectDictionary_Players.Add(4009, ID4009_NurtuousNature);
+        effectDictionary_Players.Add(4010, ID4010_HerbalistBrew);
+        effectDictionary_Players.Add(4011, ID4011_Triage);
+        effectDictionary_Players.Add(4012, ID4012_CauldronOfPeril);
+        effectDictionary_Players.Add(4013, ID4013_NephriteCurse);
+        effectDictionary_Players.Add(4014, ID4014_JadePeril);
+        effectDictionary_Players.Add(4015, ID4015_SealingStakes);
+        effectDictionary_Players.Add(4016, ID4016_Aegis);
+
 
         // Enemy: Golem Cards
         effectDictionary_Enemies.Add(1, Action_01_ThrowStone);
