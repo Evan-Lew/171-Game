@@ -234,6 +234,7 @@ public class EffectDictionary : MonoBehaviour
     //                        PLAYER CARDS
     //-----------------------------------------------------------------
     
+    //---SILVER CARDS---
     // Draw 2 cards, cost 3
     public void ID1001_Payment()
     {
@@ -269,7 +270,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    // Gain 2 armor, cost 2
+    // Gain 2 armor, cost 1
     public void ID1003_WhiteScales()
     {
         ParticleDuration = 2f;
@@ -305,6 +306,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
+    //---PURPLE CARDS---
     // Draw 2 cards, gain 3 armors, cost 1
     public void ID2001_ForbiddenVenom()
     {
@@ -370,7 +372,174 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("DemonFang", 2004, ParticleDuration, enemyObj, true);
         Manipulator_Player_Reset();
     }
+    
+    // If your deck has less than 10 cards, deal 6 damage
+    public void ID2005_LastStand()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // deal x damage (x equals to the cards your banish in this battle times 2)
+    public void ID2006_NoxiousRequiem()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // Draw 1 card. Banish this card. Add a Blood* to your hand.
+    public void ID2007_BloodCrash()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // deal 4 damage, if you health is lower than 10, deal 8 damage instead
+    public void ID2008_FeintStrike()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // Env: everytime you banish a card, you draw a card
+    public void ID2009_ToxicTorment()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // deal 6 damage to yourself, deal 12 damage
+    public void ID2010_Savagery()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // Damage yourself down to 1 HP. Deal that much damage.
+    public void ID2011_CausticTrail()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // Env: Whenever you deal damage to yourself, your next card deals +2 damage
+    public void ID2012_VenomLace()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // Deal 3 Damage. Gain +1 Max Health permanantly (continues on to next battles). Banish this card.
+    public void ID2013_Siphon()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
+    public void ID2014_Ruination()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
+    // Env: Deal 2 damage to yourself at the start of your turn. -2 Priority
+    public void ID2015_Intoxication()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 6;
+        Player_priorityInc = 1;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        Manipulator_Player_Reset();
+    }
+    
 
+    //---GOLD CARDS---
     // Draw 2
     public void ID3001_FortoldFortune()
     {
@@ -385,6 +554,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
+    //---JADE CARDS---
     // Heal 6
     public void ID4001_JadeSpirit()
     {
@@ -473,7 +643,6 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
     }
 
-
     //-----------------------------------------------------------------
     //                       FOR ENEMY ENDS
     //=================================================================
@@ -541,7 +710,6 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
-
     //Helper func :  Next Card costing more
     void Manipulator_Player_CostExtra()
     {
@@ -553,8 +721,7 @@ public class EffectDictionary : MonoBehaviour
         }
        
     }
-
-
+    
     //<-----------Enemy-------------------------------------------------
     void Manipulator_Enemy()
     {
@@ -574,8 +741,6 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 0;
     }
 
-   
-
     void Manipulator_Enemy_Reset(specialHandling castTime)
     {
         if (castTime == specialHandling.CastAt_playerEnd)
@@ -590,28 +755,41 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                        Manipulator End
     //-----------------------------------------------------------------
-
-
-
-
+    
     void Start()
     {
+        // Silver Cards
         effectDictionary_Players.Add(1001, ID1001_Payment);
         effectDictionary_Players.Add(1002, ID1002_Whack);
         effectDictionary_Players.Add(1003, ID1003_WhiteScales);
         effectDictionary_Players.Add(1004, ID1004_ShedSkin);
+        
+        // Purple Cards
         effectDictionary_Players.Add(2001, ID2001_ForbiddenVenom);
         effectDictionary_Players.Add(2002, ID2002_SerpentCutlass);
         effectDictionary_Players.Add(2003, ID2003_WisdomOfWisteria);
         effectDictionary_Players.Add(2004, ID2004_DemonFang);
+        effectDictionary_Players.Add(2005, ID2005_LastStand);
+        effectDictionary_Players.Add(2006, ID2006_NoxiousRequiem);
+        effectDictionary_Players.Add(2007, ID2007_BloodCrash);
+        effectDictionary_Players.Add(2008, ID2008_FeintStrike);
+        effectDictionary_Players.Add(2009, ID2009_ToxicTorment);
+        effectDictionary_Players.Add(2010, ID2010_Savagery);
+        effectDictionary_Players.Add(2011, ID2011_CausticTrail);
+        effectDictionary_Players.Add(2012, ID2012_VenomLace);
+        effectDictionary_Players.Add(2013, ID2013_Siphon);
+        effectDictionary_Players.Add(2014, ID2014_Ruination);
+        effectDictionary_Players.Add(2015, ID2015_Intoxication);
+        
+        // Gold Cards
         effectDictionary_Players.Add(3001, ID3001_FortoldFortune);
+        
+        // Jade Cards
         effectDictionary_Players.Add(4001, ID4001_JadeSpirit);
 
-
+        // Enemy: Golem Cards
         effectDictionary_Enemies.Add(1, Action_01_ThrowStone);
         effectDictionary_Enemies.Add(2, Action_02_ThrowHimself);
         effectDictionary_Enemies.Add(3, Action_03_Stubborn);
     }
-
-
 }

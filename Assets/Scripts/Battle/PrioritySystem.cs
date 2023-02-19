@@ -28,7 +28,7 @@ public class PrioritySystem : MonoBehaviour
                 playerKey = character;
                 playerAdded = true;
             }
-            }
+        }
         catch (ArgumentException)
         {
             Console.WriteLine("Key already in use!");
