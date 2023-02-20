@@ -1,8 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
+
+//手卡
+//Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
+//牌库
+//卡面编辑后的总卡组 Player_DeckTotal = _script_DeckSystem.deckToUse.Count();
+//当前剩余的卡      Player_DeckActivate = _script_DeckSystem.activeCards.Count();
+//不算上消失的卡组   Player_DeckCurrent = _script_DeckSystem.deckForCurrentBattle.Count()
+
 
 public class EffectDictionary : MonoBehaviour
 {
@@ -19,6 +27,7 @@ public class EffectDictionary : MonoBehaviour
 
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
+    [SerializeField] private HandManager _script_HandSystem;
     Character player, enemy;
     GameObject playerObj, enemyObj;
 
