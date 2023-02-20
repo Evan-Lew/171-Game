@@ -17,6 +17,6 @@ MonoBehaviour:
     for beauty. Although unremarkable, they are unexpectedly tough.
   Health_Total: 35
   Health_Current: 35
-  Priority_Initial: 0
-  Priority_Current: 0
+  Priority_Initial: 10
+  Priority_Current: 10
   Pattern: 0

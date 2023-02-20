@@ -86,31 +86,6 @@ public class BattleController : MonoBehaviour
     }
 
 
-    //public void ProcessPriorityTurnControl()
-    //{
-    //    Character result;
-    //    result = _script_PrioritySystem.getNextTurnCharacter();
-    //    if (result == player && currentPhase != TurnOrder.playerPhase)
-    //    {
-    //        //switch to player turn, trigger the animation
-    //        nextPhase = TurnOrder.playerPhase;
-    //        animator_fadeInOut.SetTrigger("Play");
-    //        animator_PlayerTurn.SetTrigger("Play");
-
-    //    }
-    //    else if (result == enemy && currentPhase != TurnOrder.EnemyPhase)
-    //    {
-    //        //switch to enemy turn, trigger the animation
-    //        nextPhase = TurnOrder.EnemyPhase;
-    //        SpecialHandling_EndPlayerTurn();
-    //    }
-
-    //    enableEndTurn = false;
-    //    enableTurnUpdate = true;
-    //    currentPhase = nextPhase;
-    //}
-
-
     void TurnUpdate()
     {
         enableTurnUpdate = false;
@@ -176,30 +151,25 @@ public class BattleController : MonoBehaviour
 
 
 
-
-    void SpecialHandling_EndPlayerTurn()
+    void SpecialHandling_AtEndPlayerTurn()
     {
 
 
-        if (enemy.CharacterName == "Golem")
-        {
+        //if (enemy.CharacterName == "Golem")
+        //{
 
 
-            _script_EnemyAi.CastUniqueAbility_Golem();
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                //animator_fadeInOut.SetTrigger("Play");
-                //animator_Enemy.SetTrigger("Play");
-            }, 1f));
+        //    _script_EnemyAi.CastUniqueAbility_Golem();
 
 
-        }
-        else
-        {
-            //animator_fadeInOut.SetTrigger("Play");
-            //animator_Enemy.SetTrigger("Play");
 
-        }
+        //}
+        //else
+        //{
+        //    //animator_fadeInOut.SetTrigger("Play");
+        //    //animator_Enemy.SetTrigger("Play");
+
+        //}
 
 
     }
