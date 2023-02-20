@@ -13,10 +13,13 @@ public class BattleController : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     public bool startDrawingCrads = true;
     public int startingCardsAmount;
-    public float drawAfterAnimationSeconds = 2f;
-    public enum TurnOrder { playerPhase, EnemyPhase }
-    public TurnOrder currentPhase;
-    private TurnOrder nextPhase;
+    public float TurnChangeAnimationDuration = 2f;
+    [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
+    [HideInInspector]public enum TurnType { player, enemy}
+    [HideInInspector]public TurnOrder currentPhase;
+    [HideInInspector]public TurnOrder nextPhase;
+    [HideInInspector] public bool enableUsingCard = false;
+    [HideInInspector] public bool enableCardActivation = false;
 
     //for priority system
     private Character player, enemy;
@@ -25,7 +28,7 @@ public class BattleController : MonoBehaviour
     [HideInInspector] public bool enableTurnUpdate = false;
     [HideInInspector] public bool enableEndTurn = false;
 
-    [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_Enemy;
+    [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_EnemyTurn;
 
 
     private void Awake()
@@ -39,16 +42,16 @@ public class BattleController : MonoBehaviour
         //the battle controll will be enabled only if the battle is happened
         if (enable_BattleController)
         {
-
             if (enableTurnUpdate)
             {
                 TurnUpdate();
             }
-
         }
 
+       // Debug.Log(currentPhase + " Next " + nextPhase);
 
     }
+
 
 
 
@@ -74,82 +77,101 @@ public class BattleController : MonoBehaviour
         {
             _script_DeckSystem.DrawMultipleCards(startingCardsAmount);
         }
-        currentPhase = TurnOrder.playerPhase;
+        currentPhase = TurnOrder.start;
+        nextPhase = TurnOrder.playerPhase;
         _script_PrioritySystem.AddCharacters(player);
         _script_PrioritySystem.AddCharacters(enemy);
+        enableTurnUpdate = true;
         SetActive(true);
     }
 
 
-    //testing for golem
-    public void ProcessPriorityTurnControl()
-    {
-        Character result;
-        result = _script_PrioritySystem.getNextTurnCharacter();
-        if (result == player && currentPhase != TurnOrder.playerPhase)
-        {
-            //switch to player turn, trigger the animation
-            nextPhase = TurnOrder.playerPhase;
-            animator_fadeInOut.SetTrigger("Play");
-            animator_PlayerTurn.SetTrigger("Play");
+    //public void ProcessPriorityTurnControl()
+    //{
+    //    Character result;
+    //    result = _script_PrioritySystem.getNextTurnCharacter();
+    //    if (result == player && currentPhase != TurnOrder.playerPhase)
+    //    {
+    //        //switch to player turn, trigger the animation
+    //        nextPhase = TurnOrder.playerPhase;
+    //        animator_fadeInOut.SetTrigger("Play");
+    //        animator_PlayerTurn.SetTrigger("Play");
 
-        }
-        else if (result == enemy && currentPhase != TurnOrder.EnemyPhase)
-        {
-            //switch to enemy turn, trigger the animation
-            nextPhase = TurnOrder.EnemyPhase;
-            SpecialHandling_EndPlayerTurn();
-        }
+    //    }
+    //    else if (result == enemy && currentPhase != TurnOrder.EnemyPhase)
+    //    {
+    //        //switch to enemy turn, trigger the animation
+    //        nextPhase = TurnOrder.EnemyPhase;
+    //        SpecialHandling_EndPlayerTurn();
+    //    }
 
-        enableEndTurn = false;
-        enableTurnUpdate = true;
-        currentPhase = nextPhase;
-
-    }
-
+    //    enableEndTurn = false;
+    //    enableTurnUpdate = true;
+    //    currentPhase = nextPhase;
+    //}
 
 
     void TurnUpdate()
     {
-        // Debug.Log(currentPhase + "" + nextPhase);
-        if (currentPhase == TurnOrder.playerPhase)
+        enableTurnUpdate = false;
+
+
+        if (currentPhase == TurnOrder.start && nextPhase == TurnOrder.playerPhase)
         {
-            if (!enableEndTurn)
+            currentPhase = nextPhase;
+            TurnChangeAnimation(TurnType.player);
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                enableEndTurn = false;
-                enableTurnUpdate = false;
-                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-                {
-                    //enmey turn end
-                    _script_DeckSystem.DrawCardToHand();
-                }, drawAfterAnimationSeconds));
-            }
-            else
-            {
-                //player end
-                ProcessPriorityTurnControl();
-            }
+                _script_DeckSystem.DrawCardToHand();
+                enableUsingCard = true;
+                enableCardActivation = true;
+
+
+            }, TurnChangeAnimationDuration));
         }
-        else if (currentPhase == TurnOrder.EnemyPhase)
+        else if (currentPhase == TurnOrder.playerPhase && nextPhase == TurnOrder.playerPhase)
         {
 
-            if (!enableEndTurn)
+            _script_DeckSystem.DrawCardToHand();
+            enableUsingCard = true;
+            enableCardActivation = true;
+        }
+        else if (currentPhase == TurnOrder.playerPhase && nextPhase == TurnOrder.EnemyPhase)
+        {
+            currentPhase = nextPhase;
+            enableUsingCard = false;
+            enableCardActivation = false;
+            TurnChangeAnimation(TurnType.enemy);
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                enableEndTurn = false;
-                enableTurnUpdate = false;
                 _script_EnemyAi.isActioned = false;
-                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-                {
-                    _script_EnemyAi.EnemyAction(enemy.CharacterName);
-                }, 3.5f));
+                _script_EnemyAi.EnemyAction(enemy.CharacterName);
 
-            }
-            else
-            {
-                //enmey turn end
-                ProcessPriorityTurnControl();
-            }
+            }, TurnChangeAnimationDuration));
         }
+        else if(currentPhase == TurnOrder.EnemyPhase && nextPhase == TurnOrder.EnemyPhase)
+        {
+            enableUsingCard = false;
+            enableCardActivation = false;
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                _script_EnemyAi.isActioned = false;
+                _script_EnemyAi.EnemyAction(enemy.CharacterName);
+
+            }, 1.5f));
+        }else if(currentPhase == TurnOrder.EnemyPhase && nextPhase == TurnOrder.playerPhase)
+        {
+            TurnChangeAnimation(TurnType.player);
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                _script_DeckSystem.DrawCardToHand();
+                enableUsingCard = true;
+                enableCardActivation = true;
+
+
+            }, TurnChangeAnimationDuration));
+        }
+        
     }
 
 
@@ -166,17 +188,33 @@ public class BattleController : MonoBehaviour
             _script_EnemyAi.CastUniqueAbility_Golem();
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                animator_fadeInOut.SetTrigger("Play");
-                animator_Enemy.SetTrigger("Play");
+                //animator_fadeInOut.SetTrigger("Play");
+                //animator_Enemy.SetTrigger("Play");
             }, 1f));
 
 
         }
         else
         {
-            animator_fadeInOut.SetTrigger("Play");
-            animator_Enemy.SetTrigger("Play");
+            //animator_fadeInOut.SetTrigger("Play");
+            //animator_Enemy.SetTrigger("Play");
 
+        }
+
+
+    }
+
+    void TurnChangeAnimation(TurnType type)
+    {
+        if (type == TurnType.player)
+        {
+            animator_fadeInOut.SetTrigger("Play");
+            animator_PlayerTurn.SetTrigger("Play");
+        }
+        else if (type == TurnType.enemy)
+        {
+            animator_fadeInOut.SetTrigger("Play");
+            animator_EnemyTurn.SetTrigger("Play");
         }
     }
 }

@@ -47,7 +47,6 @@ public class EffectDictionary : MonoBehaviour
     double Enemy_priorityInc = 0;
 
     float ParticleDuration = 0;
-
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
 
     // Struct: used for particle system
@@ -138,6 +137,18 @@ public class EffectDictionary : MonoBehaviour
     {
         // Increment priority
         _script_PrioritySystem.AddCost(Target, Cost);
+        Character Result = _script_PrioritySystem.getNextTurnCharacter();
+        Debug.Log("Player : " + player.Priority_Current + " Enemy : " + enemy.Priority_Current);
+        Debug.Log("Next turn will be " + Result);
+        if(Result == player)
+        {
+            BattleController.instance.nextPhase = BattleController.TurnOrder.playerPhase;
+        }
+        else if(Result == enemy)
+        {
+            BattleController.instance.nextPhase = BattleController.TurnOrder.EnemyPhase;
+            BattleController.instance.enableUsingCard = false;
+        }
     }
     
     // If it already exists, set it to active, and when the effect is played it will be set to disabled again
@@ -193,6 +204,7 @@ public class EffectDictionary : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 newEffect.particleObj.SetActive(false);
+                BattleController.instance.enableCardActivation = true;
                 TurnManipulator(effectName);
             }, newEffect.totalPlayTime ));
         }
@@ -205,8 +217,8 @@ public class EffectDictionary : MonoBehaviour
             {
                 // Debug.Log("test2");
                 foundEffect.particleObj.SetActive(false);
+                BattleController.instance.enableCardActivation = true;
                 TurnManipulator(effectName);
-
             }, foundEffect.totalPlayTime ));
         }
     }
@@ -246,7 +258,7 @@ public class EffectDictionary : MonoBehaviour
         
         Manipulator_Player();
         DrawCards_Player(Player_cardsDrawing);
-        PriorityIncrement(player, Player_priorityInc);
+         
 
         // Particle positioned under the player
         ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
@@ -262,12 +274,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
-
         // Particle positioned on the enemy
         // --WAITING FOR CARD IMPLEMENTATION--
         ParticleEvent("Whack", 1002, ParticleDuration, enemyObj, true);
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         
         Manipulator_Player_Reset();
     }
@@ -280,12 +294,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
-
         // Particle positioned under the player
         ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[0], true);
-        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            CreateArmor_ToTarget(player, Player_armorCreate);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -298,13 +312,19 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 4;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
+
+         
 
         // Particle positioned under the player
         ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[0], true);
-        
+                CreateArmor_ToTarget(player, Player_armorCreate);
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+            CreateArmor_ToTarget(player, Player_armorCreate);
+        }, ParticleDuration / 2));
+
         Manipulator_Player_Reset();
     }
 
@@ -319,13 +339,16 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2001));
-        PriorityIncrement(player, Player_priorityInc);
+
+         
 
         // Particle positioned on the enemy
         ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, enemyObj, true);
-        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2001));
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -338,12 +361,14 @@ public class EffectDictionary : MonoBehaviour
         Player_extraDamage = 4;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
 
+         
         // Particle positioned on the enemy
         ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemyObj, true);
-        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -355,7 +380,7 @@ public class EffectDictionary : MonoBehaviour
         isDealingDoubleDmg = true;
         
         Manipulator_Player();
-        PriorityIncrement(player, Player_priorityInc);
+        
 
         Manipulator_Player_Reset();
     }
@@ -368,12 +393,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
-        PriorityIncrement(player, Player_priorityInc);
 
         // Particle positioned on the enemy
         ParticleEvent("DemonFang", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+            ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -386,10 +413,15 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -402,10 +434,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -418,10 +454,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -434,10 +474,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -450,10 +494,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
-        
+       
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -466,10 +514,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
-        
+       
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -482,10 +534,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -498,10 +554,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -514,10 +574,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -530,10 +594,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
         
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -546,10 +614,14 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 1;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
-        
+    
+
+
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -564,8 +636,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        PriorityIncrement(player, Player_priorityInc);
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+
+        }, ParticleDuration / 2));
 
         Manipulator_Player_Reset();
     }
@@ -579,9 +655,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 3;
         
         Manipulator_Player();
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
+       
 
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -594,9 +673,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 0;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        PriorityIncrement(player, Player_priorityInc);
+       
 
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -609,9 +691,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 3;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -623,9 +708,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 4;
         
         Manipulator_Player();
-        Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3005));
-        PriorityIncrement(player, Player_priorityInc);
-        
+
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3005));
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -638,9 +726,13 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
-        
+
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            CreateArmor_ToTarget(player, Player_armorCreate);
+
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -653,9 +745,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -669,10 +764,13 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 8;
         
         Manipulator_Player();
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            CreateArmor_ToTarget(player, Player_armorCreate);
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -686,10 +784,13 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 3;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+            CreateArmor_ToTarget(player, Player_armorCreate);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -702,10 +803,13 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 4;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+            CreateArmor_ToTarget(player, Player_armorCreate);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -718,9 +822,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 5;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -733,9 +840,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 3;
         
         Manipulator_Player();
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            CreateArmor_ToTarget(player, Player_armorCreate);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -749,10 +859,13 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 0;
         
         Manipulator_Player();
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            CreateArmor_ToTarget(player, Player_armorCreate);
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -766,10 +879,13 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 6;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        DealDamage_ToTarget(enemy, Player_damageDealing);
-        PriorityIncrement(player, Player_priorityInc);
 
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -782,9 +898,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        CreateArmor_ToTarget(player, Player_armorCreate);
-        PriorityIncrement(player, Player_priorityInc);
 
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            CreateArmor_ToTarget(player, Player_armorCreate);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -797,9 +915,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 5;
         
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        PriorityIncrement(player, Player_priorityInc);
 
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
     
@@ -814,9 +935,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -829,9 +952,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -844,9 +969,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -859,9 +986,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -874,9 +1003,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -889,9 +1020,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -905,9 +1038,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -920,9 +1055,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -935,9 +1072,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -950,9 +1089,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
+        
 
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -965,9 +1107,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+       
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -980,9 +1124,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -995,9 +1141,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1010,9 +1158,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1025,9 +1175,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1041,15 +1193,17 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
     
     //-----------------------------------------------------------------
-    //                      PLAYER CARDS EFFECTS
+    //                    Not Implemented
     //=================================================================
 
     // NOT IMPLEMENTED
@@ -1061,9 +1215,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1076,9 +1232,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1091,9 +1249,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1106,9 +1266,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1121,9 +1283,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1136,9 +1300,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1152,8 +1318,10 @@ public class EffectDictionary : MonoBehaviour
         
         Manipulator_Player();
         Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1166,9 +1334,10 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
-
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1181,9 +1350,11 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
-        PriorityIncrement(player, Player_priorityInc);
 
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(player, Player_healing);
+        }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
 
@@ -1200,9 +1371,6 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2;
         
         Manipulator_Enemy();
-        DealDamage_ToTarget(player, Enemy_damageDealing);
-        PriorityIncrement(enemy, Enemy_priorityInc);
-
         // Card SFX
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1217,7 +1385,11 @@ public class EffectDictionary : MonoBehaviour
         
         // Particle positioned under the player
         ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[0], false);
-        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+
+        }, ParticleDuration / 2));
         Manipulator_Enemy_Reset();
     }
 
@@ -1229,15 +1401,16 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2;
         
         Manipulator_Enemy();
-        DealDamage_ToTarget(player, Enemy_damageDealing);
-        PriorityIncrement(enemy, Enemy_priorityInc);
 
         // Play SFX
         SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
-        
         // Particle positioned on the player
         ParticleEvent("ThrowHimself", 2, ParticleDuration, playerObj, false);
-        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+
+        }, ParticleDuration / 2));
         Manipulator_Enemy_Reset();
     }
     // At the end of player turn, gain 2 armor
@@ -1245,21 +1418,19 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Enemy_armorCreate = 1;
-        
-        Manipulator_Enemy();
-        CreateArmor_ToTarget(enemy, Enemy_armorCreate);
-
         // Particle positioned under the enemy
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[1], false);
-        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            //manipulator not needed since this is static effect
+            CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+        }, ParticleDuration / 2));
         Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
     }
 
     //-----------------------------------------------------------------
     //                       FOR ENEMY ENDS
     //=================================================================
-
-
 
     //=================================================================
     //                        Manipulator 
@@ -1274,6 +1445,8 @@ public class EffectDictionary : MonoBehaviour
     //this will be called for all player effect to check all flags
     void Manipulator_Player()
     {
+        //disable card activation until the particle is played
+        BattleController.instance.enableCardActivation = false;
         //to avoid overlap with turn change animation
         if(ParticleDuration < 2f)
         {
@@ -1282,6 +1455,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_DealingExtra();
         Manipulator_Player_CostExtra();
         Manipulator_Player_DealingDouble();
+        PriorityIncrement(player, Player_priorityInc);
     }
 
     //this will be called for all player effect to turn off all flags
@@ -1341,6 +1515,7 @@ public class EffectDictionary : MonoBehaviour
         {
             ParticleDuration = 2f;
         }
+        PriorityIncrement(enemy, Enemy_priorityInc);
     }
 
     void Manipulator_Enemy_Reset()

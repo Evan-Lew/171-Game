@@ -209,10 +209,13 @@ public class Card : MonoBehaviour
             //use the card if the area is correct, otherwise, return to the hand
             if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsActivation))
             {
+                if (_script_BattleController.enableCardActivation)
+                {
+                    ProcessCardEffect();
+                    this.gameObject.SetActive(false);
+                    handManager.RemoveCardFromHand(this);
+                }
 
-                ProcessCardEffect();
-                this.gameObject.SetActive(false);
-                handManager.RemoveCardFromHand(this);
             }
             else
             {
@@ -226,7 +229,6 @@ public class Card : MonoBehaviour
     {
         EffectDictionary.instance.effectDictionary_Players[cardID]();
     }
-
 
     //make the card return to the hand
     public void ReturnToHand()
@@ -290,7 +292,7 @@ public class Card : MonoBehaviour
     private void OnMouseDown()
     {
         //only activated in player turn
-        if (isInHand && _script_BattleController.currentPhase == BattleController.TurnOrder.playerPhase)
+        if (isInHand && _script_BattleController.enableUsingCard)
         {
             isSelected = true;
             theCollider.enabled = false;
