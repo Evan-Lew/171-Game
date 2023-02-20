@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 122679807}
   - component: {fileID: 122679806}
   m_Layer: 0
-  m_Name: Camera Spawns
+  m_Name: Camera Spawning Positions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,7 +808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &178687233
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -986,12 +986,12 @@ GameObject:
   - component: {fileID: 287482580}
   - component: {fileID: 287482579}
   m_Layer: 0
-  m_Name: Lake Cam 1
+  m_Name: Lake Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &287482578
 Transform:
   m_ObjectHideFlags: 0
@@ -1161,12 +1161,12 @@ GameObject:
   - component: {fileID: 357663629}
   - component: {fileID: 357663628}
   m_Layer: 0
-  m_Name: Forest Cam 1
+  m_Name: Forest Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &357663627
 Transform:
   m_ObjectHideFlags: 0
@@ -1327,12 +1327,12 @@ GameObject:
   - component: {fileID: 445241789}
   - component: {fileID: 445241788}
   m_Layer: 0
-  m_Name: Boss Cam 1
+  m_Name: Boss Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &445241787
 Transform:
   m_ObjectHideFlags: 0
@@ -2356,7 +2356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &712740628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2504,7 +2504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &745947649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2636,7 +2636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &788174124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2720,7 +2720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &798400811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3527,7 +3527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &962163556
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3719,12 +3719,12 @@ GameObject:
   - component: {fileID: 1024080276}
   - component: {fileID: 1024080275}
   m_Layer: 0
-  m_Name: Village Cam 1
+  m_Name: Village Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1024080274
 Transform:
   m_ObjectHideFlags: 0
@@ -3821,7 +3821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1048347271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4013,12 +4013,12 @@ GameObject:
   - component: {fileID: 1169356759}
   - component: {fileID: 1169356758}
   m_Layer: 0
-  m_Name: Mountain Cam 1
+  m_Name: Mountain Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1169356757
 Transform:
   m_ObjectHideFlags: 0
@@ -4112,12 +4112,12 @@ GameObject:
   - component: {fileID: 1172679309}
   - component: {fileID: 1172679308}
   m_Layer: 0
-  m_Name: Shop Cam 1
+  m_Name: Shop Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1172679307
 Transform:
   m_ObjectHideFlags: 0
@@ -4534,7 +4534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1265181564
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4618,7 +4618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1279629740
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6332,7 +6332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1783565157
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6416,7 +6416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1883513647
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6685,7 +6685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2016416882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6766,12 +6766,12 @@ GameObject:
   - component: {fileID: 2038164360}
   - component: {fileID: 2038164359}
   m_Layer: 0
-  m_Name: Valley Cam 1
+  m_Name: Valley Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2038164358
 Transform:
   m_ObjectHideFlags: 0
@@ -7141,7 +7141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2122036312
 SpriteRenderer:
   m_ObjectHideFlags: 0

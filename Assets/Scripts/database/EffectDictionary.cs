@@ -234,7 +234,9 @@ public class EffectDictionary : MonoBehaviour
     //                        PLAYER CARDS
     //-----------------------------------------------------------------
     
-    //---SILVER CARDS---
+    //-----------------------------------------------------------------
+    //                      SILVER CARDS
+    //=================================================================
     // Draw 2 cards, cost 3
     public void ID1001_Payment()
     {
@@ -306,7 +308,9 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    //---PURPLE CARDS---
+    //-----------------------------------------------------------------
+    //                      PURPLE CARDS
+    //=================================================================
     // Draw 2 cards, gain 3 armors, cost 1
     public void ID2001_ForbiddenVenom()
     {
@@ -373,6 +377,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // If your deck has less than 10 cards, deal 6 damage
     public void ID2005_LastStand()
     {
@@ -388,6 +393,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // deal x damage (x equals to the cards your banish in this battle times 2)
     public void ID2006_NoxiousRequiem()
     {
@@ -403,6 +409,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // Draw 1 card. Banish this card. Add a Blood* to your hand.
     public void ID2007_BloodCrash()
     {
@@ -418,6 +425,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // deal 4 damage, if you health is lower than 10, deal 8 damage instead
     public void ID2008_FeintStrike()
     {
@@ -433,6 +441,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // Env: everytime you banish a card, you draw a card
     public void ID2009_ToxicTorment()
     {
@@ -448,6 +457,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // deal 6 damage to yourself, deal 12 damage
     public void ID2010_Savagery()
     {
@@ -463,6 +473,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // Damage yourself down to 1 HP. Deal that much damage.
     public void ID2011_CausticTrail()
     {
@@ -478,6 +489,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // Env: Whenever you deal damage to yourself, your next card deals +2 damage
     public void ID2012_VenomLace()
     {
@@ -493,6 +505,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // Deal 3 Damage. Gain +1 Max Health permanantly (continues on to next battles). Banish this card.
     public void ID2013_Siphon()
     {
@@ -508,6 +521,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
     public void ID2014_Ruination()
     {
@@ -523,6 +537,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
+    // NOT IMPLEMENTED
     // Env: Deal 2 damage to yourself at the start of your turn. -2 Priority
     public void ID2015_Intoxication()
     {
@@ -538,8 +553,9 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
     
-
-    //---GOLD CARDS---
+    //-----------------------------------------------------------------
+    //                      GOLD CARDS
+    //=================================================================
     // Draw 2
     public void ID3001_FortoldFortune()
     {
@@ -553,8 +569,243 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Player_Reset();
     }
+    
+    // NOT IMPLEMENTED
+    // Env: Every time you draw a card, deal one damage
+    public void ID3002_TitansWrath()
+    {
+        ParticleDuration = 3f;
+        Player_damageDealing = 1;
+        Player_priorityInc = 3;
+        
+        Manipulator_Player();
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
 
-    //---JADE CARDS---
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Draw a card. It costs +1
+    public void ID3003_Hongbao()
+    {        
+        ParticleDuration = 3f;
+        Player_cardsDrawing = 1;
+        Player_priorityInc = 0;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // If your hand has less than 3 cards, draw 4. Otherwise draw 2.
+    public void ID3004_SovereignDraw()
+    {        
+        ParticleDuration = 3f;
+        Player_cardsDrawing = 4;
+        Player_priorityInc = 3;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Every card you have played this combat costs one less for the rest of combat. Banish this card.
+    public void ID3005_RedThread()
+    {        
+        ParticleDuration = 3f;
+        Player_priorityInc = 4;
+        
+        Manipulator_Player();
+        Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3005));
+        PriorityIncrement(player, Player_priorityInc);
+        
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Gain 2 Armor for each card you have in hand.
+    public void ID3006_UnbreakingEmperor()
+    {
+        ParticleDuration = 2f;
+        Player_armorCreate = 2;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+        
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Env: At the start of your turn draw an additional card
+    public void ID3007_FavoredFates()
+    {        
+        ParticleDuration = 3f;
+        Player_cardsDrawing = 1;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // For each card in your hand, gain 4 Armor and deal 2 damage to the enemy
+    public void ID3008_RoyalGambit()
+    {        
+        ParticleDuration = 3f;
+        Player_armorCreate = 4;
+        Player_damageDealing = 2;
+        Player_priorityInc = 8;
+        
+        Manipulator_Player();
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Draw cards until you have 4 cards , if you already have 4 cards gain 10 Armor
+    public void ID3009_DeadlyDraw()
+    {        
+        ParticleDuration = 3f;
+        Player_cardsDrawing = 4;
+        Player_armorCreate = 4;
+        Player_priorityInc = 3;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // Draw 2 cards and gain 6 Armor
+    public void ID3010_CordCover()
+    {        
+        ParticleDuration = 3f;
+        Player_armorCreate = 6;
+        Player_cardsDrawing = 2;
+        Player_priorityInc = 4;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Draw x amount of cards(x equals to cards in your hand)
+    public void ID3011_BalancedBounty()
+    {        
+        ParticleDuration = 3f;
+        Player_cardsDrawing = 10;
+        Player_priorityInc = 5;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Double the Armor you have
+    public void ID3012_UnbreakingGold()
+    {        
+        ParticleDuration = 3f;
+        Player_armorCreate = 6;
+        Player_priorityInc = 3;
+        
+        Manipulator_Player();
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // cost 8 Armor deal 6 damage (if you don't have enough armor, nothing will happen)
+    public void ID3013_Terracotta()
+    {        
+        ParticleDuration = 3f;
+        Player_armorCreate = 8;
+        Player_damageDealing = 6;
+        Player_priorityInc = 0;
+        
+        Manipulator_Player();
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
+    public void ID3014_LeechingTreasure()
+    {        
+        ParticleDuration = 3f;
+        Player_cardsDrawing = 2;
+        Player_damageDealing = 6;
+        Player_priorityInc = 6;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        DealDamage_ToTarget(enemy, Player_damageDealing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // If your Armor is less than 10 gain 12 Armor, otherwise gain 6 Armor
+    public void ID3015_BronzeAge()
+    {        
+        ParticleDuration = 3f;
+        Player_armorCreate = 12;
+        Player_priorityInc = 2;
+        
+        Manipulator_Player();
+        CreateArmor_ToTarget(player, Player_armorCreate);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+
+    // NOT IMPLEMENTED
+    // Env: Every time you play a card, draw a card
+    public void ID3016_MoneyTree()
+    {        
+        ParticleDuration = 3f;
+        Player_cardsDrawing = 1;
+        Player_priorityInc = 5;
+        
+        Manipulator_Player();
+        DrawCards_Player(Player_cardsDrawing);
+        PriorityIncrement(player, Player_priorityInc);
+
+        Manipulator_Player_Reset();
+    }
+    
+    //-----------------------------------------------------------------
+    //                      JADE CARDS
+    //=================================================================
     // Heal 6
     public void ID4001_JadeSpirit()
     {
@@ -796,8 +1047,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    //---STATUS CARDS---
-
+    
     //-----------------------------------------------------------------
     //                      PLAYER CARDS EFFECTS
     //=================================================================
@@ -1145,6 +1395,21 @@ public class EffectDictionary : MonoBehaviour
         
         // Gold Cards
         effectDictionary_Players.Add(3001, ID3001_FortoldFortune);
+        effectDictionary_Players.Add(3002, ID3002_TitansWrath);
+        effectDictionary_Players.Add(3003, ID3003_Hongbao);
+        effectDictionary_Players.Add(3004, ID3004_SovereignDraw);
+        effectDictionary_Players.Add(3005, ID3005_RedThread);
+        effectDictionary_Players.Add(3006, ID3006_UnbreakingEmperor);
+        effectDictionary_Players.Add(3007, ID3007_FavoredFates);
+        effectDictionary_Players.Add(3008, ID3008_RoyalGambit);
+        effectDictionary_Players.Add(3009, ID3009_DeadlyDraw);
+        effectDictionary_Players.Add(3010, ID3010_CordCover);
+        effectDictionary_Players.Add(3011, ID3011_BalancedBounty);
+        effectDictionary_Players.Add(3012, ID3012_UnbreakingGold);
+        effectDictionary_Players.Add(3013, ID3013_Terracotta);
+        effectDictionary_Players.Add(3014, ID3014_LeechingTreasure);
+        effectDictionary_Players.Add(3015, ID3015_BronzeAge);
+        effectDictionary_Players.Add(3016, ID3016_MoneyTree);
         
         // Jade Cards
         effectDictionary_Players.Add(4001, ID4001_JadeSpirit);
