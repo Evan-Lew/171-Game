@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     //flag will be turned on when setup function needed
-    [HideInInspector] public bool setupFlag = false;
+    [HideInInspector] private bool setupFlag = false;
 
 
     [SerializeField] BattleController _script_BattleController;
@@ -26,14 +26,15 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            BattleSystemSetUp();
+            setupFlag = true;
+            if (setupFlag)
+            {
+                BattleSystemSetUp();
+                setupFlag = false;
+            }
         }
 
-        if (setupFlag)
-        {
-            BattleSystemSetUp();
-            setupFlag = false;
-        }
+
 
 
 

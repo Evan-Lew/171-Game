@@ -19,3 +19,4 @@ MonoBehaviour:
   Health_Current: 35
   Priority_Initial: 0
   Priority_Current: 0
+  Pattern: 0

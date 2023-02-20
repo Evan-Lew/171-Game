@@ -20,9 +20,10 @@ public class PrioritySystem : MonoBehaviour
     //Adds a character to the dictionary, catches error if already in dict
     public void AddCharacters(Character character){
         try
-        {        
-            priorityDict.Add(character, initialPriority);
+        {
+            initialPriority = character.Priority_Current;
             initialPriority += 0.5;
+            priorityDict.Add(character, initialPriority);
 
             if(!playerAdded){
                 playerKey = character;
