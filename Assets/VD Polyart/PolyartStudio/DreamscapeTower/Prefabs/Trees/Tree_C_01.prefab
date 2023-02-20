@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7149815050046238049}
   - component: {fileID: 1065601024065630222}
   - component: {fileID: 4198323389869490529}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Tree_C_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006717942, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4122037455065537253}
   m_RootOrder: 2
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -92,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4122037455065537253}
   - component: {fileID: 9182404854491377044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tree_C_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +111,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4824345019237044388}
   - {fileID: 8154748874955319317}
@@ -159,7 +162,7 @@ GameObject:
   - component: {fileID: 8154748874955319317}
   - component: {fileID: 8044308587685807204}
   - component: {fileID: 31215006146075044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Tree_C_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,6 +179,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006717942, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4122037455065537253}
   m_RootOrder: 1
@@ -199,6 +203,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -242,7 +247,7 @@ GameObject:
   - component: {fileID: 4494152589271616776}
   - component: {fileID: 7927523926398024005}
   - component: {fileID: 4430606195156281756}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Tree_C_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,6 +264,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4122037455065537253}
   m_RootOrder: 0
@@ -282,6 +288,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -338,7 +345,7 @@ GameObject:
   - component: {fileID: 6921426937239937670}
   - component: {fileID: 4496976809807481018}
   - component: {fileID: 1206402384161910586}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Tree_C_01_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,6 +362,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006717942, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4122037455065537253}
   m_RootOrder: 3
@@ -378,6 +386,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
