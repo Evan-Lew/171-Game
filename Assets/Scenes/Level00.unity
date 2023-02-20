@@ -5953,16 +5953,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _script_DeckSystem: {fileID: 1185248573}
   startDrawingCrads: 1
-  startingCardsAmount: 3
+  startingCardsAmount: 6
   TurnChangeAnimationDuration: 2
   currentPhase: 0
+  lastPhase: 1
   nextPhase: 0
   enableUsingCard: 0
   enableCardActivation: 0
   _script_PrioritySystem: {fileID: 1368281155}
   _script_EnemyAi: {fileID: 939407030}
   enableTurnUpdate: 0
-  enableEndTurn: 0
   animator_fadeInOut: {fileID: 195012396}
   animator_PlayerTurn: {fileID: 560284607}
   animator_EnemyTurn: {fileID: 454805844}
