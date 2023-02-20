@@ -212,8 +212,9 @@ public class Card : MonoBehaviour
                 if (_script_BattleController.enableCardActivation)
                 {
                     ProcessCardEffect();
-                    this.gameObject.SetActive(false);
                     handManager.RemoveCardFromHand(this);
+                    this.gameObject.SetActive(false);
+                    Destroy(this.gameObject);
                 }
 
             }
@@ -269,11 +270,6 @@ public class Card : MonoBehaviour
         enableOverEffect = false;
 
     }
-
-
-
-
-
 
     private void OnMouseExit()
     {

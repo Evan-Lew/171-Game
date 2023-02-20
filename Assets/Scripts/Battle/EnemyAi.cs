@@ -61,8 +61,12 @@ public class EnemyAi : MonoBehaviour
 
     public void CastUniqueAbility_Golem()
     {
-        EffectDictionary.instance.effectDictionary_Enemies[3]();
-        _Text_Log.text = "Golem doesn't know what he is doing. so <color=red>Armor + 1</color>";
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+             EffectDictionary.instance.effectDictionary_Enemies[3]();
+             _Text_Log.text = "Golem doesn't know what he is doing. so <color=red>Armor + 1</color>";
+        }, 0.5f));
+        
     }
     
 

@@ -17,6 +17,7 @@ public class BattleController : MonoBehaviour
     [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
     [HideInInspector]public enum TurnType { player, enemy}
     [HideInInspector]public TurnOrder currentPhase;
+    [HideInInspector]public TurnOrder lastPhase = TurnOrder.playerPhase;
     [HideInInspector]public TurnOrder nextPhase;
     [HideInInspector] public bool enableUsingCard = false;
     [HideInInspector] public bool enableCardActivation = false;
@@ -26,7 +27,6 @@ public class BattleController : MonoBehaviour
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private EnemyAi _script_EnemyAi;
     [HideInInspector] public bool enableTurnUpdate = false;
-    [HideInInspector] public bool enableEndTurn = false;
 
     [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_EnemyTurn;
 
@@ -44,11 +44,13 @@ public class BattleController : MonoBehaviour
         {
             if (enableTurnUpdate)
             {
+               // Debug.Log(currentPhase + " Next " + nextPhase + " Last " + lastPhase);
+
                 TurnUpdate();
             }
         }
 
-       // Debug.Log(currentPhase + " Next " + nextPhase);
+
 
     }
 
@@ -90,41 +92,44 @@ public class BattleController : MonoBehaviour
     {
         enableTurnUpdate = false;
 
-
-        if (currentPhase == TurnOrder.start && nextPhase == TurnOrder.playerPhase)
+        //special handling AtPlayerEndPhase
+        if (currentPhase == TurnOrder.playerEndPhase)
+        {
+            SpecialHandling_AtEndPlayerTurn();
+        }
+        else if (currentPhase == TurnOrder.EnemyEndPhase)
         {
             currentPhase = nextPhase;
+            BattleController.instance.enableTurnUpdate = true;
+        }
+        else if (currentPhase == TurnOrder.start)
+        {
+            TurnChangeAnimation(TurnType.player);
+            lastPhase = TurnOrder.playerPhase;
+            currentPhase = TurnOrder.playerPhase;
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                _script_DeckSystem.DrawCardToHand();
+                enableUsingCard = true;
+                enableCardActivation = true;
+            }, TurnChangeAnimationDuration));
+        }
+        else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.playerPhase)
+        {
+            enableUsingCard = true;
+            enableCardActivation = true;
+        }
+        else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.EnemyPhase)
+        {
             TurnChangeAnimation(TurnType.player);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _script_DeckSystem.DrawCardToHand();
                 enableUsingCard = true;
                 enableCardActivation = true;
-
-
             }, TurnChangeAnimationDuration));
         }
-        else if (currentPhase == TurnOrder.playerPhase && nextPhase == TurnOrder.playerPhase)
-        {
-
-            _script_DeckSystem.DrawCardToHand();
-            enableUsingCard = true;
-            enableCardActivation = true;
-        }
-        else if (currentPhase == TurnOrder.playerPhase && nextPhase == TurnOrder.EnemyPhase)
-        {
-            currentPhase = nextPhase;
-            enableUsingCard = false;
-            enableCardActivation = false;
-            TurnChangeAnimation(TurnType.enemy);
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                _script_EnemyAi.isActioned = false;
-                _script_EnemyAi.EnemyAction(enemy.CharacterName);
-
-            }, TurnChangeAnimationDuration));
-        }
-        else if(currentPhase == TurnOrder.EnemyPhase && nextPhase == TurnOrder.EnemyPhase)
+        else if (currentPhase == TurnOrder.EnemyPhase && lastPhase == TurnOrder.EnemyPhase)
         {
             enableUsingCard = false;
             enableCardActivation = false;
@@ -134,17 +139,19 @@ public class BattleController : MonoBehaviour
                 _script_EnemyAi.EnemyAction(enemy.CharacterName);
 
             }, 1.5f));
-        }else if(currentPhase == TurnOrder.EnemyPhase && nextPhase == TurnOrder.playerPhase)
+        }
+        else if (currentPhase == TurnOrder.EnemyPhase && lastPhase == TurnOrder.playerPhase)
         {
-            TurnChangeAnimation(TurnType.player);
+            enableUsingCard = false;
+            enableCardActivation = false;
+            TurnChangeAnimation(TurnType.enemy);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                _script_DeckSystem.DrawCardToHand();
-                enableUsingCard = true;
-                enableCardActivation = true;
-
+                _script_EnemyAi.isActioned = false;
+                _script_EnemyAi.EnemyAction(enemy.CharacterName);
 
             }, TurnChangeAnimationDuration));
+        
         }
         
     }
@@ -153,25 +160,16 @@ public class BattleController : MonoBehaviour
 
     void SpecialHandling_AtEndPlayerTurn()
     {
-
-
-        //if (enemy.CharacterName == "Golem")
-        //{
-
-
-        //    _script_EnemyAi.CastUniqueAbility_Golem();
-
-
-
-        //}
-        //else
-        //{
-        //    //animator_fadeInOut.SetTrigger("Play");
-        //    //animator_Enemy.SetTrigger("Play");
-
-        //}
-
-
+        if (enemy.CharacterName == "Golem")
+        {
+            _script_EnemyAi.CastUniqueAbility_Golem();
+            currentPhase = nextPhase;
+        }
+        else
+        {
+            currentPhase = nextPhase;
+            BattleController.instance.enableTurnUpdate = true;
+        }
     }
 
     void TurnChangeAnimation(TurnType type)

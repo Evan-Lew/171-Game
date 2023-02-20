@@ -138,17 +138,36 @@ public class EffectDictionary : MonoBehaviour
         // Increment priority
         _script_PrioritySystem.AddCost(Target, Cost);
         Character Result = _script_PrioritySystem.getNextTurnCharacter();
-        Debug.Log("Player : " + player.Priority_Current + " Enemy : " + enemy.Priority_Current);
-        Debug.Log("Next turn will be " + Result);
         if(Result == player)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.playerPhase;
+            if(BattleController.instance.currentPhase == BattleController.TurnOrder.playerPhase)
+            {
+                BattleController.instance.lastPhase = BattleController.TurnOrder.playerPhase;
+                BattleController.instance.currentPhase = BattleController.TurnOrder.playerEndPhase;
+            }
+            else
+            {
+                BattleController.instance.lastPhase = BattleController.TurnOrder.EnemyPhase;
+                BattleController.instance.currentPhase = BattleController.TurnOrder.EnemyEndPhase;
+            }
         }
         else if(Result == enemy)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.EnemyPhase;
             BattleController.instance.enableUsingCard = false;
+            if (BattleController.instance.currentPhase == BattleController.TurnOrder.playerPhase)
+            {
+                BattleController.instance.lastPhase = BattleController.TurnOrder.playerPhase;
+                BattleController.instance.currentPhase = BattleController.TurnOrder.playerEndPhase;
+            }
+            else
+            {
+                BattleController.instance.lastPhase = BattleController.TurnOrder.EnemyPhase;
+                BattleController.instance.currentPhase = BattleController.TurnOrder.EnemyEndPhase;
+            }
         }
+        
     }
     
     // If it already exists, set it to active, and when the effect is played it will be set to disabled again
@@ -226,15 +245,9 @@ public class EffectDictionary : MonoBehaviour
     //for some unique particle, the turn will not changed
     void TurnManipulator(string effectName)
     {
-        if (effectName == "Stubborn")
-        {
-            BattleController.instance.enableTurnUpdate = true;
-        }
-        else
-        {
-            BattleController.instance.enableEndTurn = true;
-            BattleController.instance.enableTurnUpdate = true;
-        }
+
+        BattleController.instance.enableTurnUpdate = true;
+
     }
     //-----------------------------------------------------------------
     //                      Tagged Effect Ends
