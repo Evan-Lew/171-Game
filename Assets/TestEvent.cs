@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TestEvent : MonoBehaviour
 {
+    public int ask;
+
     private void Awake()
     {
         Debug.Log("你妈死了");
