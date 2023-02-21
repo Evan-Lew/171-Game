@@ -280,8 +280,7 @@ public class EffectDictionary : MonoBehaviour
         
         Manipulator_Player();
         DrawCards_Player(Player_cardsDrawing);
-         
-
+        
         // Particle positioned under the player
         ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
         
