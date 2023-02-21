@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8724638528972352050}
   - component: {fileID: 935448620372240193}
   - component: {fileID: 6361131985427562932}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Grass_MediumGroup_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006717942, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5038063, y: 0, z: 0.02982636}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5990872931357025529}
   m_RootOrder: 1
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -92,7 +94,7 @@ GameObject:
   - component: {fileID: 4018075093949061241}
   - component: {fileID: 7238512968490132121}
   - component: {fileID: 8424774878874920767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Grass_MediumGroup_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +111,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006717942, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5038063, y: 0, z: 0.02982636}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5990872931357025529}
   m_RootOrder: 2
@@ -132,6 +135,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -172,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5990872931357025529}
   - component: {fileID: 1547484112477442952}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grass_MediumGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,6 +193,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7149463195995183886}
   - {fileID: 8724638528972352050}
@@ -210,7 +215,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.89053184
+  - screenRelativeHeight: 0.71622264
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1156756821415005196}
@@ -234,7 +239,7 @@ GameObject:
   - component: {fileID: 7149463195995183886}
   - component: {fileID: 2632537875299510176}
   - component: {fileID: 1156756821415005196}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_Grass_MediumGroup_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,6 +256,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5038063, y: 0, z: 0.02982636}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5990872931357025529}
   m_RootOrder: 0
@@ -274,6 +280,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

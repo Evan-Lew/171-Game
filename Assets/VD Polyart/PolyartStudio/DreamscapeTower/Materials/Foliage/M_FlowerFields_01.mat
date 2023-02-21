@@ -2,14 +2,17 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_FlowerFields_01
-  m_Shader: {fileID: 4800000, guid: 3aa11b2c6fcaa3c418015917a2252433, type: 3}
-  m_ShaderKeywords: _USEGRADIENTMAP_ON _USEVERTEXCOLOR_ON
+  m_Shader: {fileID: 4800000, guid: 558020532b52de04db73565caa173094, type: 3}
+  m_ValidKeywords:
+  - _USEGRADIENTMAP_ON
+  - _USEVERTEXCOLOR_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -39,7 +42,9 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
+    - _AlphaCutoff: 0.5
     - _DitherBottomLevel: 0
     - _DitherFade: 0
     - _FoliageRoughness: 0.9
@@ -66,5 +71,6 @@ Material:
     - _ColorGradient01: {r: 1, g: 0.41037738, b: 0.95029986, a: 1}
     - _ColorGradient02: {r: 0, g: 0.14975882, b: 1, a: 1}
     - _ColorTint: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _StemColor: {r: 0.040553663, g: 0.6603774, b: 0, a: 0}
   m_BuildTextureStacks: []

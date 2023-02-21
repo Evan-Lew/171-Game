@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1399132392169134601}
   - component: {fileID: 7047544932672621943}
   - component: {fileID: 1943120643510122274}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_FlowerField_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4331442599763175527}
   m_RootOrder: 1
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -91,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331442599763175527}
   - component: {fileID: 8810870119857020694}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FlowerField_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +110,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3114003752250706420}
   - {fileID: 1399132392169134601}
@@ -153,7 +156,7 @@ GameObject:
   - component: {fileID: 3114003752250706420}
   - component: {fileID: 5695576707506205326}
   - component: {fileID: 742712557907733045}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_FlowerField_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +173,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4331442599763175527}
   m_RootOrder: 0
@@ -193,6 +197,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -234,7 +239,7 @@ GameObject:
   - component: {fileID: 4430546242099168122}
   - component: {fileID: 4713662200169346139}
   - component: {fileID: 6405707880221725019}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_FlowerField_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,6 +256,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4331442599763175527}
   m_RootOrder: 2
@@ -274,6 +280,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

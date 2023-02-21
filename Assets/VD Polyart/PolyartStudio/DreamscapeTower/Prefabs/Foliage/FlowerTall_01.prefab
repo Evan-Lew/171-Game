@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6191703587321928522}
   - component: {fileID: 559776690165616545}
   - component: {fileID: 5497737461294662146}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_FlowerTall_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.0088919485, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4624047976876751867}
   m_RootOrder: 0
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -92,7 +94,7 @@ GameObject:
   - component: {fileID: 5959682832902477550}
   - component: {fileID: 2795940856252468655}
   - component: {fileID: 8507564620523995942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_FlowerTall_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +111,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006717942, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.0088919485, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4624047976876751867}
   m_RootOrder: 2
@@ -132,6 +135,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -172,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4624047976876751867}
   - component: {fileID: 464421118289415306}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FlowerTall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,6 +193,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6191703587321928522}
   - {fileID: 8558126760536503697}
@@ -234,7 +239,7 @@ GameObject:
   - component: {fileID: 8558126760536503697}
   - component: {fileID: 728238097174993265}
   - component: {fileID: 4449530564353000248}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_FlowerTall_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,6 +256,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006717942, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.0088919485, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4624047976876751867}
   m_RootOrder: 1
@@ -274,6 +280,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
