@@ -3,108 +3,32 @@
   <component name="ChangeListManager">
     <list default="true" id="e5826c37-26e0-4f4c-8413-aaf263a1f675" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/linkdata.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/linkdata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Scripts/CommonAssemblyDefinitions.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Compass Navigator Pro Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Corgi Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Devion Inventory Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Dialogue System Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Easy Save Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Emerald AI Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/HUD Navigation System Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Invector Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Inventory Engine Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Inventory Pro Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/PlayMaker Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Rewired Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/Tactical Shooter AI Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Common/Third Party Support/TopDown Engine Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Scripts/DialogueSystemAssemblyDefinitions.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Action-RPG Starter Kit Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Adventure Creator Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Articy Localization Importer.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Behavior Designer Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Bolt Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Cinema Director Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Cinemachine Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Core GameKit Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Corgi Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Customizable SciFi Holo Interface Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Deftly Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Devion Inventory Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/DoozyUI Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Easy Save Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Emerald AI Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/FaceFX Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Feel Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/GameFlow Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/I2 Localization Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/ICode Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Ink Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Invector Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Inventory Engine Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Inventory Pro Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/JLC Importer.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/KGFMapSystem Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/LipSync Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/LivelyChatBubbles Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Localization Package Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Look Animator Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Makinom Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Master Audio Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Motion Controller Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/NGUI HUD Text Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/NGUI Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/NWT Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/ORK Framework Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/PlayMaker Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/PostProcessing Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/RPG Builder Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/RPG Kit Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/RTVoice Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Realistic FPS Prefab Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Rewired Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Rog Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/SALSA Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/SLATE Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Speech Recognition System Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Spine Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/SuperTextMesh Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/TK2D Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/TalkIt Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Text Animator Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/TopDown Engine Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Topdown Kit Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/UniStorm Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/Visual Scripting Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/plyGame Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/uMMORPG Remastered Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/uMMORPG Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/uRPG Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/uSequencer Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/Dialogue System/Plugins/Pixel Crushers/Dialogue System/Third Party Support/uSurvival Support.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/ProTips/Demos (safe to delete)/ProTips Legacy Text Demos.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/HDRPdecal(Upper2020HDRP).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/HDRPdecal.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/HDRPdecalMatrixFix(Upper2020HDRP).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Decals/URPdecal.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/GammaSpaceMaterials(WithoutNormal).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/GammaSpaceMaterials.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/LinearSpaceMaterials(WithoutNormal).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Materials/LinearSpaceMaterials.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Prefebs/OptimizedEffectsPrefebs.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Prefebs/OriginalEffectsPrefebs(WithoutDistort).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Prefebs/OriginalEffectsPrefebs.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeMaterial(GammaSpace).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeMaterial(LinearSpace).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeTextures_Part1.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/Patch/Toon/ToonTypeTextures_Part2.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Menu Terrain.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Menu Terrain.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Materials/Skybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Materials/Skybox.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Himself.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Himself/Effect_08_GroundSlash.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Himself/Effect_08_GroundSlash.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Himself/ThrowHimself.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Golem/Throw Himself/ThrowHimself.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Card Sounds/Card Draw.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Card Sounds/Card Draw.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Card Sounds/Card Place.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Card Sounds/Card Place.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Golem/Throw_Himself.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Golem/Throw_Himself.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Golem/Throw_Stone2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Golem/Throw_Stone2.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Golem/Throw_Stone3.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Golem/Throw_Stone3.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Misc/PageFlip.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Misc/PageFlip.mp3.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Design Cafe/Packages/com.vdc.nature-renderer.uas-2021.1.6.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Design Cafe/Packages/com.vdc.nature-shaders.embedded-2021.1.2.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +113,7 @@
       <workItem from="1676680175905" duration="5044000" />
       <workItem from="1676768374162" duration="3955000" />
       <workItem from="1676854620895" duration="1365000" />
-      <workItem from="1676941113018" duration="5037000" />
+      <workItem from="1676941113018" duration="9283000" />
     </task>
     <servers />
   </component>

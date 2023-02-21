@@ -49,7 +49,7 @@ public class EnemyAi : MonoBehaviour
 
     void Add_Golem()
     {
-        //Golem Pattern Throw Stone #1 -> Throw Himself #2
+        //Golem Pattern Throw Stone #1 -> Body Slam #2
         //Unique ability Stubborn #3 triggered at the end of player turn
         attackPattern = new List<int>() { 1, 2 };
         enemysPatterns = new List<List<int>>();

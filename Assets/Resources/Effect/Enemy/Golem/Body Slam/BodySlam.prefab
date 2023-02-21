@@ -9783,7 +9783,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6234818455853893156}
   m_Layer: 3
-  m_Name: ThrowHimself
+  m_Name: BodySlam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

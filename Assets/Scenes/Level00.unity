@@ -259,8 +259,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESUME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb1f4287fee11b14b9503c96066174e3, type: 2}
-  m_sharedMaterial: {fileID: -4358176905725018011, guid: bb1f4287fee11b14b9503c96066174e3,
+  m_fontAsset: {fileID: 11400000, guid: cdba7ae09671826449470e678cef6dff, type: 2}
+  m_sharedMaterial: {fileID: 1876482555800959863, guid: cdba7ae09671826449470e678cef6dff,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &32828812
@@ -426,8 +426,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: QUIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb1f4287fee11b14b9503c96066174e3, type: 2}
-  m_sharedMaterial: {fileID: -4358176905725018011, guid: bb1f4287fee11b14b9503c96066174e3,
+  m_fontAsset: {fileID: 11400000, guid: cdba7ae09671826449470e678cef6dff, type: 2}
+  m_sharedMaterial: {fileID: 1876482555800959863, guid: cdba7ae09671826449470e678cef6dff,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -546,7 +546,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.273
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1929,9 +1929,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494707334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1508794527}
@@ -1942,7 +1942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00012207031, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494707336
@@ -4402,8 +4402,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb1f4287fee11b14b9503c96066174e3, type: 2}
-  m_sharedMaterial: {fileID: -4358176905725018011, guid: bb1f4287fee11b14b9503c96066174e3,
+  m_fontAsset: {fileID: 11400000, guid: cdba7ae09671826449470e678cef6dff, type: 2}
+  m_sharedMaterial: {fileID: 1876482555800959863, guid: cdba7ae09671826449470e678cef6dff,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4511,6 +4511,9 @@ MonoBehaviour:
   HandManager: {fileID: 409527556}
   deckToUse:
   - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: fa6d7c435e43b7348a5a5e9ac65cd30c, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,

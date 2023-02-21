@@ -1396,13 +1396,11 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Action_01_ThrowStone1", 1);
-            SoundManager.PlaySound("sfx_Action_01_ThrowStone2", 1);
+            SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
         }, 1f));
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Action_01_ThrowStone1", 1);
-        SoundManager.PlaySound("sfx_Action_01_ThrowStone2", 1);
+        SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
         
         // Particle positioned under the player
         ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[0], false);
@@ -1415,7 +1413,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // Deal damage to player equal to his health, cost 2
-    public void Action_02_ThrowHimself()
+    public void Action_02_BodySlam()
     {
         ParticleDuration = 2f;
         Enemy_damageDealing = enemy.Armor_Current;
@@ -1424,9 +1422,9 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy();
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Action_02_Throw_Himself", 1);
+        SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
         // Particle positioned on the player
-        ParticleEvent("ThrowHimself", 2, ParticleDuration, playerObj, false);
+        ParticleEvent("BodySlam", 2, ParticleDuration, playerObj, false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1439,6 +1437,9 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Enemy_armorCreate = 1;
+        
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        
         // Particle positioned under the enemy
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1640,7 +1641,7 @@ public class EffectDictionary : MonoBehaviour
 
         // Enemy: Golem Cards
         effectDictionary_Enemies.Add(1, Action_01_ThrowStone);
-        effectDictionary_Enemies.Add(2, Action_02_ThrowHimself);
+        effectDictionary_Enemies.Add(2, Action_02_BodySlam);
         effectDictionary_Enemies.Add(3, Action_03_Stubborn);
     }
 }

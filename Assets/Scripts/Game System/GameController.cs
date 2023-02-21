@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            SoundManager.PlaySound("bgm_Mountain_Of_Myths", 1);
+            SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
             setupFlag = true;
             if (setupFlag)
             {

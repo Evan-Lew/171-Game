@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SoundManager.PlaySound("sfx_PageFlip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 1);
         _script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
         //ask for setup combat system
         //_script_GameController.setupFlag = true;
@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        SoundManager.PlaySound("sfx_PageFlip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 1);
         Application.Quit();
     }
 }

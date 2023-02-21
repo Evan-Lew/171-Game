@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        SoundManager.PlaySound("sfx_PageFlip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 1);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        SoundManager.PlaySound("sfx_PageFlip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 1);
         Time.timeScale = 1f;
         // Load main menu (index 0)
         SceneManager.LoadScene(0);
@@ -50,7 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        SoundManager.PlaySound("sfx_PageFlip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 1);
         Application.Quit();
     }
 }
