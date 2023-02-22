@@ -262,12 +262,20 @@ public class EffectDictionary : MonoBehaviour
     //                      Tagged Effect Ends
     //=================================================================
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Action_02_BodySlam();
+        }
+    }
+
 
 
     //=================================================================
     //                        PLAYER CARDS
     //-----------------------------------------------------------------
-    
+
     //-----------------------------------------------------------------
     //                      SILVER CARDS
     //=================================================================
@@ -277,14 +285,16 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_cardsDrawing = 2;
         Player_priorityInc = 3;
-        
         Manipulator_Player();
-        DrawCards_Player(Player_cardsDrawing);
-        
-        // Particle positioned under the player
         ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
-        
-        Manipulator_Player_Reset();
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+
+            DrawCards_Player(Player_cardsDrawing);
+            Manipulator_Player_Reset();
+        }, ParticleDuration / 2));
+
     }
 
     // Deal 3 damage, cost 2
@@ -302,9 +312,10 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
-        Manipulator_Player_Reset();
+        
     }
 
     // Gain 2 armor, cost 1
@@ -320,8 +331,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
 
     // Draw 2 cards, gain 3 armors, cost 4
@@ -344,9 +356,10 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
-        Manipulator_Player_Reset();
+
     }
 
     //-----------------------------------------------------------------
@@ -369,8 +382,9 @@ public class EffectDictionary : MonoBehaviour
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2001));
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
 
     // Deal 6 damage, the next card you play deal 4 more damage
@@ -389,8 +403,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
 
     // Next card deal double damage
@@ -401,8 +416,6 @@ public class EffectDictionary : MonoBehaviour
         isDealingDoubleDmg = true;
         
         Manipulator_Player();
-        
-
         Manipulator_Player_Reset();
     }
 
@@ -421,8 +434,9 @@ public class EffectDictionary : MonoBehaviour
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
     
     // NOT IMPLEMENTED
@@ -442,8 +456,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
     
     // NOT IMPLEMENTED
@@ -462,8 +477,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
     
     // NOT IMPLEMENTED
@@ -482,8 +498,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
     
     // NOT IMPLEMENTED
@@ -502,8 +519,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
     
     // NOT IMPLEMENTED
@@ -522,8 +540,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+
     }
     
     // NOT IMPLEMENTED
@@ -542,8 +561,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+     
     }
     
     // NOT IMPLEMENTED
@@ -562,8 +582,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+     
     }
     
     // NOT IMPLEMENTED
@@ -582,8 +603,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
     
     // NOT IMPLEMENTED
@@ -602,8 +624,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
     
     // NOT IMPLEMENTED
@@ -622,8 +645,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
     
     // NOT IMPLEMENTED
@@ -642,8 +666,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
     
     //-----------------------------------------------------------------
@@ -661,10 +686,10 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
-
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
-        Manipulator_Player_Reset();
+        
     }
     
     // NOT IMPLEMENTED
@@ -681,8 +706,8 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
@@ -699,8 +724,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -717,8 +743,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
     // NOT IMPLEMENTED
@@ -734,8 +761,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3005));
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -752,9 +780,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
-
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -771,8 +799,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -791,8 +820,9 @@ public class EffectDictionary : MonoBehaviour
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -811,8 +841,9 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // Draw 2 cards and gain 6 Armor
@@ -830,8 +861,9 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -848,8 +880,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -866,8 +899,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -886,8 +920,9 @@ public class EffectDictionary : MonoBehaviour
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -906,8 +941,9 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -923,8 +959,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -940,9 +977,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
-
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
     
     //-----------------------------------------------------------------
@@ -960,8 +997,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -977,8 +1015,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -994,8 +1033,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
     // NOT IMPLEMENTED
@@ -1011,8 +1051,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1028,8 +1069,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
     // NOT IMPLEMENTED
@@ -1045,8 +1087,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
 
@@ -1063,8 +1106,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1080,8 +1124,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
     // NOT IMPLEMENTED
@@ -1097,8 +1142,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1115,8 +1161,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1132,8 +1179,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1149,8 +1197,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
     // NOT IMPLEMENTED
@@ -1166,8 +1215,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1183,8 +1233,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1200,8 +1251,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
 
@@ -1218,8 +1270,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     
@@ -1240,8 +1293,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1257,8 +1311,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1274,8 +1329,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1291,8 +1347,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
     // NOT IMPLEMENTED
@@ -1308,8 +1365,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1325,8 +1383,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
     // NOT IMPLEMENTED
@@ -1342,8 +1401,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1358,8 +1418,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+        
     }
 
     // NOT IMPLEMENTED
@@ -1375,8 +1436,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
+       
     }
 
 
@@ -1407,9 +1469,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
-
+            Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Enemy_Reset();
+       
     }
 
     // Deal damage to player equal to his health, cost 2
@@ -1428,9 +1490,9 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
-
+            Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Enemy_Reset();
+        
     }
     // At the end of player turn, gain 2 armor
     public void Action_03_Stubborn()
@@ -1446,8 +1508,9 @@ public class EffectDictionary : MonoBehaviour
         {
             //manipulator not needed since this is static effect
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+            Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
         }, ParticleDuration / 2));
-        Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
+        
     }
 
     //-----------------------------------------------------------------
