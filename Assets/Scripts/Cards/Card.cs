@@ -213,8 +213,8 @@ public class Card : MonoBehaviour
                 {
                     ProcessCardEffect();
                     handManager.RemoveCardFromHand(this);
-                    this.gameObject.SetActive(false);
-                    Destroy(this.gameObject);
+                    gameObject.SetActive(false);
+                    Destroy(gameObject);
                 }
 
             }
@@ -257,7 +257,7 @@ public class Card : MonoBehaviour
         if (isInHand && enableOverEffect)
         {
             //find the card and rise it and move up
-            MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, this.transform.rotation);
+            MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, transform.rotation);
             ChangeToSize(initializedScale * 1.5f);
             if (!isHoveringAnimationCalled)
             {

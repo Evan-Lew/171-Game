@@ -59,7 +59,7 @@ public class PrioritySystem : MonoBehaviour
         priorityDict[character] = temp_changeCost;
         character.Priority_Current = priorityDict[character];
 
-        double priorityDifference = priorityDict[playerKey]*2 - totalPriority;
+        double priorityDifference = priorityDict[playerKey] * 2 - totalPriority;
         //Debug.Log(priorityDict[playerKey]/totalPriority);
         //Debug.Log(priorityDict[playerKey]/totalPriority < 1-(priorityDict[playerKey]/totalPriority));
         if(priorityDifference >= 4){
@@ -82,7 +82,7 @@ public class PrioritySystem : MonoBehaviour
         initialPriority = 1.0;
     }
 
-    public Character getNextTurnCharacter(){
+    public Character GetNextTurnCharacter(){
 
         Character nextChar = priorityDict.OrderBy(kvp => kvp.Value).FirstOrDefault().Key;
         return nextChar;
@@ -95,14 +95,14 @@ public class PrioritySystem : MonoBehaviour
     //==============================================
 
     //used to test if the turn will be advanced
-    void Helper_TestCostWithKey(KeyCode inputKey, Character character, double cost)
-    {
-        if (Input.GetKeyDown(inputKey))
-        {
-            AddCost(character, cost);
-        }
+    //void Helper_TestCostWithKey(KeyCode inputKey, Character character, double cost)
+    //{
+    //    if (Input.GetKeyDown(inputKey))
+    //    {
+    //        AddCost(character, cost);
+    //    }
 
-    }
+    //}
 
      
 }

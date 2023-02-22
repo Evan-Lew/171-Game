@@ -146,7 +146,7 @@ public class EffectDictionary : MonoBehaviour
     {
         // Increment priority
         _script_PrioritySystem.AddCost(Target, Cost);
-        Character Result = _script_PrioritySystem.getNextTurnCharacter();
+        Character Result = _script_PrioritySystem.GetNextTurnCharacter();
         if(Result == player)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.playerPhase;

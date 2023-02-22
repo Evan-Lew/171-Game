@@ -7,13 +7,18 @@ public class GameController : MonoBehaviour
 {
     //flag will be turned on when setup function needed
     [HideInInspector] private bool setupFlag = false;
-
-
     [SerializeField] BattleController _script_BattleController;
     [SerializeField] HandManager _script_HandManager;
     [SerializeField] EffectDictionary _script_EffectDictionary;
     [SerializeField] PrioritySystem _script_PrioritySystem;
     [SerializeField] DeckSystem _script_DeckSystem;
+
+    [SerializeField] List<GameObject> CamerasObj;
+
+
+    private void Awake()
+    {
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,6 +26,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("Main Menu");
+
         }
 
 
@@ -30,18 +36,17 @@ public class GameController : MonoBehaviour
             setupFlag = true;
             if (setupFlag)
             {
+                CamerasObj.Find(camera => camera.name == "UI Battle Camera").SetActive(true);
+                CamerasObj.Find(camera => camera.name == "UI Camp Camera").SetActive(false);
                 BattleSystemSetUp();
                 setupFlag = false;
             }
         }
 
-
-
-
-
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
-
+            CamerasObj.Find(camera => camera.name == "UI Battle Camera").SetActive(false);
+            CamerasObj.Find(camera => camera.name == "UI Camp Camera").SetActive(true);
 
         }
 
