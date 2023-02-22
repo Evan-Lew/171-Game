@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
+using System.Linq;
 
 //手卡
 //Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
@@ -645,7 +646,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
-    
+
     //-----------------------------------------------------------------
     //                      GOLD CARDS
     //=================================================================
@@ -655,9 +656,9 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_cardsDrawing = 2;
         Player_priorityInc = 2;
-        
+
         Manipulator_Player();
-        
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
@@ -666,7 +667,7 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Player_Reset();
     }
-    
+
     // NOT IMPLEMENTED
     // Env: Every time you draw a card, deal one damage
     public void ID3002_TitansWrath()
@@ -674,9 +675,9 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_damageDealing = 1;
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
-       
+
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -688,13 +689,13 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED
     // Draw a card. It costs +1
     public void ID3003_Hongbao()
-    {        
+    {
         ParticleDuration = 3f;
         Player_cardsDrawing = 1;
         Player_priorityInc = 0;
-        
+
         Manipulator_Player();
-       
+
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -703,14 +704,23 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // If your hand has less than 3 cards, draw 4. Otherwise draw 2.
     public void ID3004_SovereignDraw()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 4;
+        if (cardsinhand < 3)
+        {
+            Player_cardsDrawing = 4;
+        }
+        else
+        {
+            Player_cardsDrawing = 2;
+        }
+
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
 
 
@@ -724,10 +734,10 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED
     // Every card you have played this combat costs one less for the rest of combat. Banish this card.
     public void ID3005_RedThread()
-    {        
+    {
         ParticleDuration = 3f;
         Player_priorityInc = 4;
-        
+
         Manipulator_Player();
 
 
@@ -738,14 +748,15 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Gain 2 Armor for each card you have in hand.
     public void ID3006_UnbreakingEmperor()
     {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 2f;
-        Player_armorCreate = 2;
+        Player_armorCreate = cardsinhand * 2;
         Player_priorityInc = 2;
-        
+
         Manipulator_Player();
 
 
@@ -760,11 +771,11 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED
     // Env: At the start of your turn draw an additional card
     public void ID3007_FavoredFates()
-    {        
+    {
         ParticleDuration = 3f;
         Player_cardsDrawing = 1;
         Player_priorityInc = 2;
-        
+
         Manipulator_Player();
 
 
@@ -775,15 +786,16 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // For each card in your hand, gain 4 Armor and deal 2 damage to the enemy
     public void ID3008_RoyalGambit()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_armorCreate = 4;
-        Player_damageDealing = 2;
+        Player_armorCreate = 4 * cardsinhand;
+        Player_damageDealing = 2 * cardsinhand;
         Player_priorityInc = 8;
-        
+
         Manipulator_Player();
 
 
@@ -795,15 +807,24 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw cards until you have 4 cards , if you already have 4 cards gain 10 Armor
     public void ID3009_DeadlyDraw()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 4;
-        Player_armorCreate = 4;
+        Player_cardsDrawing = 0;
+        Player_armorCreate = 0;
+        if (cardsinhand < 4)
+        {
+            Player_cardsDrawing = 4 - cardsinhand;
+        }
+        else
+        {
+            Player_armorCreate = 10;
+        }
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
 
 
@@ -817,12 +838,12 @@ public class EffectDictionary : MonoBehaviour
 
     // Draw 2 cards and gain 6 Armor
     public void ID3010_CordCover()
-    {        
+    {
         ParticleDuration = 3f;
         Player_armorCreate = 6;
         Player_cardsDrawing = 2;
         Player_priorityInc = 4;
-        
+
         Manipulator_Player();
 
 
@@ -834,14 +855,15 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw x amount of cards(x equals to cards in your hand)
     public void ID3011_BalancedBounty()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 10;
+        Player_cardsDrawing = cardsinhand;
         Player_priorityInc = 5;
-        
+
         Manipulator_Player();
 
 
@@ -855,11 +877,11 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED
     // Double the Armor you have
     public void ID3012_UnbreakingGold()
-    {        
+    {
         ParticleDuration = 3f;
         Player_armorCreate = 6;
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
 
 
@@ -873,12 +895,12 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED
     // cost 8 Armor deal 6 damage (if you don't have enough armor, nothing will happen)
     public void ID3013_Terracotta()
-    {        
+    {
         ParticleDuration = 3f;
         Player_armorCreate = 8;
         Player_damageDealing = 6;
         Player_priorityInc = 0;
-        
+
         Manipulator_Player();
 
 
@@ -892,13 +914,14 @@ public class EffectDictionary : MonoBehaviour
 
     // NOT IMPLEMENTED
     // draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
+    // problem!!!!!
     public void ID3014_LeechingTreasure()
-    {        
+    {
         ParticleDuration = 3f;
         Player_cardsDrawing = 2;
         Player_damageDealing = 6;
         Player_priorityInc = 6;
-        
+
         Manipulator_Player();
 
 
@@ -913,11 +936,11 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED
     // If your Armor is less than 10 gain 12 Armor, otherwise gain 6 Armor
     public void ID3015_BronzeAge()
-    {        
+    {
         ParticleDuration = 3f;
         Player_armorCreate = 12;
         Player_priorityInc = 2;
-        
+
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -930,11 +953,11 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED
     // Env: Every time you play a card, draw a card
     public void ID3016_MoneyTree()
-    {        
+    {
         ParticleDuration = 3f;
         Player_cardsDrawing = 1;
         Player_priorityInc = 5;
-        
+
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -944,7 +967,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
         Manipulator_Player_Reset();
     }
-    
+
     //-----------------------------------------------------------------
     //                      JADE CARDS
     //=================================================================
