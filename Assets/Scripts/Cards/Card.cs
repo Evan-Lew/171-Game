@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour
 {
     //for preloading
-    public enum state { Handcard, Deck, Others, None };
+    public enum state { Handcard, DeckCandidate, Others, None };
     public state cardState = state.None;
     public Card_Basedata.theme cardType;
     public Card_Basedata cardData;
@@ -77,7 +77,6 @@ public class Card : MonoBehaviour
     {
 
         updateCard();
-
     }
 
 
@@ -88,10 +87,6 @@ public class Card : MonoBehaviour
         {
             Actions_Handcards();
         }
-
-
-
-
         //reset the mouse input bool
         justPressed = false;
     }
@@ -254,20 +249,26 @@ public class Card : MonoBehaviour
     private void OnMouseOver()
     {
 
-        if (isInHand && enableOverEffect)
+        if (cardState == Card.state.Handcard)
         {
-            //find the card and rise it and move up
-            MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, transform.rotation);
-            ChangeToSize(initializedScale * 1.5f);
-            if (!isHoveringAnimationCalled)
+            if (isInHand && enableOverEffect)
             {
-                handManager.MoveOtherCardAtHovering(this);
-                isHoveringAnimationCalled = true;
+                //find the card and rise it and move up
+                MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, transform.rotation);
+                ChangeToSize(initializedScale * 1.5f);
+                if (!isHoveringAnimationCalled)
+                {
+                    handManager.MoveOtherCardAtHovering(this);
+                    isHoveringAnimationCalled = true;
+                }
+
             }
+
 
         }
 
         enableOverEffect = false;
+
 
     }
 
@@ -275,25 +276,38 @@ public class Card : MonoBehaviour
     {
         enableOverEffect = true;
 
-        if (isInHand)
-        {
 
-            //find the card and rise it and move up
-            handManager.MoveOtherCardAtHovering_Reset();
-            ChangeToSize(initializedScale);
-            isHoveringAnimationCalled = false;
+        if (cardState == Card.state.Handcard)
+        {
+            if (isInHand)
+            {
+
+                //find the card and rise it and move up
+                handManager.MoveOtherCardAtHovering_Reset();
+                ChangeToSize(initializedScale);
+                isHoveringAnimationCalled = false;
+            }
+
         }
+
     }
 
     private void OnMouseDown()
     {
         //only activated in player turn
-        if (isInHand && _script_BattleController.enableUsingCard)
+
+        if (cardState == Card.state.Handcard)
         {
-            isSelected = true;
-            theCollider.enabled = false;
-            justPressed = true;
+            if (isInHand && _script_BattleController.enableUsingCard)
+            {
+                isSelected = true;
+                theCollider.enabled = false;
+                justPressed = true;
+            }
         }
+
+
+
     }
 
     //==============================================

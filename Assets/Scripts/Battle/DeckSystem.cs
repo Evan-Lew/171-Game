@@ -116,6 +116,7 @@ public class DeckSystem : MonoBehaviour
             // Create a copy of the card prefab
             Card newCard = Instantiate(cardToSpawn, drawFromPos.position, transform.rotation);
             newCard.cardData = activeCards[0];
+            newCard.cardState = Card.state.Handcard;
             newCard.loadCard();
 
             activeCards.RemoveAt(0);
