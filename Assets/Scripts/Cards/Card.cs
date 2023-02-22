@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
-
-
+using Unity.VisualScripting;
 
 public class Card : MonoBehaviour
 {
@@ -46,7 +44,7 @@ public class Card : MonoBehaviour
     private Vector3 targetPoint;
     private Quaternion targetRotation;
     //lerp between 0 to 1
-    [Range(0.0f, 1.0f)] public float cardMovingSpeed_Lerp = 0.2f;
+    public float movingSpeed;
     public float rotateSpeed = 100f;
 
 
@@ -58,9 +56,10 @@ public class Card : MonoBehaviour
     [HideInInspector] public bool isHoveringAnimationCalled = false;
     Vector3 initializedScale;
     Vector3 targetScale;
-    [Range(0.0f, 1.0f)] public float cardSizeChange_Lerp = 0.2f;
+    [HideInInspector] public float cardSizeChange_Lerp = 0.2f;
 
-
+    //Candidate for Adding to Deck
+    [HideInInspector] public int CandidatePosition;
 
 
     void Awake()
@@ -87,6 +86,11 @@ public class Card : MonoBehaviour
         {
             Actions_Handcards();
         }
+
+        if(cardState == Card.state.DeckCandidate)
+        {
+            CardUtil_Movement();
+        }
         //reset the mouse input bool
         justPressed = false;
     }
@@ -99,8 +103,13 @@ public class Card : MonoBehaviour
         handManager = FindObjectOfType<HandManager>();
         theCollider = GetComponent<Collider>();
         enableOverEffect = true;
-        Enemy = GameObject.Find("Enemy").GetComponent<Character>();
         _script_BattleController = GameObject.Find("Battle Controller").GetComponent<BattleController>();
+        if (cardState == state.Handcard)
+        {
+            Enemy = GameObject.Find("Enemy").GetComponent<Character>();
+        }
+
+
     }
 
 
@@ -158,12 +167,7 @@ public class Card : MonoBehaviour
     private void Actions_Handcards()
     {
 
-        //let card move slowly
-        transform.position = Vector3.Lerp(transform.position, targetPoint, cardMovingSpeed_Lerp);
-        //let card rotate to sorted view quickly
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10f);
-        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, cardSizeChange_Lerp);
+        CardUtil_Movement();
 
         //create a line where the mouse is, and use that line to check the collision
         if (isSelected)
@@ -172,6 +176,14 @@ public class Card : MonoBehaviour
         }
 
 
+    }
+
+    private void CardUtil_Movement()
+    {
+
+        transform.position = Vector3.Lerp(transform.position, targetPoint, movingSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10f);
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, cardSizeChange_Lerp);
     }
 
 

@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] EffectDictionary _script_EffectDictionary;
     [SerializeField] PrioritySystem _script_PrioritySystem;
     [SerializeField] DeckSystem _script_DeckSystem;
-
+    [SerializeField] DeckEditSystem _script_DeckEditSystem;
     [SerializeField] List<GameObject> CamerasObj;
 
 
@@ -62,6 +62,11 @@ public class GameController : MonoBehaviour
         _script_EffectDictionary.SetUp();
     }
 
+
+    void CampSystemSetUp()
+    {
+
+    }
 
 
 }

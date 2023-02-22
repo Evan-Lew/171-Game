@@ -7,17 +7,77 @@ public class DeckEditSystem : MonoBehaviour
 {
 
     [SerializeField] DeckSystem _script_DeckSystem;
-    [SerializeField] Transform Pos_DisplayCardCandidates;
+    [SerializeField] Transform Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax;
+    [SerializeField] Card CardPrefab;
     [SerializeField] List<Card_Basedata> CardCandidatesList = new();
+    List<Card> Cards_FromCandidates = new();
+    [SerializeField] List<Vector3> CardCandidatesPositionList = new();
+    [SerializeField] float candidateDistance;
 
-
-    Card InstantiateCard(Card cardPrefab, Card_Basedata cardData, Transform initTransform)
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnCandidates();
+        }
+    }
 
-        Card newCard = Instantiate(cardPrefab, initTransform.position, initTransform.rotation);
+
+    //this function is used to reset entire Candidate system
+    public void ResetCandidate()
+    {
+        CardCandidatesList.Clear();
+        CardCandidatesPositionList.Clear();
+        Cards_FromCandidates.Clear();
+    }
+
+    //this function  will be called when ever you have a group of card_database wants to generate
+    public void SpawnCandidates()
+    {
+        Cards_FromCandidates.Clear();
+        for (int i = 0; i < CardCandidatesList.Count; i++)
+        {
+            InstantiateCard(CardPrefab, CardCandidatesList[i], Pos_DisplayCardCandidates);
+        }
+        SetCandidateCardPos();
+    }
+
+    void SetCandidateCardPos()
+    {
+        Vector3 distanceBetween;
+        CardCandidatesPositionList.Clear();
+        if (CardCandidatesList.Count - 1 == 0)
+        {
+            distanceBetween = (Pos_CandidatesMax.position - Pos_CandidatesMin.position) / 2;
+            for (int i = 0; i < CardCandidatesList.Count; i++)
+            {
+                Cards_FromCandidates[i].CandidatePosition = i;
+                Cards_FromCandidates[i].cardState = Card.state.DeckCandidate;
+                CardCandidatesPositionList.Add(Pos_CandidatesMin.position + (distanceBetween));
+                Cards_FromCandidates[i].MoveToPoint(CardCandidatesPositionList[i], Cards_FromCandidates[i].transform.rotation);
+            }
+        }
+        else
+        {
+            distanceBetween = (Pos_CandidatesMax.position - Pos_CandidatesMin.position) / (CardCandidatesList.Count - 1);
+            for (int i = 0; i < CardCandidatesList.Count; i++)
+            {
+                Cards_FromCandidates[i].CandidatePosition = i;
+                Cards_FromCandidates[i].cardState = Card.state.DeckCandidate;
+                CardCandidatesPositionList.Add(Pos_CandidatesMin.position + (distanceBetween * i));
+                Cards_FromCandidates[i].MoveToPoint(CardCandidatesPositionList[i], Cards_FromCandidates[i].transform.rotation);
+            }
+        }
+    }
+
+
+    void InstantiateCard(Card cardPrefab, Card_Basedata cardData, Transform SpawnTransform)
+    {
+        Card newCard = Instantiate(cardPrefab, SpawnTransform.position, SpawnTransform.rotation);
         newCard.cardData = cardData;
         newCard.cardState = Card.state.DeckCandidate;
-        return newCard;
+        newCard.loadCard();
+        Cards_FromCandidates.Add(newCard);
     }
 
     void AddCardToDeck(Card_Basedata card)
