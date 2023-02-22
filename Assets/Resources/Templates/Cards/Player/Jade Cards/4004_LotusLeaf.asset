@@ -17,5 +17,5 @@ MonoBehaviour:
   ID: 4004
   description_Main: Heal 3, Remove all negative status from yourself
   priorityCost: 1
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: f1452f6e0af4c084295a789faf5047d7, type: 3}
   icon: {fileID: 0}

@@ -17,5 +17,5 @@ MonoBehaviour:
   ID: 4005
   description_Main: Shuffle a random Sacred Herb* into your deck
   priorityCost: 1
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: 62e9172f35d823f4e8987dd4267efc8a, type: 3}
   icon: {fileID: 0}

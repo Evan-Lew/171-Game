@@ -17,5 +17,5 @@ MonoBehaviour:
   ID: 3007
   description_Main: 'Env: At the start of your turn draw an additional card'
   priorityCost: 2
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: 9f902db7b7c2e2d4990e095647a20a05, type: 3}
   icon: {fileID: 0}

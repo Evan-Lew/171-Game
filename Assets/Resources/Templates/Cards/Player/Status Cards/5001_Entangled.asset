@@ -17,5 +17,5 @@ MonoBehaviour:
   ID: 5001
   description_Main: Your next card costs +1. Play this card as soon as it is drawn
   priorityCost: 0
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: 49b06d99aab943a4d9d4ecf9a7161137, type: 3}
   icon: {fileID: 0}

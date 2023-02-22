@@ -731,7 +731,7 @@ public class EffectDictionary : MonoBehaviour
 
     // NOT IMPLEMENTED
     // If your hand has less than 3 cards, draw 4. Otherwise draw 2.
-    public void ID3004_SovereignDraw()
+    public void ID3004_AssassinsTeapot()
     {        
         ParticleDuration = 3f;
         Player_cardsDrawing = 4;
@@ -1657,7 +1657,7 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(3001, ID3001_FortoldFortune);
         effectDictionary_Players.Add(3002, ID3002_TitansWrath);
         effectDictionary_Players.Add(3003, ID3003_Hongbao);
-        effectDictionary_Players.Add(3004, ID3004_SovereignDraw);
+        effectDictionary_Players.Add(3004, ID3004_AssassinsTeapot);
         effectDictionary_Players.Add(3005, ID3005_RedThread);
         effectDictionary_Players.Add(3006, ID3006_UnbreakingEmperor);
         effectDictionary_Players.Add(3007, ID3007_FavoredFates);
