@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 3001_FortoldFortune
   m_EditorClassIdentifier: 
   cardColor: 1
+  rirty: 0
   cardName: Fortold Fortune
   ID: 3001
   description_Main: Draw 2
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: 9513dda46dc363e459fc2ffbcfb966a6, type: 3}
+  Card_Name: {fileID: 21300000, guid: bb11733cb790e6948b8ba47eab9d383f, type: 3}
   icon: {fileID: 0}

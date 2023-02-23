@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 1002_Whack
   m_EditorClassIdentifier: 
   cardColor: 0
+  rirty: 0
   cardName: Whack
   ID: 1002
   description_Main: Deal 3 Damage
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: d6913c6426874c14aa10152979b1b23b, type: 3}
+  Card_Name: {fileID: 21300000, guid: 036763e372669004d860a5624b661da9, type: 3}
   icon: {fileID: 0}
