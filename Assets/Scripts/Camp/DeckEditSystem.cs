@@ -6,8 +6,10 @@ using UnityEngine.UIElements;
 public class DeckEditSystem : MonoBehaviour
 {
 
+    //add name.png to card.cs
+
     [SerializeField] DeckSystem _script_DeckSystem;
-    [SerializeField] Transform Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax;
+    [SerializeField] Transform Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax, Pos_CardsDisplay;
     [SerializeField] Card CardPrefab;
     [SerializeField] List<Card_Basedata> CardCandidatesList = new();
     List<Card> Cards_FromCandidates = new();
@@ -37,7 +39,7 @@ public class DeckEditSystem : MonoBehaviour
         Cards_FromCandidates.Clear();
         for (int i = 0; i < CardCandidatesList.Count; i++)
         {
-            InstantiateCard(CardPrefab, CardCandidatesList[i], Pos_DisplayCardCandidates);
+            InstantiateCandidateCard(CardPrefab, CardCandidatesList[i], Pos_DisplayCardCandidates);
         }
         SetCandidateCardPos();
     }
@@ -71,7 +73,7 @@ public class DeckEditSystem : MonoBehaviour
     }
 
 
-    void InstantiateCard(Card cardPrefab, Card_Basedata cardData, Transform SpawnTransform)
+    void InstantiateCandidateCard(Card cardPrefab, Card_Basedata cardData, Transform SpawnTransform)
     {
         Card newCard = Instantiate(cardPrefab, SpawnTransform.position, SpawnTransform.rotation);
         newCard.cardData = cardData;
@@ -88,6 +90,23 @@ public class DeckEditSystem : MonoBehaviour
     void RemoveCardFromDeck(Card_Basedata card)
     {
         _script_DeckSystem.deckToUse.RemoveAt(_script_DeckSystem.deckToUse.FindIndex(current => current.ID == card.ID));
+    }
+
+    void DisplayCurrentDeck(List<Card_Basedata> cardLists, Card CardPrefab)
+    {
+        float distance;
+        for (int i = 0; i < cardLists.Count; i++)
+        {
+            distance = 0.5f * i;
+            Pos_CardsDisplay.position += new Vector3(distance, 0, 0);
+            //Card newCard = Instantiate(CardPrefab, SpawnTransform.position, SpawnTransform.rotation);
+            //newCard.cardData = cardData;
+            //newCard.cardState = Card.state.DeckCandidate;
+            //newCard.loadCard();
+
+        }
+        
+ 
     }
 
 }

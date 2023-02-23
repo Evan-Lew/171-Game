@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class Card : MonoBehaviour
 {
     //for preloading
-    public enum state { Handcard, DeckCandidate, Others, None };
+    public enum state { Handcard, DeckCandidate, DeckDisplay, None };
     public state cardState = state.None;
     public Card_Basedata.theme cardType;
     public Card_Basedata cardData;
@@ -275,8 +275,9 @@ public class Card : MonoBehaviour
                 }
 
             }
-
-
+        }else if(cardState == Card.state.DeckCandidate)
+        {
+            Debug.Log("U are on me");
         }
 
         enableOverEffect = false;
@@ -317,8 +318,10 @@ public class Card : MonoBehaviour
                 justPressed = true;
             }
         }
-
-
+        else if (cardState == Card.state.DeckCandidate)
+        {
+            Debug.Log("u clicked");
+        }
 
     }
 
