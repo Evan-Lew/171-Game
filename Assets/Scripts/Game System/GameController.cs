@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         //note the 1 means the 1 index of building list
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        //SceneManager.LoadScene(1, LoadSceneMode.Additive);
         characters.SetActive(false);
     }
 
@@ -32,8 +32,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Main Menu");
-
+            //SceneManager.LoadScene("Main Menu");
         }
 
 
@@ -49,10 +48,10 @@ public class GameController : MonoBehaviour
         }
 
     }
+
     //override version
     void StartTheBattle(bool overrideVer)
     {
-        //SceneManager.LoadScene("Stage01", LoadSceneMode.Additive);
         BattleSystemSetUp();
     }
 
@@ -60,7 +59,6 @@ public class GameController : MonoBehaviour
     {
         if(_script_DeckSystem.deckToUse.Count == 10)
         {
-            //SceneManager.LoadScene("Stage01", LoadSceneMode.Additive);
             BattleSystemSetUp();
         }
 
