@@ -20,8 +20,8 @@ public class Card : MonoBehaviour
     //public Sprite card_sprite;
 
 
-    public TMP_Text _Text_Cost, _Text_Name, _Text_DescriptionMain;
-    public Image _Image_Card;
+    public TMP_Text _Text_Cost, _Text_DescriptionMain;
+    public Image _Image_Card, _Image_Name;
     [Header("Don't change the list order")]
     [SerializeField] private List<GameObject> _CardTypeList;
 
@@ -91,6 +91,11 @@ public class Card : MonoBehaviour
         {
             CardUtil_Movement();
         }
+
+        if(cardState == Card.state.DeckDisplay)
+        {
+            CardUtil_Movement();
+        }
         //reset the mouse input bool
         justPressed = false;
     }
@@ -133,10 +138,9 @@ public class Card : MonoBehaviour
     {
         setModel();
         _Text_Cost.text = priorityCost.ToString();
-        _Text_Name.text = cardName.ToString();
         _Text_DescriptionMain.text = descriptionMain.ToString();
         _Image_Card.sprite = cardData.Card_Front;
-
+        _Image_Name.sprite = cardData.Card_Name;
         //_Material_CardFront.SetTexture("_Base_Texture", _Texture_CardType);
 
         //Debug.Log(gameObject.sGetTexture("_Base_Texture"));

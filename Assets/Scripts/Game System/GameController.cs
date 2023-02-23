@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     [SerializeField] DeckSystem _script_DeckSystem;
     [SerializeField] DeckEditSystem _script_DeckEditSystem;
     [SerializeField] List<GameObject> CamerasObj;
+    [SerializeField] GameObject characters;
 
 
     private void Awake()
@@ -56,6 +57,7 @@ public class GameController : MonoBehaviour
     void BattleSystemSetUp()
     {
         //don't change order of this before you read all SetUp();
+        characters.SetActive(true);
         _script_HandManager.SetUp();
         _script_DeckSystem.SetUp();
         _script_BattleController.SetUp();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,7 +14,7 @@ public class DeckEditSystem : MonoBehaviour
     [SerializeField] Card CardPrefab;
     [SerializeField] List<Card_Basedata> CardCandidatesList = new();
     List<Card> Cards_FromCandidates = new();
-    [SerializeField] List<Vector3> CardCandidatesPositionList = new();
+    List<Vector3> CardCandidatesPositionList = new();
     [SerializeField] float candidateDistance;
 
     private void Update()
@@ -36,6 +37,7 @@ public class DeckEditSystem : MonoBehaviour
     //this function  will be called when ever you have a group of card_database wants to generate
     public void SpawnCandidates()
     {
+        Debug.Log("Hello");
         Cards_FromCandidates.Clear();
         for (int i = 0; i < CardCandidatesList.Count; i++)
         {
@@ -92,21 +94,34 @@ public class DeckEditSystem : MonoBehaviour
         _script_DeckSystem.deckToUse.RemoveAt(_script_DeckSystem.deckToUse.FindIndex(current => current.ID == card.ID));
     }
 
-    void DisplayCurrentDeck(List<Card_Basedata> cardLists, Card CardPrefab)
-    {
-        float distance;
-        for (int i = 0; i < cardLists.Count; i++)
-        {
-            distance = 0.5f * i;
-            Pos_CardsDisplay.position += new Vector3(distance, 0, 0);
-            //Card newCard = Instantiate(CardPrefab, SpawnTransform.position, SpawnTransform.rotation);
-            //newCard.cardData = cardData;
-            //newCard.cardState = Card.state.DeckCandidate;
-            //newCard.loadCard();
 
-        }
-        
- 
+
+    void DisplayCurrentDeck()
+    {
+
+        //for (int i = 0; i < _script_DeckSystem.deckToUse.Count; i++)
+        //{
+        //    Card newCard = Instantiate(CardPrefab, Pos_CardsDisplay.position, Pos_CardsDisplay.rotation);
+        //    newCard.cardData = _script_DeckSystem.deckToUse[i];
+        //    newCard.cardState = Card.state.DeckDisplay;
+        //    newCard.loadCard();
+        //}
+    }
+
+
+    void UpdateDisplayCardPosition()
+    {
+        //for (int i = 0; i < player_hands_holdCards.Count; i++)
+        //{
+        //    _script_DeckSystem.deckToUse[i].hand = i;
+        //    player_hands_holdCards[i].cardState = Card.state.Handcard;
+
+        //    //find the distance between each card
+        //    player_hands_holdsCardsPositions.Add(minPos.position + (distanceBetweenPoints * i));
+
+        //    //move card &&  adjust the angle to make it layerly sorted
+        //    player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositions[i], minPos.rotation);
+        //}
     }
 
 }

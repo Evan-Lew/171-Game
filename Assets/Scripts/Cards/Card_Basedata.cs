@@ -8,6 +8,9 @@ public class Card_Basedata : ScriptableObject
 {
     public enum theme { White, Gold, Jade, Purple, Enemy}
     public theme cardColor;
+    public enum rarityLevel { N, R, SR, SSR, Unique}
+    public rarityLevel rirty;
+
 
     [Tooltip("Name of the Card")]
     public string cardName;
@@ -26,6 +29,7 @@ public class Card_Basedata : ScriptableObject
     //public int damageDealt;
 
     public Sprite Card_Front;
+    public Sprite Card_Name;
     public Sprite icon;
 
 
