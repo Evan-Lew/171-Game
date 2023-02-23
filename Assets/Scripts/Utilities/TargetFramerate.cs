@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TargetFramerate : MonoBehaviour
 {
-    public int targetFrameRate = 30;
+    public int targetFrameRate;
 
     // Start is called before the first frame update
     void Start()
