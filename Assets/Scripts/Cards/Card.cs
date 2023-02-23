@@ -51,6 +51,9 @@ public class Card : MonoBehaviour
     //from battle control
     private BattleController _script_BattleController;
 
+    //from deck Edit System
+    private DeckEditSystem _script_DeckEditSystem;
+
     //hovering
     bool enableOverEffect;
     [HideInInspector] public bool isHoveringAnimationCalled = false;
@@ -109,6 +112,7 @@ public class Card : MonoBehaviour
         theCollider = GetComponent<Collider>();
         enableOverEffect = true;
         _script_BattleController = GameObject.Find("Battle Controller").GetComponent<BattleController>();
+        _script_DeckEditSystem = GameObject.Find("Deck Edit Manager").GetComponent<DeckEditSystem>();
         if (cardState == state.Handcard)
         {
             Enemy = GameObject.Find("Enemy").GetComponent<Character>();
@@ -281,7 +285,7 @@ public class Card : MonoBehaviour
             }
         }else if(cardState == Card.state.DeckCandidate)
         {
-            Debug.Log("U are on me");
+            
         }
 
         enableOverEffect = false;
@@ -324,7 +328,13 @@ public class Card : MonoBehaviour
         }
         else if (cardState == Card.state.DeckCandidate)
         {
-            Debug.Log("u clicked");
+            if (!_script_DeckEditSystem.isCardPicked)
+            {
+                _script_DeckEditSystem.AddCardToDeck(this.cardData);
+                _script_DeckEditSystem.DestroyCurrentCardsForPick();
+                _script_DeckEditSystem.UpdateText();
+            }
+            
         }
 
     }

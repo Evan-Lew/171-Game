@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameController _script_GameController;
+    //[SerializeField] GameController _script_GameController;
 
     private void Awake()
     {
@@ -16,10 +16,8 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
-        _script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
-        //ask for setup combat system
-        //_script_GameController.setupFlag = true;
-        SceneManager.LoadScene("Template");
+        //note the 2 means the 2 index of building list
+        SceneManager.LoadScene(2);
     }
 
     public void QuitGame()

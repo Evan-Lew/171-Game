@@ -233,7 +233,7 @@ public class EffectDictionary : MonoBehaviour
             {
                 newEffect.particleObj.SetActive(false);
                 BattleController.instance.enableCardActivation = true;
-                TurnManipulator(effectName);
+                TurnManipulator();
             }, newEffect.totalPlayTime ));
         }
         else
@@ -246,13 +246,23 @@ public class EffectDictionary : MonoBehaviour
                 // Debug.Log("test2");
                 foundEffect.particleObj.SetActive(false);
                 BattleController.instance.enableCardActivation = true;
-                TurnManipulator(effectName);
+                TurnManipulator();
             }, foundEffect.totalPlayTime ));
         }
     }
 
+    void WithoutParticle(float soundDuration)
+    {
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            TurnManipulator();
+        }, soundDuration));
+    }
+
+
+
     //for some unique particle, the turn will not changed
-    void TurnManipulator(string effectName)
+    void TurnManipulator()
     {
 
         BattleController.instance.enableTurnUpdate = true;
@@ -1041,13 +1051,14 @@ public class EffectDictionary : MonoBehaviour
     // Heal 6
     public void ID4001_JadeSpirit()
     {
-        ParticleDuration = 3f;
+        ParticleDuration = 1.5f;
         Player_healing = 6;
         Player_priorityInc = 2;
         Manipulator_Player();
-        
+       
         SoundManager.PlaySound("sfx_Spirit", 1);
-        
+        WithoutParticle(ParticleDuration);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);

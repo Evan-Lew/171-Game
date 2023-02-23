@@ -100,30 +100,34 @@ public class DeckSystem : MonoBehaviour
         }
     }
 
-  
+
     // Draw cards from activeCards
     public void DrawCardToHand()
     {
         //Debug.Log(activeCards.Count);
         //draw only if the hand cards not reaching the limit
-        if (HandManager.player_hands_holdCards.Count <= drawLimit)
+        if (deckToUse.Count != 0)
         {
-            // Check if there are cards to draw from activeCards
-            if (activeCards.Count == 0)
+            if (HandManager.player_hands_holdCards.Count <= drawLimit)
             {
-                SetupDeck();
+                // Check if there are cards to draw from activeCards
+                if (activeCards.Count == 0)
+                {
+                    SetupDeck();
+                }
+                // Create a copy of the card prefab
+                Card newCard = Instantiate(cardToSpawn, drawFromPos.position, transform.rotation);
+                newCard.cardData = activeCards[0];
+                newCard.cardState = Card.state.Handcard;
+                newCard.loadCard();
+
+                activeCards.RemoveAt(0);
+
+                // Use HandManager static instance
+                HandManager.AddCardToHand(newCard);
             }
-            // Create a copy of the card prefab
-            Card newCard = Instantiate(cardToSpawn, drawFromPos.position, transform.rotation);
-            newCard.cardData = activeCards[0];
-            newCard.cardState = Card.state.Handcard;
-            newCard.loadCard();
-
-            activeCards.RemoveAt(0);
-
-            // Use HandManager static instance
-            HandManager.AddCardToHand(newCard);
         }
+
     }
 
     public void DrawMultipleCards(int amountToDraw)

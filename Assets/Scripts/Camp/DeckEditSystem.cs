@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using TMPro;
 
 public class DeckEditSystem : MonoBehaviour
 {
+    //public static DeckEditSystem instance;
+
+    //private void Awake()
+    //{
+    //    instance = this;
+    //}
 
     //add name.png to card.cs
 
@@ -15,15 +20,26 @@ public class DeckEditSystem : MonoBehaviour
     [SerializeField] List<Card_Basedata> CardCandidatesList = new();
     List<Card> Cards_ForPick = new();
     [SerializeField] int numberCandidate = 3;
-    List<Vector3> CardForPickPositionList = new();
+    [SerializeField] List<Vector3> CardForPickPositionList = new();
     [SerializeField] float candidateDistance;
+
+    [HideInInspector]public bool isCardPicked = false;
+    public TMP_Text DeckTotalText;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //SpawnCandidates();
+            //DestroyCurrentCardsForPick();
         }
+
+       
+    }
+
+    
+    public void UpdateText()
+    {
+        DeckTotalText.text = _script_DeckSystem.deckToUse.Count + " /" + " 10";
     }
 
 
@@ -47,14 +63,17 @@ public class DeckEditSystem : MonoBehaviour
     //this function  will be called when ever you have a group of card_database wants to generate
     public void SpawnCardsForPick()
     {
-        Debug.Log("Hello");
-        DestroyCurrentCardsForPick();
-        
-        for (int i = 0; i < numberCandidate; i++)
+        if(_script_DeckSystem.deckToUse.Count != 10)
         {
-            InstantiateCandidateCard(CardPrefab, CardCandidatesList[Random.Range(0, CardCandidatesList.Count)], Pos_DisplayCardCandidates);
+            isCardPicked = false;
+            DestroyCurrentCardsForPick();
+
+            for (int i = 0; i < numberCandidate; i++)
+            {
+                InstantiateCandidateCard(CardPrefab, CardCandidatesList[Random.Range(0, CardCandidatesList.Count)], Pos_DisplayCardCandidates);
+            }
+            SetCandidateCardPos();
         }
-        SetCandidateCardPos();
     }
 
     void SetCandidateCardPos()
@@ -74,7 +93,7 @@ public class DeckEditSystem : MonoBehaviour
         }
         else
         {
-            distanceBetween = (Pos_CandidatesMax.position - Pos_CandidatesMin.position) / (CardCandidatesList.Count - 1);
+            distanceBetween = (Pos_CandidatesMax.position - Pos_CandidatesMin.position) / (Cards_ForPick.Count - 1);
             for (int i = 0; i < Cards_ForPick.Count; i++)
             {
                 Cards_ForPick[i].CandidatePosition = i;
@@ -95,9 +114,10 @@ public class DeckEditSystem : MonoBehaviour
         Cards_ForPick.Add(newCard);
     }
 
-    void AddCardToDeck(Card_Basedata card)
+    public void AddCardToDeck(Card_Basedata card)
     {
         _script_DeckSystem.deckToUse.Add(card);
+        isCardPicked = true;
     }
 
     void RemoveCardFromDeck(Card_Basedata card)

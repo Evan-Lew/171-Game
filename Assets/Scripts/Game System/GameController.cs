@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
     //flag will be turned on when setup function needed
     [HideInInspector] private bool setupFlag = false;
+    [SerializeField] CameraUtil _script_CameraUtil;
     [SerializeField] BattleController _script_BattleController;
     [SerializeField] HandManager _script_HandManager;
     [SerializeField] EffectDictionary _script_EffectDictionary;
@@ -17,8 +19,12 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject characters;
 
 
+
     private void Awake()
     {
+        //note the 1 means the 1 index of building list
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        characters.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,18 +43,25 @@ public class GameController : MonoBehaviour
             setupFlag = true;
             if (setupFlag)
             {
-                CamerasObj.Find(camera => camera.name == "UI Battle Camera").SetActive(true);
-                CamerasObj.Find(camera => camera.name == "UI Camp Camera").SetActive(false);
-                BattleSystemSetUp();
+                StartTheBattle(true);
                 setupFlag = false;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            CamerasObj.Find(camera => camera.name == "UI Battle Camera").SetActive(false);
-            CamerasObj.Find(camera => camera.name == "UI Camp Camera").SetActive(true);
+    }
+    //override version
+    void StartTheBattle(bool overrideVer)
+    {
+        //SceneManager.LoadScene("Stage01", LoadSceneMode.Additive);
+        BattleSystemSetUp();
+    }
 
+    public void StartTheBattle()
+    {
+        if(_script_DeckSystem.deckToUse.Count == 10)
+        {
+            //SceneManager.LoadScene("Stage01", LoadSceneMode.Additive);
+            BattleSystemSetUp();
         }
 
     }
@@ -58,10 +71,13 @@ public class GameController : MonoBehaviour
     {
         //don't change order of this before you read all SetUp();
         characters.SetActive(true);
+        _script_CameraUtil.SetCameraActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetCameraActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_HandManager.SetUp();
         _script_DeckSystem.SetUp();
         _script_BattleController.SetUp();
         _script_EffectDictionary.SetUp();
+        
     }
 
 
