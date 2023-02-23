@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 3001_FortoldFortune
+  m_Name: 3001_ForetoldFortune
   m_EditorClassIdentifier: 
   cardColor: 1
   rirty: 0
-  cardName: Fortold Fortune
+  cardName: Foretold Fortune
   ID: 3001
   description_Main: Draw 2
   priorityCost: 2

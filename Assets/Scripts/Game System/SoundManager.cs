@@ -25,9 +25,12 @@ public class SoundManager : MonoBehaviour
     // Cards
     [HideInInspector] public static AudioClip sfx_Card_Draw, sfx_Card_Place;
     
-    // Player Cards
+    // Player Silver/Purple Cards
     [HideInInspector] public static AudioClip sfx_Coin_Drop, sfx_Hiss, sfx_Hit, sfx_Venom, sfx_Swing, sfx_Crunch, sfx_Wisdom;
 
+    // Player Jade Cards
+    [HideInInspector] public static AudioClip sfx_Spirit;
+    
     // Enemy Cards
     [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn;
 
@@ -55,6 +58,7 @@ public class SoundManager : MonoBehaviour
         sfx_Swing = Resources.Load<AudioClip>("SFX/Player/Swing");
         sfx_Crunch = Resources.Load<AudioClip>("SFX/Player/Crunch");
         sfx_Wisdom = Resources.Load<AudioClip>("SFX/Player/Wisdom");
+        sfx_Spirit = Resources.Load<AudioClip>("SFX/Player/Spirit");
         
         // Loading enemy audio files
         sfx_Action_01_Throw_Stone = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Stone");
@@ -139,6 +143,12 @@ public class SoundManager : MonoBehaviour
             
             case "sfx_Wisdom":
                 sfxAudioSource.clip = sfx_Wisdom;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Spirit":
+                sfxAudioSource.clip = sfx_Spirit;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;

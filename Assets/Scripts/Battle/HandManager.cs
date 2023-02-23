@@ -171,7 +171,7 @@ public class HandManager : MonoBehaviour
     // Add a card to hand
     public void AddCardToHand(Card cardToAdd)
     {
-        SoundManager.PlaySound("sfx_Card_Draw", 1);
+        SoundManager.PlaySound("sfx_Card_Draw", 0.2f);
         player_hands_holdCards.Add(cardToAdd);
         SetCardPositionsInHand();
     }

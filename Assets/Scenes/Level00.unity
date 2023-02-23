@@ -2852,6 +2852,7 @@ MonoBehaviour:
   - {fileID: 7005278960792100175, guid: c4777aff84c433546ae2f8cb195f0812, type: 3}
   - {fileID: 5236437913552926457, guid: 41f91d3b7bdf4b2449b8fe88b6d5f210, type: 3}
   - {fileID: 7389421938708674127, guid: 1d833ad574f15024ab5ad550c8646a8a, type: 3}
+  - {fileID: 5813194599007461377, guid: 86b3b39052f099e41b574393de83de48, type: 3}
   - {fileID: 4143118989675900537, guid: 9d34fcaacbcc1974b8c0b40d523a7cc3, type: 3}
   enemyParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
@@ -5497,10 +5498,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
   deckToUse:
-  - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
+  - {fileID: 11400000, guid: 2494a8498474f3545be024ac195e74f5, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
-  - {fileID: 11400000, guid: fa6d7c435e43b7348a5a5e9ac65cd30c, type: 2}
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: 8ec9f2669d88abf4392e1a5fbdacd664, type: 2}
+  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,

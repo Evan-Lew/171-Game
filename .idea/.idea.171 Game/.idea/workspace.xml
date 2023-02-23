@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="983507a4-9908-4dff-b0df-eb055d69898d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/Golem/Body Slam.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/Golem/Body Slam.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Ink Golem.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Ink Golem.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/Golem/Throw Himself.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/Golem/Throw Himself.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/Golem/Throw Stone.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/Golem/Throw Stone.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/None.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/None.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Golem.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Golem.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Effect_29_LumenCrash.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Effect_29_LumenCrash/Effect_29_LumenCrash.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Effect_29_LumenCrash/Effect_29_LumenCrash.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/Gold Cards/3001_FortoldFortune.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/Gold Cards/3001_FortoldFortune.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/HandManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/HandManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677174933957</updated>
-      <workItem from="1677174938307" duration="3465000" />
+      <workItem from="1677174938307" duration="7882000" />
     </task>
     <servers />
   </component>

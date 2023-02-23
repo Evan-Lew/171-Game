@@ -286,15 +286,17 @@ public class EffectDictionary : MonoBehaviour
         Player_cardsDrawing = 2;
         Player_priorityInc = 3;
         Manipulator_Player();
+        
+        // Play SFX
+        SoundManager.PlaySound("sfx_Coin_Drop", 1);
+        
+        // Particle positioned under the player
         ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
-
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
 
     // Deal 3 damage, cost 2
@@ -303,19 +305,24 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 2f;
         Player_damageDealing = 3;
         Player_priorityInc = 2;
-        
         Manipulator_Player();
+        
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Hit", 1);
+        }, 0.2f));
+        
+        // Play SFX
+        SoundManager.PlaySound("sfx_Swing", 1);
+        
         // Particle positioned on the enemy
-        // --WAITING FOR CARD IMPLEMENTATION--
         ParticleEvent("Whack", 1002, ParticleDuration, enemyObj, true);
-
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
-        
     }
 
     // Gain 2 armor, cost 1
@@ -324,8 +331,11 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 2f;
         Player_armorCreate = 2;
         Player_priorityInc = 1;
-        
         Manipulator_Player();
+        
+        // Play SFX
+        SoundManager.PlaySound("sfx_Hiss", 1);
+        
         // Particle positioned under the player
         ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[0], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -333,7 +343,6 @@ public class EffectDictionary : MonoBehaviour
             CreateArmor_ToTarget(player, Player_armorCreate);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
 
     // Draw 2 cards, gain 3 armors, cost 4
@@ -343,23 +352,19 @@ public class EffectDictionary : MonoBehaviour
         Player_armorCreate = 3;
         Player_cardsDrawing = 2;
         Player_priorityInc = 4;
-        
         Manipulator_Player();
 
-         
+        // Play SFX
+        SoundManager.PlaySound("sfx_Hiss", 1);
 
         // Particle positioned under the player
         ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[0], true);
-                CreateArmor_ToTarget(player, Player_armorCreate);
-
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
             CreateArmor_ToTarget(player, Player_armorCreate);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
-
     }
 
     //-----------------------------------------------------------------
@@ -371,10 +376,24 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_damageDealing = 3;
         Player_priorityInc = 1;
-        
         Manipulator_Player();
-
-         
+        
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
+        }, 0.3f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
+        }, 0.6f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
+        }, 1));
+        
+        // Play SFX
+        SoundManager.PlaySound("sfx_Venom", 1);
 
         // Particle positioned on the enemy
         ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, enemyObj, true);
@@ -394,10 +413,25 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 6;
         Player_priorityInc = 5;
         Player_extraDamage = 4;
-        
         Manipulator_Player();
 
-         
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.3f);
+        }, 0.3f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.3f);
+        }, 0.6f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.3f);
+        }, 0.7f));
+        
+        // Play SFX
+        SoundManager.PlaySound("sfx_Swing", 1);
+
         // Particle positioned on the enemy
         ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -414,8 +448,11 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 3;
         isDealingDoubleDmg = true;
-        
         Manipulator_Player();
+        
+        SoundManager.PlaySound("sfx_Wisdom", 0.1f);
+        
+        ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[0], true);
         Manipulator_Player_Reset();
     }
 
@@ -425,9 +462,25 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_damageDealing = 1;
         Player_priorityInc = 1;
-        
         Manipulator_Player();
 
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Crunch", 1);
+            SoundManager.PlaySound("sfx_Venom", 0.3f);
+        }, 0.3f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Crunch", 1);
+            SoundManager.PlaySound("sfx_Venom", 0.3f);
+        }, 0.6f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Crunch", 1);
+            SoundManager.PlaySound("sfx_Venom", 0.3f);
+        }, 0.9f));
+        SoundManager.PlaySound("sfx_Crunch", 1);
+        
         // Particle positioned on the enemy
         ParticleEvent("DemonFang", 2004, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -436,7 +489,6 @@ public class EffectDictionary : MonoBehaviour
             ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
     
     // NOT IMPLEMENTED
@@ -675,21 +727,22 @@ public class EffectDictionary : MonoBehaviour
     //                      GOLD CARDS
     //=================================================================
     // Draw 2
-    public void ID3001_FortoldFortune()
+    public void ID3001_ForetoldFortune()
     {
         ParticleDuration = 3f;
         Player_cardsDrawing = 2;
         Player_priorityInc = 2;
-        
         Manipulator_Player();
         
+        SoundManager.PlaySound("sfx_Coin_Drop", 1);
+        
+        // Particle positioned under the player
+        ParticleEvent("Payment", 3001, ParticleDuration, ExtraPositioning[0], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
-        
     }
     
     // NOT IMPLEMENTED
@@ -991,15 +1044,15 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_healing = 6;
         Player_priorityInc = 2;
-        
         Manipulator_Player();
+        
+        SoundManager.PlaySound("sfx_Spirit", 1);
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1452,9 +1505,8 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Enemy_damageDealing = 3;
         Enemy_priorityInc = 2;
-        
         Manipulator_Enemy();
-        // Card SFX
+        
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -1480,11 +1532,11 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 2f;
         Enemy_damageDealing = enemy.Armor_Current;
         Enemy_priorityInc = 2;
-        
         Manipulator_Enemy();
 
         // Play SFX
         SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
+        
         // Particle positioned on the player
         ParticleEvent("BodySlam", 2, ParticleDuration, playerObj, false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1654,7 +1706,7 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(2015, ID2015_Intoxication);
         
         // Gold Cards
-        effectDictionary_Players.Add(3001, ID3001_FortoldFortune);
+        effectDictionary_Players.Add(3001, ID3001_ForetoldFortune);
         effectDictionary_Players.Add(3002, ID3002_TitansWrath);
         effectDictionary_Players.Add(3003, ID3003_Hongbao);
         effectDictionary_Players.Add(3004, ID3004_AssassinsTeapot);
