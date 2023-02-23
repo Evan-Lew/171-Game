@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3c1dec4005ccb4381e6c4e48afc7a9, type: 3}
-  m_Name: Golem
+  m_Name: Ink Golem
   m_EditorClassIdentifier: 
-  characterName: Golem
+  characterName: Ink Golem
   description_Main: Rocks cultivated themselves into spirits because of their greed
     for beauty. Although unremarkable, they are unexpectedly tough.
   Health_Total: 35

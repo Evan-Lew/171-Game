@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: None
   m_EditorClassIdentifier: 
   cardColor: 4
+  rirty: 0
   cardName: None
   ID: 0
   description_Main: None
   priorityCost: 0
   Card_Front: {fileID: 0}
+  Card_Name: {fileID: 0}
   icon: {fileID: 0}

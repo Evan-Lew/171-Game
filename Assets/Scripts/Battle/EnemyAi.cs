@@ -8,13 +8,13 @@ public class EnemyAi : MonoBehaviour
 {
     //=======================================================
     //          AI Database Guide
-    /*  1. Add Enmey to the Enemys by referencing from resource/template/ememy
+    /*  1. Add Enemy to the Enemies by referencing from resource/template/enemy
      *  2. Update the Actions List in this script by referencing them from resource/template/card/enemy
      *  3. Code the the pattern designed for the enemy
-     *  4. add if loop if you want to trigger different pattern at different time
-     *  5. be careful with special handling for some cards, check with effectDictionary
-     *  6. Don't change any other pattern/enemy made by other people, the person who add the emeny and pattern
-     *      the list should take responsiblity of making it works on times.
+     *  4. Add if loop if you want to trigger different pattern at different time
+     *  5. Be careful with special handling for some cards, check with effectDictionary
+     *  6. Don't change any other pattern/enemy made by other people, the person who add the enemy and pattern
+     *      the list should take responsibility of making it works on times.
      * 
      *  NOTE: modify this script and EffectDictionary script ONLY!
      */
@@ -56,7 +56,7 @@ public class EnemyAi : MonoBehaviour
         enemysPatterns.Add(attackPattern);
         attackPattern = new List<int>() {3};
         enemysPatterns.Add(attackPattern);
-        EnemyDictionary.Add("Golem", enemysPatterns);
+        EnemyDictionary.Add("Ink Golem", enemysPatterns);
     }
 
     public void CastUniqueAbility_Golem()
@@ -64,7 +64,7 @@ public class EnemyAi : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
              EffectDictionary.instance.effectDictionary_Enemies[3]();
-             _Text_Log.text = "Golem doesn't know what he is doing. so <color=red>Armor + 1</color>";
+             _Text_Log.text = "The Ink Golem is too STUBBORN to attack. <color=red>Armor + 1</color>";
         }, 0.5f));
         
     }
@@ -74,7 +74,6 @@ public class EnemyAi : MonoBehaviour
     {
         if (EnemyDictionary.ContainsKey(enemyName))
         {
-            
             EnemyActionUtil(enemyName, Enemys[Enemys.FindIndex(x => x.name == enemyName)].Pattern);
         }
         else
@@ -87,17 +86,17 @@ public class EnemyAi : MonoBehaviour
 
     private void EnemyActionUtil(string enemyName, Character_Basedata.PatternType Type)
     {
-        if(Type == Character_Basedata.PatternType.single)
+        if (Type == Character_Basedata.PatternType.single)
         {
             EnemyAction_SinglePattern(enemyName);
-        }else if(Type == Character_Basedata.PatternType.multiple)
+        }else if (Type == Character_Basedata.PatternType.multiple)
         {
             //code the multiple pattern function and add it here.
         }
 
     }
 
-    //single pattern enmey
+    //single pattern enemy
     public void EnemyAction_SinglePattern(string enemyName)
     {
         if (!isActioned)
@@ -123,8 +122,7 @@ public class EnemyAi : MonoBehaviour
     void EnemyEffect(string enemyName,int ActionID)
     {
         EffectDictionary.instance.effectDictionary_Enemies[ActionID]();
-        _Text_Log.text = enemyName + "\n" + "Using " + Actions[currentPatternIndex].name + "\n" + Actions[currentPatternIndex].description_Main;
-
+        _Text_Log.text = enemyName + "\n" + "Using " + Actions[currentPatternIndex].name + ":\n" + Actions[currentPatternIndex].description_Main;
     }
 }
 

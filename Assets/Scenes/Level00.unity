@@ -4469,10 +4469,10 @@ MonoBehaviour:
   Enemys:
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
   Actions:
-  - {fileID: 11400000, guid: ab6b33daa60c50b4eb898944e25041ef, type: 2}
   - {fileID: 11400000, guid: 6aaa3b4eb2f3aec4c9e0d758be2a16e5, type: 2}
   - {fileID: 11400000, guid: cc65fd64ada2a094cbeee77a365c9eb3, type: 2}
   - {fileID: 11400000, guid: 26dc030e886d99443af951ddc0f6277d, type: 2}
+  - {fileID: 11400000, guid: ab6b33daa60c50b4eb898944e25041ef, type: 2}
   _Text_Log: {fileID: 1356076445}
   isActioned: 0
 --- !u!4 &939407031
@@ -5499,8 +5499,8 @@ MonoBehaviour:
   deckToUse:
   - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: 8ec9f2669d88abf4392e1a5fbdacd664, type: 2}
-  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: fa6d7c435e43b7348a5a5e9ac65cd30c, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -6003,8 +6003,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -139, y: -11}
-  m_SizeDelta: {x: 168.74, y: 205.016}
+  m_AnchoredPosition: {x: -61, y: 167}
+  m_SizeDelta: {x: 331.32, y: 74.928}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356076445
 MonoBehaviour:
@@ -6026,10 +6026,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cdba7ae09671826449470e678cef6dff, type: 2}
+  m_sharedMaterial: {fileID: 1876482555800959863, guid: cdba7ae09671826449470e678cef6dff,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6060,7 +6061,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -6089,7 +6090,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -161.34375}
+  m_margin: {x: 0, y: 0, z: 0, w: -0.038009644}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
