@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 28437801}
   - component: {fileID: 28437800}
   m_Layer: 9
-  m_Name: player HP Bar
+  m_Name: Player HP Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,6 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 93111186}
+  - component: {fileID: 93111187}
   m_Layer: 0
   m_Name: Enemy Particle Position
   m_TagString: Untagged
@@ -482,6 +483,19 @@ Transform:
   m_Father: {fileID: 1898761245}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93111187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93111185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2954c735adecda4da1a5e98e997e465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 24645404}
 --- !u!1 &94110468
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 155381379}
+  - component: {fileID: 155381380}
   m_Layer: 0
   m_Name: Player Particle Position
   m_TagString: Untagged
@@ -936,6 +951,19 @@ Transform:
   m_Father: {fileID: 1898761245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155381380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155381378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2954c735adecda4da1a5e98e997e465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 950755190}
 --- !u!1 &169356932
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,7 +2903,7 @@ GameObject:
   - component: {fileID: 600380322}
   - component: {fileID: 600380321}
   m_Layer: 9
-  m_Name: enemy HP Bar
+  m_Name: Enemy HP Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3893,7 +3921,7 @@ GameObject:
   - component: {fileID: 842760269}
   - component: {fileID: 842760268}
   m_Layer: 9
-  m_Name: enemy HP Background
+  m_Name: Enemy HP Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4106,7 +4134,7 @@ GameObject:
   - component: {fileID: 858183411}
   - component: {fileID: 858183410}
   m_Layer: 9
-  m_Name: player HP Background
+  m_Name: Player HP Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5336,8 +5364,8 @@ MonoBehaviour:
   HandManager: {fileID: 409527556}
   deckToUse:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -9186,8 +9214,8 @@ MonoBehaviour:
   - {fileID: 530333330}
   - {fileID: 386581733}
   - {fileID: 1013909241}
-  TargetCharacterPos: {fileID: 589573671}
-  TargetCameraPos: {fileID: 1013909241}
+  TargetCharacterPos: {fileID: 1773928310}
+  TargetCameraPos: {fileID: 530333330}
 --- !u!114 &2137971097
 MonoBehaviour:
   m_ObjectHideFlags: 0

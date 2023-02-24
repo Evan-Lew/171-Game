@@ -31,12 +31,12 @@ public class Character : MonoBehaviour
         if(this.gameObject.name == "Player")
         {
             _Text_HP = GameObject.Find("Player HP Text").GetComponent<TMP_Text>();
-            HP_Bar = GameObject.Find("player HP Bar").GetComponent<Image>();
+            HP_Bar = GameObject.Find("Player HP Bar").GetComponent<Image>();
         }
         if(this.gameObject.name == "Enemy")
         {
             _Text_HP = GameObject.Find("Enemy HP Text").GetComponent<TMP_Text>();
-            HP_Bar = GameObject.Find("enemy HP Bar").GetComponent<Image>();
+            HP_Bar = GameObject.Find("Enemy HP Bar").GetComponent<Image>();
         }
 
         CharacterName = CharacterData.characterName;
