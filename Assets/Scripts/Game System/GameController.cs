@@ -15,16 +15,44 @@ public class GameController : MonoBehaviour
     [SerializeField] PrioritySystem _script_PrioritySystem;
     [SerializeField] DeckSystem _script_DeckSystem;
     [SerializeField] DeckEditSystem _script_DeckEditSystem;
+    [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;
     [SerializeField] GameObject characters;
 
+    //set position -- character and enemy
+    [SerializeField] List<GameObject> CharacterSpawningPoint_List = new();
+    [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
+    public GameObject TargetCharacterPos;
+    public GameObject TargetCameraPos;
 
+    private void SetCharacterPos(Transform targetTrans)
+    {
+        characters.transform.position = targetTrans.position;
+        characters.transform.rotation = targetTrans.rotation;
+    }
+
+    private void SetCameraPos(Transform targetTrans)
+    {
+        Debug.Log(" I am in set camera pos " + CamerasObj[0].transform.position);
+        CamerasObj[0].transform.position = targetTrans.position;
+        CamerasObj[0].transform.rotation = targetTrans.rotation;
+        Debug.Log(targetTrans.position + " move " + CamerasObj[0].transform.position);
+    }
+
+    public void SetSpawningPoint(Transform characterTrans, Transform cameraTrans)
+    {
+        SetCharacterPos(characterTrans);
+        SetCameraPos(cameraTrans);
+    }
 
     private void Awake()
     {
         //note the 1 means the 1 index of building list
         //SceneManager.LoadScene(1, LoadSceneMode.Additive);
         characters.SetActive(false);
+        //for testing(Holy shit!)
+        SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
+        Debug.Log(" I am in set camera pos " + CamerasObj[0].transform.position);
     }
 
     // Update is called once per frame
