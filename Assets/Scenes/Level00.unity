@@ -3718,7 +3718,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1711219752}
-  m_PlaneDistance: 10
+  m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3851,7 +3851,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 12
+    m_Bits: 8
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4833,7 +4833,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 972cc114430be1445af5d6e2e47f234b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4841,7 +4841,7 @@ SpriteRenderer:
   m_Size: {x: 21.6, y: 21.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1006432266
@@ -5365,13 +5365,12 @@ MonoBehaviour:
   deckToUse:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
-  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
     type: 3}
   timeBetweenDrawingCards: 0.25
-  drawLimit: 7
+  drawLimit: 6
   drawFromPos: {fileID: 1575415034}
 --- !u!4 &1185248574
 Transform:
@@ -7289,15 +7288,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 65fcee77cefd89f4cb97e313d0bf26dd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 48, y: 48}
+  m_Size: {x: 28.8, y: 28.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1525263198
@@ -7393,7 +7392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _script_DeckSystem: {fileID: 1185248573}
   startDrawingCrads: 1
-  startingCardsAmount: 7
+  startingCardsAmount: 4
   TurnChangeAnimationDuration: 2
   currentPhase: 0
   lastPhase: 1
@@ -9199,13 +9198,18 @@ MonoBehaviour:
   _script_PrioritySystem: {fileID: 1368281155}
   _script_DeckSystem: {fileID: 1185248573}
   _script_DeckEditSystem: {fileID: 2146040466}
+  characters: {fileID: 53530623}
+  player: {fileID: 950755190}
+  enmey: {fileID: 24645404}
+  EnemyList:
+  - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
+  - {fileID: 11400000, guid: 85cc55650dd5ecf4086be893b04d83cd, type: 2}
   CamerasObj:
   - {fileID: 809714812}
   - {fileID: 1766394216}
   - {fileID: 1487496231}
   - {fileID: 1711219749}
   - {fileID: 1482934651}
-  characters: {fileID: 53530623}
   CharacterSpawningPoint_List:
   - {fileID: 1773928310}
   - {fileID: 365328220}

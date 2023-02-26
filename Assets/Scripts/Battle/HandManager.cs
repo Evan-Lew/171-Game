@@ -54,8 +54,13 @@ public class HandManager : MonoBehaviour
 
     public void Clear()
     {
+        foreach (Card card in player_hands_holdCards)
+        {
+            Destroy(card.gameObject);
+        }
         player_hands_holdCards.Clear();
         player_hands_holdsCardsPositions.Clear();
+        SetActive(false);
     }
 
     //set card positions in hands
@@ -107,15 +112,6 @@ public class HandManager : MonoBehaviour
                 player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositions[i], minPos.rotation);
             }
         }
-
-
-
-
-
-
-
-
-
     }
 
     // hovering animation

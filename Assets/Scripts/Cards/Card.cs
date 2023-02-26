@@ -17,7 +17,6 @@ public class Card : MonoBehaviour
     public int cardID;
 
     public int priorityCost;
-    //public Sprite card_sprite;
 
 
     public TMP_Text _Text_Cost, _Text_DescriptionMain;
@@ -85,6 +84,7 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (cardState == Card.state.Handcard)
         {
             Actions_Handcards();
@@ -132,9 +132,6 @@ public class Card : MonoBehaviour
         cardID = cardData.ID;
         initializedScale = transform.localScale;
         targetScale = initializedScale;
-        //card_sprite = cardData.Card_Front;
-        //_Image_Card = cardData.Card_Front;
-
     }
 
     //update the card
@@ -145,9 +142,6 @@ public class Card : MonoBehaviour
         _Text_DescriptionMain.text = descriptionMain.ToString();
         _Image_Card.sprite = cardData.Card_Front;
         _Image_Name.sprite = cardData.Card_Name;
-        //_Material_CardFront.SetTexture("_Base_Texture", _Texture_CardType);
-
-        //Debug.Log(gameObject.sGetTexture("_Base_Texture"));
     }
 
     //move card to a pont
@@ -268,7 +262,6 @@ public class Card : MonoBehaviour
     //let card move top when it's hovering
     private void OnMouseOver()
     {
-
         if (cardState == Card.state.Handcard)
         {
             if (isInHand && enableOverEffect)

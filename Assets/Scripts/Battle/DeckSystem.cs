@@ -65,6 +65,7 @@ public class DeckSystem : MonoBehaviour
     {
         deckForCurrentBattle.Clear();
         activeCards.Clear();
+        SetActive(false);
     }
 
 
