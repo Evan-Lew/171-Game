@@ -97,7 +97,7 @@ public class Card : MonoBehaviour
 
         if(cardState == Card.state.DeckDisplay)
         {
-            CardUtil_Movement();
+            
         }
         //reset the mouse input bool
         justPressed = false;

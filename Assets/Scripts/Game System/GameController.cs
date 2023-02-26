@@ -150,8 +150,8 @@ public class GameController : MonoBehaviour
         SetEnemy(enemy);
         characters.SetActive(true);
         //implement the character reassignment here
-        _script_CameraUtil.SetCameraActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
-        _script_CameraUtil.SetCameraActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_HandManager.SetUp();
         _script_DeckSystem.SetUp();
         _script_BattleController.SetUp();
@@ -170,8 +170,8 @@ public class GameController : MonoBehaviour
         _script_BattleController.Clear();
         _script_DeckSystem.Clear();
         _script_HandManager.Clear();
-        _script_CameraUtil.SetCameraActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        _script_CameraUtil.SetCameraActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), true);
     }
 
 

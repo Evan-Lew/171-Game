@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
 
     public double Armor_Current;
 
+    [SerializeField] GameObject HealthBar, HealthText;
 
     // Start is called before the first frame update
     void Start()
@@ -41,13 +42,13 @@ public class Character : MonoBehaviour
     {
         if (this.gameObject.name == "Player")
         {
-            _Text_HP = GameObject.Find("Player HP Text").GetComponent<TMP_Text>();
-            HP_Bar = GameObject.Find("Player HP Bar").GetComponent<Image>();
+            _Text_HP = HealthText.GetComponent<TMP_Text>();
+            HP_Bar = HealthBar.GetComponent<Image>();
         }
         if (this.gameObject.name == "Enemy")
         {
-            _Text_HP = GameObject.Find("Enemy HP Text").GetComponent<TMP_Text>();
-            HP_Bar = GameObject.Find("Enemy HP Bar").GetComponent<Image>();
+            _Text_HP = HealthText.GetComponent<TMP_Text>();
+            HP_Bar = HealthBar.GetComponent<Image>();
         }
 
         CharacterName = CharacterData.characterName;
