@@ -74,7 +74,7 @@ public class EffectDictionary : MonoBehaviour
     [Header("List of enemy particle prefabs")]
     public List<GameObject> enemyParticlePrefabsList = new List<GameObject>();
     private List<particleEffect> enemyParticlePrefabsPool = new List<particleEffect>();
-   
+    [Header("List of extra positioning for the particles")]
     public List<GameObject> ExtraPositioning = new List<GameObject>();
     
     public void SetUp()
@@ -301,7 +301,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Coin_Drop", 1);
         
         // Particle positioned under the player
-        ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[2], true);
+        ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
@@ -312,7 +312,7 @@ public class EffectDictionary : MonoBehaviour
     // Deal 3 damage, cost 2
     public void ID1002_Whack()
     {
-        ParticleDuration = 2f;
+        ParticleDuration = 1.5f;
         Player_damageDealing = 3;
         Player_priorityInc = 2;
         Manipulator_Player();
@@ -320,14 +320,14 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Hit", 1);
+            SoundManager.PlaySound("sfx_Stab", 1);
         }, 0.2f));
         
         // Play SFX
         SoundManager.PlaySound("sfx_Swing", 1);
         
         // Particle positioned on the enemy
-        ParticleEvent("Whack", 1002, ParticleDuration, enemyObj, true);
+        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -338,7 +338,7 @@ public class EffectDictionary : MonoBehaviour
     // Gain 2 armor, cost 1
     public void ID1003_WhiteScales()
     {
-        ParticleDuration = 2f;
+        ParticleDuration = 3f;
         Player_armorCreate = 2;
         Player_priorityInc = 1;
         Manipulator_Player();
@@ -347,7 +347,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Hiss", 1);
         
         // Particle positioned under the player
-        ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
@@ -358,7 +358,7 @@ public class EffectDictionary : MonoBehaviour
     // Draw 2 cards, gain 3 armors, cost 4
     public void ID1004_ShedSkin()
     {
-        ParticleDuration = 2f;
+        ParticleDuration = 5f;
         Player_armorCreate = 3;
         Player_cardsDrawing = 2;
         Player_priorityInc = 4;
@@ -368,7 +368,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Hiss", 1);
 
         // Particle positioned under the player
-        ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
@@ -383,7 +383,7 @@ public class EffectDictionary : MonoBehaviour
     // Draw 2 cards, gain 3 armors, cost 1
     public void ID2001_ForbiddenVenom()
     {
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         Player_damageDealing = 3;
         Player_priorityInc = 1;
         Manipulator_Player();
@@ -413,13 +413,12 @@ public class EffectDictionary : MonoBehaviour
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2001));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
 
     // Deal 6 damage, the next card you play deal 4 more damage
     public void ID2002_SerpentCutlass()
     {
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         Player_damageDealing = 6;
         Player_priorityInc = 5;
         Player_extraDamage = 4;
@@ -428,16 +427,28 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.3f);
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
+        }, 0.1f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
         }, 0.3f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.3f);
-        }, 0.6f));
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
+        }, 0.5f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.3f);
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
         }, 0.7f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Venom", 0.5f);
+        }, 0.9f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Stab", 1f);
+        }, 1.65f));
         
         // Play SFX
         SoundManager.PlaySound("sfx_Swing", 1);
@@ -449,7 +460,6 @@ public class EffectDictionary : MonoBehaviour
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
 
     // Next card deal double damage
@@ -460,16 +470,19 @@ public class EffectDictionary : MonoBehaviour
         isDealingDoubleDmg = true;
         Manipulator_Player();
         
-        SoundManager.PlaySound("sfx_Wisdom", 0.1f);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            SoundManager.PlaySound("sfx_Wisdom", 0.1f);
+        }, 1.1f));
         
-        ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[1], true);
         Manipulator_Player_Reset();
     }
 
     // Deal 1 damage, return card to hand
     public void ID2004_DemonFang()
     {
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         Player_damageDealing = 1;
         Player_priorityInc = 1;
         Manipulator_Player();
@@ -1528,7 +1541,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
         
         // Particle positioned under the player
-        ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[0], false);
+        ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1549,7 +1562,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
         
         // Particle positioned on the player
-        ParticleEvent("BodySlam", 2, ParticleDuration, playerObj, false);
+        ParticleEvent("BodySlam", 2, ParticleDuration, ExtraPositioning[0], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1566,7 +1579,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
         
         // Particle positioned under the enemy
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[1], false);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             //manipulator not needed since this is static effect
