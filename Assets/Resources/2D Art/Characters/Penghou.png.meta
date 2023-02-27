@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 65fcee77cefd89f4cb97e313d0bf26dd
+guid: 219cd7c696240e64b92565ad6b0c6bfe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 120
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,22 +105,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ink Golem_0
+      name: Penghou_0
       rect:
         serializedVersion: 2
-        x: 356
-        y: 326
-        width: 2652
-        height: 2849
+        x: 114
+        y: 201
+        width: 913
+        height: 741
       alignment: 9
-      pivot: {x: 0.12102164, y: 0.00009055655}
+      pivot: {x: -0.09073935, y: -0.09291872}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b103ac6aff337c45adfa54324995923
-      internalID: -485566852
+      spriteID: e1a4ea2d9b300974ead2c8eca78a084e
+      internalID: 1442387331
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: e2d964a69e8455049a407a168ee67a13
     internalID: 0
     vertices: []
     indices: 
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ink Golem_0: -485566852
+      Penghou_0: 1442387331
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

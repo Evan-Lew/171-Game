@@ -301,7 +301,7 @@ public class EffectDictionary : MonoBehaviour
         SoundManager.PlaySound("sfx_Coin_Drop", 1);
         
         // Particle positioned under the player
-        ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
