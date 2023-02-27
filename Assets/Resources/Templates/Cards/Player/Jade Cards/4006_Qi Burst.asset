@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 4006_Qi Burst
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Qi Burst
   ID: 4006
   description_Main: Remove all status cards from your deck and hand. Deal 3 damage
     per Status removed
   priorityCost: 2
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: 7f49e8fe0302a6d44b93a1a8b8e7f297, type: 3}
+  Card_Name: {fileID: 0}
   icon: {fileID: 0}

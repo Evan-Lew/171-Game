@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 5004_SacredHerb
   m_EditorClassIdentifier: 
   cardColor: 0
+  rirty: 0
   cardName: Entangled
   ID: 5001
   description_Main: The next card you play heals 2 and draws 1
   priorityCost: 0
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: c1913b1e606e4804293b473d8ed52d45, type: 3}
+  Card_Name: {fileID: 0}
   icon: {fileID: 0}

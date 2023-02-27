@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 2007_Blood_Crash
   m_EditorClassIdentifier: 
   cardColor: 3
+  rirty: 0
   cardName: Blood Crash
   ID: 2007
   description_Main: Draw 1 card. Banish this card. Add a Blood* to your hand.
   priorityCost: 2
-  Card_Front: {fileID: 21300000, guid: f7e2a77bacc971a4a81ab8954e761460, type: 3}
+  Card_Front: {fileID: 21300000, guid: 898dc6d096308ba4e97c58a4d99c8978, type: 3}
+  Card_Name: {fileID: 0}
   icon: {fileID: 0}

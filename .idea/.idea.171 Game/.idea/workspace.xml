@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="983507a4-9908-4dff-b0df-eb055d69898d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Cost.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Cost.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Stage01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Stage01.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Gold Cards/Foretold Fortune Card.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Gold Cards/Foretold Fortune Card.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Gold Cards/Foretold Fortune Card.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Gold Cards/Foretold Fortune Card.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Silver Cards/Shed Skin Card.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Silver Cards/Shed Skin Card.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Silver Cards/Shed Skin Card.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Player/Silver Cards/Shed Skin Card.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +87,7 @@
       <updated>1677174933957</updated>
       <workItem from="1677174938307" duration="7882000" />
       <workItem from="1677221206193" duration="1857000" />
+      <workItem from="1677524390546" duration="538000" />
     </task>
     <servers />
   </component>
