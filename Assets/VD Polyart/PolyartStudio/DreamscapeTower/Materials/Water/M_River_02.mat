@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_River_02
   m_Shader: {fileID: 4800000, guid: 8352fe40c7dd2a44a835eae3e0a9b55c, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -47,6 +48,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
     - _ColorDepthFade: 8.6
@@ -92,8 +94,8 @@ Material:
     - __dirty: 0
     - _useStepforFlow: 0
     m_Colors:
-    - _ColorDeep: {r: 0, g: 0.5471698, b: 0.54051435, a: 0}
-    - _ColorShallow: {r: 0, g: 1, b: 0.8610003, a: 0}
+    - _ColorDeep: {r: 0.10588236, g: 0.2627451, b: 0.37254903, a: 0}
+    - _ColorShallow: {r: 0.1764706, g: 0.3647059, b: 0.47058827, a: 0}
     - _EdgeFoamSpeed: {r: 0.2, g: 5, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FlowSpeed: {r: 0, g: 2, b: 0, a: 0}
@@ -109,5 +111,5 @@ Material:
     - _RoughnessSpeed1: {r: 0, g: -0.2, b: 0, a: 0}
     - _Vector0: {r: 0.2, g: 0.01, b: 0, a: 0}
     - _Water: {r: 0.23129036, g: 0.16470587, b: 1, a: 1}
-    - _WaterFoamColor: {r: 0.7122642, g: 0.9620813, b: 1, a: 1}
+    - _WaterFoamColor: {r: 0.28235295, g: 0.427451, b: 0.5372549, a: 1}
   m_BuildTextureStacks: []
