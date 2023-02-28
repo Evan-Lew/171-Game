@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
+using System.Linq;
 
 //手卡
 //Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
@@ -380,7 +381,7 @@ public class EffectDictionary : MonoBehaviour
     //-----------------------------------------------------------------
     //                      PURPLE CARDS
     //=================================================================
-    // Draw 2 cards, gain 3 armors, cost 1
+    // Deal 3 Damage, Banish this card, cost 1
     public void ID2001_ForbiddenVenom()
     {
         ParticleDuration = 2f;
@@ -806,23 +807,31 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // If your hand has less than 3 cards, draw 4. Otherwise draw 2.
     public void ID3004_AssassinsTeapot()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 4;
+        if (cardsinhand < 3)
+        {
+            Player_cardsDrawing = 4;
+        }
+        else
+        {
+            Player_cardsDrawing = 2;
+        }
+
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
 
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
+        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
@@ -843,23 +852,24 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Gain 2 Armor for each card you have in hand.
     public void ID3006_UnbreakingEmperor()
     {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 2f;
-        Player_armorCreate = 2;
+        Player_armorCreate = cardsinhand * 2;
         Player_priorityInc = 2;
-        
+
         Manipulator_Player();
 
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
-            Manipulator_Player_Reset();
+
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
@@ -881,15 +891,16 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // For each card in your hand, gain 4 Armor and deal 2 damage to the enemy
     public void ID3008_RoyalGambit()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_armorCreate = 4;
-        Player_damageDealing = 2;
+        Player_armorCreate = 4 * cardsinhand;
+        Player_damageDealing = 2 * cardsinhand;
         Player_priorityInc = 8;
-        
+
         Manipulator_Player();
 
 
@@ -897,20 +908,28 @@ public class EffectDictionary : MonoBehaviour
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             DealDamage_ToTarget(enemy, Player_damageDealing);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw cards until you have 4 cards , if you already have 4 cards gain 10 Armor
     public void ID3009_DeadlyDraw()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 4;
-        Player_armorCreate = 4;
+        Player_cardsDrawing = 0;
+        Player_armorCreate = 0;
+        if (cardsinhand < 4)
+        {
+            Player_cardsDrawing = 4 - cardsinhand;
+        }
+        else
+        {
+            Player_armorCreate = 10;
+        }
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
 
 
@@ -918,9 +937,8 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             CreateArmor_ToTarget(player, Player_armorCreate);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
     // Draw 2 cards and gain 6 Armor
@@ -943,23 +961,23 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw x amount of cards(x equals to cards in your hand)
     public void ID3011_BalancedBounty()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 10;
+        Player_cardsDrawing = cardsinhand;
         Player_priorityInc = 5;
-        
+
         Manipulator_Player();
 
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
@@ -1087,7 +1105,7 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Player_healing = 6;
-        Player_priorityInc = 2;
+        Player_priorityInc = 3;
         
         Manipulator_Player();
         
@@ -1095,24 +1113,26 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
     }
 
-    // NOT IMPLEMENTED
     // Draw 2, Heal 4 Health
     public void ID4003_DauntlessDraw()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
-        Player_priorityInc = 2;
+        Player_healing = 4;
+        Player_cardsDrawing = 2;
+        Player_priorityInc = 3;
         
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
        
@@ -1123,8 +1143,8 @@ public class EffectDictionary : MonoBehaviour
     public void ID4004_LotusLeaf()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
-        Player_priorityInc = 2;
+        Player_healing = 3;
+        Player_priorityInc = 1;
         
         Manipulator_Player();
         
@@ -1432,37 +1452,37 @@ public class EffectDictionary : MonoBehaviour
        
     }
 
-    // NOT IMPLEMENTED
     // Deal 4 Damage. Banish this card
     public void ID5005_PerilQiongQi()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
-        Player_priorityInc = 2;
+        Player_damageDealing = 4;
+        Player_priorityInc = 0;
         
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5005));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
     }
 
-    // NOT IMPLEMENTED
     // Draw 3 cards. Banish this card
     public void ID5006_PerilTaoWu()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
-        Player_priorityInc = 2;
+        Player_cardsDrawing = 3;
+        Player_priorityInc = 0;
         
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            DrawCards_Player(Player_cardsDrawing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5006));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
        
@@ -1474,13 +1494,13 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Player_healing = 6;
-        Player_priorityInc = 2;
+        Player_priorityInc = 0;
         
         Manipulator_Player();
-        Heal_ToTarget(player, Player_healing);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5007));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
@@ -1491,13 +1511,14 @@ public class EffectDictionary : MonoBehaviour
     public void ID5008_PerilTaotie()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
-        Player_priorityInc = 2;
+        Player_damageDealing = 3;
+        Player_priorityInc = 0;
         
         Manipulator_Player();
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            DealDamage_ToTarget(player, Player_damageDealing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5008));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
