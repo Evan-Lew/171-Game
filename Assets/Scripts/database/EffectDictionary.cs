@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
+using System.Linq;
 
 //手卡
 //Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
@@ -805,23 +806,31 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // If your hand has less than 3 cards, draw 4. Otherwise draw 2.
-    public void ID3004_AssassinsTeapot()
-    {        
+    public void ID3004_SovereignDraw()
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 4;
+        if (cardsinhand < 3)
+        {
+            Player_cardsDrawing = 4;
+        }
+        else
+        {
+            Player_cardsDrawing = 2;
+        }
+
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
 
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
+        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
@@ -842,23 +851,24 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Gain 2 Armor for each card you have in hand.
     public void ID3006_UnbreakingEmperor()
     {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 2f;
-        Player_armorCreate = 2;
+        Player_armorCreate = cardsinhand * 2;
         Player_priorityInc = 2;
-        
+
         Manipulator_Player();
 
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
-            Manipulator_Player_Reset();
+
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
@@ -880,15 +890,16 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // For each card in your hand, gain 4 Armor and deal 2 damage to the enemy
     public void ID3008_RoyalGambit()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_armorCreate = 4;
-        Player_damageDealing = 2;
+        Player_armorCreate = 4 * cardsinhand;
+        Player_damageDealing = 2 * cardsinhand;
         Player_priorityInc = 8;
-        
+
         Manipulator_Player();
 
 
@@ -896,20 +907,28 @@ public class EffectDictionary : MonoBehaviour
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             DealDamage_ToTarget(enemy, Player_damageDealing);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw cards until you have 4 cards , if you already have 4 cards gain 10 Armor
     public void ID3009_DeadlyDraw()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 4;
-        Player_armorCreate = 4;
+        Player_cardsDrawing = 0;
+        Player_armorCreate = 0;
+        if (cardsinhand < 4)
+        {
+            Player_cardsDrawing = 4 - cardsinhand;
+        }
+        else
+        {
+            Player_armorCreate = 10;
+        }
         Player_priorityInc = 3;
-        
+
         Manipulator_Player();
 
 
@@ -917,9 +936,8 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             CreateArmor_ToTarget(player, Player_armorCreate);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
     // Draw 2 cards and gain 6 Armor
@@ -942,23 +960,23 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw x amount of cards(x equals to cards in your hand)
     public void ID3011_BalancedBounty()
-    {        
+    {
+        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = 10;
+        Player_cardsDrawing = cardsinhand;
         Player_priorityInc = 5;
-        
+
         Manipulator_Player();
 
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
-            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
+        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
