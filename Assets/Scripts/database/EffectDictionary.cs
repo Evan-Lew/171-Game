@@ -318,15 +318,16 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 2;
         Manipulator_Player();
         
-        // Play SFX with delay
+        //Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        {
+        { 
             SoundManager.PlaySound("sfx_Stab", 1);
-        }, 0.2f));
-        
-        // Play SFX
-        SoundManager.PlaySound("sfx_Swing", 1);
-        
+        }, 0.3f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            SoundManager.PlaySound("sfx_Swing", 1);
+        }, 0.1f));
+
         // Particle positioned on the enemy
         ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -449,7 +450,7 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             SoundManager.PlaySound("sfx_Stab", 1f);
-        }, 1.65f));
+        }, 1.25f));
         
         // Play SFX
         SoundManager.PlaySound("sfx_Swing", 1);
@@ -473,7 +474,7 @@ public class EffectDictionary : MonoBehaviour
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Wisdom", 0.5f);
+            SoundManager.PlaySound("sfx_Wisdom", 0.2f);
         }, 1.1f));
         
         ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[1], true);
