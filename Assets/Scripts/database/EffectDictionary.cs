@@ -472,7 +472,7 @@ public class EffectDictionary : MonoBehaviour
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Wisdom", 0.1f);
+            SoundManager.PlaySound("sfx_Wisdom", 0.5f);
         }, 1.1f));
         
         ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[1], true);
@@ -752,15 +752,16 @@ public class EffectDictionary : MonoBehaviour
     // Draw 2
     public void ID3001_ForetoldFortune()
     {
-        ParticleDuration = 3f;
+        ParticleDuration = 5f;
         Player_cardsDrawing = 2;
         Player_priorityInc = 2;
         Manipulator_Player();
-        
-        SoundManager.PlaySound("sfx_Coin_Drop", 1);
+
+        // Play SFX
+        SoundManager.PlaySound("sfx_Fortune", 1);
         
         // Particle positioned under the player
-        ParticleEvent("Payment", 3001, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("ForetoldFortune", 3001, ParticleDuration, ExtraPositioning[0], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
@@ -1064,14 +1065,15 @@ public class EffectDictionary : MonoBehaviour
     // Heal 6
     public void ID4001_JadeSpirit()
     {
-        ParticleDuration = 1.5f;
+        ParticleDuration = 4f;
         Player_healing = 6;
         Player_priorityInc = 2;
         Manipulator_Player();
        
         SoundManager.PlaySound("sfx_Spirit", 1);
-        WithoutParticle(ParticleDuration);
 
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
@@ -1089,6 +1091,7 @@ public class EffectDictionary : MonoBehaviour
         
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);

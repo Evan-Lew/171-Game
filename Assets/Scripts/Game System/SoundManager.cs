@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public static AudioClip sfx_Card_Draw, sfx_Card_Place;
     
     // Player Silver/Purple Cards
-    [HideInInspector] public static AudioClip sfx_Coin_Drop, sfx_Hiss, sfx_Hit, sfx_Venom, sfx_Swing, sfx_Crunch, sfx_Wisdom, sfx_Stab;
+    [HideInInspector] public static AudioClip sfx_Coin_Drop, sfx_Hiss, sfx_Hit, sfx_Venom, sfx_Swing, sfx_Crunch, sfx_Wisdom, sfx_Stab, sfx_Fortune;
 
     // Player Jade Cards
     [HideInInspector] public static AudioClip sfx_Spirit;
@@ -60,6 +60,7 @@ public class SoundManager : MonoBehaviour
         sfx_Wisdom = Resources.Load<AudioClip>("SFX/Player/Wisdom");
         sfx_Spirit = Resources.Load<AudioClip>("SFX/Player/Spirit");
         sfx_Stab = Resources.Load<AudioClip>("SFX/Player/Stab");
+        sfx_Fortune = Resources.Load<AudioClip>("SFX/Player/Fortune");
         
         // Loading enemy audio files
         sfx_Action_01_Throw_Stone = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Stone");
@@ -160,6 +161,11 @@ public class SoundManager : MonoBehaviour
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;
             
+            case "sfx_Fortune":
+                sfxAudioSource.clip = sfx_Fortune;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
             //----------Enemy SFX----------
             // Golem SFX
             case "sfx_Action_01_Throw_Stone":
