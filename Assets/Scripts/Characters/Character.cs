@@ -35,7 +35,9 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MonitorHPChange();
         updateHealthAndShield();
+ 
     }
 
     public void SetUp()
@@ -62,19 +64,61 @@ public class Character : MonoBehaviour
     }
 
 
+    double HPChangedFrom;
+    double lastFrameHP;
+    double currentFrameHP;
+    bool isHPChanged = false;
+    double HPChangeValue = 0.01f;
+    double HPChangeSpeed ;
+    double targetHPFillAmount;
 
+    void MonitorHPChange()
+    {
+        //Debug.Log("Current : " + Health_Current + " Last: " + lastFrameHP);
+        currentFrameHP = Health_Current;
+        if(currentFrameHP != lastFrameHP)
+        {
+            if(currentFrameHP < lastFrameHP)
+            {
+                HPChangeSpeed = -HPChangeValue;
+            }
+            else
+            {
+                HPChangeSpeed = HPChangeValue;
+            }
+            isHPChanged = true;
+            HPChangedFrom = lastFrameHP;
+            targetHPFillAmount = (float)System.Math.Round(Health_Current, 0) / (float)System.Math.Round(Health_Total, 0);
+        }
+    }
+
+    void UpdateHealth()
+    {
+        double currentValue = (HPChangedFrom + HPChangeSpeed);
+        if(currentValue != Health_Current)
+        {
+            HP_Bar.fillAmount = (float)System.Math.Round(currentValue, 0) / (float)System.Math.Round(Health_Total, 0);
+            HPChangedFrom = currentValue;
+            Debug.Log("check");
+        }
+
+    }
 
     void updateHealthAndShield()
     {
+        Debug.Log("I get called");
         if(Armor_Current == 0)
         {
             _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
-            HP_Bar.fillAmount = (float)System.Math.Round(Health_Current, 0) / (float)System.Math.Round(Health_Total, 0);
+            //HP_Bar.fillAmount = (float)System.Math.Round(Health_Current, 0) / (float)System.Math.Round(Health_Total, 0);
+            UpdateHealth();
         }
         else
         {
             _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString() + " + " + System.Math.Round(Armor_Current, 0).ToString();
         }
-        
+
+
+        lastFrameHP = Health_Current;
     }
 }
