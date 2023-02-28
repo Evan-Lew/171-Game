@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1715385927285552690}
   - component: {fileID: 1715385927285552688}
   - component: {fileID: 1715385927285552689}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_SlashMesh_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4893,7 +4893,7 @@ GameObject:
   - component: {fileID: 1715385927380863444}
   - component: {fileID: 1715385927380863434}
   - component: {fileID: 1715385927380863435}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_SlashMesh_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9775,7 +9775,7 @@ GameObject:
   - component: {fileID: 1715385927580411932}
   - component: {fileID: 1715385927580411922}
   - component: {fileID: 1715385927580411923}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14598,7 +14598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1715385927650515375}
   - component: {fileID: 1715385927650515368}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_DimentionCutterSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14652,7 +14652,7 @@ GameObject:
   - component: {fileID: 1715385928821728868}
   - component: {fileID: 1715385928821728869}
   - component: {fileID: 1715385928821728870}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_SlashMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

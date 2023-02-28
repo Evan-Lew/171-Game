@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6234818455405270695}
   - component: {fileID: 6234818455405270694}
   - component: {fileID: 6234818455405270689}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_08_Explosion_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4902,7 +4902,7 @@ GameObject:
   - component: {fileID: 6234818455779372916}
   - component: {fileID: 6234818455779372919}
   - component: {fileID: 6234818455779372918}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_08_Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9782,7 +9782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6234818455853893156}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: BodySlam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9816,7 +9816,7 @@ GameObject:
   - component: {fileID: 6234818456300832413}
   - component: {fileID: 6234818456300832412}
   - component: {fileID: 6234818456300832415}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_08_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14707,7 +14707,7 @@ GameObject:
   - component: {fileID: 6234818456456194092}
   - component: {fileID: 6234818456456194095}
   - component: {fileID: 6234818456456194094}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_08_Particle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19589,7 +19589,7 @@ GameObject:
   - component: {fileID: 6234818456742031691}
   - component: {fileID: 6234818456742031690}
   - component: {fileID: 6234818456742031733}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_08_Explosion_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24480,7 +24480,7 @@ GameObject:
   - component: {fileID: 6234818456908768166}
   - component: {fileID: 6234818456908768161}
   - component: {fileID: 6234818456908768160}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_08_Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29371,7 +29371,7 @@ GameObject:
   - component: {fileID: 6234818457086919455}
   - component: {fileID: 6234818457086919454}
   - component: {fileID: 6234818457086919449}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_08_Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

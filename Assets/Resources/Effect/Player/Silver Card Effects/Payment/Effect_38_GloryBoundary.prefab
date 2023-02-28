@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 811882800337821088}
   - component: {fileID: 2477276747867602623}
   - component: {fileID: 2166028878486525493}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_ParticlesField_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4893,7 +4893,7 @@ GameObject:
   - component: {fileID: 5511052677107086691}
   - component: {fileID: 5511052677107086690}
   - component: {fileID: 5511052677107086689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_Ring_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9784,7 +9784,7 @@ GameObject:
   - component: {fileID: 5511052677412168662}
   - component: {fileID: 5511052677412168661}
   - component: {fileID: 5511052677412168660}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_ParticlesField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14666,7 +14666,7 @@ GameObject:
   - component: {fileID: 5511052677545626481}
   - component: {fileID: 5511052677545626480}
   - component: {fileID: 5511052677545626487}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19562,7 +19562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5511052677990246608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_GloryBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19596,7 +19596,7 @@ GameObject:
   - component: {fileID: 5511052678458106852}
   - component: {fileID: 5511052678458106854}
   - component: {fileID: 5511052678458106853}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_Ring_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24478,7 +24478,7 @@ GameObject:
   - component: {fileID: 5511052678816077233}
   - component: {fileID: 5511052678816077235}
   - component: {fileID: 5511052678816077234}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_ParticlesField_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29360,7 +29360,7 @@ GameObject:
   - component: {fileID: 5511052678952658151}
   - component: {fileID: 5511052678952658145}
   - component: {fileID: 5511052678952658144}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_SmokeField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34251,7 +34251,7 @@ GameObject:
   - component: {fileID: 5511052678980245816}
   - component: {fileID: 5511052678980245823}
   - component: {fileID: 5511052678980245822}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Effect_38_Ring_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
