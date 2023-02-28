@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30537444, g: 0.31430072, b: 0.31592607, a: 1}
+  m_IndirectSpecularColor: {r: 0.26727077, g: 0.27517486, b: 0.27659297, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -165,6 +165,7 @@ MonoBehaviour:
   Armor_Current: 0
   HealthBar: {fileID: 600380319}
   HealthText: {fileID: 1439198078}
+  TotalHPMovingTime: 1
 --- !u!4 &24645406
 Transform:
   m_ObjectHideFlags: 0
@@ -4751,6 +4752,7 @@ MonoBehaviour:
   Armor_Current: 0
   HealthBar: {fileID: 28437798}
   HealthText: {fileID: 848267539}
+  TotalHPMovingTime: 1
 --- !u!4 &950755195
 Transform:
   m_ObjectHideFlags: 0
@@ -9638,18 +9640,8 @@ MonoBehaviour:
   - {fileID: 1487496231}
   - {fileID: 1711219749}
   - {fileID: 1482934651}
-  CharacterSpawningPoint_List:
-  - {fileID: 1773928310}
-  - {fileID: 365328220}
-  - {fileID: 589573671}
-  - {fileID: 2125384810}
-  - {fileID: 1243851505}
-  CameraSpawningPoint_List:
-  - {fileID: 530333330}
-  - {fileID: 386581733}
-  - {fileID: 1013909241}
-  - {fileID: 544739180}
-  - {fileID: 1014714790}
+  CharacterSpawningPoint_List: []
+  CameraSpawningPoint_List: []
   TargetCharacterPos: {fileID: 2125384810}
   TargetCameraPos: {fileID: 544739180}
 --- !u!114 &2137971097
