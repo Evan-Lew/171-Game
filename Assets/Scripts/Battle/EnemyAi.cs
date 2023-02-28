@@ -20,7 +20,7 @@ public class EnemyAi : MonoBehaviour
      */
     //=======================================================
 
-
+    [Header("Order Must Not Be Changed")]
     [Header("Enemy")]
     public List<Character_Basedata> Enemys;
     [Header("Action# = index")]

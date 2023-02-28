@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    //[SerializeField] GameController _script_GameController;
+    GameController _script_GameController;
 
     private void Awake()
     {
-        
+        _script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
     }
 
 
@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         //note the 2 means the 2 index of building list
+        _script_GameController.isDeckELevel = true;
         SceneManager.LoadScene(2);
     }
 

@@ -22,6 +22,7 @@ public class DeckEditSystem : MonoBehaviour
     public List<Card> testCardList = new();
     public Transform testPos;
     public Card_Basedata testCardData;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))

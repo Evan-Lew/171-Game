@@ -30,7 +30,6 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_EnemyTurn;
 
-
     private void Awake()
     {
         instance = this;
@@ -166,7 +165,7 @@ public class BattleController : MonoBehaviour
 
     void SpecialHandling_AtEndPlayerTurn()
     {
-        if (enemy.CharacterName == "Golem")
+        if (enemy.CharacterName == _script_EnemyAi.Enemys[0].characterName)
         {
             _script_EnemyAi.CastUniqueAbility_Golem();
             currentPhase = nextPhase;

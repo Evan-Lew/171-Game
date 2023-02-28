@@ -3325,7 +3325,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2137971096}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: StartTheBattle
+        m_MethodName: PlayTestStartBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3968,7 +3968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &808724515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5876,11 +5876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
-  deckToUse:
-  - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
-  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: 8ec9f2669d88abf4392e1a5fbdacd664, type: 2}
-  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  deckToUse: []
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -10018,6 +10014,9 @@ MonoBehaviour:
   CameraSpawningPoint_List: []
   TargetCharacterPos: {fileID: 2125384810}
   TargetCameraPos: {fileID: 544739180}
+  isDeckELevel: 0
+  isStartLevel: 0
+  playTest2: {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
 --- !u!114 &2137971097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10237,6 +10236,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
   - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
+  - {fileID: 11400000, guid: 2494a8498474f3545be024ac195e74f5, type: 2}
   Cards_ForPick: []
   numberCandidate: 3
   CardForPickPositionList: []

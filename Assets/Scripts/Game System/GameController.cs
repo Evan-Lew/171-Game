@@ -32,18 +32,35 @@ public class GameController : MonoBehaviour
     public GameObject TargetCameraPos;
 
 
-
+    //flag for changing level
+    [HideInInspector]public bool isDeckELevel = true;
+    [HideInInspector] public bool isStartLevel = false;
 
 
     private void Awake()
     {
+        SceneManager.LoadScene("Main Menu");
         characters.SetActive(false);
         //SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDeckELevel)
+        {
+            isDeckELevel = false;
+            StartTheCamp();
+        }
+        else if (isStartLevel)
+        {
+            isStartLevel = false;
+        }
+
+
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartTheCamp();
@@ -61,7 +78,12 @@ public class GameController : MonoBehaviour
             }
         }
 
-        
+
+
+        BattleConditionCheck();
+
+
+
 
     }
 
@@ -72,6 +94,32 @@ public class GameController : MonoBehaviour
      *  Parameters: Argument1:  Target Character Group game object's transform
      *              Argument2:  Target Environment Camera's transform                         
      */
+    bool TurnChangeEnable = true;
+    void BattleConditionCheck()
+    {
+        if(TurnChangeEnable)
+        {
+            if (enmey.GetComponent<Character>().Health_Current <= 0 || player.GetComponent<Character>().Health_Current <= 0)
+            {
+                _script_DeckSystem.deckToUse.Clear();
+                _script_DeckSystem.Clear();
+                _script_HandManager.Clear();
+                player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
+
+
+                TurnChangeEnable = false;
+                _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
+                _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+                SceneManager.LoadScene("Main Menu");
+            }
+        }
+
+
+
+    }
+
+
+
     public void SetSpawningPoint(Transform characterTransform, Transform environmentCameraTransform)
     {
         SetCharacterPos(characterTransform);
@@ -89,10 +137,16 @@ public class GameController : MonoBehaviour
         BattleSystemSetUp(enemy);
     }
 
+    public Character_Basedata playTest2;
+    public void PlayTestStartBattle()
+    {
+         StartTheBattle(playTest2);
+    }
     void StartTheBattle(Character_Basedata enemy)
     {
         if (_script_DeckSystem.deckToUse.Count == 10)
         {
+            TurnChangeEnable = true;
             BattleSystemSetUp(enemy);
         }
     }
@@ -168,6 +222,7 @@ public class GameController : MonoBehaviour
     */
     void CampSystemSetUp()
     {
+     
         characters.SetActive(false);
         _script_BattleController.Clear();
         _script_DeckSystem.Clear();
