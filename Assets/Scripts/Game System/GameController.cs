@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         characters.SetActive(false);
-        //SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
+        SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
     }
 
     // Update is called once per frame
@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour
                 setupFlag = false;
             }
         }
+
+        
 
     }
 
