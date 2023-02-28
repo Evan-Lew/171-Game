@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        SceneManager.LoadScene("Main Menu");
+        //SceneManager.LoadScene("Main Menu");
         characters.SetActive(false);
         //SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
@@ -49,15 +49,15 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDeckELevel)
-        {
-            isDeckELevel = false;
-            StartTheCamp();
-        }
-        else if (isStartLevel)
-        {
-            isStartLevel = false;
-        }
+        //if (isDeckELevel)
+        //{
+        //    isDeckELevel = false;
+        //    StartTheCamp();
+        //}
+        //else if (isStartLevel)
+        //{
+        //    isStartLevel = false;
+        //}
 
 
 
@@ -94,10 +94,10 @@ public class GameController : MonoBehaviour
      *  Parameters: Argument1:  Target Character Group game object's transform
      *              Argument2:  Target Environment Camera's transform                         
      */
-    bool TurnChangeEnable = true;
+    bool checkEnable = true;
     void BattleConditionCheck()
     {
-        if(TurnChangeEnable)
+        if(checkEnable)
         {
             if (enmey.GetComponent<Character>().Health_Current <= 0 || player.GetComponent<Character>().Health_Current <= 0)
             {
@@ -105,17 +105,12 @@ public class GameController : MonoBehaviour
                 _script_DeckSystem.Clear();
                 _script_HandManager.Clear();
                 player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
-
-
-                TurnChangeEnable = false;
+                checkEnable = false;
                 _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
                 _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
                 SceneManager.LoadScene("Main Menu");
             }
         }
-
-
-
     }
 
 
@@ -137,16 +132,17 @@ public class GameController : MonoBehaviour
         BattleSystemSetUp(enemy);
     }
 
-    public Character_Basedata playTest2;
-    public void PlayTestStartBattle()
-    {
-         StartTheBattle(playTest2);
-    }
+    //public Character_Basedata playTest2;
+    //public void PlayTestStartBattle()
+    //{
+    //     StartTheBattle(playTest2);
+    //}
+
     void StartTheBattle(Character_Basedata enemy)
     {
         if (_script_DeckSystem.deckToUse.Count == 10)
         {
-            TurnChangeEnable = true;
+            checkEnable = true;
             BattleSystemSetUp(enemy);
         }
     }
