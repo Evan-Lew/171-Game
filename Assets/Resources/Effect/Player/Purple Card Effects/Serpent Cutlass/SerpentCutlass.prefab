@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7389421937844736747}
   - component: {fileID: 7389421937844735252}
   - component: {fileID: 7389421937844735253}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_36_SlashType_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4907,7 +4907,7 @@ GameObject:
   - component: {fileID: 7389421937905210942}
   - component: {fileID: 7389421937905210943}
   - component: {fileID: 7389421937905210936}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_36_SlashType_2_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9801,7 +9801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7389421938419298440}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_36_SlashSetType2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9838,7 +9838,7 @@ GameObject:
   - component: {fileID: 7389421938428822810}
   - component: {fileID: 7389421938428822811}
   - component: {fileID: 7389421938428822788}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_36_SlashType_2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14734,7 +14734,7 @@ GameObject:
   - component: {fileID: 7389421938667421556}
   - component: {fileID: 7389421938667421558}
   - component: {fileID: 7389421938667421557}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_36_Slash_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19623,7 +19623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7389421938708674126}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: SerpentCutlass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19657,7 +19657,7 @@ GameObject:
   - component: {fileID: 7389421939111908259}
   - component: {fileID: 7389421939111908257}
   - component: {fileID: 7389421939111908258}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_36_SlashType_2_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24553,7 +24553,7 @@ GameObject:
   - component: {fileID: 7389421939318356787}
   - component: {fileID: 7389421939318356797}
   - component: {fileID: 7389421939318356796}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_36_Slash_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29444,7 +29444,7 @@ GameObject:
   - component: {fileID: 7389421939619966219}
   - component: {fileID: 7389421939619966260}
   - component: {fileID: 7389421939619966261}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: 'Effect_36_Slash '
   m_TagString: Untagged
   m_Icon: {fileID: 0}

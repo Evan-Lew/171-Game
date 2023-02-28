@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4143118989386136412}
   - component: {fileID: 4143118989386136411}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_MakeEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4143118989675900536}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: DemonFang
   m_TagString: Untagged
   m_Icon: {fileID: 0}

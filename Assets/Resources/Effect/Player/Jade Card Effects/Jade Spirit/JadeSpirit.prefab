@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1339483653101114481}
   - component: {fileID: 1339483653101114487}
   - component: {fileID: 1339483653101114486}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_31_Mark_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4891,7 +4891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339483653523732534}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: JadeSpirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4925,7 +4925,7 @@ GameObject:
   - component: {fileID: 1339483653626414450}
   - component: {fileID: 1339483653626414448}
   - component: {fileID: 1339483653626414451}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_31_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9807,7 +9807,7 @@ GameObject:
   - component: {fileID: 1339483653737469002}
   - component: {fileID: 1339483653737469000}
   - component: {fileID: 1339483653737469003}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_31_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14698,7 +14698,7 @@ GameObject:
   - component: {fileID: 1339483653828941635}
   - component: {fileID: 1339483653828941633}
   - component: {fileID: 1339483653828941632}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_31_Mark_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19580,7 +19580,7 @@ GameObject:
   - component: {fileID: 1339483654160573296}
   - component: {fileID: 1339483654160573302}
   - component: {fileID: 1339483654160573297}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_31_ShockWave_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24462,7 +24462,7 @@ GameObject:
   - component: {fileID: 1339483654656423618}
   - component: {fileID: 1339483654656423616}
   - component: {fileID: 1339483654656423619}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_31_ShockWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29350,7 +29350,7 @@ GameObject:
   - component: {fileID: 542014289796178203}
   - component: {fileID: 9011147939558864869}
   - component: {fileID: 8696512323916342677}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_31_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

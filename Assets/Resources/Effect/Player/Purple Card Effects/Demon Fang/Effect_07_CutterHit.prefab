@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8708412796869533730}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_CutterHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8708412797727097312}
   - component: {fileID: 8708412797727097314}
   - component: {fileID: 8708412797727097315}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4927,7 +4927,7 @@ GameObject:
   - component: {fileID: 8708412797783262611}
   - component: {fileID: 8708412797783262621}
   - component: {fileID: 8708412797783262610}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_07_HitQuad
   m_TagString: Untagged
   m_Icon: {fileID: 0}

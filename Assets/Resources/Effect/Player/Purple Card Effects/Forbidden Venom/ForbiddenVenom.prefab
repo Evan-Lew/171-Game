@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8265572859143674081}
   - component: {fileID: 4135245133436363513}
   - component: {fileID: 5690533438804006509}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_23_PoisonSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: 7469995720754375770}
   - component: {fileID: 5284654781571213754}
   - component: {fileID: 8757389971275263696}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_23_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9785,7 +9785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3041084410101440400}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: ForbiddenVenom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9819,7 +9819,7 @@ GameObject:
   - component: {fileID: 7917643591195142986}
   - component: {fileID: 2906714754707541465}
   - component: {fileID: 2614873111075751173}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_23_PoisonSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}

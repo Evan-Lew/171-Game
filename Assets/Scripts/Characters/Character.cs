@@ -109,7 +109,6 @@ public class Character : MonoBehaviour
         bool repeatFlag = false;
         while (true)
         {
-            Debug.Log("Hello");
             timeRatio = elapsedTime / totalTime;
             value = Mathf.Lerp((float)startValue, (float)endValue, timeRatio);
             HP_Bar.color = Gradient_CurrentInUse.Evaluate((float)value);

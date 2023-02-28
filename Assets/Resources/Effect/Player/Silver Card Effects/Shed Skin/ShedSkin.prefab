@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5463222678578817521}
   - component: {fileID: 1833282048646924830}
   - component: {fileID: 2522952269973845448}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_44_Ring_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4893,7 +4893,7 @@ GameObject:
   - component: {fileID: 7005278959131241378}
   - component: {fileID: 7005278959131241377}
   - component: {fileID: 7005278959131241376}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_44_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9778,7 +9778,7 @@ GameObject:
   - component: {fileID: 7005278959364281283}
   - component: {fileID: 7005278959364281282}
   - component: {fileID: 7005278959364281281}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_44_Particle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14669,7 +14669,7 @@ GameObject:
   - component: {fileID: 7005278960625140483}
   - component: {fileID: 7005278960625140482}
   - component: {fileID: 7005278960625140481}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Effect_44_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19558,7 +19558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7005278960792100168}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: ShedSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
