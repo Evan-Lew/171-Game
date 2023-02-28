@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 4011_Triage
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Triage
   ID: 4011
   description_Main: Until the end of turn, every time you heal enemy priority +1.
     Banish this card.
   priorityCost: 0
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: 664f076715e4e2f49946b418731de1c9, type: 3}
   icon: {fileID: 0}

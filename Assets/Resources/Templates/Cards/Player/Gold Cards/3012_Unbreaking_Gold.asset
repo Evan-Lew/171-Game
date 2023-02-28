@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 3012_Unbreaking_Gold
   m_EditorClassIdentifier: 
   cardColor: 1
+  rirty: 0
   cardName: Unbreaking Gold
   ID: 3012
   description_Main: Double the Armor you have
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: 99ea075ce4377624783ad75f2ee1f3ec, type: 3}
   icon: {fileID: 0}

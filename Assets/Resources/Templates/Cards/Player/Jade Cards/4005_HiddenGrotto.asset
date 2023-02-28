@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 4005_HiddenGrotto
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Hidden Grotto
   ID: 4005
   description_Main: Shuffle a random Sacred Herb* into your deck
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: 62e9172f35d823f4e8987dd4267efc8a, type: 3}
+  Card_Name: {fileID: 21300000, guid: fdafb0eb26670f6448ad76f56c95f490, type: 3}
   icon: {fileID: 0}

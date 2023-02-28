@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 4009_NurtuousNature
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Nurtuous Nature
   ID: 4009
   description_Main: 'Env: Every time you play a status card, heal 2'
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: fdff2827be31e574ab57cc626aae9c3f, type: 3}
   icon: {fileID: 0}

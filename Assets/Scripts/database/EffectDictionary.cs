@@ -753,7 +753,7 @@ public class EffectDictionary : MonoBehaviour
     // Draw 2
     public void ID3001_ForetoldFortune()
     {
-        ParticleDuration = 5f;
+        ParticleDuration = 6f;
         Player_cardsDrawing = 2;
         Player_priorityInc = 2;
         Manipulator_Player();
@@ -1101,7 +1101,7 @@ public class EffectDictionary : MonoBehaviour
 
     // NOT IMPLEMENTED
     // Env: All enemy cards cost 1 more
-    public void ID4002_Karma()
+    public void ID4002_BrightKarma()
     {
         ParticleDuration = 3f;
         Player_healing = 6;
@@ -1773,7 +1773,7 @@ public class EffectDictionary : MonoBehaviour
         
         // Jade Cards
         effectDictionary_Players.Add(4001, ID4001_JadeSpirit);
-        effectDictionary_Players.Add(4002, ID4002_Karma);
+        effectDictionary_Players.Add(4002, ID4002_BrightKarma);
         effectDictionary_Players.Add(4003, ID4003_DauntlessDraw);
         effectDictionary_Players.Add(4004, ID4004_LotusLeaf);
         effectDictionary_Players.Add(4005, ID4005_HiddenGrotto);

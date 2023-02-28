@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 3009_Deadly_Draw
   m_EditorClassIdentifier: 
   cardColor: 1
+  rirty: 0
   cardName: Deadly Draw
   ID: 3009
   description_Main: Draw cards until you have 4 cards , if you already have 4 cards
     gain 10 Armor
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: 0c85760e51d80bc40a6a2decdf2fa0e6, type: 3}
   icon: {fileID: 0}

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 3011_Balanced_Bounty
   m_EditorClassIdentifier: 
   cardColor: 1
+  rirty: 0
   cardName: Balanced Bounty
   ID: 3011
   description_Main: Draw x amount of cards(x equals to cards in your hand)
   priorityCost: 5
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: e0b55a71c3e873346b92fbb02508ef52, type: 3}
   icon: {fileID: 0}

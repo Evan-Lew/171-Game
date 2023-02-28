@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 4010_HerbalistBrew
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Herbalist Brew
   ID: 4010
   description_Main: For each Herb card in your hand + deck, heal 2.
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: c02c592a07f1a1749be4bd5f3b2dbc06, type: 3}
   icon: {fileID: 0}

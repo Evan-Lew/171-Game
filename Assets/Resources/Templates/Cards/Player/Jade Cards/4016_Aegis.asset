@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 4016_Aegis
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Aegis
   ID: 4016
   description_Main: You may take at most 5 damage until the start of your next turn.
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: 875134c0274ce4b4385980beed2b84eb, type: 3}
   icon: {fileID: 0}

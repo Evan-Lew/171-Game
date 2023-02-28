@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 4003_DauntlessDraw
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Dauntless Draw
   ID: 4003
   description_Main: Draw 2, Heal 4 Health
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: 8449d75c231c95642965bc8938b89b93, type: 3}
   icon: {fileID: 0}

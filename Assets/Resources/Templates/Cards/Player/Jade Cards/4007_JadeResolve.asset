@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 4007_JadeResolve
   m_EditorClassIdentifier: 
   cardColor: 2
+  rirty: 0
   cardName: Jade Resolve
   ID: 4007
   description_Main: 'Env: If you would heal more than your maximum hitpoints, instead
     deal 1 damage'
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: 7bb9a34b66fac6b4ca14d98fe3ec1f2c, type: 3}
   icon: {fileID: 0}

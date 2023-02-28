@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 5005_PerilQiongQi
   m_EditorClassIdentifier: 
   cardColor: 0
+  rirty: 0
   cardName: Entangled
   ID: 5001
   description_Main: Deal 4 Damage. Banish this card
   priorityCost: 0
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: a5931843d08320e4591f181f93a6a0e2, type: 3}
   icon: {fileID: 0}

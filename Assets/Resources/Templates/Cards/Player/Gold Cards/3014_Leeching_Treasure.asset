@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 3014_Leeching_Treasure
   m_EditorClassIdentifier: 
   cardColor: 1
+  rirty: 0
   cardName: Leeching Treasure
   ID: 3014
   description_Main: draw 2 cards and deal x damage(x equals to the number of cards
     in your hand times 2)
   priorityCost: 6
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: fd163c0e0da6f5948bf9327142dae171, type: 3}
   icon: {fileID: 0}

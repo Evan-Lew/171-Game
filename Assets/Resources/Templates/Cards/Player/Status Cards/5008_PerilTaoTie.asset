@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 5006_PerilTaoWu 1
+  m_Name: 5008_PerilTaoTie
   m_EditorClassIdentifier: 
   cardColor: 0
+  rirty: 0
   cardName: Entangled
   ID: 5001
-  description_Main: Draw 3 cards. Banish this card
+  description_Main: Play this card once drawn. Take 3 self-damage. Banish this card.
   priorityCost: 0
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Name: {fileID: 21300000, guid: 025b7caf51bd05844a63d340feb0a0b8, type: 3}
   icon: {fileID: 0}
