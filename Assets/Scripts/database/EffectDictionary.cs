@@ -808,7 +808,7 @@ public class EffectDictionary : MonoBehaviour
 
     // IMPLEMENTED
     // If your hand has less than 3 cards, draw 4. Otherwise draw 2.
-    public void ID3004_SovereignDraw()
+    public void ID3004_AssassinsTeapot()
     {
         int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
