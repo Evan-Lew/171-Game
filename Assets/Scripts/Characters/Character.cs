@@ -32,8 +32,10 @@ public class Character : MonoBehaviour
     double lastFrameHP;
     double currentFrameHP;
     [SerializeField]float TotalHPMovingTime = 1f;
-
-
+    [SerializeField] Gradient Gradient_HighHealth;
+    [SerializeField] Gradient Gradient_MidHealth;
+    [SerializeField] Gradient Gradient_LowHealth;
+    [SerializeField] Gradient Gradient_CurrentInUse;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,17 +51,11 @@ public class Character : MonoBehaviour
 
     public void SetUp()
     {
-        if (this.gameObject.name == "Player")
-        {
-            _Text_HP = HealthText.GetComponent<TMP_Text>();
-            HP_Bar = HealthBar.GetComponent<Image>();
-        }
-        if (this.gameObject.name == "Enemy")
-        {
-            _Text_HP = HealthText.GetComponent<TMP_Text>();
-            HP_Bar = HealthBar.GetComponent<Image>();
-        }
 
+        _Text_HP = HealthText.GetComponent<TMP_Text>();
+        HP_Bar = HealthBar.GetComponent<Image>();
+        Gradient_CurrentInUse = Gradient_HighHealth;
+        HP_Bar.color = Gradient_HighHealth.Evaluate(1f);
         CharacterName = CharacterData.characterName;
         descriptionMain = CharacterData.description_Main;
         Health_Total = CharacterData.Health_Total;
@@ -78,6 +74,23 @@ public class Character : MonoBehaviour
         {
             StartCoroutine(UpdateHealth(TotalHPMovingTime, lastFrameHP, currentFrameHP));
             HPChangedFrom = lastFrameHP;
+        }
+    }
+
+    void DynamicHealthColorUpdate()
+    {
+        double HealthRatio = Health_Current / Health_Total;
+        if (HealthRatio >= 0.7)
+        {
+            Gradient_CurrentInUse = Gradient_HighHealth;
+        }
+        else if(HealthRatio >= 0.4)
+        {
+            Gradient_CurrentInUse = Gradient_MidHealth;
+        }
+        else
+        {
+            Gradient_CurrentInUse = Gradient_LowHealth;
         }
     }
 
