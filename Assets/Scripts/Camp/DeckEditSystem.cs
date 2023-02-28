@@ -5,106 +5,218 @@ using TMPro;
 
 public class DeckEditSystem : MonoBehaviour
 {
-    //public static DeckEditSystem instance;
-
-    //private void Awake()
-    //{
-    //    instance = this;
-    //}
-
-    //add name.png to card.cs
 
     [SerializeField] DeckSystem _script_DeckSystem;
-    [SerializeField] Transform Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax, Pos_CardsDisplay;
+    [SerializeField] Transform Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax;
     [SerializeField] Card CardPrefab;
     [SerializeField] List<Card_Basedata> CardCandidatesList = new();
-    List<Card> Cards_ForPick = new();
+    public List<Card> Cards_ForPick = new();
     [SerializeField] int numberCandidate = 3;
     [SerializeField] List<Vector3> CardForPickPositionList = new();
-    [SerializeField] float candidateDistance;
+    float candidateDistance;
 
     [HideInInspector]public bool isCardPicked = false;
     public TMP_Text DeckTotalText;
 
+
+    public List<Card> testCardList = new();
+    public Transform testPos;
+    public Card_Basedata testCardData;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            //DestroyCurrentCardsForPick();
+            //InstantiateACard(testCardList, testCardData, testPos, Card.state.DeckDisplay);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            //DestroyACardFromList(testCardList, "Payment");
         }
 
-       
     }
 
-    
+
+
+    //===========================================================
+    //                  DeckEditSystem API
+    //===========================================================
+
+    /*  Function that instantiate a card based on the given cardData, transform, and state
+     *  Parameter:  Argument1:  CardList that used to hold new generated card
+     *              Argument2:  CardData is which card you want to generate
+     *              Argument3:  TargetTransform where you want the tartget been generated, include rotation. To change Scaling, Adjust the Y value on Spawning Point
+     *              Argument4:  Card.state state, state determines the card behavior, state.DeckDisplay is static card, state.DeckCandidate allows you to pick
+     *  Example Call:   InstantiateACard(testCardList, testCardData, testPos, Card.state.DeckDisplay);                                             
+     */
+    public void InstantiateACard(List<Card> CardList, Card_Basedata CardData, Transform TargetTransform, Card.state state)
+    {
+        Card newCard = Instantiate(CardPrefab, TargetTransform.position, TargetTransform.rotation);
+        newCard.cardData = CardData;
+        newCard.cardState = state;
+        newCard.loadCard();
+        CardList.Add(newCard);
+    }
+
+    /*  Function that destroy a list of cards
+     *  Parameter:  Argument1:  CardList you want to destroy
+     *  Example Call:   DestroyCardList(testCardList);
+     */
+    public void DestroyCardList(List<Card> CardList)
+    {
+        foreach (Card card in CardList)
+        {
+            Destroy(card.gameObject);
+        }
+        CardList.Clear();
+    }
+
+
+    /*  Function that destroy a card from the list
+     *  Parameter:  Argument1:  CardList you want to process
+     *              Argument2:  name of the game you want to destroy
+     *  Example Call:   DestroyACardFromList(testCardList, "Payment");
+     */
+    public void DestroyACardFromList(List<Card> CardList, string targetCardName)
+    {
+        if(CardList.Count != 0)
+        {
+            int index = CardList.FindIndex(card => card.cardName == targetCardName);
+            if (index == -1)
+            {
+                Debug.Log("Error: DestroyACardFromList() in DeckEditSystem. can't find the target Card in the list");
+            }
+            else
+            {
+                Destroy(CardList[index]);
+                CardList.RemoveAt(index);
+            }
+        }
+    }
+
+    /*  Function that get the current Deck infor
+     *  Return: List of card Basedata           ?Why not return list of cards, because cards are script for card Object
+     *                                          and card object has all components to make it work (model, texture), but card Basedata just a scriptable obj
+     */
+    public List<Card_Basedata> GetCurrentDeck()
+    {
+        return _script_DeckSystem.deckToUse;
+    }
+
+
+    /*  Function that adding a Card_Basedata to deck. Note the deck will be modified until you call RemoveCardFromDeck
+     */
+    public void AddCardToDeck(Card_Basedata card)
+    {
+        _script_DeckSystem.deckToUse.Add(card);
+        isCardPicked = true;
+    }
+
+    /*  Function that removing a Card_Basedata from deck. Note the deck will be modified
+     */
+    public void RemoveCardFromDeck(Card_Basedata card)
+    {
+        _script_DeckSystem.deckToUse.RemoveAt(_script_DeckSystem.deckToUse.FindIndex(current => current.ID == card.ID));
+    }
+
+
+    /*  Function displaying all totally deck amount. Move DeckTotalText Gameobject to adjust location
+     */
     public void UpdateText()
     {
         DeckTotalText.text = _script_DeckSystem.deckToUse.Count + " /" + " 10";
     }
 
 
-    //this function is used to reset entire Candidate system
-    public void ResetCandidate()
+    /*  This is the function called by the button under UI Camp => button pick Card, once hit, this will be call one time
+     *  Using this as example as how SpawnCardsForPick() works
+     */
+    public void TestSpawnCandidateForPick()
     {
-        CardCandidatesList.Clear();
-        CardForPickPositionList.Clear();
-        Cards_ForPick.Clear();
+        SpawnCardsForPick(numberCandidate, CardCandidatesList, Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax);
     }
 
-    public void DestroyCurrentCardsForPick()
-    {
-        foreach(Card card in Cards_ForPick)
-        {
-            Destroy(card.gameObject);
-        }
-        Cards_ForPick.Clear();
-    }
 
-    //this function  will be called when ever you have a group of card_database wants to generate
-    public void SpawnCardsForPick()
+
+    /*  Function that will spawn cards for picking/adding to deck in a row.
+     *  Parameter:  Argument1: totalCandidateNum. Total number of cards will be spawned
+     *              Argument2: CandidatesList. the list of optional cards where those cards will be generate from. To modify the rate
+     *                          modify CandidatesList[Random.Range(0, CandidatesList.Count)] part in this function
+     *              Argument3: DisplayFrom. Position where those cards start at
+     *              Argument4: MinPos. Position determines the left edge of the row
+     *              Argument5: MaxPos. Position determines the rightside of the row
+     *              
+     *  Example Call:   see above
+     *  IMPORTANT:  the List, Cards_ForPick created as varible in this script will be used to store those cards.
+     */
+    void SpawnCardsForPick(int totalCandidateNum, List<Card_Basedata> CandidatesList, Transform DisplayFrom, Transform MinPos, Transform MaxPos)
     {
         if(_script_DeckSystem.deckToUse.Count != 10)
         {
             isCardPicked = false;
             DestroyCurrentCardsForPick();
 
-            for (int i = 0; i < numberCandidate; i++)
+            for (int i = 0; i < totalCandidateNum; i++)
             {
-                InstantiateCandidateCard(CardPrefab, CardCandidatesList[Random.Range(0, CardCandidatesList.Count)], Pos_DisplayCardCandidates);
+                InstantiateCandidateCard(CardPrefab, CandidatesList[Random.Range(0, CandidatesList.Count)], DisplayFrom);
             }
-            SetCandidateCardPos();
+            SetCandidateCardPos(MinPos, MaxPos);
         }
     }
 
-    void SetCandidateCardPos()
+
+    //                DeckEditSystem API End
+    //===========================================================
+
+
+
+
+    //Use API Above
+    //==========================================================================================================================
+    //Ignore all function below
+
+
+
+
+    //===========================================================
+    //                  Helper Functions
+    //===========================================================
+
+
+    //SpawnCardsForPick()
+    /*  Function that reset cards position in range of Pos_CandidatesMin.pos and Pos_CandidatesMin.pos.
+     *      Those two gameObject can be found under->Card System->Position-> Card Spawning Min, Max
+     *  Return: None, once this is called, the card will move to target location by Lerp moving
+     *  Important: Call this only once whenever the position needs to be changed such as new candidates will be spawned
+     */
+    void SetCandidateCardPos(Transform minPos, Transform maxPos)
     {
         Vector3 distanceBetween;
         CardForPickPositionList.Clear();
         if (Cards_ForPick.Count - 1 == 0)
         {
-            distanceBetween = (Pos_CandidatesMax.position - Pos_CandidatesMin.position) / 2;
+            distanceBetween = (maxPos.position - minPos.position) / 2;
             for (int i = 0; i < Cards_ForPick.Count; i++)
             {
                 Cards_ForPick[i].CandidatePosition = i;
                 Cards_ForPick[i].cardState = Card.state.DeckCandidate;
-                CardForPickPositionList.Add(Pos_CandidatesMin.position + (distanceBetween));
+                CardForPickPositionList.Add(minPos.position + (distanceBetween));
                 Cards_ForPick[i].MoveToPoint(CardForPickPositionList[i], Cards_ForPick[i].transform.rotation);
             }
         }
         else
         {
-            distanceBetween = (Pos_CandidatesMax.position - Pos_CandidatesMin.position) / (Cards_ForPick.Count - 1);
+            distanceBetween = (maxPos.position - minPos.position) / (Cards_ForPick.Count - 1);
             for (int i = 0; i < Cards_ForPick.Count; i++)
             {
                 Cards_ForPick[i].CandidatePosition = i;
                 Cards_ForPick[i].cardState = Card.state.DeckCandidate;
-                CardForPickPositionList.Add(Pos_CandidatesMin.position + (distanceBetween * i));
+                CardForPickPositionList.Add(minPos.position + (distanceBetween * i));
                 Cards_ForPick[i].MoveToPoint(CardForPickPositionList[i], Cards_ForPick[i].transform.rotation);
             }
         }
     }
 
-
+    //SpawnCardsForPick()
     void InstantiateCandidateCard(Card cardPrefab, Card_Basedata cardData, Transform SpawnTransform)
     {
         Card newCard = Instantiate(cardPrefab, SpawnTransform.position, SpawnTransform.rotation);
@@ -114,45 +226,18 @@ public class DeckEditSystem : MonoBehaviour
         Cards_ForPick.Add(newCard);
     }
 
-    public void AddCardToDeck(Card_Basedata card)
+
+    //SpawnCardsForPick()
+    /*  this function is used to reset entire Candidate system
+    */
+    public void DestroyCurrentCardsForPick()
     {
-        _script_DeckSystem.deckToUse.Add(card);
-        isCardPicked = true;
+        foreach (Card card in Cards_ForPick)
+        {
+            Destroy(card.gameObject);
+        }
+        Cards_ForPick.Clear();
     }
-
-    void RemoveCardFromDeck(Card_Basedata card)
-    {
-        _script_DeckSystem.deckToUse.RemoveAt(_script_DeckSystem.deckToUse.FindIndex(current => current.ID == card.ID));
-    }
-
-
-
-    void DisplayCurrentDeck()
-    {
-
-        //for (int i = 0; i < _script_DeckSystem.deckToUse.Count; i++)
-        //{
-        //    Card newCard = Instantiate(CardPrefab, Pos_CardsDisplay.position, Pos_CardsDisplay.rotation);
-        //    newCard.cardData = _script_DeckSystem.deckToUse[i];
-        //    newCard.cardState = Card.state.DeckDisplay;
-        //    newCard.loadCard();
-        //}
-    }
-
-
-    void UpdateDisplayCardPosition()
-    {
-        //for (int i = 0; i < player_hands_holdCards.Count; i++)
-        //{
-        //    _script_DeckSystem.deckToUse[i].hand = i;
-        //    player_hands_holdCards[i].cardState = Card.state.Handcard;
-
-        //    //find the distance between each card
-        //    player_hands_holdsCardsPositions.Add(minPos.position + (distanceBetweenPoints * i));
-
-        //    //move card &&  adjust the angle to make it layerly sorted
-        //    player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositions[i], minPos.rotation);
-        //}
-    }
-
+    //                  Helper Function End
+    //===========================================================
 }

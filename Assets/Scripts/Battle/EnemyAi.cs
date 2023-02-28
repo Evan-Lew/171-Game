@@ -27,7 +27,7 @@ public class EnemyAi : MonoBehaviour
     public List<Card_Basedata> Actions;
 
 
-    Dictionary<string, List<List<int>>> EnemyDictionary = new Dictionary<string, List<List<int>>>();
+    [HideInInspector] public Dictionary<string, List<List<int>>> EnemyDictionary = new Dictionary<string, List<List<int>>>();
     List<int> attackPattern;
     List<List<int>> enemysPatterns;
     int currentPatternIndex = 0;

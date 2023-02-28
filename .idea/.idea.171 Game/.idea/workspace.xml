@@ -3,21 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="983507a4-9908-4dff-b0df-eb055d69898d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Effect_29_LumenCrash.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Effect_29_LumenCrash/Effect_29_LumenCrash.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Effect_29_LumenCrash/Effect_29_LumenCrash.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Hiss.mp3.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/Gold Cards/3001_FortoldFortune.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/Gold Cards/3001_FortoldFortune.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/HandManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/HandManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Demon Fang/Effect_07_DimentionCutterSlash.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Demon Fang/Effect_07_DimentionCutterSlash.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Forbidden Venom/ForbiddenVenom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Forbidden Venom/ForbiddenVenom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Serpent Cutlass/SerpentCutlass.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Serpent Cutlass/SerpentCutlass.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Wisdom of Wisteria/WisdomOfWisteria.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Purple Card Effects/Wisdom of Wisteria/WisdomOfWisteria.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/Payment/Payment.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/Payment/Payment.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/Shed Skin/ShedSkin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/Shed Skin/ShedSkin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/Whack/Whack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/Whack/Whack.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/White Scales/Effect_09_HoloShield(IncludeHit).prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/White Scales/Effect_09_HoloShield(IncludeHit).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/White Scales/Effect_09_InfernoShield(IncludeHit).prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/White Scales/Effect_09_InfernoShield(IncludeHit).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/White Scales/WhiteScales.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Player/Silver Card Effects/White Scales/WhiteScales.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/FollowPosition.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -90,6 +96,8 @@
       <option name="presentableId" value="Default" />
       <updated>1677174933957</updated>
       <workItem from="1677174938307" duration="7882000" />
+      <workItem from="1677221206193" duration="1857000" />
+      <workItem from="1677524390546" duration="5216000" />
     </task>
     <servers />
   </component>

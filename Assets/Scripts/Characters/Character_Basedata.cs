@@ -24,4 +24,5 @@ public class Character_Basedata : ScriptableObject
 
     [HideInInspector] public enum PatternType { single, multiple, special, player }
     public PatternType Pattern;
+    public Sprite characterSprite;
 }

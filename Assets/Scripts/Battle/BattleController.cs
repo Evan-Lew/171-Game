@@ -87,6 +87,12 @@ public class BattleController : MonoBehaviour
         SetActive(true);
     }
 
+    public void Clear()
+    {
+        enableTurnUpdate = false;
+        SetActive(false);
+    }
+
 
     void TurnUpdate()
     {

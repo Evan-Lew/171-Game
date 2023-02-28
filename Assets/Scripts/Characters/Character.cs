@@ -24,19 +24,31 @@ public class Character : MonoBehaviour
 
     public double Armor_Current;
 
+    [SerializeField] GameObject HealthBar, HealthText;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(this.gameObject.name == "Player")
+        SetUp();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        updateHealthAndShield();
+    }
+
+    public void SetUp()
+    {
+        if (this.gameObject.name == "Player")
         {
-            _Text_HP = GameObject.Find("Player HP Text").GetComponent<TMP_Text>();
-            HP_Bar = GameObject.Find("player HP Bar").GetComponent<Image>();
+            _Text_HP = HealthText.GetComponent<TMP_Text>();
+            HP_Bar = HealthBar.GetComponent<Image>();
         }
-        if(this.gameObject.name == "Enemy")
+        if (this.gameObject.name == "Enemy")
         {
-            _Text_HP = GameObject.Find("Enemy HP Text").GetComponent<TMP_Text>();
-            HP_Bar = GameObject.Find("enemy HP Bar").GetComponent<Image>();
+            _Text_HP = HealthText.GetComponent<TMP_Text>();
+            HP_Bar = HealthBar.GetComponent<Image>();
         }
 
         CharacterName = CharacterData.characterName;
@@ -45,15 +57,11 @@ public class Character : MonoBehaviour
         Health_Current = CharacterData.Health_Current;
         Priority_Initial = CharacterData.Priority_Initial;
         Priority_Current = CharacterData.Priority_Current;
-
+        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterData.characterSprite;
         Armor_Current = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        updateHealthAndShield();
-    }
+
 
 
     void updateHealthAndShield()
