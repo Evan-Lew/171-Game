@@ -40,13 +40,16 @@ public class Character : MonoBehaviour
     void Start()
     {
         SetUp();
+        StartCoroutine(UpdateHealthColor(1.5f, 1, 0));
     }
 
     // Update is called once per frame
     void Update()
     {
+        DynamicHealthColorUpdate();
         CheckHPChange();
         UpdateHealthAndShield();
+
     }
 
     public void SetUp()
@@ -94,6 +97,41 @@ public class Character : MonoBehaviour
         }
     }
 
+
+    IEnumerator UpdateHealthColor(float TotalTime, double startColor, double endColor)
+    {
+        float totalTime = TotalTime;
+        float elapsedTime = 0f;
+        float timeRatio = 0;
+        double startValue = startColor;
+        double endValue = endColor;
+        double value;
+        bool repeatFlag = false;
+        while (true)
+        {
+            Debug.Log("Hello");
+            timeRatio = elapsedTime / totalTime;
+            value = Mathf.Lerp((float)startValue, (float)endValue, timeRatio);
+            HP_Bar.color = Gradient_CurrentInUse.Evaluate((float)value);
+            elapsedTime += Time.deltaTime;
+
+            if(elapsedTime >= totalTime && repeatFlag == false)
+            {
+                elapsedTime = 0;
+                startValue = endColor;
+                endValue = startColor;
+                repeatFlag = true;
+            }
+            else if(elapsedTime >= totalTime && repeatFlag == true)
+            {
+                elapsedTime = 0;
+                startValue = startColor;
+                endValue = endColor;
+                repeatFlag = false;
+            }
+            yield return null;
+        }
+    }
 
     IEnumerator UpdateHealth(float TotalTime, double StartHP, double TargetHP)
     {
