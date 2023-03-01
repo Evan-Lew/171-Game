@@ -5878,9 +5878,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
   deckToUse:
-  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
-  - {fileID: 11400000, guid: 2494a8498474f3545be024ac195e74f5, type: 2}
-  - {fileID: 11400000, guid: 7be75cac9e0571d4eacf8e46020c7e26, type: 2}
+  - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
+  - {fileID: 11400000, guid: 47caee8448022a444b4f028e1a88295d, type: 2}
+  - {fileID: 11400000, guid: 631481b4eb37fd14c8538c47a661ecdd, type: 2}
+  - {fileID: 11400000, guid: 28a3e663179a76c43b716591616a7feb, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,

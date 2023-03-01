@@ -852,27 +852,25 @@ public class EffectDictionary : MonoBehaviour
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3005));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // IMPLEMENTED
     // Gain 2 Armor for each card you have in hand.
     public void ID3006_UnbreakingEmperor()
     {
-        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 2f;
-        Player_armorCreate = cardsinhand * 2;
         Player_priorityInc = 2;
-
+        int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
+        Player_armorCreate = cardsInHand * 2;
         Manipulator_Player();
 
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
 
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
@@ -898,89 +896,85 @@ public class EffectDictionary : MonoBehaviour
     // For each card in your hand, gain 4 Armor and deal 2 damage to the enemy
     public void ID3008_RoyalGambit()
     {
-        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_armorCreate = 4 * cardsinhand;
-        Player_damageDealing = 2 * cardsinhand;
         Player_priorityInc = 8;
-
+        int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
+        Player_armorCreate = 4 * cardsInHand;
+        Player_damageDealing = 2 * cardsInHand;
         Manipulator_Player();
-
-
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
     }
 
     // IMPLEMENTED
     // Draw cards until you have 4 cards , if you already have 4 cards gain 10 Armor
     public void ID3009_DeadlyDraw()
     {
-        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
+        Player_priorityInc = 3;
+        int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_cardsDrawing = 0;
         Player_armorCreate = 0;
-        if (cardsinhand < 4)
+        if (cardsInHand < 4)
         {
-            Player_cardsDrawing = 4 - cardsinhand;
+            Player_cardsDrawing = 4 - cardsInHand;
         }
         else
         {
             Player_armorCreate = 10;
         }
-        Player_priorityInc = 3;
-
         Manipulator_Player();
 
-
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        {
-            DrawCards_Player(Player_cardsDrawing);
-            CreateArmor_ToTarget(player, Player_armorCreate);
-        }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
-    }
-
-    // Draw 2 cards and gain 6 Armor
-    public void ID3010_CordCover()
-    {        
-        ParticleDuration = 3f;
-        Player_armorCreate = 6;
-        Player_cardsDrawing = 2;
-        Player_priorityInc = 4;
-        
-        Manipulator_Player();
-
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
             CreateArmor_ToTarget(player, Player_armorCreate);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
+    }
+
+    // IMPLEMENTED
+    // Draw 2 cards and gain 6 Armor
+    public void ID3010_CordCover()
+    {        
+        ParticleDuration = 3f;
+        Player_priorityInc = 4;
+        Player_armorCreate = 6;
+        Player_cardsDrawing = 2;
+        Manipulator_Player();
+
+        WithoutParticle(ParticleDuration);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DrawCards_Player(Player_cardsDrawing);
+            CreateArmor_ToTarget(player, Player_armorCreate);
+            Manipulator_Player_Reset();
+        }, ParticleDuration / 2));
     }
 
     // IMPLEMENTED
     // Draw x amount of cards(x equals to cards in your hand)
     public void ID3011_BalancedBounty()
     {
-        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
         ParticleDuration = 3f;
-        Player_cardsDrawing = cardsinhand;
         Player_priorityInc = 5;
-
+        int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
+        Player_cardsDrawing = cardsInHand;
         Manipulator_Player();
 
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
