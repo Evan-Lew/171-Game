@@ -860,13 +860,14 @@ public class EffectDictionary : MonoBehaviour
     // Gain 2 Armor for each card you have in hand.
     public void ID3006_UnbreakingEmperor()
     {
-        ParticleDuration = 2f;
+        ParticleDuration = 3f;
         Player_priorityInc = 2;
         int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_armorCreate = cardsInHand * 2;
         Manipulator_Player();
 
-        WithoutParticle(ParticleDuration);
+        // Particle positioned under the player
+        ParticleEvent("UnbreakingEmperor", 3006, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
@@ -905,7 +906,8 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 2 * cardsInHand;
         Manipulator_Player();
         
-        WithoutParticle(ParticleDuration);
+        // Particle positioned under the player
+        ParticleEvent("RoyalGambit", 3008, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
