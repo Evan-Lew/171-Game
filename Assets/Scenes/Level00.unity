@@ -3436,6 +3436,7 @@ MonoBehaviour:
   - {fileID: 4143118989675900537, guid: 9d34fcaacbcc1974b8c0b40d523a7cc3, type: 3}
   - {fileID: 832687055324266663, guid: fa387162f0202404aa1ab3863d53cec5, type: 3}
   - {fileID: 1339483653523732529, guid: 3d0c2955c0223fc4ba2b6ea720ef7145, type: 3}
+  - {fileID: 1337195765195705423, guid: 8551b416092dd6147a392429474252d6, type: 3}
   enemyParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 7960040246655339056, guid: 774acf9f373d05f48bba281b71bf6ee0, type: 3}
@@ -5876,7 +5877,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
-  deckToUse: []
+  deckToUse:
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: 2494a8498474f3545be024ac195e74f5, type: 2}
+  - {fileID: 11400000, guid: 7be75cac9e0571d4eacf8e46020c7e26, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -10016,7 +10020,6 @@ MonoBehaviour:
   TargetCameraPos: {fileID: 544739180}
   isDeckELevel: 0
   isStartLevel: 0
-  playTest2: {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
 --- !u!114 &2137971097
 MonoBehaviour:
   m_ObjectHideFlags: 0

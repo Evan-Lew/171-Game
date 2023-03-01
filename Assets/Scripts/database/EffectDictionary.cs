@@ -812,9 +812,10 @@ public class EffectDictionary : MonoBehaviour
     // If your hand has less than 3 cards, draw 4. Otherwise draw 2.
     public void ID3004_AssassinsTeapot()
     {
-        int cardsinhand = _script_HandSystem.player_hands_holdCards.Count();
-        ParticleDuration = 3f;
-        if (cardsinhand < 3)
+        ParticleDuration = 2.5f;
+        Player_priorityInc = 3;
+        int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
+        if (cardsInHand < 3)
         {
             Player_cardsDrawing = 4;
         }
@@ -822,17 +823,18 @@ public class EffectDictionary : MonoBehaviour
         {
             Player_cardsDrawing = 2;
         }
-
-        Player_priorityInc = 3;
-
         Manipulator_Player();
 
-
+        // Play SFX
+        SoundManager.PlaySound("sfx_Tea_Pour", 1);
+        
+        // Particle positioned under the player
+        ParticleEvent("Assassin'sTeapot", 3004, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        Manipulator_Player_Reset();
     }
 
     // NOT IMPLEMENTED
