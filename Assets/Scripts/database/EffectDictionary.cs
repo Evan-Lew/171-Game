@@ -294,12 +294,12 @@ public class EffectDictionary : MonoBehaviour
     public void ID1001_Payment()
     {
         ParticleDuration = 3f;
-        Player_cardsDrawing = 2;
         Player_priorityInc = 3;
+        Player_cardsDrawing = 2;
         Manipulator_Player();
         
         // Play SFX
-        SoundManager.PlaySound("sfx_Coin_Drop", 1);
+        PlaySound("sfx_Coin_Drop", 1);
         
         // Particle positioned under the player
         ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[1], true);
@@ -314,18 +314,18 @@ public class EffectDictionary : MonoBehaviour
     public void ID1002_Whack()
     {
         ParticleDuration = 1.5f;
-        Player_damageDealing = 3;
         Player_priorityInc = 2;
+        Player_damageDealing = 3;
         Manipulator_Player();
         
         //Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         { 
-            SoundManager.PlaySound("sfx_Stab", 1);
+            PlaySound("sfx_Stab", 1);
         }, 0.3f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         { 
-            SoundManager.PlaySound("sfx_Swing", 1);
+            PlaySound("sfx_Swing", 1);
         }, 0.1f));
 
         // Particle positioned on the enemy
@@ -341,12 +341,12 @@ public class EffectDictionary : MonoBehaviour
     public void ID1003_WhiteScales()
     {
         ParticleDuration = 3f;
-        Player_armorCreate = 2;
         Player_priorityInc = 1;
+        Player_armorCreate = 2;
         Manipulator_Player();
         
         // Play SFX
-        SoundManager.PlaySound("sfx_Hiss", 1);
+        PlaySound("sfx_Hiss", 1);
         
         // Particle positioned under the player
         ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[1], true);
@@ -361,13 +361,13 @@ public class EffectDictionary : MonoBehaviour
     public void ID1004_ShedSkin()
     {
         ParticleDuration = 5f;
+        Player_priorityInc = 4;
         Player_armorCreate = 3;
         Player_cardsDrawing = 2;
-        Player_priorityInc = 4;
         Manipulator_Player();
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Hiss", 1);
+        PlaySound("sfx_Hiss", 1);
 
         // Particle positioned under the player
         ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[1], true);
@@ -386,22 +386,22 @@ public class EffectDictionary : MonoBehaviour
     public void ID2001_ForbiddenVenom()
     {
         ParticleDuration = 2f;
-        Player_damageDealing = 3;
         Player_priorityInc = 1;
+        Player_damageDealing = 3;
         Manipulator_Player();
         
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 0.3f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 0.6f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 1));
         
         // Play SFX
@@ -421,39 +421,39 @@ public class EffectDictionary : MonoBehaviour
     public void ID2002_SerpentCutlass()
     {
         ParticleDuration = 2f;
-        Player_damageDealing = 6;
         Player_priorityInc = 5;
+        Player_damageDealing = 6;
         Player_extraDamage = 4;
         Manipulator_Player();
 
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 0.1f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 0.3f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 0.5f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 0.7f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Venom", 0.5f);
+            PlaySound("sfx_Venom", 0.5f);
         }, 0.9f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Stab", 1f);
+            PlaySound("sfx_Stab", 1f);
         }, 1.25f));
         
         // Play SFX
-        SoundManager.PlaySound("sfx_Swing", 1);
+        PlaySound("sfx_Swing", 1);
 
         // Particle positioned on the enemy
         ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemyObj, true);
@@ -474,7 +474,7 @@ public class EffectDictionary : MonoBehaviour
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Wisdom", 0.2f);
+            PlaySound("sfx_Wisdom", 0.2f);
         }, 1.1f));
         
         ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[1], true);
@@ -485,24 +485,24 @@ public class EffectDictionary : MonoBehaviour
     public void ID2004_DemonFang()
     {
         ParticleDuration = 2f;
-        Player_damageDealing = 1;
         Player_priorityInc = 1;
+        Player_damageDealing = 1;
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Crunch", 1);
-            SoundManager.PlaySound("sfx_Venom", 0.3f);
+            PlaySound("sfx_Crunch", 1);
+            PlaySound("sfx_Venom", 0.3f);
         }, 0.3f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Crunch", 1);
-            SoundManager.PlaySound("sfx_Venom", 0.3f);
+            PlaySound("sfx_Crunch", 1);
+            PlaySound("sfx_Venom", 0.3f);
         }, 0.6f));
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Crunch", 1);
-            SoundManager.PlaySound("sfx_Venom", 0.3f);
+            PlaySound("sfx_Crunch", 1);
+            PlaySound("sfx_Venom", 0.3f);
         }, 0.9f));
         SoundManager.PlaySound("sfx_Crunch", 1);
         
@@ -521,9 +521,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2005_LastStand()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
         
 
@@ -543,9 +543,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2006_NoxiousRequiem()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
         
 
@@ -564,9 +564,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2007_BloodCrash()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
         
 
@@ -585,9 +585,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
         
 
@@ -606,9 +606,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2009_ToxicTorment()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
        
 
@@ -627,9 +627,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2010_Savagery()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
        
 
@@ -648,9 +648,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2011_CausticTrail()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
         
 
@@ -669,8 +669,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2012_VenomLace()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
+        Player_damageDealing = 6;
+        
         
         Manipulator_Player();
         
@@ -690,8 +691,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2013_Siphon()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
+        Player_damageDealing = 6;
+        
         
         Manipulator_Player();
         
@@ -711,9 +713,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2014_Ruination()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
         
 
@@ -732,9 +734,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2015_Intoxication()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 6;
         Player_priorityInc = 1;
-        
+        Player_damageDealing = 6;
+
         Manipulator_Player();
     
 
@@ -755,12 +757,12 @@ public class EffectDictionary : MonoBehaviour
     public void ID3001_ForetoldFortune()
     {
         ParticleDuration = 6f;
-        Player_cardsDrawing = 2;
         Player_priorityInc = 2;
+        Player_cardsDrawing = 2;
         Manipulator_Player();
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Fortune", 1);
+        PlaySound("sfx_Fortune", 1);
         
         // Particle positioned under the player
         ParticleEvent("ForetoldFortune", 3001, ParticleDuration, ExtraPositioning[0], true);
@@ -776,9 +778,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID3002_TitansWrath()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 1;
         Player_priorityInc = 3;
-        
+        Player_damageDealing = 1;
+
         Manipulator_Player();
        
 
@@ -794,9 +796,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID3003_Hongbao()
     {        
         ParticleDuration = 3f;
-        Player_cardsDrawing = 1;
         Player_priorityInc = 0;
-        
+        Player_cardsDrawing = 1;
+
         Manipulator_Player();
        
 
@@ -826,7 +828,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player();
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Tea_Pour", 1);
+        PlaySound("sfx_Tea_Pour", 1);
         
         // Particle positioned under the player
         ParticleEvent("Assassin'sTeapot", 3004, ParticleDuration, ExtraPositioning[1], true);
@@ -878,9 +880,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID3007_FavoredFates()
     {        
         ParticleDuration = 3f;
-        Player_cardsDrawing = 1;
         Player_priorityInc = 2;
-        
+        Player_cardsDrawing = 1;
+
         Manipulator_Player();
 
 
@@ -982,9 +984,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID3012_UnbreakingGold()
     {        
         ParticleDuration = 3f;
-        Player_armorCreate = 6;
         Player_priorityInc = 3;
-        
+        Player_armorCreate = 6;
+
         Manipulator_Player();
 
 
@@ -1001,10 +1003,10 @@ public class EffectDictionary : MonoBehaviour
     public void ID3013_Terracotta()
     {        
         ParticleDuration = 3f;
+        Player_priorityInc = 0;
         Player_armorCreate = 8;
         Player_damageDealing = 6;
-        Player_priorityInc = 0;
-        
+
         Manipulator_Player();
 
 
@@ -1022,10 +1024,10 @@ public class EffectDictionary : MonoBehaviour
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
+        Player_priorityInc = 6;
         Player_cardsDrawing = 2;
         Player_damageDealing = 6;
-        Player_priorityInc = 6;
-        
+
         Manipulator_Player();
 
 
@@ -1043,9 +1045,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID3015_BronzeAge()
     {        
         ParticleDuration = 3f;
-        Player_armorCreate = 12;
         Player_priorityInc = 2;
-        
+        Player_armorCreate = 12;
+
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1061,9 +1063,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID3016_MoneyTree()
     {        
         ParticleDuration = 3f;
-        Player_cardsDrawing = 1;
         Player_priorityInc = 5;
-        
+        Player_cardsDrawing = 1;
+
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1081,11 +1083,11 @@ public class EffectDictionary : MonoBehaviour
     public void ID4001_JadeSpirit()
     {
         ParticleDuration = 4f;
-        Player_healing = 6;
         Player_priorityInc = 2;
+        Player_healing = 6;
         Manipulator_Player();
        
-        SoundManager.PlaySound("sfx_Spirit", 1);
+        PlaySound("sfx_Spirit", 1);
 
         // Particle positioned under the player
         ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
@@ -1101,9 +1103,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4002_BrightKarma()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 3;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
@@ -1120,10 +1122,10 @@ public class EffectDictionary : MonoBehaviour
     public void ID4003_DauntlessDraw()
     {
         ParticleDuration = 3f;
+        Player_priorityInc = 3;
         Player_healing = 4;
         Player_cardsDrawing = 2;
-        Player_priorityInc = 3;
-        
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1140,9 +1142,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4004_LotusLeaf()
     {
         ParticleDuration = 3f;
-        Player_healing = 3;
         Player_priorityInc = 1;
-        
+        Player_healing = 3;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1158,9 +1160,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4005_HiddenGrotto()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1176,9 +1178,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4006_QiBurst()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1195,9 +1197,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4007_JadeResolve()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1213,9 +1215,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4008_MalechiteChain()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1231,9 +1233,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4009_NurtuousNature()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1249,9 +1251,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4010_HerbalistBrew()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
 
@@ -1268,9 +1270,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4011_Triage()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1286,9 +1288,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4012_CauldronOfPeril()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1304,9 +1306,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4013_NephriteCurse()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1322,9 +1324,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4014_JadePeril()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1340,9 +1342,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4015_SealingStakes()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1359,9 +1361,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID4016_Aegis()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1382,9 +1384,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5001_Entangled()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1400,9 +1402,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5002_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1418,9 +1420,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5003_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1436,9 +1438,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5004_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1453,9 +1455,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5005_PerilQiongQi()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 4;
         Player_priorityInc = 0;
-        
+        Player_damageDealing = 4;
+
         Manipulator_Player();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1471,8 +1473,8 @@ public class EffectDictionary : MonoBehaviour
     public void ID5006_PerilTaoWu()
     {
         ParticleDuration = 3f;
-        Player_cardsDrawing = 3;
         Player_priorityInc = 0;
+        Player_cardsDrawing = 3;
         
         Manipulator_Player();
         
@@ -1490,9 +1492,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5007_PerilHundun()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 0;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1508,9 +1510,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5008_PerilTaotie()
     {
         ParticleDuration = 3f;
-        Player_damageDealing = 3;
         Player_priorityInc = 0;
-        
+        Player_damageDealing = 3;
+
         Manipulator_Player();
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -1526,9 +1528,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID5009_Blood()
     {
         ParticleDuration = 3f;
-        Player_healing = 6;
         Player_priorityInc = 2;
-        
+        Player_healing = 6;
+
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1548,8 +1550,8 @@ public class EffectDictionary : MonoBehaviour
     {
         // Card Description
         ParticleDuration = 3f;
-        Enemy_damageDealing = 3;
         Enemy_priorityInc = 2;
+        Enemy_damageDealing = 3;
         Manipulator_Enemy();
         
         // Play SFX with delay
@@ -1575,8 +1577,8 @@ public class EffectDictionary : MonoBehaviour
     public void Action_02_BodySlam()
     {
         ParticleDuration = 2f;
-        Enemy_damageDealing = enemy.Armor_Current;
         Enemy_priorityInc = 2;
+        Enemy_damageDealing = enemy.Armor_Current;
         Manipulator_Enemy();
 
         // Play SFX
