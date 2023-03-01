@@ -3437,6 +3437,8 @@ MonoBehaviour:
   - {fileID: 832687055324266663, guid: fa387162f0202404aa1ab3863d53cec5, type: 3}
   - {fileID: 1339483653523732529, guid: 3d0c2955c0223fc4ba2b6ea720ef7145, type: 3}
   - {fileID: 1337195765195705423, guid: 8551b416092dd6147a392429474252d6, type: 3}
+  - {fileID: 5833179566574657652, guid: b01330d68479e2541b68f8e5907165ed, type: 3}
+  - {fileID: 6252130925861768005, guid: 1bffa4980e3729148b8329895080619b, type: 3}
   enemyParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 7960040246655339056, guid: 774acf9f373d05f48bba281b71bf6ee0, type: 3}
@@ -5882,7 +5884,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 47caee8448022a444b4f028e1a88295d, type: 2}
   - {fileID: 11400000, guid: 631481b4eb37fd14c8538c47a661ecdd, type: 2}
   - {fileID: 11400000, guid: 28a3e663179a76c43b716591616a7feb, type: 2}
-  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
