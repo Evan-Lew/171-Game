@@ -90,6 +90,7 @@ public class EffectDictionary : MonoBehaviour
     private Animator _enemyIndicatorController;
 
     [SerializeField] private string damageTrigger;
+    [SerializeField] private string healTrigger;
 
     public void SetUp()
     {
@@ -112,6 +113,7 @@ public class EffectDictionary : MonoBehaviour
     // Note: Tagged effect function will be private only.
     private void DealDamage_ToTarget(Character target, double damageDealt)
     {
+        // For the damage indicators
         if (target == enemy)
         {
             enemyIndicatorText.text = "-" + damageDealt.ToString();
@@ -157,12 +159,29 @@ public class EffectDictionary : MonoBehaviour
 
     private void Heal_ToTarget(Character target, double hpAdded)
     {
-        if((target.Health_Current + hpAdded) > target.Health_Total)
+        // Variable to display health text
+        double healthText = hpAdded;
+        
+        if ((target.Health_Current + hpAdded) > target.Health_Total)
         {
+            healthText = target.Health_Total - target.Health_Current;
             target.Health_Current = target.Health_Total;
-        }else
+        }
+        else
         {
-            target.Health_Current = target.Health_Current + hpAdded;
+            target.Health_Current += hpAdded;
+        }
+        
+        // For the heal indicators
+        if (target == enemy)
+        {
+            enemyIndicatorText.text = "+" + healthText.ToString();
+            _enemyIndicatorController.SetTrigger(healTrigger);
+        }
+        else if (target == player)
+        {
+            playerIndicatorText.text = "+" + healthText.ToString();
+            _playerIndicatorController.SetTrigger(healTrigger);
         }
     }
 
