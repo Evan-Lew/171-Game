@@ -62,19 +62,7 @@ public class PrioritySystem : MonoBehaviour
         double priorityDifference = priorityDict[playerKey] * 2 - totalPriority;
         //Debug.Log(priorityDict[playerKey]/totalPriority);
         //Debug.Log(priorityDict[playerKey]/totalPriority < 1-(priorityDict[playerKey]/totalPriority));
-        if(priorityDifference >= 4){
-            priorityBar.moveBar(.15);
-        } else if(priorityDifference < 4 && priorityDifference >=2){
-            priorityBar.moveBar(.25);
-        } else if(priorityDifference < 2 && priorityDifference > 0){
-            priorityBar.moveBar(.4);
-        } else if(priorityDifference > -2 && priorityDifference < 0) {
-            priorityBar.moveBar(.6);
-        } else if(priorityDifference > -4 && priorityDifference <= -2) {
-            priorityBar.moveBar(.75);
-        } else {
-            priorityBar.moveBar(.85);
-        }
+        priorityBar.moveBar(priorityDifference);
     }
 
     public void ResetPriority(){
