@@ -4,6 +4,7 @@ using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
 using System.Linq;
+using TMPro;
 
 //手卡
 //Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
@@ -29,6 +30,7 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private HandManager _script_HandSystem;
+
     Character player, enemy;
     GameObject playerObj, enemyObj;
 
@@ -78,6 +80,17 @@ public class EffectDictionary : MonoBehaviour
     [Header("List of extra positioning for the particles")]
     public List<GameObject> ExtraPositioning = new List<GameObject>();
     
+    // Indicator variables
+    public TMP_Text playerIndicatorText;
+    [SerializeField] private GameObject playerIndicatorObj;
+    private Animator _playerIndicatorController;
+    
+    public TMP_Text enemyIndicatorText;
+    [SerializeField] private GameObject enemyIndicatorObj;
+    private Animator _enemyIndicatorController;
+
+    [SerializeField] private string damageTrigger;
+
     public void SetUp()
     {
         playerParticlePrefabsPool.Clear();
@@ -86,25 +99,41 @@ public class EffectDictionary : MonoBehaviour
         enemyObj = GameObject.Find("Enemy");
         player = playerObj.GetComponent<Character>();
         enemy = enemyObj.GetComponent<Character>();
+        
+        playerIndicatorText = playerIndicatorObj.GetComponent<TMP_Text>();
+        _playerIndicatorController = playerIndicatorObj.GetComponent<Animator>();
+        enemyIndicatorText = enemyIndicatorObj.GetComponent<TMP_Text>();
+        _enemyIndicatorController = enemyIndicatorObj.GetComponent<Animator>();
     }
     
     //=================================================================
     //                       Tagged Effect
     //-----------------------------------------------------------------
     // Note: Tagged effect function will be private only.
-    private void DealDamage_ToTarget(Character Target, double damageDealt)
+    private void DealDamage_ToTarget(Character target, double damageDealt)
     {
+        if (target == enemy)
+        {
+            enemyIndicatorText.text = "-" + damageDealt.ToString();
+            _enemyIndicatorController.SetTrigger(damageTrigger);
+        }
+        else if (target == player)
+        {
+            playerIndicatorText.text = "-" + damageDealt.ToString();
+            _playerIndicatorController.SetTrigger(damageTrigger);
+        }
+
         // Check if the target has armor
-        if(Target.Armor_Current == 0)
+        if(target.Armor_Current == 0)
         {
-            Target.Health_Current -= damageDealt;
-        }else if(Target.Armor_Current >= damageDealt)
+            target.Health_Current -= damageDealt;
+        }else if(target.Armor_Current >= damageDealt)
         {
-            Target.Armor_Current -= damageDealt;
-        }else if(Target.Armor_Current < damageDealt)
+            target.Armor_Current -= damageDealt;
+        }else if(target.Armor_Current < damageDealt)
         {
-            Target.Health_Current -= damageDealt - Target.Armor_Current;
-            Target.Armor_Current = 0;
+            target.Health_Current -= damageDealt - target.Armor_Current;
+            target.Armor_Current = 0;
         }
     }
     
@@ -113,42 +142,42 @@ public class EffectDictionary : MonoBehaviour
         _script_DeckSystem.DrawMultipleCards(cardAmount);
     }
 
-    private void CreateArmor_ToTarget(Character Target, double armorAdded)
+    private void CreateArmor_ToTarget(Character target, double armorAdded)
     {
-        Target.Armor_Current += armorAdded;
+        target.Armor_Current += armorAdded;
     }
 
-    private void Banish_TheCard(Card_Basedata TargetCard)
+    private void Banish_TheCard(Card_Basedata targetCard)
     {
-        if(_script_DeckSystem.deckForCurrentBattle.Contains(TargetCard))
+        if(_script_DeckSystem.deckForCurrentBattle.Contains(targetCard))
         {
-            _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(TargetCard));
+            _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(targetCard));
         }
     }
 
-    private void Heal_ToTarget(Character Target, double hpAdded)
+    private void Heal_ToTarget(Character target, double hpAdded)
     {
-        if((Target.Health_Current + hpAdded) > Target.Health_Total)
+        if((target.Health_Current + hpAdded) > target.Health_Total)
         {
-            Target.Health_Current = Target.Health_Total;
+            target.Health_Current = target.Health_Total;
         }else
         {
-            Target.Health_Current = Target.Health_Current + hpAdded;
+            target.Health_Current = target.Health_Current + hpAdded;
         }
     }
 
-    private void ReturnHand_Card(Card_Basedata TargetCard)
+    private void ReturnHand_Card(Card_Basedata targetCard)
     {
-        _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(TargetCard)]);
+        _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(targetCard)]);
         _script_DeckSystem.DrawCardToHand();
     }
 
-    private void PriorityIncrement(Character Target, double Cost)
+    private void PriorityIncrement(Character target, double cost)
     {
         // Increment priority
-        _script_PrioritySystem.AddCost(Target, Cost);
-        Character Result = _script_PrioritySystem.GetNextTurnCharacter();
-        if(Result == player)
+        _script_PrioritySystem.AddCost(target, cost);
+        Character result = _script_PrioritySystem.GetNextTurnCharacter();
+        if (result == player)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.playerPhase;
             if(BattleController.instance.currentPhase == BattleController.TurnOrder.playerPhase)
@@ -162,7 +191,7 @@ public class EffectDictionary : MonoBehaviour
                 BattleController.instance.currentPhase = BattleController.TurnOrder.EnemyEndPhase;
             }
         }
-        else if(Result == enemy)
+        else if (result == enemy)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.EnemyPhase;
             BattleController.instance.enableUsingCard = false;
