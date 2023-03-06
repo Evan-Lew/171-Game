@@ -143,6 +143,13 @@ public class EffectDictionary : MonoBehaviour
         _script_DeckSystem.DrawCardToHand();
     }
 
+
+
+    // NOT IMPLEMENTED
+    private void AddCardToDeck(){
+
+    }
+
     private void PriorityIncrement(Character Target, double Cost)
     {
         // Increment priority
@@ -622,13 +629,13 @@ public class EffectDictionary : MonoBehaviour
 
     }
     
-    // NOT IMPLEMENTED
     // deal 6 damage to yourself, deal 12 damage
     public void ID2010_Savagery()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 5;
+        Player_damageDealing = 12;
+        Enemy_damageDealing = 6;
 
         Manipulator_Player();
        
@@ -638,27 +645,29 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
      
     }
     
-    // NOT IMPLEMENTED
+    
     // Damage yourself down to 1 HP. Deal that much damage.
     public void ID2011_CausticTrail()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 4;
+        Player_damageDealing = player.Health_Current - 1;
+        Enemy_damageDealing = Player_damageDealing;
 
         Manipulator_Player();
         
-
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            player.Health_Current = 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
      
@@ -686,13 +695,13 @@ public class EffectDictionary : MonoBehaviour
        
     }
     
-    // NOT IMPLEMENTED
+    
     // Deal 3 Damage. Gain +1 Max Health permanantly (continues on to next battles). Banish this card.
     public void ID2013_Siphon()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 2;
+        Player_damageDealing = 3;
         
         
         Manipulator_Player();
@@ -703,27 +712,32 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            player.Health_Total += 1;
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2013));
+
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
     }
     
-    // NOT IMPLEMENTED
     // Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
     public void ID2014_Ruination()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 0;
+        Player_damageDealing = 1;
+        Enemy_damageDealing = 2;
 
         Manipulator_Player();
         
 
 
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        // ParticleEvent("", 2014, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2014));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
        
@@ -741,7 +755,7 @@ public class EffectDictionary : MonoBehaviour
     
 
 
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        // ParticleEvent("", 2014, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
