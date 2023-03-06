@@ -1006,13 +1006,13 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Double the Armor you have
     public void ID3012_UnbreakingGold()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 3;
-        Player_armorCreate = 6;
+        Player_armorCreate = player.Armor_Current;
 
         Manipulator_Player();
 
@@ -1025,14 +1025,17 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    //IMPLEMENTED
     // cost 8 Armor deal 6 damage (if you don't have enough armor, nothing will happen)
     public void ID3013_Terracotta()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 0;
-        Player_armorCreate = 8;
-        Player_damageDealing = 6;
+        if(player.Armor_Current >= 8)
+        {
+            Player_armorCreate = -8;
+            Player_damageDealing = 6;
+        }
 
         Manipulator_Player();
 
@@ -1046,14 +1049,13 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 6;
         Player_cardsDrawing = 2;
-        Player_damageDealing = 6;
 
         Manipulator_Player();
 
@@ -1061,19 +1063,28 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
+            Player_damageDealing = cardsInHand * 2;
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // If your Armor is less than 10 gain 12 Armor, otherwise gain 6 Armor
     public void ID3015_BronzeAge()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 2;
-        Player_armorCreate = 12;
+        if(player.Armor_Current < 10)
+        {
+            Player_armorCreate = 12;
+        }
+        else
+        {
+            Player_armorCreate = 6;
+        }
 
         Manipulator_Player();
 
