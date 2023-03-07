@@ -4,7 +4,6 @@ using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
 using System.Linq;
-using TMPro;
 
 //手卡
 //Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
@@ -30,7 +29,6 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private HandManager _script_HandSystem;
-
     Character player, enemy;
     GameObject playerObj, enemyObj;
 
@@ -80,18 +78,6 @@ public class EffectDictionary : MonoBehaviour
     [Header("List of extra positioning for the particles")]
     public List<GameObject> ExtraPositioning = new List<GameObject>();
     
-    // Indicator variables
-    public TMP_Text playerIndicatorText;
-    [SerializeField] private GameObject playerIndicatorObj;
-    private Animator _playerIndicatorController;
-    
-    public TMP_Text enemyIndicatorText;
-    [SerializeField] private GameObject enemyIndicatorObj;
-    private Animator _enemyIndicatorController;
-
-    [SerializeField] private string damageTrigger;
-    [SerializeField] private string healTrigger;
-
     public void SetUp()
     {
         playerParticlePrefabsPool.Clear();
@@ -100,42 +86,25 @@ public class EffectDictionary : MonoBehaviour
         enemyObj = GameObject.Find("Enemy");
         player = playerObj.GetComponent<Character>();
         enemy = enemyObj.GetComponent<Character>();
-        
-        playerIndicatorText = playerIndicatorObj.GetComponent<TMP_Text>();
-        _playerIndicatorController = playerIndicatorObj.GetComponent<Animator>();
-        enemyIndicatorText = enemyIndicatorObj.GetComponent<TMP_Text>();
-        _enemyIndicatorController = enemyIndicatorObj.GetComponent<Animator>();
     }
     
     //=================================================================
     //                       Tagged Effect
     //-----------------------------------------------------------------
     // Note: Tagged effect function will be private only.
-    private void DealDamage_ToTarget(Character target, double damageDealt)
+    private void DealDamage_ToTarget(Character Target, double damageDealt)
     {
-        // For the damage indicators
-        if (target == enemy)
-        {
-            enemyIndicatorText.text = "-" + damageDealt.ToString();
-            _enemyIndicatorController.SetTrigger(damageTrigger);
-        }
-        else if (target == player)
-        {
-            playerIndicatorText.text = "-" + damageDealt.ToString();
-            _playerIndicatorController.SetTrigger(damageTrigger);
-        }
-
         // Check if the target has armor
-        if(target.Armor_Current == 0)
+        if(Target.Armor_Current == 0)
         {
-            target.Health_Current -= damageDealt;
-        }else if(target.Armor_Current >= damageDealt)
+            Target.Health_Current -= damageDealt;
+        }else if(Target.Armor_Current >= damageDealt)
         {
-            target.Armor_Current -= damageDealt;
-        }else if(target.Armor_Current < damageDealt)
+            Target.Armor_Current -= damageDealt;
+        }else if(Target.Armor_Current < damageDealt)
         {
-            target.Health_Current -= damageDealt - target.Armor_Current;
-            target.Armor_Current = 0;
+            Target.Health_Current -= damageDealt - Target.Armor_Current;
+            Target.Armor_Current = 0;
         }
     }
     
@@ -144,59 +113,49 @@ public class EffectDictionary : MonoBehaviour
         _script_DeckSystem.DrawMultipleCards(cardAmount);
     }
 
-    private void CreateArmor_ToTarget(Character target, double armorAdded)
+    private void CreateArmor_ToTarget(Character Target, double armorAdded)
     {
-        target.Armor_Current += armorAdded;
+        Target.Armor_Current += armorAdded;
     }
 
-    private void Banish_TheCard(Card_Basedata targetCard)
+    private void Banish_TheCard(Card_Basedata TargetCard)
     {
-        if(_script_DeckSystem.deckForCurrentBattle.Contains(targetCard))
+        if(_script_DeckSystem.deckForCurrentBattle.Contains(TargetCard))
         {
-            _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(targetCard));
-        }
-    }
-
-    private void Heal_ToTarget(Character target, double hpAdded)
-    {
-        // Variable to display health text
-        double healthText = hpAdded;
-        
-        if ((target.Health_Current + hpAdded) > target.Health_Total)
-        {
-            healthText = target.Health_Total - target.Health_Current;
-            target.Health_Current = target.Health_Total;
-        }
-        else
-        {
-            target.Health_Current += hpAdded;
-        }
-        
-        // For the heal indicators
-        if (target == enemy)
-        {
-            enemyIndicatorText.text = "+" + healthText.ToString();
-            _enemyIndicatorController.SetTrigger(healTrigger);
-        }
-        else if (target == player)
-        {
-            playerIndicatorText.text = "+" + healthText.ToString();
-            _playerIndicatorController.SetTrigger(healTrigger);
+            _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(TargetCard));
         }
     }
 
-    private void ReturnHand_Card(Card_Basedata targetCard)
+    private void Heal_ToTarget(Character Target, double hpAdded)
     {
-        _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(targetCard)]);
+        if((Target.Health_Current + hpAdded) > Target.Health_Total)
+        {
+            Target.Health_Current = Target.Health_Total;
+        }else
+        {
+            Target.Health_Current = Target.Health_Current + hpAdded;
+        }
+    }
+
+    private void ReturnHand_Card(Card_Basedata TargetCard)
+    {
+        _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(TargetCard)]);
         _script_DeckSystem.DrawCardToHand();
     }
 
-    private void PriorityIncrement(Character target, double cost)
+
+
+    // NOT IMPLEMENTED
+    private void AddCardToDeck(){
+
+    }
+
+    private void PriorityIncrement(Character Target, double Cost)
     {
         // Increment priority
-        _script_PrioritySystem.AddCost(target, cost);
-        Character result = _script_PrioritySystem.GetNextTurnCharacter();
-        if (result == player)
+        _script_PrioritySystem.AddCost(Target, Cost);
+        Character Result = _script_PrioritySystem.GetNextTurnCharacter();
+        if(Result == player)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.playerPhase;
             if(BattleController.instance.currentPhase == BattleController.TurnOrder.playerPhase)
@@ -210,7 +169,7 @@ public class EffectDictionary : MonoBehaviour
                 BattleController.instance.currentPhase = BattleController.TurnOrder.EnemyEndPhase;
             }
         }
-        else if (result == enemy)
+        else if(Result == enemy)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.EnemyPhase;
             BattleController.instance.enableUsingCard = false;
@@ -563,39 +522,44 @@ public class EffectDictionary : MonoBehaviour
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
-    
+
     // NOT IMPLEMENTED
     // If your deck has less than 10 cards, deal 6 damage
     public void ID2005_LastStand()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
+        int CardsinDeck = _script_DeckSystem.activeCards.Count();
         Player_damageDealing = 6;
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
+            if (CardsinDeck < 10)
+            {
+                DealDamage_ToTarget(enemy, Player_damageDealing);
+            }
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // deal x damage (x equals to the cards your banish in this battle times 2)
     public void ID2006_NoxiousRequiem()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        int BanishedCards = BanishPool.Count();
+        Player_damageDealing = BanishedCards * 2;
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
@@ -606,38 +570,44 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // Draw 1 card. Banish this card. Add a Blood* to your hand.
     public void ID2007_BloodCrash()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_cardsDrawing = 1;
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
+            DrawCards_Player(Player_cardsDrawing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2007));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // deal 4 damage, if you health is lower than 10, deal 8 damage instead
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_damageDealing = 4;
+
+        if (player.Health_Current < 10)
+        {
+            Player_damageDealing = 8;
+        }
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
@@ -648,7 +618,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // Env: everytime you banish a card, you draw a card
     public void ID2009_ToxicTorment()
@@ -670,13 +640,13 @@ public class EffectDictionary : MonoBehaviour
 
     }
     
-    // NOT IMPLEMENTED
     // deal 6 damage to yourself, deal 12 damage
     public void ID2010_Savagery()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 5;
+        Player_damageDealing = 12;
+        Enemy_damageDealing = 6;
 
         Manipulator_Player();
        
@@ -686,27 +656,29 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
      
     }
     
-    // NOT IMPLEMENTED
+    
     // Damage yourself down to 1 HP. Deal that much damage.
     public void ID2011_CausticTrail()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 4;
+        Player_damageDealing = player.Health_Current - 1;
+        Enemy_damageDealing = Player_damageDealing;
 
         Manipulator_Player();
         
-
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            player.Health_Current = 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
      
@@ -734,13 +706,13 @@ public class EffectDictionary : MonoBehaviour
        
     }
     
-    // NOT IMPLEMENTED
+    
     // Deal 3 Damage. Gain +1 Max Health permanantly (continues on to next battles). Banish this card.
     public void ID2013_Siphon()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 2;
+        Player_damageDealing = 3;
         
         
         Manipulator_Player();
@@ -751,27 +723,32 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            player.Health_Total += 1;
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2013));
+
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
     }
     
-    // NOT IMPLEMENTED
     // Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
     public void ID2014_Ruination()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 0;
+        Player_damageDealing = 1;
+        Enemy_damageDealing = 2;
 
         Manipulator_Player();
         
 
 
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        // ParticleEvent("", 2014, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2014));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
        
@@ -789,7 +766,7 @@ public class EffectDictionary : MonoBehaviour
     
 
 
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        // ParticleEvent("", 2014, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -1029,13 +1006,13 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Double the Armor you have
     public void ID3012_UnbreakingGold()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 3;
-        Player_armorCreate = 6;
+        Player_armorCreate = player.Armor_Current;
 
         Manipulator_Player();
 
@@ -1048,14 +1025,17 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    //IMPLEMENTED
     // cost 8 Armor deal 6 damage (if you don't have enough armor, nothing will happen)
     public void ID3013_Terracotta()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 0;
-        Player_armorCreate = 8;
-        Player_damageDealing = 6;
+        if(player.Armor_Current >= 8)
+        {
+            Player_armorCreate = -8;
+            Player_damageDealing = 6;
+        }
 
         Manipulator_Player();
 
@@ -1069,14 +1049,13 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 6;
         Player_cardsDrawing = 2;
-        Player_damageDealing = 6;
 
         Manipulator_Player();
 
@@ -1084,19 +1063,28 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
+            Player_damageDealing = cardsInHand * 2;
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // If your Armor is less than 10 gain 12 Armor, otherwise gain 6 Armor
     public void ID3015_BronzeAge()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 2;
-        Player_armorCreate = 12;
+        if(player.Armor_Current < 10)
+        {
+            Player_armorCreate = 12;
+        }
+        else
+        {
+            Player_armorCreate = 6;
+        }
 
         Manipulator_Player();
 
