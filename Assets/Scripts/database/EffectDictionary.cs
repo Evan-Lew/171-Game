@@ -118,10 +118,12 @@ public class EffectDictionary : MonoBehaviour
         Target.Armor_Current += armorAdded;
     }
 
+    bool iscardbanished = false; 
     private void Banish_TheCard(Card_Basedata TargetCard)
     {
-        if(_script_DeckSystem.deckForCurrentBattle.Contains(TargetCard))
+        if (_script_DeckSystem.deckForCurrentBattle.Contains(TargetCard))
         {
+            iscardbanished = true;
             _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(TargetCard));
         }
     }
@@ -619,22 +621,23 @@ public class EffectDictionary : MonoBehaviour
 
     }
 
+    bool istoxictorment = false;
     // NOT IMPLEMENTED
     // Env: everytime you banish a card, you draw a card
     public void ID2009_ToxicTorment()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = 4;
+        istoxictorment = true;
 
         Manipulator_Player();
-       
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
@@ -1683,14 +1686,25 @@ public class EffectDictionary : MonoBehaviour
     //this will be called for all player effect to turn off all flags
     void Manipulator_Player_Reset()
     {
-
-
+        Manipulator_Player_Reset_Toxictorment();
         Player_damageDealing = 0;
         Player_priorityInc = 0;
         Player_cardsDrawing = 0;
         Player_armorCreate = 0;
         Player_healing = 0;
         ParticleDuration = 0;
+    }
+
+    void Manipulator_Player_Reset_Toxictorment()
+    {
+        if (istoxictorment == true)
+        {
+            if (iscardbanished == true)
+            {
+                iscardbanished = false;
+                DrawCards_Player(1);
+            }
+        }
     }
 
     //Helper func :  Next Card dealing extra
