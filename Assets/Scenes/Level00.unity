@@ -10007,7 +10007,7 @@ PrefabInstance:
     - target: {fileID: 6361353436156954168, guid: 8650a1fcadfb1d14aad82aef2b431ede,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 130
+      value: 189.5
       objectReference: {fileID: 0}
     - target: {fileID: 6361353436156954168, guid: 8650a1fcadfb1d14aad82aef2b431ede,
         type: 3}
@@ -10028,6 +10028,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PriorityBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361353437762288227, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361353437762288227, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8650a1fcadfb1d14aad82aef2b431ede, type: 3}

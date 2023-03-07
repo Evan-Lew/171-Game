@@ -4,6 +4,7 @@ using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
 using System.Linq;
+using TMPro;
 
 //手卡
 //Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
@@ -77,6 +78,18 @@ public class EffectDictionary : MonoBehaviour
     private List<particleEffect> enemyParticlePrefabsPool = new List<particleEffect>();
     [Header("List of extra positioning for the particles")]
     public List<GameObject> ExtraPositioning = new List<GameObject>();
+    
+    // Indicator variables
+    public TMP_Text playerIndicatorText;
+    [SerializeField] private GameObject playerIndicatorObj;
+    private Animator _playerIndicatorController;
+    
+    public TMP_Text enemyIndicatorText;
+    [SerializeField] private GameObject enemyIndicatorObj;
+    private Animator _enemyIndicatorController;
+
+    [SerializeField] private string damageTrigger;
+    [SerializeField] private string healTrigger;
     
     public void SetUp()
     {
