@@ -6896,7 +6896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7fc66d8df7e9f44945c024f3735290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priorityBar: {fileID: 0}
+  priorityBar: {fileID: 1509751218}
 --- !u!114 &1368281156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8352,6 +8352,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1999216935}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509751218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6361353436156954174, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+    type: 3}
+  m_PrefabInstance: {fileID: 1999216935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2693d5e5a10983040ad9cbfd6a4685ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1520370998
 GameObject:
   m_ObjectHideFlags: 0
@@ -10028,6 +10040,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PriorityBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361353436156954175, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361353436156954175, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361353436156954175, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6361353437762288227, guid: 8650a1fcadfb1d14aad82aef2b431ede,
         type: 3}
