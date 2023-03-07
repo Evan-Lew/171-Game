@@ -5880,10 +5880,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
   deckToUse:
-  - {fileID: 11400000, guid: 52eb4468d9db3f140afeba1ec330bdaf, type: 2}
-  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
-  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
-  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
+  - {fileID: 11400000, guid: 47caee8448022a444b4f028e1a88295d, type: 2}
+  - {fileID: 11400000, guid: 631481b4eb37fd14c8538c47a661ecdd, type: 2}
+  - {fileID: 11400000, guid: 28a3e663179a76c43b716591616a7feb, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -6647,7 +6647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7fc66d8df7e9f44945c024f3735290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priorityBar: {fileID: 1509751218}
+  priorityBar: {fileID: 0}
 --- !u!114 &1368281156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7947,18 +7947,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1999216935}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1509751218 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6361353436156954174, guid: 8650a1fcadfb1d14aad82aef2b431ede,
-    type: 3}
-  m_PrefabInstance: {fileID: 1999216935}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2693d5e5a10983040ad9cbfd6a4685ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1520370998
 GameObject:
   m_ObjectHideFlags: 0
@@ -9412,11 +9400,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080558719}
     m_Modifications:
-    - target: {fileID: 6361353436130897678, guid: 8650a1fcadfb1d14aad82aef2b431ede,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6361353436133204264, guid: 8650a1fcadfb1d14aad82aef2b431ede,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9536,11 +9519,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PriorityBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361353437054099619, guid: 8650a1fcadfb1d14aad82aef2b431ede,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8650a1fcadfb1d14aad82aef2b431ede, type: 3}
