@@ -17,7 +17,7 @@ TagManager:
   - UI For Battle Only
   - UI For Camp Only
   - Characters
-  - 
+  - Menu
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Behind UI
+    uniqueID: 3648866509
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
