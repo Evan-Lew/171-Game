@@ -12,7 +12,7 @@ public class Card : MonoBehaviour
     public Card_Basedata.theme cardType;
     public Card_Basedata cardData;
     public string cardName;
-    public string descriptionMain;
+    public string descriptionMain, descriptionLog;
     public int cardID;
 
     public int priorityCost;
@@ -128,6 +128,7 @@ public class Card : MonoBehaviour
         priorityCost = cardData.priorityCost;
         cardName = cardData.cardName;
         descriptionMain = cardData.description_Main;
+        descriptionLog = cardData.description_Log;
         cardID = cardData.ID;
         initializedScale = transform.localScale;
         targetScale = initializedScale;
@@ -219,6 +220,8 @@ public class Card : MonoBehaviour
             {
                 if (_script_BattleController.enableCardActivation)
                 {
+                    EffectDictionary.instance.descriptionLog = descriptionLog;
+                    EffectDictionary.instance.cardName = cardName;
                     ProcessCardEffect();
                     handManager.RemoveCardFromHand(this);
                     gameObject.SetActive(false);

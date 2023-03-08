@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static SoundManager;
 using static CoroutineUtil;
 using System.Linq;
@@ -88,46 +89,9 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private GameObject enemyIndicatorObj;
     private Animator _enemyIndicatorController;
 
-    [SerializeField] private string damageTrigger;
-    [SerializeField] private string healTrigger;
+    private string damageTrigger = "Damage";
+    private string healTrigger = "Heal";
 
-
-
-    public string cardName = "Test";
-    public TMP_Text _Text_BattleLog;
-    void ProcessLog_Player()
-    {
-        string BattleLog = "Player casts ";
-        string tempLog = "";
-        if (Player_damageDealing != 0)
-        {
-            tempLog = "Deal <color=#f9303f>{0}</color> damage";
-            string formattedText = string.Format(tempLog, Player_damageDealing);
-            BattleLog = BattleLog + formattedText;
-        } 
-        if(Player_armorCreate != 0)
-        {
-
-            tempLog = "Deal <color=#9dc8f6>{0}</color> damage";
-            string formattedText = string.Format(tempLog, Player_armorCreate);
-            BattleLog = BattleLog + formattedText;
-        }
-        if (Player_cardsDrawing != 0)
-        {
-
-
-            //BattleLog = BattleLog + formattedText;
-        }
-        if (Player_healing != 0)
-        {
-
-
-            //BattleLog = BattleLog + formattedText;
-        }
-        _Text_BattleLog.text = BattleLog;
-        Debug.Log(BattleLog);
-    }
-    
     public void SetUp()
     {
         playerParticlePrefabsPool.Clear();
@@ -362,19 +326,101 @@ public class EffectDictionary : MonoBehaviour
     //                      Tagged Effect Ends
     //=================================================================
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Action_02_BodySlam();
-        }
-    }
 
 
 
     //=================================================================
-    //                        PLAYER CARDS
+    //                        Log System
     //-----------------------------------------------------------------
+
+    [HideInInspector] public string cardName;
+    [HideInInspector] public string descriptionLog;
+    [SerializeField] GameObject Prefab_BattleLog;
+    [SerializeField] GameObject contentHolder;
+    [SerializeField] Scrollbar BattleLogScrollBar;
+    [SerializeField] List<GameObject> BattleLogList = new();
+
+    void ProcessLog(string character)
+    {
+        string BattleLog;
+        string tempLog;
+        GameObject instance = Instantiate(Prefab_BattleLog, contentHolder.transform);
+
+        if (character == "player")
+        {
+            BattleLog = "<color=#3400fb>" + character + "</color>" + " casts " + cardName + ", costs " + Player_priorityInc + ". ";
+            tempLog = "";
+            if (Player_damageDealing != 0)
+            {
+                tempLog = "Deal <color=#f9303f>{0}</color> damage";
+                string formattedText = string.Format(tempLog, Player_damageDealing);
+                BattleLog = BattleLog + formattedText;
+            }
+            if (Player_armorCreate != 0)
+            {
+                tempLog = "Create <color=#9dc8f6>{0}</color> armors";
+                string formattedText = string.Format(tempLog, Player_armorCreate);
+                BattleLog = BattleLog + formattedText;
+            }
+            if (Player_cardsDrawing != 0)
+            {
+                tempLog = "Draw <color=#9dc8f6>{0}</color> cards";
+                string formattedText = string.Format(tempLog, Player_cardsDrawing);
+                BattleLog = BattleLog + formattedText;
+            }
+            if (Player_healing != 0)
+            {
+                tempLog = "Heal <color=#76f300>{0}</color> HP";
+                string formattedText = string.Format(tempLog, Player_healing);
+                BattleLog = BattleLog + formattedText;
+            }
+
+            if (descriptionLog != "")
+            {
+                tempLog = descriptionLog;
+                BattleLog = BattleLog + " " + tempLog;
+            }
+        }
+        else
+        {
+            BattleLog = "<color=#df0074>" + character + "</color>" + " casts " + cardName + ", costs " + Enemy_priorityInc +". ";
+            tempLog = "";
+
+
+            if (Enemy_damageDealing != 0)
+            {
+                tempLog = "Deal <color=#f9303f>{0}</color> damage";
+                string formattedText = string.Format(tempLog, Enemy_damageDealing);
+                BattleLog = BattleLog + formattedText;
+            }
+            if (Enemy_armorCreate != 0)
+            {
+                tempLog = "Create <color=#9dc8f6>{0}</color> armors";
+                string formattedText = string.Format(tempLog, Enemy_armorCreate);
+                BattleLog = BattleLog + formattedText;
+            }
+            if (descriptionLog != "")
+            {
+                tempLog = descriptionLog;
+                BattleLog = BattleLog + " " + tempLog;
+            }
+        }
+
+
+        instance.GetComponent<TMP_Text>().text = BattleLog;
+        BattleLogList.Add(instance);
+        descriptionLog = "";
+        cardName = "";
+    }
+    private void LateUpdate()
+    {
+        BattleLogScrollBar.value = 0f;
+    }
+
+
+
+
+
 
     //-----------------------------------------------------------------
     //                      SILVER CARDS
@@ -1672,6 +1718,9 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Enemy_priorityInc = 2;
         Enemy_damageDealing = 3;
+        cardName = "Throw Stone";
+        descriptionLog = "";
+
         Manipulator_Enemy();
         
         // Play SFX with delay
@@ -1699,6 +1748,9 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 2f;
         Enemy_priorityInc = 2;
         Enemy_damageDealing = enemy.Armor_Current;
+        cardName = "Body Slam";
+        descriptionLog = "Deal Damage equal to his current armor.";
+
         Manipulator_Enemy();
 
         // Play SFX
@@ -1718,7 +1770,9 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Enemy_armorCreate = 1;
-        
+        cardName = "Stubborn";
+        descriptionLog = "at the end of every player phase.";
+
         SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
         
         // Particle positioned under the enemy
@@ -1766,7 +1820,7 @@ public class EffectDictionary : MonoBehaviour
     void Manipulator_Player_Reset()
     {
 
-        ProcessLog_Player();
+        ProcessLog("Player");
         Player_damageDealing = 0;
         Player_priorityInc = 0;
         Player_cardsDrawing = 0;
@@ -1825,7 +1879,7 @@ public class EffectDictionary : MonoBehaviour
     void Manipulator_Enemy_Reset()
     {
         //enable turn change
-
+        ProcessLog("Enemy");
         Enemy_damageDealing = 0;
         Enemy_priorityInc = 0;;
         Enemy_armorCreate = 0;
@@ -1836,6 +1890,7 @@ public class EffectDictionary : MonoBehaviour
     {
         if (castTime == specialHandling.CastAt_playerEnd)
         {
+            ProcessLog("Enemy");
             Enemy_damageDealing = 0;
             Enemy_priorityInc = 0; ;
             Enemy_armorCreate = 0;

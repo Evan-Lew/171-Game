@@ -31,7 +31,6 @@ public class EnemyAi : MonoBehaviour
     List<int> attackPattern;
     List<List<int>> enemysPatterns;
     int currentPatternIndex = 0;
-    public TMP_Text _Text_Log;
 
     [HideInInspector]public bool isActioned = false;
 
@@ -64,7 +63,7 @@ public class EnemyAi : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
              EffectDictionary.instance.effectDictionary_Enemies[3]();
-             _Text_Log.text = "The Ink Golem is too STUBBORN to attack. <color=red>Armor + 1</color>";
+            // _Text_Log.text = "The Ink Golem is too STUBBORN to attack. <color=red>Armor + 1</color>";
         }, 0.5f));
         
     }
@@ -121,8 +120,7 @@ public class EnemyAi : MonoBehaviour
 
     void EnemyEffect(string enemyName,int ActionID)
     {
-        EffectDictionary.instance.effectDictionary_Enemies[ActionID]();
-        _Text_Log.text = enemyName + "\n" + "Using " + Actions[currentPatternIndex].name + ":\n" + Actions[currentPatternIndex].description_Main;
+        EffectDictionary.instance.effectDictionary_Enemies[ActionID]();   
     }
 }
 
