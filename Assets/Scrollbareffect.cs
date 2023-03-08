@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Scrollbareffect : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
+public class Scrollbareffect : MonoBehaviour , IPointerClickHandler
 {
-    public GameObject Area;
-    public GameObject EndingPoint;
-    bool IsDisplayed = false;
-
-
-    //ray cast 在slider 里面关掉， 背景的Image ray cast 开起来
-    public void OnPointerEnter(PointerEventData eventData)
+    [SerializeField] private Transform battleLogSystem;
+    //public float timeLerped = 1.0f;
+    bool ifIsDisplayed = false;
+    //float timeToLerp = 2;
+    public Transform outside;
+    public Transform inside;
+    
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (!IsDisplayed)
+        //timeLerped += Time.deltaTime;
+        if(ifIsDisplayed == false)
         {
-            Debug.Log("Hello");
-            Area.SetActive(true);
-            IsDisplayed = true;
+            battleLogSystem.position = Vector3.Lerp(outside.position, inside.position, 1);
+            ifIsDisplayed = true;
         }
-
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Area.SetActive(false);
-        IsDisplayed = false;
-
+        else
+        {
+            battleLogSystem.position = Vector3.Lerp(outside.position,outside.position, 0);
+            ifIsDisplayed = false;
+        }
     }
 }
