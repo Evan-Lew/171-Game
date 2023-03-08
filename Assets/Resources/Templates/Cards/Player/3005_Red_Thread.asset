@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 1
   rirty: 0
+  cardActivity: 2
   cardName: Red Thread
   ID: 3005
   description_Main: Every card you have played this combat costs one less for the
+    rest of combat. Banish this card.
+  description_Log: Every card you have played this combat costs one less for the
     rest of combat. Banish this card.
   priorityCost: 4
   Card_Front: {fileID: 21300000, guid: 807ba83443ba75f49b7addfa322d680b, type: 3}

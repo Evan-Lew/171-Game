@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 1
   rirty: 0
+  cardActivity: 0
   cardName: Assassin's Teapot
   ID: 3004
   description_Main: If your hand has less than 3 cards, draw 4. Otherwise draw 2.
+  description_Log: If your hand has less than 3 cards, draw 4. Otherwise draw 2.
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: 255dbf67ebf93f34495991ac44af79f0, type: 3}
   Card_Name: {fileID: 21300000, guid: 9f9de1d05ededc14c96fb8b79fe5b3a9, type: 3}

@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 3
   rirty: 0
+  cardActivity: 0
   cardName: Last Stand
   ID: 2005
   description_Main: If your deck has less than 10 cards, deal 6 damage
+  description_Log: 
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: f7e2a77bacc971a4a81ab8954e761460, type: 3}
   Card_Name: {fileID: 21300000, guid: 2c412abd059f2ef4c9974c450d0a5b01, type: 3}
