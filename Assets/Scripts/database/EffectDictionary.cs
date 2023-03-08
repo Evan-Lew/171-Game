@@ -90,6 +90,43 @@ public class EffectDictionary : MonoBehaviour
 
     [SerializeField] private string damageTrigger;
     [SerializeField] private string healTrigger;
+
+
+
+    public string cardName = "Test";
+    public TMP_Text _Text_BattleLog;
+    void ProcessLog_Player()
+    {
+        string BattleLog = "Player casts ";
+        string tempLog = "";
+        if (Player_damageDealing != 0)
+        {
+            tempLog = "Deal <color=#f9303f>{0}</color> damage";
+            string formattedText = string.Format(tempLog, Player_damageDealing);
+            BattleLog = BattleLog + formattedText;
+        } 
+        if(Player_armorCreate != 0)
+        {
+
+            tempLog = "Deal <color=#9dc8f6>{0}</color> damage";
+            string formattedText = string.Format(tempLog, Player_armorCreate);
+            BattleLog = BattleLog + formattedText;
+        }
+        if (Player_cardsDrawing != 0)
+        {
+
+
+            //BattleLog = BattleLog + formattedText;
+        }
+        if (Player_healing != 0)
+        {
+
+
+            //BattleLog = BattleLog + formattedText;
+        }
+        _Text_BattleLog.text = BattleLog;
+        Debug.Log(BattleLog);
+    }
     
     public void SetUp()
     {
@@ -1729,7 +1766,7 @@ public class EffectDictionary : MonoBehaviour
     void Manipulator_Player_Reset()
     {
 
-
+        ProcessLog_Player();
         Player_damageDealing = 0;
         Player_priorityInc = 0;
         Player_cardsDrawing = 0;
