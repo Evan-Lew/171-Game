@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        _script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
+        //_script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
     }
 
 

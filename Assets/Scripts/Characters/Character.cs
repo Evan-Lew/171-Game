@@ -73,7 +73,7 @@ public class Character : MonoBehaviour
     void CheckHPChange()
     {
         currentFrameHP = Health_Current;
-        if(currentFrameHP != lastFrameHP)
+        if (currentFrameHP != lastFrameHP)
         {
             StartCoroutine(UpdateHealth(TotalHPMovingTime, lastFrameHP, currentFrameHP));
             HPChangedFrom = lastFrameHP;

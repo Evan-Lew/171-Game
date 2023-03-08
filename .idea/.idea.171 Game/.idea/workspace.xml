@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="983507a4-9908-4dff-b0df-eb055d69898d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171 Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Stab.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Stab.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Swing.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Player/Swing.mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Indicator Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Indicator Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Indicator.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Indicator.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Player Indicator Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Player Indicator Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Player Indicator.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Player Indicator.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +93,7 @@
       <workItem from="1677221206193" duration="1857000" />
       <workItem from="1677524390546" duration="5216000" />
       <workItem from="1677539401089" duration="3787000" />
+      <workItem from="1677780314015" duration="15483000" />
     </task>
     <servers />
   </component>

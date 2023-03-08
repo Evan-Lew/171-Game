@@ -20,7 +20,7 @@ public class PriorityBar : MonoBehaviour
     private void Awake()
     {
         slider = gameObject.GetComponent<Slider>();
-        particleSys = GameObject.Find("PriorityBarParticles").GetComponent<ParticleSystem>();
+        //particleSys = GameObject.Find("PriorityBarParticles").GetComponent<ParticleSystem>();
         mask.fillAmount = slider.value/20;
     }
 
@@ -32,19 +32,19 @@ public class PriorityBar : MonoBehaviour
             slider.value += fillSpeed * Time.deltaTime;
             priorityAmount.text = ((int)slider.value - 10).ToString();
             mask.fillAmount += fillSpeed/20 * Time.deltaTime;
-            if(!particleSys.isPlaying)
-                particleSys.Play();
+            // if (!particleSys.isPlaying)
+            //     particleSys.Play();
 
         } else if(slider.value > targetPriority + 0.6) {
 
             slider.value -= fillSpeed * Time.deltaTime;
             priorityAmount.text = ((int)slider.value - 10).ToString();
             mask.fillAmount -= fillSpeed/20 * Time.deltaTime;
-            if(!particleSys.isPlaying)
-                particleSys.Play();
+            // if (!particleSys.isPlaying)
+            //     particleSys.Play();
 
         } else {
-            particleSys.Stop();
+            // particleSys.Stop();
         }
     }
 

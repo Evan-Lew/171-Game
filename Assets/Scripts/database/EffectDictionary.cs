@@ -4,6 +4,7 @@ using UnityEngine;
 using static SoundManager;
 using static CoroutineUtil;
 using System.Linq;
+using TMPro;
 
 //手卡
 //Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
@@ -78,6 +79,18 @@ public class EffectDictionary : MonoBehaviour
     [Header("List of extra positioning for the particles")]
     public List<GameObject> ExtraPositioning = new List<GameObject>();
     
+    // Indicator variables
+    public TMP_Text playerIndicatorText;
+    [SerializeField] private GameObject playerIndicatorObj;
+    private Animator _playerIndicatorController;
+    
+    public TMP_Text enemyIndicatorText;
+    [SerializeField] private GameObject enemyIndicatorObj;
+    private Animator _enemyIndicatorController;
+
+    [SerializeField] private string damageTrigger;
+    [SerializeField] private string healTrigger;
+    
     public void SetUp()
     {
         playerParticlePrefabsPool.Clear();
@@ -86,25 +99,43 @@ public class EffectDictionary : MonoBehaviour
         enemyObj = GameObject.Find("Enemy");
         player = playerObj.GetComponent<Character>();
         enemy = enemyObj.GetComponent<Character>();
+        
+        // Assign variable GameObjects
+        playerIndicatorText = playerIndicatorObj.GetComponent<TMP_Text>();
+        _playerIndicatorController = playerIndicatorObj.GetComponent<Animator>();
+        enemyIndicatorText = enemyIndicatorObj.GetComponent<TMP_Text>();
+        _enemyIndicatorController = enemyIndicatorObj.GetComponent<Animator>();
     }
     
     //=================================================================
     //                       Tagged Effect
     //-----------------------------------------------------------------
     // Note: Tagged effect function will be private only.
-    private void DealDamage_ToTarget(Character Target, double damageDealt)
+    private void DealDamage_ToTarget(Character target, double damageDealt)
     {
+        // Check which target to use indicator for
+        if (target == enemy)
+        {
+            enemyIndicatorText.text = "-" + damageDealt.ToString();
+            _enemyIndicatorController.SetTrigger(damageTrigger);
+        }
+        else if (target == player)
+        {
+            playerIndicatorText.text = "-" + damageDealt.ToString();
+            _playerIndicatorController.SetTrigger(damageTrigger);
+        }
+
         // Check if the target has armor
-        if(Target.Armor_Current == 0)
+        if (target.Armor_Current == 0)
         {
-            Target.Health_Current -= damageDealt;
-        }else if(Target.Armor_Current >= damageDealt)
+            target.Health_Current -= damageDealt;
+        } else if(target.Armor_Current >= damageDealt)
         {
-            Target.Armor_Current -= damageDealt;
-        }else if(Target.Armor_Current < damageDealt)
+            target.Armor_Current -= damageDealt;
+        } else if(target.Armor_Current < damageDealt)
         {
-            Target.Health_Current -= damageDealt - Target.Armor_Current;
-            Target.Armor_Current = 0;
+            target.Health_Current -= damageDealt - target.Armor_Current;
+            target.Armor_Current = 0;
         }
     }
     
@@ -113,33 +144,50 @@ public class EffectDictionary : MonoBehaviour
         _script_DeckSystem.DrawMultipleCards(cardAmount);
     }
 
-    private void CreateArmor_ToTarget(Character Target, double armorAdded)
+    private void CreateArmor_ToTarget(Character target, double armorAdded)
     {
-        Target.Armor_Current += armorAdded;
+        target.Armor_Current += armorAdded;
     }
 
-    private void Banish_TheCard(Card_Basedata TargetCard)
+    private void Banish_TheCard(Card_Basedata targetCard)
     {
-        if(_script_DeckSystem.deckForCurrentBattle.Contains(TargetCard))
+        if(_script_DeckSystem.deckForCurrentBattle.Contains(targetCard))
         {
-            _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(TargetCard));
+            _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(targetCard));
         }
     }
 
-    private void Heal_ToTarget(Character Target, double hpAdded)
+    private void Heal_ToTarget(Character target, double hpAdded)
     {
-        if((Target.Health_Current + hpAdded) > Target.Health_Total)
+        // Variable to display health text
+        double healthText = hpAdded;
+        
+        if ((target.Health_Current + hpAdded) > target.Health_Total)
         {
-            Target.Health_Current = Target.Health_Total;
-        }else
+            healthText = target.Health_Total - target.Health_Current;
+            target.Health_Current = target.Health_Total;
+        }
+        else
         {
-            Target.Health_Current = Target.Health_Current + hpAdded;
+            target.Health_Current += hpAdded;
+        }
+        
+        // Check which target to use indicator for
+        if (target == enemy)
+        {
+            enemyIndicatorText.text = "+" + healthText.ToString();
+            _enemyIndicatorController.SetTrigger(healTrigger);
+        }
+        else if (target == player)
+        {
+            playerIndicatorText.text = "+" + healthText.ToString();
+            _playerIndicatorController.SetTrigger(healTrigger);
         }
     }
 
-    private void ReturnHand_Card(Card_Basedata TargetCard)
+    private void ReturnHand_Card(Card_Basedata targetCard)
     {
-        _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(TargetCard)]);
+        _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(targetCard)]);
         _script_DeckSystem.DrawCardToHand();
     }
 
@@ -150,15 +198,15 @@ public class EffectDictionary : MonoBehaviour
 
     }
 
-    private void PriorityIncrement(Character Target, double Cost)
+    private void PriorityIncrement(Character target, double cost)
     {
         // Increment priority
-        _script_PrioritySystem.AddCost(Target, Cost);
-        Character Result = _script_PrioritySystem.GetNextTurnCharacter();
-        if(Result == player)
+        _script_PrioritySystem.AddCost(target, cost);
+        Character result = _script_PrioritySystem.GetNextTurnCharacter();
+        if (result == player)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.playerPhase;
-            if(BattleController.instance.currentPhase == BattleController.TurnOrder.playerPhase)
+            if (BattleController.instance.currentPhase == BattleController.TurnOrder.playerPhase)
             {
                 BattleController.instance.lastPhase = BattleController.TurnOrder.playerPhase;
                 BattleController.instance.currentPhase = BattleController.TurnOrder.playerEndPhase;
@@ -169,7 +217,7 @@ public class EffectDictionary : MonoBehaviour
                 BattleController.instance.currentPhase = BattleController.TurnOrder.EnemyEndPhase;
             }
         }
-        else if(Result == enemy)
+        else if (result == enemy)
         {
             BattleController.instance.nextPhase = BattleController.TurnOrder.EnemyPhase;
             BattleController.instance.enableUsingCard = false;
@@ -184,7 +232,6 @@ public class EffectDictionary : MonoBehaviour
                 BattleController.instance.currentPhase = BattleController.TurnOrder.EnemyEndPhase;
             }
         }
-        
     }
     
     // If it already exists, set it to active, and when the effect is played it will be set to disabled again
@@ -272,9 +319,7 @@ public class EffectDictionary : MonoBehaviour
     //for some unique particle, the turn will not changed
     void TurnManipulator()
     {
-
         BattleController.instance.enableTurnUpdate = true;
-
     }
     //-----------------------------------------------------------------
     //                      Tagged Effect Ends
@@ -1006,13 +1051,13 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Double the Armor you have
     public void ID3012_UnbreakingGold()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 3;
-        Player_armorCreate = 6;
+        Player_armorCreate = player.Armor_Current;
 
         Manipulator_Player();
 
@@ -1025,14 +1070,17 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    //IMPLEMENTED
     // cost 8 Armor deal 6 damage (if you don't have enough armor, nothing will happen)
     public void ID3013_Terracotta()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 0;
-        Player_armorCreate = 8;
-        Player_damageDealing = 6;
+        if(player.Armor_Current >= 8)
+        {
+            Player_armorCreate = -8;
+            Player_damageDealing = 6;
+        }
 
         Manipulator_Player();
 
@@ -1046,14 +1094,13 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 6;
         Player_cardsDrawing = 2;
-        Player_damageDealing = 6;
 
         Manipulator_Player();
 
@@ -1061,19 +1108,28 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
+            Player_damageDealing = cardsInHand * 2;
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
         
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // If your Armor is less than 10 gain 12 Armor, otherwise gain 6 Armor
     public void ID3015_BronzeAge()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 2;
-        Player_armorCreate = 12;
+        if(player.Armor_Current < 10)
+        {
+            Player_armorCreate = 12;
+        }
+        else
+        {
+            Player_armorCreate = 6;
+        }
 
         Manipulator_Player();
 
