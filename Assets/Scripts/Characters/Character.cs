@@ -7,14 +7,12 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-
     public Character_Basedata CharacterData;
     public string CharacterName;
     public string descriptionMain;
 
     public TMP_Text _Text_HP;
     public Image HP_Bar;
-
 
     [Header("<Update Runtime>")]
     public double Health_Total;
@@ -25,9 +23,12 @@ public class Character : MonoBehaviour
     public double Armor_Current;
 
     [SerializeField] GameObject HealthBar, HealthText;
+    
+    // Player Armor Indicator
+    public TMP_Text playerArmorText;
+    [SerializeField] private GameObject playerArmorObj;
 
-
-    //for health checking
+    // For health checking
     double HPChangedFrom;
     double lastFrameHP;
     double currentFrameHP;
@@ -36,7 +37,7 @@ public class Character : MonoBehaviour
     [SerializeField] Gradient Gradient_MidHealth;
     [SerializeField] Gradient Gradient_LowHealth;
     [SerializeField] Gradient Gradient_CurrentInUse;
-    // Start is called before the first frame update
+    
     void Start()
     {
         SetUp();
@@ -54,9 +55,10 @@ public class Character : MonoBehaviour
 
     public void SetUp()
     {
-
+        // Health variables
         _Text_HP = HealthText.GetComponent<TMP_Text>();
         HP_Bar = HealthBar.GetComponent<Image>();
+        
         Gradient_CurrentInUse = Gradient_HighHealth;
         HP_Bar.color = Gradient_HighHealth.Evaluate(1f);
         CharacterName = CharacterData.characterName;
@@ -66,6 +68,9 @@ public class Character : MonoBehaviour
         Priority_Initial = CharacterData.Priority_Initial;
         Priority_Current = CharacterData.Priority_Current;
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterData.characterSprite;
+        
+        // Armor variable
+        playerArmorText = playerArmorObj.GetComponent<TMP_Text>();
         Armor_Current = 0;
     }
 
@@ -114,14 +119,14 @@ public class Character : MonoBehaviour
             HP_Bar.color = Gradient_CurrentInUse.Evaluate((float)value);
             elapsedTime += Time.deltaTime;
 
-            if(elapsedTime >= totalTime && repeatFlag == false)
+            if (elapsedTime >= totalTime && repeatFlag == false)
             {
                 elapsedTime = 0;
                 startValue = endColor;
                 endValue = startColor;
                 repeatFlag = true;
             }
-            else if(elapsedTime >= totalTime && repeatFlag == true)
+            else if (elapsedTime >= totalTime && repeatFlag == true)
             {
                 elapsedTime = 0;
                 startValue = startColor;
@@ -150,17 +155,18 @@ public class Character : MonoBehaviour
         }
         HP_Bar.fillAmount = (float)Health_Current / (float)Health_Total;
     }
-
-
+    
     void UpdateHealthAndShield()
     {
-        if(Armor_Current == 0)
+        if (Armor_Current == 0)
         {
             _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
+            playerArmorText.text = "";
         }
         else
         {
-            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString() + " + " + System.Math.Round(Armor_Current, 0).ToString();
+            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
+            playerArmorText.text = System.Math.Round(Armor_Current, 0).ToString();
         }
         lastFrameHP = Health_Current;
     }

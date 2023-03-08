@@ -80,11 +80,13 @@ public class EffectDictionary : MonoBehaviour
     [Header("List of extra positioning for the particles")]
     public List<GameObject> ExtraPositioning = new List<GameObject>();
     
-    // Indicator variables
+    [Header("Indicator Variables")]
+    // Player Indicator
     public TMP_Text playerIndicatorText;
     [SerializeField] private GameObject playerIndicatorObj;
     private Animator _playerIndicatorController;
-    
+
+    // Enemy Indicator
     public TMP_Text enemyIndicatorText;
     [SerializeField] private GameObject enemyIndicatorObj;
     private Animator _enemyIndicatorController;
@@ -101,7 +103,7 @@ public class EffectDictionary : MonoBehaviour
         player = playerObj.GetComponent<Character>();
         enemy = enemyObj.GetComponent<Character>();
         
-        // Assign variable GameObjects
+        // Assign variable GameObjects for the indicators
         playerIndicatorText = playerIndicatorObj.GetComponent<TMP_Text>();
         _playerIndicatorController = playerIndicatorObj.GetComponent<Animator>();
         enemyIndicatorText = enemyIndicatorObj.GetComponent<TMP_Text>();
@@ -130,10 +132,10 @@ public class EffectDictionary : MonoBehaviour
         if (target.Armor_Current == 0)
         {
             target.Health_Current -= damageDealt;
-        } else if(target.Armor_Current >= damageDealt)
+        } else if (target.Armor_Current >= damageDealt)
         {
             target.Armor_Current -= damageDealt;
-        } else if(target.Armor_Current < damageDealt)
+        } else if (target.Armor_Current < damageDealt)
         {
             target.Health_Current -= damageDealt - target.Armor_Current;
             target.Armor_Current = 0;
