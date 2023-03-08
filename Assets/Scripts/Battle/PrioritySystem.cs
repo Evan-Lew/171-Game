@@ -66,6 +66,7 @@ public class PrioritySystem : MonoBehaviour
         // Debug.Log(priorityDifference);
         // Debug.Log(totalPriority);
         priorityBar.moveBar(priorityDifference + 10);
+        
     }
 
     public void ResetPriority(){

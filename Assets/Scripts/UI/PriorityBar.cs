@@ -10,10 +10,12 @@ public class PriorityBar : MonoBehaviour
 {
     private Slider slider;
     private ParticleSystem particleSys;
-    public float fillSpeed = 0.4f;
-    public float targetPriority = 0.5f;
+    public float fillSpeed = 2.0f;
+    public float targetPriority = 10.0f;
     public Image mask;
     public TextMeshProUGUI priorityAmount;
+    // public TextMeshProUGUI playerPriority;
+    // public TextMeshProUGUI enemyPriority;
 
 
     // Start is called before the first frame update
