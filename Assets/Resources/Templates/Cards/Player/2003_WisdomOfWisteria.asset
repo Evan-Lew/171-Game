@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 3
   rirty: 0
+  cardActivity: 1
   cardName: Wisdom Of Wisteria
   ID: 2003
   description_Main: The next card's damage x2.
+  description_Log: The next card's damage x2.
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: b432afffd429da341821c1597d0bb545, type: 3}
   Card_Name: {fileID: 21300000, guid: 3a01615beb2d5db4d87008f65079c03d, type: 3}

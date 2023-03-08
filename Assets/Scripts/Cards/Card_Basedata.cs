@@ -10,7 +10,8 @@ public class Card_Basedata : ScriptableObject
     public theme cardColor;
     public enum rarityLevel { N, R, SR, SSR, Unique}
     public rarityLevel rirty;
-
+    public enum ActDuration { OneTurn, ShortTurn, LongTurn }
+    public ActDuration cardActivity;
 
     [Tooltip("Name of the Card")]
     public string cardName;
@@ -20,6 +21,13 @@ public class Card_Basedata : ScriptableObject
 
     [TextArea]
     public string description_Main;
+
+    [TextArea]
+    public string description_Log;
+
+
+
+
 
 
     [Tooltip("Priority cost of the Card")]

@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 3
   rirty: 0
+  cardActivity: 0
   cardName: Forbidden Venom
   ID: 2001
   description_Main: Deal 3 Damage; Banish
+  description_Log: Banish this card.
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: ba7cb8b8527494d439e14087f679ad0b, type: 3}
   Card_Name: {fileID: 21300000, guid: 087163764df717443845f9bacdd17c03, type: 3}
