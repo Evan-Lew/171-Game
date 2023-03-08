@@ -522,39 +522,44 @@ public class EffectDictionary : MonoBehaviour
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
-    
+
     // NOT IMPLEMENTED
     // If your deck has less than 10 cards, deal 6 damage
     public void ID2005_LastStand()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
+        int CardsinDeck = _script_DeckSystem.activeCards.Count();
         Player_damageDealing = 6;
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
+            if (CardsinDeck < 10)
+            {
+                DealDamage_ToTarget(enemy, Player_damageDealing);
+            }
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // deal x damage (x equals to the cards your banish in this battle times 2)
     public void ID2006_NoxiousRequiem()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        int BanishedCards = BanishPool.Count();
+        Player_damageDealing = BanishedCards * 2;
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
@@ -565,38 +570,44 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // Draw 1 card. Banish this card. Add a Blood* to your hand.
     public void ID2007_BloodCrash()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_cardsDrawing = 1;
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
+            DrawCards_Player(Player_cardsDrawing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2007));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // deal 4 damage, if you health is lower than 10, deal 8 damage instead
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_damageDealing = 4;
+
+        if (player.Health_Current < 10)
+        {
+            Player_damageDealing = 8;
+        }
 
         Manipulator_Player();
-        
+
 
 
         // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
@@ -607,7 +618,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
 
     }
-    
+
     // NOT IMPLEMENTED
     // Env: everytime you banish a card, you draw a card
     public void ID2009_ToxicTorment()
