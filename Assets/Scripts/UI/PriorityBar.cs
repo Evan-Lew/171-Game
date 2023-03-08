@@ -35,7 +35,7 @@ public class PriorityBar : MonoBehaviour
             // if (!particleSys.isPlaying)
             //     particleSys.Play();
 
-        } else if(slider.value > targetPriority + 0.6) {
+        } else if(slider.value > targetPriority + 0.05) {
 
             slider.value -= fillSpeed * Time.deltaTime;
             priorityAmount.text = ((int)slider.value - 10).ToString();
