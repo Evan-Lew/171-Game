@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 1636396393}
   - component: {fileID: 1636396392}
   m_Layer: 12
-  m_Name: RawImage
+  m_Name: Video RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
