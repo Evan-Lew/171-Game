@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/DAYROM__ SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/DAYROM__ SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Menu/VideoOutput.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Menu/VideoOutput.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Credits.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Credits.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CreditsMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CreditsMenu.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +87,7 @@
       <updated>1678233422466</updated>
       <workItem from="1678233426430" duration="2543000" />
       <workItem from="1678299238772" duration="2460000" />
-      <workItem from="1678329620446" duration="7019000" />
+      <workItem from="1678329620446" duration="7390000" />
     </task>
     <servers />
   </component>
