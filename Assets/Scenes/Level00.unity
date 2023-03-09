@@ -2352,8 +2352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11.029999, y: -7.970001}
-  m_SizeDelta: {x: -19.02, y: -18.09}
+  m_AnchoredPosition: {x: 14.130001, y: -12.910004}
+  m_SizeDelta: {x: -22.12, y: -25.15}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &434999591
 MonoBehaviour:
@@ -4154,10 +4154,23 @@ MonoBehaviour:
   _script_DeckSystem: {fileID: 1185248573}
   _script_PrioritySystem: {fileID: 1368281155}
   _script_HandSystem: {fileID: 409527556}
+  _script_BattleLog: {fileID: 5729767904615444950}
   BanishPool:
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   ReturnPool:
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  cardName: Test
+  descriptionLog: 
+  Player_damageDealing: 0
+  Player_extraDamage: 0
+  Player_armorCreate: 0
+  Player_healing: 0
+  Player_cardsDrawing: 0
+  Player_priorityInc: 0
+  Player_extraPriorityCost: 0
+  Enemy_damageDealing: 0
+  Enemy_armorCreate: 0
+  Enemy_priorityInc: 0
   playerParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 5511052677990246615, guid: c1a79a3a095f1a148a6dc7b0bfde3712, type: 3}
@@ -4187,13 +4200,6 @@ MonoBehaviour:
   playerIndicatorObj: {fileID: 1387025267}
   enemyIndicatorText: {fileID: 532742657}
   enemyIndicatorObj: {fileID: 532742655}
-  cardName: Test
-  descriptionLog: 
-  Prefab_BattleLog: {fileID: 5387677226414223919, guid: 87d96d8844045ea4488b983fdee20748,
-    type: 3}
-  contentHolder: {fileID: 1560787406}
-  BattleLogScrollBar: {fileID: 463175541}
-  BattleLogList: []
 --- !u!1 &629196727
 GameObject:
   m_ObjectHideFlags: 0
@@ -8325,6 +8331,7 @@ GameObject:
   - component: {fileID: 1438588762}
   - component: {fileID: 1438588761}
   - component: {fileID: 1438588760}
+  - component: {fileID: 1438588763}
   m_Layer: 9
   m_Name: Scroll View
   m_TagString: Untagged
@@ -8369,11 +8376,11 @@ MonoBehaviour:
   m_Content: {fileID: 1560787407}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 5
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 434999590}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 463175541}
@@ -8422,6 +8429,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438588758}
   m_CullTransparentMesh: 1
+--- !u!114 &1438588763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438588758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5729767904615444950}
+          m_TargetAssemblyTypeName: BattleLog, Assembly-CSharp
+          m_MethodName: ScrollBarIsBeingUsed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5729767904615444950}
+          m_TargetAssemblyTypeName: BattleLog, Assembly-CSharp
+          m_MethodName: ScrollBarIsNotUsed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1439198078
 GameObject:
   m_ObjectHideFlags: 0
@@ -9763,6 +9815,7 @@ MonoBehaviour:
   enableCardActivation: 0
   _script_PrioritySystem: {fileID: 1368281155}
   _script_EnemyAi: {fileID: 939407030}
+  _script_BattleLog: {fileID: 5729767904615444950}
   enableTurnUpdate: 0
   animator_fadeInOut: {fileID: 195012396}
   animator_PlayerTurn: {fileID: 560284607}
@@ -9829,7 +9882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.66, y: 0.00024196801}
+  m_AnchoredPosition: {x: 3.66, y: 0.00009918213}
   m_SizeDelta: {x: -3.66, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1560787408
@@ -9847,10 +9900,10 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 1
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 3
+  m_Spacing: 8
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -12927,6 +12980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5729767904615444949}
+  - component: {fileID: 5729767904615444950}
   m_Layer: 9
   m_Name: Battle Log System
   m_TagString: Untagged
@@ -12956,6 +13010,22 @@ RectTransform:
   m_AnchoredPosition: {x: -322.1, y: -7.200138}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5729767904615444950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729767904615444946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da6bd5be6e74b14685aa37c4b9b2d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab_BattleLog: {fileID: 5705194628686853368, guid: 9970031a13ef72a4bb7610668d8f8756,
+    type: 3}
+  contentHolder: {fileID: 1560787406}
+  BattleLogScrollBar: {fileID: 463175541}
 --- !u!224 &7467847498176969420
 RectTransform:
   m_ObjectHideFlags: 0

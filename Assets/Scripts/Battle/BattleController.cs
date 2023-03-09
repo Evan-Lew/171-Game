@@ -26,6 +26,7 @@ public class BattleController : MonoBehaviour
     private Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private EnemyAi _script_EnemyAi;
+    [SerializeField] private BattleLog _script_BattleLog;
     [HideInInspector] public bool enableTurnUpdate = false;
 
     [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_EnemyTurn;
@@ -82,6 +83,7 @@ public class BattleController : MonoBehaviour
         nextPhase = TurnOrder.playerPhase;
         _script_PrioritySystem.AddCharacters(player);
         _script_PrioritySystem.AddCharacters(enemy);
+        _script_BattleLog.Setup();
         enableTurnUpdate = true;
         SetActive(true);
     }
@@ -89,6 +91,7 @@ public class BattleController : MonoBehaviour
     public void Clear()
     {
         enableTurnUpdate = false;
+        _script_BattleLog.Clear();
         SetActive(false);
     }
 

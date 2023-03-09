@@ -31,6 +31,7 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private HandManager _script_HandSystem;
+    [SerializeField] private BattleLog _script_BattleLog;
     Character player, enemy;
     GameObject playerObj, enemyObj;
 
@@ -44,19 +45,21 @@ public class EffectDictionary : MonoBehaviour
 
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Players = new Dictionary<int, funcHolder>();
     [HideInInspector] public Dictionary<int, funcHolder> effectDictionary_Enemies = new Dictionary<int, funcHolder>();
-    
+
     // Basic variable initialization
-    double Player_damageDealing = 0;
-    double Player_extraDamage = 0;
-    double Player_armorCreate = 0;
-    double Player_healing = 0;
-    int Player_cardsDrawing = 0;
-    double Player_priorityInc = 0;
-    double Player_extraPriorityCost = 0;
-    
-    double Enemy_damageDealing = 0;
-    double Enemy_armorCreate = 0;
-    double Enemy_priorityInc = 0;
+    [HideInInspector] public string cardName;
+    [HideInInspector] public string descriptionLog;
+    [HideInInspector]public double Player_damageDealing = 0;
+    [HideInInspector] public double Player_extraDamage = 0;
+    [HideInInspector] public double Player_armorCreate = 0;
+    [HideInInspector] public double Player_healing = 0;
+    [HideInInspector] public int Player_cardsDrawing = 0;
+    [HideInInspector] public double Player_priorityInc = 0;
+    [HideInInspector] public double Player_extraPriorityCost = 0;
+
+    [HideInInspector] public double Enemy_damageDealing = 0;
+    [HideInInspector] public double Enemy_armorCreate = 0;
+    [HideInInspector] public double Enemy_priorityInc = 0;
 
     float ParticleDuration = 0;
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
@@ -327,98 +330,6 @@ public class EffectDictionary : MonoBehaviour
     //-----------------------------------------------------------------
     //                      Tagged Effect Ends
     //=================================================================
-
-
-
-
-    //=================================================================
-    //                        Log System
-    //-----------------------------------------------------------------
-
-    [HideInInspector] public string cardName;
-    [HideInInspector] public string descriptionLog;
-    [SerializeField] GameObject Prefab_BattleLog;
-    [SerializeField] GameObject contentHolder;
-    [SerializeField] Scrollbar BattleLogScrollBar;
-    [SerializeField] List<GameObject> BattleLogList = new();
-
-    void ProcessLog(string character)
-    {
-        string BattleLog;
-        string tempLog;
-        GameObject instance = Instantiate(Prefab_BattleLog, contentHolder.transform);
-
-        if (character == "player")
-        {
-            BattleLog = "<color=#3400fb>" + character + "</color>" + " casts " + cardName + ", costs " + Player_priorityInc + ". ";
-            tempLog = "";
-            if (Player_damageDealing != 0)
-            {
-                tempLog = "Deal <color=#f9303f>{0}</color> damage";
-                string formattedText = string.Format(tempLog, Player_damageDealing);
-                BattleLog = BattleLog + formattedText;
-            }
-            if (Player_armorCreate != 0)
-            {
-                tempLog = "Create <color=#9dc8f6>{0}</color> armors";
-                string formattedText = string.Format(tempLog, Player_armorCreate);
-                BattleLog = BattleLog + formattedText;
-            }
-            if (Player_cardsDrawing != 0)
-            {
-                tempLog = "Draw <color=#9dc8f6>{0}</color> cards";
-                string formattedText = string.Format(tempLog, Player_cardsDrawing);
-                BattleLog = BattleLog + formattedText;
-            }
-            if (Player_healing != 0)
-            {
-                tempLog = "Heal <color=#76f300>{0}</color> HP";
-                string formattedText = string.Format(tempLog, Player_healing);
-                BattleLog = BattleLog + formattedText;
-            }
-
-            if (descriptionLog != "")
-            {
-                tempLog = descriptionLog;
-                BattleLog = BattleLog + " " + tempLog;
-            }
-        }
-        else
-        {
-            BattleLog = "<color=#df0074>" + character + "</color>" + " casts " + cardName + ", costs " + Enemy_priorityInc +". ";
-            tempLog = "";
-
-
-            if (Enemy_damageDealing != 0)
-            {
-                tempLog = "Deal <color=#f9303f>{0}</color> damage";
-                string formattedText = string.Format(tempLog, Enemy_damageDealing);
-                BattleLog = BattleLog + formattedText;
-            }
-            if (Enemy_armorCreate != 0)
-            {
-                tempLog = "Create <color=#9dc8f6>{0}</color> armors";
-                string formattedText = string.Format(tempLog, Enemy_armorCreate);
-                BattleLog = BattleLog + formattedText;
-            }
-            if (descriptionLog != "")
-            {
-                tempLog = descriptionLog;
-                BattleLog = BattleLog + " " + tempLog;
-            }
-        }
-
-
-        instance.GetComponent<TMP_Text>().text = BattleLog;
-        BattleLogList.Add(instance);
-        descriptionLog = "";
-        cardName = "";
-    }
-    private void LateUpdate()
-    {
-        BattleLogScrollBar.value = 0f;
-    }
-
 
 
 
@@ -1822,7 +1733,7 @@ public class EffectDictionary : MonoBehaviour
     void Manipulator_Player_Reset()
     {
 
-        ProcessLog("Player");
+        _script_BattleLog.ProcessLog("player");
         Player_damageDealing = 0;
         Player_priorityInc = 0;
         Player_cardsDrawing = 0;
@@ -1881,7 +1792,7 @@ public class EffectDictionary : MonoBehaviour
     void Manipulator_Enemy_Reset()
     {
         //enable turn change
-        ProcessLog("Enemy");
+        _script_BattleLog.ProcessLog("Enemy");
         Enemy_damageDealing = 0;
         Enemy_priorityInc = 0;;
         Enemy_armorCreate = 0;
@@ -1892,7 +1803,7 @@ public class EffectDictionary : MonoBehaviour
     {
         if (castTime == specialHandling.CastAt_playerEnd)
         {
-            ProcessLog("Enemy");
+            _script_BattleLog.ProcessLog("Enemy");
             Enemy_damageDealing = 0;
             Enemy_priorityInc = 0; ;
             Enemy_armorCreate = 0;
