@@ -14,9 +14,6 @@ public class PriorityBar : MonoBehaviour
     public float targetPriority = 10.0f;
     public Image mask;
     public TextMeshProUGUI priorityAmount;
-    // public TextMeshProUGUI playerPriority;
-    // public TextMeshProUGUI enemyPriority;
-
 
     // Start is called before the first frame update
     private void Awake()
