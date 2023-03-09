@@ -25,9 +25,16 @@ public class Character : MonoBehaviour
     [SerializeField] GameObject HealthBar, HealthText;
     [SerializeField] TextMeshProUGUI PriorityText;
 
-    // Player Armor Indicator
-    public TMP_Text playerArmorText;
-    [SerializeField] private GameObject playerArmorObj;
+    // Armor Text Indicator
+    public TMP_Text armorText;
+    [SerializeField] private GameObject armorTextObj;
+    
+    // Armor Sprite
+    [SerializeField] private GameObject armorSpriteObj;
+    private Animator _armorSpriteController;
+    private string _armorTrueTrigger = "ArmorTrue";
+    private string _armorFalseTrigger = "ArmorFalse";
+    public bool animArmor = false;
 
     // For health checking
     double HPChangedFrom;
@@ -50,7 +57,7 @@ public class Character : MonoBehaviour
     {
         DynamicHealthColorUpdate();
         CheckHPChange();
-        UpdateHealthAndShield();
+        animArmor = UpdateHealthAndShield(animArmor);
         UpdatePriorityText();
     }
 
@@ -71,7 +78,8 @@ public class Character : MonoBehaviour
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterData.characterSprite;
         
         // Armor variable
-        playerArmorText = playerArmorObj.GetComponent<TMP_Text>();
+        armorText = armorTextObj.GetComponent<TMP_Text>();
+        _armorSpriteController = armorSpriteObj.GetComponent<Animator>();
         Armor_Current = 0;
     }
 
@@ -157,19 +165,33 @@ public class Character : MonoBehaviour
         HP_Bar.fillAmount = (float)Health_Current / (float)Health_Total;
     }
     
-    void UpdateHealthAndShield()
+    bool UpdateHealthAndShield(bool armorAnim)
     {
+        bool armorAnimPlayed = armorAnim;
         if (Armor_Current == 0)
         {
+            if (armorAnim)
+            {
+                _armorSpriteController.SetTrigger(_armorFalseTrigger);
+                armorAnimPlayed = false;
+            }
+            
             _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + "/" + System.Math.Round(Health_Total, 0).ToString();
-            playerArmorText.text = "";
+            armorText.text = "";
         }
         else
         {
+            if (armorAnim == false)
+            {
+                _armorSpriteController.SetTrigger(_armorTrueTrigger);
+                armorAnimPlayed = true;
+            }
+            
             _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + "/" + System.Math.Round(Health_Total, 0).ToString();
-            playerArmorText.text = System.Math.Round(Armor_Current, 0).ToString();
+            armorText.text = System.Math.Round(Armor_Current, 0).ToString();
         }
         lastFrameHP = Health_Current;
+        return armorAnimPlayed;
     }
 
     void UpdatePriorityText() {

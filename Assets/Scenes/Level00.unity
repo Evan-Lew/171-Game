@@ -166,8 +166,10 @@ MonoBehaviour:
   HealthBar: {fileID: 600380319}
   HealthText: {fileID: 1439198078}
   PriorityText: {fileID: 1801267650}
-  playerArmorText: {fileID: 424330860}
-  playerArmorObj: {fileID: 424330857}
+  armorText: {fileID: 424330860}
+  armorTextObj: {fileID: 424330857}
+  armorSpriteObj: {fileID: 987881471}
+  animArmor: 0
   TotalHPMovingTime: 1
   Gradient_HighHealth:
     serializedVersion: 2
@@ -2259,7 +2261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
   m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
@@ -4418,6 +4420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675079314}
   - component: {fileID: 675079315}
+  - component: {fileID: 675079316}
   m_Layer: 9
   m_Name: Player Armor Sprite
   m_TagString: Untagged
@@ -4483,7 +4486,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1145759282, guid: 9d8087b47a224b14dbead22de055ac1a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4493,6 +4496,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &675079316
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675079313}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39e78ad0355908d4e83194516f0b0e39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &701666884
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,8 +5955,10 @@ MonoBehaviour:
   HealthBar: {fileID: 28437798}
   HealthText: {fileID: 848267539}
   PriorityText: {fileID: 1451257771}
-  playerArmorText: {fileID: 2138052759}
-  playerArmorObj: {fileID: 2138052756}
+  armorText: {fileID: 2138052759}
+  armorTextObj: {fileID: 2138052756}
+  armorSpriteObj: {fileID: 675079313}
+  animArmor: 0
   TotalHPMovingTime: 1
   Gradient_HighHealth:
     serializedVersion: 2
@@ -6161,6 +6186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987881472}
   - component: {fileID: 987881473}
+  - component: {fileID: 987881474}
   m_Layer: 9
   m_Name: Enemy Armor Sprite
   m_TagString: Untagged
@@ -6226,7 +6252,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1484186651, guid: 9338ef9cc3b0d1c4496babaed9f2839e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6236,6 +6262,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &987881474
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987881471}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa0a00cd683ecbc4a9f1f87a4cb1f9d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1003094052
 GameObject:
   m_ObjectHideFlags: 0
