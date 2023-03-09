@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d8087b47a224b14dbead22de055ac1a
+guid: fc1f4d75d95ec18488949a5323983d57
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: armor_symbol_p_0
+      name: Player Karma_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 38
-        width: 393
-        height: 430
+        x: 0
+        y: 0
+        width: 719
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9d4bb2178cd6554488f3b0428259883
-      internalID: -1145759282
+      spriteID: 273f58985e0f0d74c80d425f9bbe5112
+      internalID: 1681832090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Karma_1
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 0
+        width: 719
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff7af90ec4d2804396310941ab3243d
+      internalID: -2063013680
       vertices: []
       indices: 
       edges: []
@@ -128,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a69a00afc38249242b580fd2a225f8fc
     internalID: 0
     vertices: []
     indices: 
@@ -136,7 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      armor_symbol_p_0: -1145759282
+      Player Karma_1: -2063013680
+      Player Karma_0: 1681832090
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

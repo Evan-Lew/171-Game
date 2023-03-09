@@ -2,17 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/Materials/House.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/Materials/House.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/Materials/chandrashekhar-yaligod-mountain-base-village01.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/Materials/chandrashekhar-yaligod-mountain-base-village01.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/Materials/ink golem.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/Materials/ink golem.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/ink golem.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Temp Assets/ink golem.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/scroll area.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/scroll area.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Bai Shu Zhen Name.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Bai Shu Zhen Name.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Player Armor Symbol.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Player Armor Symbol.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Player Armor Symbol.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Player Armor Symbol.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/armor_symbol_enemy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/armor_symbol_enemy.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/enemy_cost 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/enemy_cost 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/enemy_cost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/enemy_cost.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/enemy_health.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/enemy_health.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/player_cost 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/player_cost 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/player_cost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/player_cost.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/player_health.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/player_health.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Menu/Menu Color Gradient.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Menu/Menu Color Gradient.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +104,22 @@
       <updated>1678233422466</updated>
       <workItem from="1678233426430" duration="2543000" />
       <workItem from="1678299238772" duration="2460000" />
+      <workItem from="1678329620446" duration="1850000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="150" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="178" />
+    <coverage-tree-state>
+      <expand />
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
