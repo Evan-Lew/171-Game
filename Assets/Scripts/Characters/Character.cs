@@ -161,12 +161,12 @@ public class Character : MonoBehaviour
     {
         if (Armor_Current == 0)
         {
-            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
+            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + "/" + System.Math.Round(Health_Total, 0).ToString();
             playerArmorText.text = "";
         }
         else
         {
-            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + " / " + System.Math.Round(Health_Total, 0).ToString();
+            _Text_HP.text = System.Math.Round(Health_Current, 0).ToString() + "/" + System.Math.Round(Health_Total, 0).ToString();
             playerArmorText.text = System.Math.Round(Armor_Current, 0).ToString();
         }
         lastFrameHP = Health_Current;
