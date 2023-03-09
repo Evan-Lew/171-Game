@@ -23,7 +23,8 @@ public class Character : MonoBehaviour
     public double Armor_Current;
 
     [SerializeField] GameObject HealthBar, HealthText;
-    
+    [SerializeField] TextMeshProUGUI PriorityText;
+
     // Player Armor Indicator
     public TMP_Text playerArmorText;
     [SerializeField] private GameObject playerArmorObj;
@@ -50,7 +51,7 @@ public class Character : MonoBehaviour
         DynamicHealthColorUpdate();
         CheckHPChange();
         UpdateHealthAndShield();
-
+        UpdatePriorityText();
     }
 
     public void SetUp()
@@ -169,5 +170,9 @@ public class Character : MonoBehaviour
             playerArmorText.text = System.Math.Round(Armor_Current, 0).ToString();
         }
         lastFrameHP = Health_Current;
+    }
+
+    void UpdatePriorityText() {
+        PriorityText.text = Priority_Current.ToString();
     }
 }

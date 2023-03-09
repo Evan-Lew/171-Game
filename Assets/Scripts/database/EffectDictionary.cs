@@ -1718,7 +1718,7 @@ public class EffectDictionary : MonoBehaviour
     {
         // Card Description
         ParticleDuration = 3f;
-        Enemy_priorityInc = 2;
+        Enemy_priorityInc = 4;
         Enemy_damageDealing = 3;
         cardName = "Throw Stone";
         descriptionLog = "";
@@ -1748,7 +1748,7 @@ public class EffectDictionary : MonoBehaviour
     public void Action_02_BodySlam()
     {
         ParticleDuration = 2f;
-        Enemy_priorityInc = 2;
+        Enemy_priorityInc = 5;
         Enemy_damageDealing = enemy.Armor_Current;
         cardName = "Body Slam";
         descriptionLog = "Deal Damage equal to his current armor.";
