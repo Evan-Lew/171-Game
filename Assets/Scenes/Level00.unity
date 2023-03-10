@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 32828810}
   - component: {fileID: 32828812}
   - component: {fileID: 32828811}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Resume Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESUME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdba7ae09671826449470e678cef6dff, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
   m_sharedMaterial: {fileID: 1876482555800959863, guid: cdba7ae09671826449470e678cef6dff,
     type: 2}
   m_fontSharedMaterials: []
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 94110469}
   - component: {fileID: 94110471}
   - component: {fileID: 94110470}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Quit Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: QUIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdba7ae09671826449470e678cef6dff, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
   m_sharedMaterial: {fileID: 1876482555800959863, guid: cdba7ae09671826449470e678cef6dff,
     type: 2}
   m_fontSharedMaterials: []
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &94110471
@@ -3015,7 +3015,7 @@ GameObject:
   - component: {fileID: 494707335}
   - component: {fileID: 494707337}
   - component: {fileID: 494707336}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Pause Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5471,7 +5471,7 @@ GameObject:
   - component: {fileID: 865405384}
   - component: {fileID: 865405383}
   - component: {fileID: 865405382}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6883,7 +6883,7 @@ GameObject:
   - component: {fileID: 1175690456}
   - component: {fileID: 1175690458}
   - component: {fileID: 1175690457}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Menu Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6932,7 +6932,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdba7ae09671826449470e678cef6dff, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
   m_sharedMaterial: {fileID: 1876482555800959863, guid: cdba7ae09671826449470e678cef6dff,
     type: 2}
   m_fontSharedMaterials: []
@@ -6997,7 +6997,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1175690458
@@ -9581,7 +9581,7 @@ GameObject:
   - component: {fileID: 1508794530}
   - component: {fileID: 1508794529}
   - component: {fileID: 1508794528}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Resume Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10246,7 +10246,7 @@ SpriteRenderer:
   m_SortingLayerID: 1374146625
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 112192927, guid: be74f0a46beb00d45a4f4d23881bbc63, type: 3}
+  m_Sprite: {fileID: 1413974114, guid: dc53cb7999e7d344280662e3e1e685bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11275,7 +11275,7 @@ GameObject:
   - component: {fileID: 1884541757}
   - component: {fileID: 1884541756}
   - component: {fileID: 1884541755}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11827,6 +11827,12 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6361353436160690457, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fc1f4d75d95ec18488949a5323983d57,
+        type: 3}
     - target: {fileID: 6361353436160690459, guid: 8650a1fcadfb1d14aad82aef2b431ede,
         type: 3}
       propertyPath: m_Layer
@@ -11887,6 +11893,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6361353437405535451, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fc1f4d75d95ec18488949a5323983d57,
+        type: 3}
     - target: {fileID: 6361353437762288227, guid: 8650a1fcadfb1d14aad82aef2b431ede,
         type: 3}
       propertyPath: m_text
