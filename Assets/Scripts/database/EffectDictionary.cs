@@ -338,6 +338,7 @@ public class EffectDictionary : MonoBehaviour
     //-----------------------------------------------------------------
     //                      SILVER CARDS
     //=================================================================
+    // IMPLEMENTED
     // Draw 2 cards, cost 3
     public void ID1001_Payment()
     {
@@ -358,6 +359,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     // Deal 3 damage, cost 2
     public void ID1002_Whack()
     {
@@ -366,7 +368,7 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 3;
         Manipulator_Player();
         
-        //Play SFX with delay
+        // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         { 
             PlaySound("sfx_Stab", 1);
@@ -385,6 +387,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     // Gain 2 armor, cost 1
     public void ID1003_WhiteScales()
     {
@@ -405,6 +408,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     // Draw 2 cards, gain 3 armors, cost 4
     public void ID1004_ShedSkin()
     {
@@ -430,6 +434,7 @@ public class EffectDictionary : MonoBehaviour
     //-----------------------------------------------------------------
     //                      PURPLE CARDS
     //=================================================================
+    // IMPLEMENTED
     // Deal 3 Damage, Banish this card, cost 1
     public void ID2001_ForbiddenVenom()
     {
@@ -465,6 +470,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     // Deal 6 damage, the next card you play deal 4 more damage
     public void ID2002_SerpentCutlass()
     {
@@ -512,6 +518,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     // Next card deal double damage
     public void ID2003_WisdomOfWisteria()
     {
@@ -529,6 +536,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset();
     }
 
+    // IMPLEMENTED
     // Deal 1 damage, return card to hand
     public void ID2004_DemonFang()
     {
@@ -563,53 +571,44 @@ public class EffectDictionary : MonoBehaviour
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
-
-    // NOT IMPLEMENTED
+    
+    // IMPLEMENTED
     // If your deck has less than 10 cards, deal 6 damage
     public void ID2005_LastStand()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        int CardsinDeck = _script_DeckSystem.activeCards.Count();
+        int cardsInDeck = _script_DeckSystem.activeCards.Count();
         Player_damageDealing = 6;
-
         Manipulator_Player();
-
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
-
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            if (CardsinDeck < 10)
+            if (cardsInDeck < 10)
             {
                 DealDamage_ToTarget(enemy, Player_damageDealing);
             }
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
-
-    // NOT IMPLEMENTED
-    // deal x damage (x equals to the cards your banish in this battle times 2)
+    
+    // IMPLEMENTED
+    // Deal x damage (x equals to the cards your banish in this battle times 2)
     public void ID2006_NoxiousRequiem()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        int BanishedCards = BanishPool.Count();
-        Player_damageDealing = BanishedCards * 2;
-
+        int banishedCards = BanishPool.Count();
+        Player_damageDealing = banishedCards * 2;
         Manipulator_Player();
-
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
 
     // NOT IMPLEMENTED
@@ -619,12 +618,9 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 1;
         Player_cardsDrawing = 1;
-
         Manipulator_Player();
-
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
@@ -633,31 +629,26 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
 
     }
-
-    // NOT IMPLEMENTED
-    // deal 4 damage, if you health is lower than 10, deal 8 damage instead
+    
+    // IMPLEMENTED
+    // Deal 4 damage, if you health is lower than 10, deal 8 damage instead
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
         Player_damageDealing = 4;
-
         if (player.Health_Current < 10)
         {
             Player_damageDealing = 8;
         }
-
         Manipulator_Player();
-
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
 
     // NOT IMPLEMENTED
@@ -669,19 +660,17 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 6;
 
         Manipulator_Player();
-       
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-
     }
     
-    // deal 6 damage to yourself, deal 12 damage
+    // IMPLEMENTED
+    // Inflict 6 self damage and deal 12 damage
     public void ID2010_Savagery()
     {
         ParticleDuration = 3f;
@@ -690,20 +679,17 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 6;
 
         Manipulator_Player();
-       
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-     
     }
-    
-    
+
+    // IMPLEMENTED
     // Damage yourself down to 1 HP. Deal that much damage.
     public void ID2011_CausticTrail()
     {
@@ -711,18 +697,15 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 4;
         Player_damageDealing = player.Health_Current - 1;
         Enemy_damageDealing = Player_damageDealing;
-
         Manipulator_Player();
         
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             player.Health_Current = 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-     
     }
     
     // NOT IMPLEMENTED
@@ -732,35 +715,26 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 1;
         Player_damageDealing = 6;
-        
-        
         Manipulator_Player();
         
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
     
-    
-    // Deal 3 Damage. Gain +1 Max Health permanantly (continues on to next battles). Banish this card.
+    // IMPLEMENTED
+    // Deal 3 Damage. Gain +1 Max Health permanently (continues on to next battles). Banish this card.
     public void ID2013_Siphon()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_damageDealing = 3;
-        
-        
         Manipulator_Player();
         
-
-
-        // ParticleEvent("", 2004, ParticleDuration, enemyObj, true);
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -769,9 +743,9 @@ public class EffectDictionary : MonoBehaviour
 
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
     
+    // IMPLEMENTED
     // Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
     public void ID2014_Ruination()
     {
@@ -779,12 +753,9 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 0;
         Player_damageDealing = 1;
         Enemy_damageDealing = 2;
-
         Manipulator_Player();
         
-
-
-        // ParticleEvent("", 2014, ParticleDuration, enemyObj, true);
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -792,7 +763,6 @@ public class EffectDictionary : MonoBehaviour
             ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2014));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
     
     // NOT IMPLEMENTED
@@ -802,23 +772,20 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 1;
         Player_damageDealing = 6;
-
         Manipulator_Player();
-    
-
-
-        // ParticleEvent("", 2014, ParticleDuration, enemyObj, true);
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
     
     //-----------------------------------------------------------------
     //                      GOLD CARDS
     //=================================================================
+    // IMPLEMENTED
     // Draw 2
     public void ID3001_ForetoldFortune()
     {
@@ -846,10 +813,9 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 3;
         Player_damageDealing = 1;
-
         Manipulator_Player();
        
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -867,13 +833,12 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Player();
        
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // IMPLEMENTED
@@ -911,10 +876,9 @@ public class EffectDictionary : MonoBehaviour
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 4;
-        
         Manipulator_Player();
 
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3005));
@@ -931,6 +895,14 @@ public class EffectDictionary : MonoBehaviour
         int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_armorCreate = cardsInHand * 2;
         Manipulator_Player();
+        
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Gavel", 0.5f);
+        }, 1.5f));
+        // Play SFX
+        PlaySound("sfx_Gavel", 0.5f);
 
         // Particle positioned under the player
         ParticleEvent("UnbreakingEmperor", 3006, ParticleDuration, ExtraPositioning[1], true);
@@ -949,16 +921,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_cardsDrawing = 1;
-
         Manipulator_Player();
 
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // IMPLEMENTED
@@ -1054,19 +1024,17 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 3;
         Player_armorCreate = player.Armor_Current;
-
         Manipulator_Player();
 
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
-    //IMPLEMENTED
+    // IMPLEMENTED
     // cost 8 Armor deal 6 damage (if you don't have enough armor, nothing will happen)
     public void ID3013_Terracotta()
     {        
@@ -1077,30 +1045,27 @@ public class EffectDictionary : MonoBehaviour
             Player_armorCreate = -8;
             Player_damageDealing = 6;
         }
-
         Manipulator_Player();
 
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // IMPLEMENTED
-    // draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
+    // Draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 6;
         Player_cardsDrawing = 2;
-
         Manipulator_Player();
 
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
@@ -1109,7 +1074,6 @@ public class EffectDictionary : MonoBehaviour
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // IMPLEMENTED
@@ -1118,7 +1082,7 @@ public class EffectDictionary : MonoBehaviour
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 2;
-        if(player.Armor_Current < 10)
+        if (player.Armor_Current < 10)
         {
             Player_armorCreate = 12;
         }
@@ -1126,15 +1090,14 @@ public class EffectDictionary : MonoBehaviour
         {
             Player_armorCreate = 6;
         }
-
         Manipulator_Player();
-
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1144,20 +1107,20 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 5;
         Player_cardsDrawing = 1;
-
         Manipulator_Player();
-
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
     
     //-----------------------------------------------------------------
     //                      JADE CARDS
     //=================================================================
+    // IMPLEMENTED
     // Heal 6
     public void ID4001_JadeSpirit()
     {
@@ -1184,7 +1147,6 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 3;
         Player_healing = 6;
-
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
@@ -1194,9 +1156,9 @@ public class EffectDictionary : MonoBehaviour
 
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
+    // IMPLEMENTED
     // Draw 2, Heal 4 Health
     public void ID4003_DauntlessDraw()
     {
@@ -1204,16 +1166,15 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 3;
         Player_healing = 4;
         Player_cardsDrawing = 2;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // NOT IMPLEMENTED
@@ -1223,15 +1184,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 1;
         Player_healing = 3;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1241,15 +1201,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // NOT IMPLEMENTED
@@ -1259,15 +1218,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
 
@@ -1278,15 +1236,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1296,15 +1253,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // NOT IMPLEMENTED
@@ -1314,15 +1270,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1332,16 +1287,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
-
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1351,15 +1304,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1369,15 +1321,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // NOT IMPLEMENTED
@@ -1387,15 +1338,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1405,15 +1355,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1423,15 +1372,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
 
@@ -1442,15 +1390,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     
@@ -1465,15 +1412,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1483,15 +1429,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1501,15 +1446,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1519,15 +1463,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // Deal 4 Damage. Banish this card
@@ -1536,16 +1479,15 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 0;
         Player_damageDealing = 4;
-
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5005));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // Draw 3 cards. Banish this card
@@ -1554,16 +1496,15 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 0;
         Player_cardsDrawing = 3;
-        
         Manipulator_Player();
         
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5006));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // NOT IMPLEMENTED
@@ -1573,15 +1514,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 0;
         Player_healing = 6;
-
         Manipulator_Player();
 
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5007));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1591,15 +1531,15 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 0;
         Player_damageDealing = 3;
-
         Manipulator_Player();
+        
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Player_damageDealing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5008));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-        
     }
 
     // NOT IMPLEMENTED
@@ -1609,15 +1549,14 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         Player_healing = 6;
-
         Manipulator_Player();
 
+        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
-       
     }
 
 

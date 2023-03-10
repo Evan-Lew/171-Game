@@ -20,6 +20,6 @@ MonoBehaviour:
   description_Main: Everytime you banish a card, you draw a card
   description_Log: Everytime you banish a card, you draw a card
   priorityCost: 4
-  Card_Front: {fileID: 21300000, guid: f7e2a77bacc971a4a81ab8954e761460, type: 3}
+  Card_Front: {fileID: 21300000, guid: ed068f1a39c2bac4abe261008418cc23, type: 3}
   Card_Name: {fileID: 21300000, guid: a41b28d845e5f1c4cb36c49f205b0a39, type: 3}
   icon: {fileID: 0}
