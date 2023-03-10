@@ -155,10 +155,12 @@ public class EffectDictionary : MonoBehaviour
         target.Armor_Current += armorAdded;
     }
 
+    bool isCardBanished = false;
     private void Banish_TheCard(Card_Basedata targetCard)
     {
         if(_script_DeckSystem.deckForCurrentBattle.Contains(targetCard))
         {
+            isCardBanished = true;
             _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(targetCard));
         }
     }
@@ -653,18 +655,17 @@ public class EffectDictionary : MonoBehaviour
 
     // NOT IMPLEMENTED
     // Env: everytime you banish a card, you draw a card
+    bool isToxicTorment = false;
     public void ID2009_ToxicTorment()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
-
+        Player_priorityInc = 4;
+        isToxicTorment = true;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1668,10 +1669,9 @@ public class EffectDictionary : MonoBehaviour
         PriorityIncrement(player, Player_priorityInc);
     }
 
-    //this will be called for all player effect to turn off all flags
+    // This will be called for all player effect to turn off all flags
     void Manipulator_Player_Reset()
     {
-
         _script_BattleLog.ProcessLog("player");
         Player_damageDealing = 0;
         Player_priorityInc = 0;
@@ -1679,6 +1679,21 @@ public class EffectDictionary : MonoBehaviour
         Player_armorCreate = 0;
         Player_healing = 0;
         ParticleDuration = 0;
+        
+        // Environment Card Helper Function
+        Manipulator_Player_Reset_ToxicTorment();
+    }
+
+    void Manipulator_Player_Reset_ToxicTorment()
+    {
+        if (isToxicTorment == true)
+        {
+            if (isCardBanished == true)
+            {
+                isCardBanished = false;
+                DrawCards_Player(1);
+            }
+        }
     }
 
     //Helper func :  Next Card dealing extra

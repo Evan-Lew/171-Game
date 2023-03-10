@@ -4202,7 +4202,9 @@ MonoBehaviour:
   _script_PrioritySystem: {fileID: 1368281155}
   _script_HandSystem: {fileID: 409527556}
   _script_BattleLog: {fileID: 5729767904615444950}
-  BanishPool: []
+  BanishPool:
+  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: 3299428caea94fc4e91564f5029a0daf, type: 2}
   ReturnPool:
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
   - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
@@ -7038,10 +7040,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandManager: {fileID: 409527556}
   deckToUse:
-  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
-  - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
+  - {fileID: 11400000, guid: 52eb4468d9db3f140afeba1ec330bdaf, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
