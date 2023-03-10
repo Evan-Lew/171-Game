@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.bgmAudioSource.Stop();
         //note the 2 means the 2 index of building list
         _script_GameController.isDeckELevel = true;
         SceneManager.LoadScene(2);
