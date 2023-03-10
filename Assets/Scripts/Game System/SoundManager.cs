@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public static AudioClip bgm_Mountain_Of_Myths;
     
     // Cards
-    [HideInInspector] public static AudioClip sfx_Card_Draw, sfx_Card_Place;
+    [HideInInspector] public static AudioClip sfx_Card_Draw, sfx_Card_Place, sfx_Card_Pick;
     
     // Player Silver/Purple Cards
     [HideInInspector] public static AudioClip sfx_Coin_Drop, sfx_Hiss, sfx_Hit, sfx_Venom, sfx_Swing, sfx_Crunch, sfx_Wisdom, sfx_Stab, sfx_Fortune, sfx_Tea_Pour, sfx_Gavel;
@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn;
 
     // Misc
-    [HideInInspector] public static AudioClip sfx_Page_Flip;
+    [HideInInspector] public static AudioClip sfx_Page_Flip, sfx_Scroll_Open;
     
     // AudioSources
     [HideInInspector] public static AudioSource bgmAudioSource;
@@ -48,6 +48,7 @@ public class SoundManager : MonoBehaviour
         // Loading card audio files
         sfx_Card_Draw = Resources.Load<AudioClip>("SFX/Card Sounds/Card_Draw");
         sfx_Card_Place = Resources.Load<AudioClip>("SFX/Card Sounds/Card_Place");
+        sfx_Card_Pick = Resources.Load<AudioClip>("SFX/Card Sounds/Card_Pick");
         
         // Loading player audio files
         sfx_Coin_Drop = Resources.Load<AudioClip>("SFX/Player/Coin_Drop");
@@ -70,6 +71,7 @@ public class SoundManager : MonoBehaviour
         
         // Loading misc audio files
         sfx_Page_Flip = Resources.Load<AudioClip>("SFX/Misc/Page_Flip");
+        sfx_Scroll_Open = Resources.Load<AudioClip>("SFX/Misc/Scroll_Open");
         
         // Get AudioSource components
         sfxAudioSource = GetComponent<AudioSource>();
@@ -93,7 +95,7 @@ public class SoundManager : MonoBehaviour
                 bgmAudioSource.PlayOneShot(bgmAudioSource.clip);
                 break;
 
-            //----------Misc SFX----------
+            //----------Card SFX----------
             // Card Draw SFX
             case "sfx_Card_Draw":
                 sfxAudioSource.clip = sfx_Card_Draw;
@@ -105,7 +107,13 @@ public class SoundManager : MonoBehaviour
                 sfxAudioSource.clip = sfx_Card_Place;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
-                break;            
+                break;
+            
+            case "sfx_Card_Pick":
+                sfxAudioSource.clip = sfx_Card_Pick;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
 
             //----------Player SFX----------
             case "sfx_Coin_Drop":
@@ -200,9 +208,15 @@ public class SoundManager : MonoBehaviour
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;
             
-            //----------Enemy SFX----------
+            //----------Misc SFX----------
             case "sfx_Page_Flip":
                 sfxAudioSource.clip = sfx_Page_Flip;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Scroll_Open":
+                sfxAudioSource.clip = sfx_Scroll_Open;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;

@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Card Sounds/Card_Pick.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Card Sounds/Card_Pick.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Misc/Scroll_Open.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Misc/Scroll_Open.wav.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Description.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Description.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2009_Toxic_Torment.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2009_Toxic_Torment.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/Scrollbareffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/Scrollbareffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/HandManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/HandManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cards/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cards/Card.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

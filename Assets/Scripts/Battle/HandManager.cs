@@ -4,11 +4,10 @@ using UnityEngine;
 public class HandManager : MonoBehaviour
 {
     bool enable_HandManager = false;
-
-
-    //list for cards on the hand
+    
+    // List for cards on the hand
     public List<Card> player_hands_holdCards = new List<Card>();
-    //list for all card position can be hold in hands
+    // List for all card position can be hold in hands
     public List<Vector3> player_hands_holdsCardsPositions = new List<Vector3>();
 
     public Transform minPos, maxPos;
@@ -16,7 +15,7 @@ public class HandManager : MonoBehaviour
     Character player;
     Character enemy;
     [SerializeField] PrioritySystem _script_PrioritySystem;
-    //for hovering animation
+    // For hovering animation
     public Vector3 hoveringAdjustment = new Vector3(0.5f, 0, 0);
     public List<Vector3> player_hands_holdsCardsPositionsHovering = new List<Vector3>();
 
@@ -27,8 +26,7 @@ public class HandManager : MonoBehaviour
             //reserved for any check
         }
     }
-
-
+    
     public void SetActive(bool setFlag)
     {
         if (setFlag)
@@ -40,7 +38,6 @@ public class HandManager : MonoBehaviour
             enable_HandManager = false;
         }
     }
-
 
     public void SetUp()
     {
@@ -63,18 +60,17 @@ public class HandManager : MonoBehaviour
         SetActive(false);
     }
 
-    //set card positions in hands
+    // Set card positions in hands
     public void SetCardPositionsInHand()
     {
-        //reset
+        // Reset
         player_hands_holdsCardsPositions.Clear();
         Vector3 distanceBetweenPoints = Vector3.zero;
 
         //Debug.Log(player_hands_holdCards.Count);
 
-        //calulate how cards will be placed by the number of cards on the hand
-        //more than 2 cards
-
+        // Calculate how cards will be placed by the number of cards on the hand
+        // More than 2 cards
         if (player_hands_holdCards.Count == 1)
         {
             player_hands_holdCards[0].isInHand = true;
@@ -90,9 +86,9 @@ public class HandManager : MonoBehaviour
                 player_hands_holdCards[i].isInHand = true;
                 player_hands_holdCards[i].handPosition = i;
                 player_hands_holdCards[i].cardState = Card.state.Handcard;
-                //find the distance between each card
+                // Find the distance between each card
                 player_hands_holdsCardsPositions.Add(minPos.position + (i + 1) * (maxPos.position - minPos.position) / 3);
-                //move card &&  adjust the angle to make it layerly sorted
+                // Move card &&  adjust the angle to make it layerly sorted
                 player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositions[i], minPos.rotation);
             }
         }
@@ -105,33 +101,32 @@ public class HandManager : MonoBehaviour
                 player_hands_holdCards[i].handPosition = i;
                 player_hands_holdCards[i].cardState = Card.state.Handcard;
 
-                //find the distance between each card
+                // Find the distance between each card
                 player_hands_holdsCardsPositions.Add(minPos.position + (distanceBetweenPoints * i));
 
-                //move card &&  adjust the angle to make it layerly sorted
+                // Move card && adjust the angle to make it layered sorted
                 player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositions[i], minPos.rotation);
             }
         }
     }
 
-    // hovering animation
+    // Hovering animation
     public void MoveOtherCardAtHovering(Card cardIsHovering)
     {
-
         player_hands_holdsCardsPositionsHovering.AddRange(player_hands_holdsCardsPositions);
         for (int i = 0; i < player_hands_holdsCardsPositionsHovering.Count; i++)
         {
-            //move to left
+            // Move to left
             if (i < cardIsHovering.handPosition)
             {
                 player_hands_holdsCardsPositionsHovering[i] += hoveringAdjustment;
-                //move card &&  adjust the angle to make it layerly sorted
+                // Move card &&  adjust the angle to make it layered sorted
                 player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositionsHovering[i], minPos.rotation);
             }
             else if (i > cardIsHovering.handPosition)
             {
                 player_hands_holdsCardsPositionsHovering[i] -= hoveringAdjustment;
-                //move card &&  adjust the angle to make it layerly sorted
+                // Move card && adjust the angle to make it layered sorted
                 player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositionsHovering[i], minPos.rotation);
             }
         }
@@ -142,8 +137,6 @@ public class HandManager : MonoBehaviour
         player_hands_holdsCardsPositionsHovering.Clear();
         SetCardPositionsInHand();
     }
-
-
 
     // Remove cards from hand
     public void RemoveCardFromHand(Card cardToRemove)
@@ -159,7 +152,6 @@ public class HandManager : MonoBehaviour
         {
             Debug.LogError("Card at position " + cardToRemove.handPosition + " is not the correct card for removing!");
         }
-
         // Reset the card position
         SetCardPositionsInHand();
     }
@@ -171,9 +163,7 @@ public class HandManager : MonoBehaviour
         player_hands_holdCards.Add(cardToAdd);
         SetCardPositionsInHand();
     }
-
-
-
+    
     //==============================================
     //         Helper Function for this script
     //==============================================
