@@ -36,7 +36,7 @@ public class BattleLog : MonoBehaviour
         string BattleLog;
         string tempLog;
 
-        if (character == "player")
+        if (character == "Player")
         {
             BattleLog = "<color=#3400fb>" + character + "</color>" + " casts " + EffectDictionary.instance.cardName + ", costs " + EffectDictionary.instance.Player_priorityInc + ". ";
             tempLog = "";

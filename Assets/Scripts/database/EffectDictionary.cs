@@ -1675,7 +1675,7 @@ public class EffectDictionary : MonoBehaviour
     // This will be called for all player effect to turn off all flags
     void Manipulator_Player_Reset()
     {
-        _script_BattleLog.ProcessLog("player");
+        _script_BattleLog.ProcessLog("Player");
         Player_damageDealing = 0;
         Player_priorityInc = 0;
         Player_cardsDrawing = 0;

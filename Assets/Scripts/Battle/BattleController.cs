@@ -11,7 +11,8 @@ public class BattleController : MonoBehaviour
     public static BattleController instance;
 
     [SerializeField] private DeckSystem _script_DeckSystem;
-    public bool startDrawingCrads = true;
+    [SerializeField] private HandManager _script_HandManager;
+    [HideInInspector]public bool startDrawingCrads = true;
     public int startingCardsAmount;
     public float TurnChangeAnimationDuration = 2f;
     [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
@@ -44,14 +45,9 @@ public class BattleController : MonoBehaviour
         {
             if (enableTurnUpdate)
             {
-               // Debug.Log(currentPhase + " Next " + nextPhase + " Last " + lastPhase);
-
                 TurnUpdate();
             }
         }
-
-
-
     }
 
 
@@ -124,8 +120,19 @@ public class BattleController : MonoBehaviour
         }
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.playerPhase)
         {
-            enableUsingCard = true;
-            enableCardActivation = true;
+            if(_script_HandManager.player_hands_holdCards.Count == 0)
+            {
+                lastPhase = TurnOrder.playerPhase;
+                currentPhase = TurnOrder.EnemyPhase;
+                enableTurnUpdate = true;
+
+            }
+            else
+            {
+                enableUsingCard = true;
+                enableCardActivation = true;
+            }
+
         }
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.EnemyPhase)
         {
