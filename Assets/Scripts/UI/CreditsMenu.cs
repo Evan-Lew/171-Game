@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,11 @@ public class CreditsMenu : MonoBehaviour
     [SerializeField] private GameObject middleBodyObj;
     private int pageCount = 0;
 
+    private void Start()
+    {
+        SoundManager.PlaySound("bgm_River_Ambient", 0.15f);
+    }
+
     public void SetUp()
     {
         titleText = titleObj.GetComponent<TMP_Text>();
@@ -25,6 +31,7 @@ public class CreditsMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.bgmAudioSource.Stop();
         SceneManager.LoadScene("Main Menu");
     }
     

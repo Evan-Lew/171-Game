@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,10 @@ public class MainMenu : MonoBehaviour
         _script_GameController = GameObject.Find("Game Controller").GetComponent<GameController>();
     }
 
+    private void Start()
+    {
+        SoundManager.PlaySound("bgm_Mountain_Ambient", 0.2f);
+    }
 
     public void PlayGame()
     {
@@ -22,6 +27,7 @@ public class MainMenu : MonoBehaviour
     public void CreditsGame()
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.bgmAudioSource.Stop();
         SceneManager.LoadScene("Credits");
     }
 

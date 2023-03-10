@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
      */
     
     // BGM
-    [HideInInspector] public static AudioClip bgm_Mountain_Of_Myths;
+    [HideInInspector] public static AudioClip bgm_Mountain_Of_Myths, bgm_Mountain_Ambient, bgm_River_Ambient;
     
     // Cards
     [HideInInspector] public static AudioClip sfx_Card_Draw, sfx_Card_Place, sfx_Card_Pick;
@@ -44,6 +44,8 @@ public class SoundManager : MonoBehaviour
     {
         // Loading background music
         bgm_Mountain_Of_Myths = Resources.Load<AudioClip>("SFX/Background Music/Mountain_Of_Myths");
+        bgm_Mountain_Ambient = Resources.Load<AudioClip>("SFX/Background Music/Mountain_Ambient");
+        bgm_River_Ambient = Resources.Load<AudioClip>("SFX/Background Music/River_Ambient");
         
         // Loading card audio files
         sfx_Card_Draw = Resources.Load<AudioClip>("SFX/Card Sounds/Card_Draw");
@@ -91,6 +93,18 @@ public class SoundManager : MonoBehaviour
             //----------BGM SFX----------
             case "bgm_Mountain_Of_Myths":
                 bgmAudioSource.clip = bgm_Mountain_Of_Myths;
+                bgmAudioSource.volume = volumn;
+                bgmAudioSource.PlayOneShot(bgmAudioSource.clip);
+                break;
+            
+            case "bgm_Mountain_Ambient":
+                bgmAudioSource.clip = bgm_Mountain_Ambient;
+                bgmAudioSource.volume = volumn;
+                bgmAudioSource.PlayOneShot(bgmAudioSource.clip);
+                break;
+            
+            case "bgm_River_Ambient":
+                bgmAudioSource.clip = bgm_River_Ambient;
                 bgmAudioSource.volume = volumn;
                 bgmAudioSource.PlayOneShot(bgmAudioSource.clip);
                 break;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +46,7 @@ public class GameController : MonoBehaviour
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -58,15 +59,12 @@ public class GameController : MonoBehaviour
         //{
         //    isStartLevel = false;
         //}
-
-
-
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartTheCamp();
         }
-
-
+        
         if (Input.GetKeyDown(KeyCode.T))
         {
             SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
@@ -77,14 +75,7 @@ public class GameController : MonoBehaviour
                 setupFlag = false;
             }
         }
-
-
-
         BattleConditionCheck();
-
-
-
-
     }
 
     //===========================================================
@@ -112,17 +103,13 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
-
-
     public void SetSpawningPoint(Transform characterTransform, Transform environmentCameraTransform)
     {
         SetCharacterPos(characterTransform);
         SetCameraPos(environmentCameraTransform);
     }
-
-
-    /*  Funtion that will start the battle for testing, assigned deck is required
+    
+    /*  Function that will start the battle for testing, assigned deck is required
     *  Parameters:  Argument1:  The next enemy you want to setup 
     *               Argument2 (override):  true/false, doesn't matter
     *                                     this version will allow to start battle without deck = 10 cards
