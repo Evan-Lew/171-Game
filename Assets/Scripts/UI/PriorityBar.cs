@@ -13,7 +13,7 @@ public class PriorityBar : MonoBehaviour
     public float fillSpeed = 2.0f;
     public float targetPriority = 10.0f;
     public Image mask;
-    public TextMeshProUGUI priorityAmount;
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -29,7 +29,6 @@ public class PriorityBar : MonoBehaviour
         if(slider.value < targetPriority) {
 
             slider.value += fillSpeed * Time.deltaTime;
-            priorityAmount.text = ((int)slider.value - 10).ToString();
             mask.fillAmount += fillSpeed/20 * Time.deltaTime;
             // if (!particleSys.isPlaying)
             //     particleSys.Play();
@@ -37,7 +36,6 @@ public class PriorityBar : MonoBehaviour
         } else if(slider.value > targetPriority + 0.05) {
 
             slider.value -= fillSpeed * Time.deltaTime;
-            priorityAmount.text = ((int)slider.value - 10).ToString();
             mask.fillAmount -= fillSpeed/20 * Time.deltaTime;
             // if (!particleSys.isPlaying)
             //     particleSys.Play();
