@@ -653,17 +653,20 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: everytime you banish a card, you draw a card
     bool isToxicTorment = false;
     public void ID2009_ToxicTorment()
     {
-        ParticleDuration = 3f;
+        ParticleDuration = 6f;
         Player_priorityInc = 4;
         isToxicTorment = true;
         Manipulator_Player();
         
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Multiple_Splash", 0.01f);
+        
+        // Particle positioned under the player
+        ParticleEvent("ToxicTorment", 2009, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Manipulator_Player_Reset();
