@@ -95,19 +95,19 @@ public class SoundManager : MonoBehaviour
             case "bgm_Mountain_Of_Myths":
                 bgmAudioSource.clip = bgm_Mountain_Of_Myths;
                 bgmAudioSource.volume = volumn;
-                bgmAudioSource.PlayOneShot(bgmAudioSource.clip);
+                bgmAudioSource.Play();
                 break;
             
             case "bgm_Mountain_Ambient":
                 bgmAudioSource.clip = bgm_Mountain_Ambient;
                 bgmAudioSource.volume = volumn;
-                bgmAudioSource.PlayOneShot(bgmAudioSource.clip);
+                bgmAudioSource.Play();
                 break;
             
             case "bgm_River_Ambient":
                 bgmAudioSource.clip = bgm_River_Ambient;
                 bgmAudioSource.volume = volumn;
-                bgmAudioSource.PlayOneShot(bgmAudioSource.clip);
+                bgmAudioSource.Play();
                 break;
 
             //----------Card SFX----------
