@@ -7042,6 +7042,7 @@ MonoBehaviour:
   HandManager: {fileID: 409527556}
   deckToUse:
   - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: 52eb4468d9db3f140afeba1ec330bdaf, type: 2}
   deckForCurrentBattle: []
   activeCards: []
   cardToSpawn: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
@@ -9949,7 +9950,7 @@ MonoBehaviour:
   _script_DeckSystem: {fileID: 1185248573}
   _script_HandManager: {fileID: 409527556}
   startDrawingCrads: 1
-  startingCardsAmount: 0
+  startingCardsAmount: 4
   TurnChangeAnimationDuration: 2
   currentPhase: 0
   lastPhase: 1
