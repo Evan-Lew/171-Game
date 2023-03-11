@@ -44,6 +44,9 @@ TagManager:
   - name: Orbs
     uniqueID: 2328066197
     locked: 0
+  - name: Battle Log
+    uniqueID: 1602586175
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
