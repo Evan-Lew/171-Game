@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3c1dec4005ccb4381e6c4e48afc7a9, type: 3}
-  m_Name: Laihong
+  m_Name: Peng Hou
   m_EditorClassIdentifier: 
-  characterName: Laihong
+  characterName: Peng Hou
   description_Main: 
-  Health_Total: 20
-  Health_Current: 20
+  Health_Total: 30
+  Health_Current: 30
   Priority_Initial: 0
   Priority_Current: 0
+  Pattern: 0
+  characterSprite: {fileID: 1442387331, guid: 219cd7c696240e64b92565ad6b0c6bfe, type: 3}

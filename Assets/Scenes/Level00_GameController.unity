@@ -4206,6 +4206,7 @@ MonoBehaviour:
   Player_priorityInc: 0
   Player_extraPriorityCost: 0
   Enemy_damageDealing: 0
+  Enemy_healing: 0
   Enemy_armorCreate: 0
   Enemy_priorityInc: 0
   playerParticlePrefabsList:
@@ -5828,6 +5829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemys:
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
+  - {fileID: 11400000, guid: 5c0ccff827ca5dd4791b2c9665748f3d, type: 2}
   Actions:
   - {fileID: 11400000, guid: ab6b33daa60c50b4eb898944e25041ef, type: 2}
   - {fileID: 11400000, guid: 6aaa3b4eb2f3aec4c9e0d758be2a16e5, type: 2}
@@ -7009,7 +7011,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1210810319}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 70, y: 0, z: 180}
 --- !u!1 &1193805919
 GameObject:
@@ -7075,8 +7077,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1185248574}
   - {fileID: 1558164861}
+  - {fileID: 1185248574}
   - {fileID: 409527557}
   - {fileID: 1368281153}
   - {fileID: 628737709}
@@ -9858,7 +9860,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1210810319}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1558164862
 MonoBehaviour:
@@ -12533,9 +12535,12 @@ MonoBehaviour:
   characters: {fileID: 53530623}
   player: {fileID: 950755190}
   enmey: {fileID: 24645404}
-  EnemyList:
-  - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
+  CharactersList:
+  - {fileID: 11400000, guid: 5b1b9016051e2a9478866d5e706b49a2, type: 2}
   - {fileID: 11400000, guid: 85cc55650dd5ecf4086be893b04d83cd, type: 2}
+  - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
+  - {fileID: 11400000, guid: 5c0ccff827ca5dd4791b2c9665748f3d, type: 2}
+  - {fileID: 11400000, guid: 559fd727c0ec37c46a8e4cc619082b53, type: 2}
   CamerasObj:
   - {fileID: 809714812}
   - {fileID: 1766394216}

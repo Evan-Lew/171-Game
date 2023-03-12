@@ -58,6 +58,7 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public double Player_extraPriorityCost = 0;
 
     [HideInInspector] public double Enemy_damageDealing = 0;
+    [HideInInspector] public double Enemy_healing = 0;
     [HideInInspector] public double Enemy_armorCreate = 0;
     [HideInInspector] public double Enemy_priorityInc = 0;
 
@@ -1642,6 +1643,42 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
+
+    // Deal 2 damage and heal 1, cost 3
+    public void Action_04_Siphon()
+    {
+        Enemy_priorityInc = 2f;
+        ParticleDuration = 3f;
+        Enemy_damageDealing = 2f;
+        Enemy_healing = 1f;
+        cardName = "Siphon";
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
+        ParticleEvent("BodySlam", 2, ParticleDuration, ExtraPositioning[0], false);
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Heal_ToTarget(enemy, Enemy_healing);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // Deal 2 damage and heal 1, cost 3
+    public void Action_05_Charge()
+    {
+        Enemy_priorityInc = 2f;
+        ParticleDuration = 3f;
+        cardName = "Charge";
+        descriptionLog = "Seems like Penghou wants to do something";
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
     //-----------------------------------------------------------------
     //                       FOR ENEMY ENDS
     //=================================================================
@@ -1751,8 +1788,9 @@ public class EffectDictionary : MonoBehaviour
         //enable turn change
         _script_BattleLog.ProcessLog("Enemy");
         Enemy_damageDealing = 0;
-        Enemy_priorityInc = 0;;
+        Enemy_priorityInc = 0;
         Enemy_armorCreate = 0;
+        Enemy_healing = 0;
         ParticleDuration = 0;
     }
 
@@ -1850,5 +1888,7 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Enemies.Add(1, Action_01_ThrowStone);
         effectDictionary_Enemies.Add(2, Action_02_BodySlam);
         effectDictionary_Enemies.Add(3, Action_03_Stubborn);
+        effectDictionary_Enemies.Add(4, Action_04_Siphon);
+        effectDictionary_Enemies.Add(5, Action_05_Charge);
     }
 }

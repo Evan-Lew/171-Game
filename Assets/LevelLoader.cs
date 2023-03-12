@@ -20,17 +20,6 @@ public class LevelLoader : MonoBehaviour
         loadMultipleLevels(MultipleScenesToLoad);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("This is the testing script in levelLoader");
-            //loadMultipleLevels(MultipleScenesToLoad);
-        }
-    }
-
-
-
     void EnableLoader()
     {
         loadingScreen.SetActive(true);

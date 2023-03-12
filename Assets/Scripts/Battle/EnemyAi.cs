@@ -44,6 +44,7 @@ public class EnemyAi : MonoBehaviour
     void Load()
     {
         Add_Golem();
+        Add_Penghou();
     }
 
     void Add_Golem()
@@ -58,17 +59,25 @@ public class EnemyAi : MonoBehaviour
         EnemyDictionary.Add("Ink Golem", enemysPatterns);
     }
 
+    void Add_Penghou()
+    {
+        //Add_Penghou Pattern  Siphon #6 -> Charge #24
+        attackPattern = new List<int>() { 4, 5 };
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        EnemyDictionary.Add("Peng Hou", enemysPatterns);
+    }
+
+
     public void CastUniqueAbility_Golem()
     {
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
              EffectDictionary.instance.effectDictionary_Enemies[3]();
-            // _Text_Log.text = "The Ink Golem is too STUBBORN to attack. <color=red>Armor + 1</color>";
         }, 0.5f));
         
     }
     
-
     public void EnemyAction(string enemyName)
     {
         if (EnemyDictionary.ContainsKey(enemyName))
@@ -77,7 +86,7 @@ public class EnemyAi : MonoBehaviour
         }
         else
         {
-            Debug.Log("Error: No enemy found");
+            Debug.Log("Error: EnemyAction(enemyName) in EnemyAi. No enemy found");
         }
     }
 

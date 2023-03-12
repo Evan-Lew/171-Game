@@ -6,11 +6,7 @@ using UnityEngine;
 
 public class DeckSystem : MonoBehaviour
 {
-
     bool enable_DeckSystem = false;
-
-
-
     public HandManager HandManager;
 
     // deckToUse is a public list for the cards we want to use
@@ -101,35 +97,38 @@ public class DeckSystem : MonoBehaviour
         }
     }
 
-
     // Draw cards from activeCards
+    [HideInInspector] public bool enableDrawing = true;
     public void DrawCardToHand()
     {
-        //Debug.Log(activeCards.Count);
-        //draw only if the hand cards not reaching the limit
-        if (deckToUse.Count != 0)
+        if (enableDrawing)
         {
-            if (HandManager.player_hands_holdCards.Count <= drawLimit)
+            //draw only if the hand cards not reaching the limit
+            if (deckToUse.Count != 0)
             {
-                // Check if there are cards to draw from activeCards
-                if (activeCards.Count == 0)
+                if (HandManager.player_hands_holdCards.Count <= drawLimit)
                 {
-                    SetupDeck();
+                    // Check if there are cards to draw from activeCards
+                    if (activeCards.Count == 0)
+                    {
+                        SetupDeck();
+                    }
+                    // Create a copy of the card prefab
+                    Card newCard = Instantiate(cardToSpawn, drawFromPos.position, transform.rotation);
+                    newCard.cardData = activeCards[0];
+                    newCard.cardState = Card.state.Handcard;
+                    newCard.loadCard();
+
+                    activeCards.RemoveAt(0);
+
+                    // Use HandManager static instance
+                    HandManager.AddCardToHand(newCard);
                 }
-                // Create a copy of the card prefab
-                Card newCard = Instantiate(cardToSpawn, drawFromPos.position, transform.rotation);
-                newCard.cardData = activeCards[0];
-                newCard.cardState = Card.state.Handcard;
-                newCard.loadCard();
-
-                activeCards.RemoveAt(0);
-
-                // Use HandManager static instance
-                HandManager.AddCardToHand(newCard);
             }
         }
-
     }
+
+
 
     public void DrawMultipleCards(int amountToDraw)
     {
@@ -144,5 +143,21 @@ public class DeckSystem : MonoBehaviour
             DrawCardToHand();
             yield return new WaitForSeconds(timeBetweenDrawingCards);
         }
+    }
+
+    public void DrawMultipleCardsThenStopDrawFeature(int amountToDraw)
+    {
+        enableDrawing = true;
+        StartCoroutine(DrawMultipleThenStopDrawFeatureCoroutine(amountToDraw));
+    }
+
+    IEnumerator DrawMultipleThenStopDrawFeatureCoroutine(int amountToDraw)
+    {
+        for (int i = 0; i < amountToDraw; i++)
+        {
+            DrawCardToHand();
+            yield return new WaitForSeconds(timeBetweenDrawingCards);
+        }
+        enableDrawing = false;
     }
 }

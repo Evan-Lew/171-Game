@@ -4,7 +4,7 @@ using UnityEngine;
 public class HandManager : MonoBehaviour
 {
     bool enable_HandManager = false;
-    
+
     // List for cards on the hand
     public List<Card> player_hands_holdCards = new List<Card>();
     // List for all card position can be hold in hands
@@ -26,7 +26,7 @@ public class HandManager : MonoBehaviour
             //reserved for any check
         }
     }
-    
+
     public void SetActive(bool setFlag)
     {
         if (setFlag)
@@ -163,7 +163,7 @@ public class HandManager : MonoBehaviour
         player_hands_holdCards.Add(cardToAdd);
         SetCardPositionsInHand();
     }
-    
+
     //==============================================
     //         Helper Function for this script
     //==============================================

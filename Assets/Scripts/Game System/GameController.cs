@@ -20,12 +20,11 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject characters;
     [SerializeField] GameObject player, enmey;
-    [SerializeField] List<Character_Basedata> EnemyList = new();
+    [SerializeField] List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
     [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;
-
     //set position -- character and enemy
     [SerializeField] List<GameObject> CharacterSpawningPoint_List = new();
     [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
@@ -38,8 +37,13 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool isStartLevel = false;
 
 
+
+    public static GameController instance;
+
     private void Awake()
     {
+        instance = this;
+
         //SceneManager.LoadScene("Main Menu");
         characters.SetActive(false);
         //SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
@@ -71,7 +75,8 @@ public class GameController : MonoBehaviour
             setupFlag = true;
             if (setupFlag)
             {
-                StartTheBattle(GetEnemy("Ink Golem"), true);
+
+                StartTheBattle(GetCharacter("Ink Golem"), true);
                 setupFlag = false;
             }
         }
@@ -109,6 +114,9 @@ public class GameController : MonoBehaviour
         SetCameraPos(environmentCameraTransform);
     }
     
+
+
+
     /*  Function that will start the battle for testing, assigned deck is required
     *  Parameters:  Argument1:  The next enemy you want to setup 
     *               Argument2 (override):  true/false, doesn't matter
@@ -141,6 +149,10 @@ public class GameController : MonoBehaviour
     {
         CampSystemSetUp();
     }
+
+
+
+
     //                GameController API End
     //===========================================================
 
@@ -162,20 +174,38 @@ public class GameController : MonoBehaviour
      * Parameters: Argument1:  Target Enemy Name
      * Return:     Character_Basedata an Enemy basedata or error if enemy is not found or not unique
      */
-    private Character_Basedata GetEnemy(string name)
+    private Character_Basedata GetCharacter(string name)
     {
         Character_Basedata result;
-        result = EnemyList.Where(enemyBasedata => enemyBasedata.name == name).SingleOrDefault();
+        result = CharactersList.Where(Basedata => Basedata.name == name).SingleOrDefault();
         if (result != null)
         {
             return result;
         }
         else
         {
-            Debug.Log("Error: GetEnemy() in GameController. No such enemy is found or enmey is not unique");
+            Debug.Log("Error: GetCharacter() in GameController. No such character is found or character is not unique");
             return result;
         }
     }
+
+
+    //setup function for tutorial only
+    public void TutorialBattleSetup()
+    {
+        SetCharacter(characterType.enemy, GetCharacter("Peng Hou"));
+        SetCharacter(characterType.player, GetCharacter("Xu Xian"));
+        characters.SetActive(true);
+        //implement the character reassignment here
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_HandManager.SetUp();
+        _script_DeckSystem.SetUp();
+        _script_BattleController.SetUp();
+        _script_EffectDictionary.SetUp();
+    }
+
+
 
     //StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
     /*  Function that will setup battle system
@@ -186,7 +216,7 @@ public class GameController : MonoBehaviour
     void BattleSystemSetUp(Character_Basedata enemy)
     {
         //don't change order of call
-        SetEnemy(enemy);
+        SetCharacter(characterType.enemy,enemy);
         characters.SetActive(true);
         //implement the character reassignment here
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
@@ -214,16 +244,23 @@ public class GameController : MonoBehaviour
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), true);
     }
 
-
-    //BattleSystemSetUp(Character_Basedata enemy)
-    void SetEnemy(Character_Basedata newEnemy)
+    enum characterType {player, enemy}
+    void SetCharacter(characterType characterTarger, Character_Basedata newCharacter)
     {
-        Character enemyCharacter = enmey.GetComponent<Character>();
-        enemyCharacter.CharacterData = newEnemy;
-        enemyCharacter.SetUp();
+        if (characterTarger == characterType.enemy)
+        {
+            Character enemyCharacter = enmey.GetComponent<Character>();
+            enemyCharacter.CharacterData = newCharacter;
+            enemyCharacter.SetUp();
+        }
+        else if (characterTarger == characterType.player)
+        {
+            Character playerCharacter = player.GetComponent<Character>();
+            playerCharacter.CharacterData = newCharacter;
+            playerCharacter.SetUp();
+        }
+
     }
-
-
 
     //SetSpawningPoint()
     private void SetCharacterPos(Transform targetTrans)
