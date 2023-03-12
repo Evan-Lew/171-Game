@@ -6998,6 +6998,7 @@ MonoBehaviour:
   timeBetweenDrawingCards: 0.25
   drawLimit: 6
   drawFromPos: {fileID: 1575415034}
+  enableDrawing: 1
 --- !u!4 &1185248574
 Transform:
   m_ObjectHideFlags: 0

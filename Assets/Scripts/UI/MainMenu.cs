@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
         SoundManager.bgmAudioSource.Stop();
         //note the 2 means the 2 index of building list
         _script_GameController.isDeckELevel = true;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Level01");
     }
 
     public void CreditsGame()

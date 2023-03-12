@@ -6,6 +6,9 @@ using System.Linq;
 
 public class TutorialSetup : MonoBehaviour
 {
+    [SerializeField] GameObject tutorial01;
+    [SerializeField] GameObject tutorial02;
+    [SerializeField] GameObject tutorial03;
     [SerializeField] List<Card_Basedata> tutorialCards_P1;
     [SerializeField] List<Card_Basedata> tutorialCards_P2;
     [SerializeField] List<Card_Basedata> tutorialCards_P3;
@@ -52,13 +55,13 @@ public class TutorialSetup : MonoBehaviour
         }
 
         //key for testing, for move the keytesting once the editiing is complete
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Phase_2_Setup();
-        } else if (Input.GetKeyDown(KeyCode.K))
-        {
-            Phase_3_Setup();
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    Phase_2_Setup();
+        //} else if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    Phase_3_Setup();
+        //}
     }
 
     void Phase_1_Setup()
@@ -73,6 +76,11 @@ public class TutorialSetup : MonoBehaviour
         isPhase1Set = true;
 
         _DeckSystem.DrawMultipleCardsThenStopDrawFeature(2);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Time.timeScale = 0;
+            tutorial01.SetActive(true);
+        }, 2.5f));
     }
 
     void Phase_2_Setup()
@@ -87,6 +95,11 @@ public class TutorialSetup : MonoBehaviour
         }
         _DeckSystem.DrawMultipleCardsThenStopDrawFeature(2);
         isPhase2Set = true;
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Time.timeScale = 0;
+            tutorial02.SetActive(true);
+        }, 9f));
     }
 
     void Phase_3_Setup()
@@ -102,6 +115,11 @@ public class TutorialSetup : MonoBehaviour
         }
         _DeckSystem.DrawMultipleCards(3);
         tutorialEnd = true;
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Time.timeScale = 0;
+            tutorial03.SetActive(true);
+        }, 12f));
     }
 
     void Backupdata()
