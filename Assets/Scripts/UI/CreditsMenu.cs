@@ -32,7 +32,7 @@ public class CreditsMenu : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         SoundManager.bgmAudioSource.Stop();
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Level00_MainMenu");
     }
     
     public void Next()

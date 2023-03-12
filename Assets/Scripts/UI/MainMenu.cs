@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         SoundManager.bgmAudioSource.Stop();
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Level00_Credits");
     }
 
     public void QuitGame()
