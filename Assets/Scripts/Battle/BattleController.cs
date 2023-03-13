@@ -175,7 +175,7 @@ public class BattleController : MonoBehaviour
 
     void SpecialHandling_AtEndPlayerTurn()
     {
-        if (enemy.CharacterName == _script_EnemyAi.Enemys[0].characterName)
+        if (enemy.CharacterName == "Ink Golem")
         {
             _script_EnemyAi.CastUniqueAbility_Golem();
             currentPhase = nextPhase;

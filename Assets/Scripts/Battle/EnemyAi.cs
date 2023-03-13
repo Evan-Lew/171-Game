@@ -20,9 +20,6 @@ public class EnemyAi : MonoBehaviour
      */
     //=======================================================
 
-    [Header("Order Must Not Be Changed")]
-    [Header("Enemy")]
-    public List<Character_Basedata> Enemys;
     [Header("Action# = index")]
     public List<Card_Basedata> Actions;
 
@@ -82,7 +79,7 @@ public class EnemyAi : MonoBehaviour
     {
         if (EnemyDictionary.ContainsKey(enemyName))
         {
-            EnemyActionUtil(enemyName, Enemys[Enemys.FindIndex(x => x.name == enemyName)].Pattern);
+            EnemyActionUtil(enemyName, GameController.instance.CharactersList[GameController.instance.CharactersList.FindIndex(x => x.name == enemyName)].Pattern);
         }
         else
         {

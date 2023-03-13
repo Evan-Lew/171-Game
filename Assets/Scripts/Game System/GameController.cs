@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject characters;
     [SerializeField] GameObject player, enmey;
-    [SerializeField] List<Character_Basedata> CharactersList = new();
+    public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
     [Header("Don't change order!")]

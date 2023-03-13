@@ -119,7 +119,7 @@ public class TutorialSetup : MonoBehaviour
         {
             Time.timeScale = 0;
             tutorial03.SetActive(true);
-        }, 12f));
+        }, 11f));
     }
 
     void Backupdata()
