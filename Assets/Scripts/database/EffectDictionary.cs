@@ -1743,8 +1743,8 @@ public class EffectDictionary : MonoBehaviour
     public void HazeDamage(){
         Enemy_priorityInc = 0f;
         ParticleDuration = 3f;
-        cardName = "Haze Damage"
-        descriptionLog = "Damage"
+        cardName = "Haze Damage";
+        descriptionLog = "Damage";
         Enemy_damageDealing = 1;
 
         // No manipulator because static
@@ -1763,7 +1763,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         cardName = "Roost";
         descriptionLog = "Zhenniao is now weak to ground this turn";
-        Enemy_healing = 4
+        Enemy_healing = 4;
         Manipulator_Enemy();
         SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
