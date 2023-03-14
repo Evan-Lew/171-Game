@@ -16,8 +16,8 @@ MonoBehaviour:
   rirty: 0
   cardActivity: 0
   cardName: Siphon
-  ID: 4
-  description_Main: Deal 2 damage and heal 1
+  ID: 6
+  description_Main: Avoid the next time you take damage
   description_Log: 
   priorityCost: 3
   Card_Front: {fileID: 0}

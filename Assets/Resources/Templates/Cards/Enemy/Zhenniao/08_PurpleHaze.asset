@@ -16,10 +16,11 @@ MonoBehaviour:
   rirty: 0
   cardActivity: 0
   cardName: Siphon
-  ID: 4
-  description_Main: Deal 2 damage and heal 1
+  ID: 8
+  description_Main: 'ENV: At the end of the player''s turn, deal 1 damage to the
+    player'
   description_Log: 
-  priorityCost: 3
+  priorityCost: 5
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
   icon: {fileID: 0}
