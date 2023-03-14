@@ -1568,6 +1568,9 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                        ENEMY EFFECTS
     //-----------------------------------------------------------------
+
+    // GOLEM
+
     // Deal 3 damage, cost 2
     public void Action_01_ThrowStone()
     {
@@ -1643,6 +1646,7 @@ public class EffectDictionary : MonoBehaviour
         
     }
 
+    // PENGHOU
 
     // Deal 2 damage and heal 1, cost 3
     public void Action_04_Siphon()
@@ -1679,6 +1683,99 @@ public class EffectDictionary : MonoBehaviour
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
+
+    // ZHENNIAO
+
+    // IMPLEMENTED
+
+    public void Action_06_BlindingFog(){
+        Enemy_priorityInc = 3f;
+        ParticleDuration = 3f;
+        cardName = "Blinding Fog";
+        descriptionLog = "1 Green Mana and a Colorless";
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            isDealingNoDmg = true;
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // NOT IMPLEMENTED, DOES NOT REPEAT
+
+    public void Action_07_RazorQuills()
+    {
+        Enemy_priorityInc = 2f;
+        ParticleDuration = 3f;
+        cardName = "Razor Quills";
+        descriptionLog = "Sharp";
+        Enemy_damageDealing = 1;
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // Deals damage at the end of enemy turn instead of player turn
+
+    public void Action_08_PurpleHaze()
+    {
+        Enemy_priorityInc = 2f;
+        ParticleDuration = 3f;
+        cardName = "Purple Haze";
+        descriptionLog = "ISTHATAMFINGJOJOREFERENCE?!?!??";
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            HazeDamage();
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    public void HazeDamage(){
+        Enemy_priorityInc = 0f;
+        ParticleDuration = 3f;
+        cardName = "Haze Damage"
+        descriptionLog = "Damage"
+        Enemy_damageDealing = 1;
+
+        // No manipulator because static
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Manipulator_Enemy_Reset(specialHandling.CastAt_enemyEnd);
+        }, ParticleDuration / 2));
+    }
+
+    // Partially implemented, does 2x damage with next card instead of whole turn
+
+    public void Action_09_Roost()
+    {
+        Enemy_priorityInc = 2f;
+        ParticleDuration = 3f;
+        cardName = "Roost";
+        descriptionLog = "Zhenniao is now weak to ground this turn";
+        Enemy_healing = 4
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            player.Armor_Current = 0;
+            Heal_ToTarget(enemy, Enemy_healing);
+            isDealingDoubleDmg = true;
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
     //-----------------------------------------------------------------
     //                       FOR ENEMY ENDS
     //=================================================================
@@ -1691,6 +1788,7 @@ public class EffectDictionary : MonoBehaviour
     bool isDealingExtraDmg = false;
     bool isDealingDoubleDmg = false;
     bool isCostingExtraPriority = false;
+    bool isDealingNoDmg = false;
 
     //<-----------Player-------------------------------------------------
     //this will be called for all player effect to check all flags
@@ -1706,6 +1804,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_DealingExtra();
         Manipulator_Player_CostExtra();
         Manipulator_Player_DealingDouble();
+        Manipulator_Player_DealingNone();
         PriorityIncrement(player, Player_priorityInc);
     }
 
@@ -1773,6 +1872,18 @@ public class EffectDictionary : MonoBehaviour
        
     }
     
+    //Helper func :  Next Card dealing no damage
+    void Manipulator_Player_DealingNone()
+    {
+        //cards that apply extra damage
+        //setup the extra damage and turn the flag to off
+        if (isDealingNoDmg && Player_damageDealing != 0)
+        {
+            Player_damageDealing = 0;
+            isDealingNoDmg = false;
+        }
+    }
+
     //<-----------Enemy-------------------------------------------------
     void Manipulator_Enemy()
     {
@@ -1800,7 +1911,7 @@ public class EffectDictionary : MonoBehaviour
         {
             _script_BattleLog.ProcessLog("Enemy");
             Enemy_damageDealing = 0;
-            Enemy_priorityInc = 0; ;
+            Enemy_priorityInc = 0;
             Enemy_armorCreate = 0;
             ParticleDuration = 0;
         }
@@ -1890,5 +2001,6 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Enemies.Add(3, Action_03_Stubborn);
         effectDictionary_Enemies.Add(4, Action_04_Siphon);
         effectDictionary_Enemies.Add(5, Action_05_Charge);
+        effectDictionary_Enemies.Add(6, Action_06_BlindingFog);
     }
 }
