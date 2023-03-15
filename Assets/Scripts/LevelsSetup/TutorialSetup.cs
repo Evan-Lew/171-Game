@@ -6,9 +6,15 @@ using System.Linq;
 
 public class TutorialSetup : MonoBehaviour
 {
+    [Header("Every Tutorial GameObject")]
     [SerializeField] GameObject tutorial01;
     [SerializeField] GameObject tutorial02;
     [SerializeField] GameObject tutorial03;
+    
+    [Header("Tutorial01 Pages")]
+    [SerializeField] List<GameObject> tutorial01_Pages;
+
+    [Header("Lists of Cards for the Tutorials")]
     [SerializeField] List<Card_Basedata> tutorialCards_P1;
     [SerializeField] List<Card_Basedata> tutorialCards_P2;
     [SerializeField] List<Card_Basedata> tutorialCards_P3;
@@ -72,6 +78,7 @@ public class TutorialSetup : MonoBehaviour
         {
             _DeckSystem.deckToUse.Add(card);
         }
+
         GameController.instance.TutorialBattleSetup();
         isPhase1Set = true;
 
@@ -93,6 +100,7 @@ public class TutorialSetup : MonoBehaviour
             _DeckSystem.deckToUse.Add(card);
             _DeckSystem.deckForCurrentBattle.Add(card);
         }
+
         _DeckSystem.DrawMultipleCardsThenStopDrawFeature(2);
         isPhase2Set = true;
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -113,6 +121,7 @@ public class TutorialSetup : MonoBehaviour
             _DeckSystem.deckToUse.Add(card);
             _DeckSystem.deckForCurrentBattle.Add(card);
         }
+
         _DeckSystem.DrawMultipleCards(3);
         tutorialEnd = true;
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -129,12 +138,26 @@ public class TutorialSetup : MonoBehaviour
         _DeckSystem.enableDrawing = true;
     }
 
-
     private void OnDestroy()
     {
         Backupdata();
     }
 
+    public void NextButton()
+    {
+        if (tutorial01.activeSelf && tutorial01_Pages[0].activeSelf)
+        {
+            tutorial01_Pages[0].SetActive(false);
+            tutorial01_Pages[1].SetActive(true);
+        }
+    }
 
-
+    public void PrevButton()
+    {
+        if (tutorial01.activeSelf && tutorial01_Pages[1].activeSelf)
+        {
+            tutorial01_Pages[1].SetActive(false);
+            tutorial01_Pages[0].SetActive(true);
+        }
+    }
 }
