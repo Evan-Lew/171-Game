@@ -152,6 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1551659307}
+  - {fileID: 707148469}
   m_Father: {fileID: 1893479909}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -281,7 +282,7 @@ GameObject:
   - component: {fileID: 707148469}
   - component: {fileID: 707148471}
   - component: {fileID: 707148470}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,14 +296,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707148468}
-  m_LocalRotation: {x: 0.16897506, y: -0.55225503, z: 0.55604666, w: 0.597724}
-  m_LocalPosition: {x: 2604, y: 1014.229, z: -4063}
+  m_LocalRotation: {x: -0.14918111, y: 0.57307166, z: -0.5616807, w: -0.57779646}
+  m_LocalPosition: {x: -0.91554797, y: -5.4565353, z: 2.1745925}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 959614667}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 54.702, y: -54.819, z: 55.832}
+  m_Father: {fileID: 4875958}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 54.702, y: 301.123, z: 55.832}
 --- !u!114 &707148470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,8 +335,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9751109, g: 0.990566, b: 0.7896493, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.7882353, g: 0.8557908, b: 0.99215686, a: 1}
+  m_Intensity: 0.6
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -347,7 +348,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.19
+    m_NearPlane: 0.29
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -377,7 +378,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.25
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -464,7 +465,6 @@ Transform:
   m_Children:
   - {fileID: 832575519}
   - {fileID: 410087041}
-  - {fileID: 707148469}
   m_Father: {fileID: 1893479909}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
