@@ -24,9 +24,9 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.000667496, g: 0.047169805, b: 0.0071526235, a: 1}
   m_AmbientGroundColor: {r: 0.0028034954, g: 0.009433985, b: 0.0042569404, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 1
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 714a3e543be4d6b4c9d6c14485832f4b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.6644321, g: 0.73217475, b: 0.71150655, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5827,9 +5827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeeebb9efbab1841a7f2ea274ed1998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemys:
-  - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
-  - {fileID: 11400000, guid: 5c0ccff827ca5dd4791b2c9665748f3d, type: 2}
   Actions:
   - {fileID: 11400000, guid: ab6b33daa60c50b4eb898944e25041ef, type: 2}
   - {fileID: 11400000, guid: 6aaa3b4eb2f3aec4c9e0d758be2a16e5, type: 2}
