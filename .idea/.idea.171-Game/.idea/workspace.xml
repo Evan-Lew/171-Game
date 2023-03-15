@@ -2,46 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/3 Cards Tutorial (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/3 Cards Tutorial (1).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/3 Cards Tutorial (2).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/3 Cards Tutorial (2).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/3 Cards Tutorial (3).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/3 Cards Tutorial (3).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Assassin's Teapot Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Assassin's Teapot Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Forbidden Venom Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Forbidden Venom Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Foretold Fortune Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Foretold Fortune Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Jade Spirit Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Jade Spirit Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Payment Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Payment Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Serpent Cutlass Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Serpent Cutlass Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Shed Skin Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Shed Skin Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Whack Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Whack Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/White Scales Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/White Scales Tutorial.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Wisdom Of Wisteria Tutorial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Wisdom Of Wisteria Tutorial.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Cost.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Cost.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Description.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF Description.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF PlayerTurn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF PlayerTurn.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua_B SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/Perpetua_B SDF.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Scroll UI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/UI/Scroll UI.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Prefab/Tutorial Template.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Prefab/Tutorial Template.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_Environment.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_Environment.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
