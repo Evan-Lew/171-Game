@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.002
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.43961373, g: 0.8396226, b: 0.5471639, a: 1}
@@ -6509,14 +6509,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014714790}
-  m_LocalRotation: {x: -0.005896218, y: -0.93825406, z: -0.15156901, w: -0.31092048}
-  m_LocalPosition: {x: -289.2, y: 77.2, z: -158.4}
+  m_LocalRotation: {x: 0.0035201758, y: -0.95573896, z: -0.15164283, w: -0.25210142}
+  m_LocalPosition: {x: -156.82, y: 73.84, z: -115.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1721180680}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -16.956, y: 149.823, z: 4.181}
 --- !u!1 &1050071594
 GameObject:
   m_ObjectHideFlags: 0
@@ -7217,8 +7217,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243851505}
-  m_LocalRotation: {x: -0.050612975, y: -0.80370766, z: -0.14299037, w: -0.57536596}
-  m_LocalPosition: {x: -283, y: 51.9, z: -135.7}
+  m_LocalRotation: {x: -0.05061298, y: -0.80370766, z: -0.14299037, w: -0.575366}
+  m_LocalPosition: {x: -150.9, y: 71.6, z: -110.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12545,10 +12545,12 @@ MonoBehaviour:
   - {fileID: 1487496231}
   - {fileID: 1711219749}
   - {fileID: 1482934651}
-  CharacterSpawningPoint_List: []
-  CameraSpawningPoint_List: []
-  TargetCharacterPos: {fileID: 2125384810}
-  TargetCameraPos: {fileID: 544739180}
+  CharacterSpawningPoint_List:
+  - {fileID: 1243851505}
+  CameraSpawningPoint_List:
+  - {fileID: 1014714790}
+  TargetCharacterPos: {fileID: 1243851505}
+  TargetCameraPos: {fileID: 1014714790}
   isDeckELevel: 0
   isStartLevel: 0
 --- !u!114 &2137971098

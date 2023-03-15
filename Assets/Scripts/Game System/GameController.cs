@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
 
         //SceneManager.LoadScene("Main Menu");
         characters.SetActive(false);
-        //SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
+        SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
     }
