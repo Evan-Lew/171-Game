@@ -59,13 +59,13 @@ public class PrioritySystem : MonoBehaviour
         priorityDict[character] = temp_changeCost;
         character.Priority_Current = priorityDict[character];
 
-        double priorityDifference = priorityDict[playerKey] * 2 - totalPriority;
+        // double priorityDifference = priorityDict[playerKey] * 2 - totalPriority;
         // Debug.Log(priorityDict[playerKey]/totalPriority);
         // Debug.Log(priorityDict[playerKey]/totalPriority < 1-(priorityDict[playerKey]/totalPriority));
         // Debug.Log(priorityDict[playerKey]);
         // Debug.Log(priorityDifference);
         // Debug.Log(totalPriority);
-        priorityBar.moveBar(priorityDifference + 10);
+        priorityBar.moveBar();
         
     }
 

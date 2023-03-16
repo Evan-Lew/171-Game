@@ -11,8 +11,10 @@ public class PriorityBar : MonoBehaviour
     private Slider slider;
     private ParticleSystem particleSys;
     public float fillSpeed = 2.0f;
-    public float targetPriority = 10.0f;
+    public double targetPriority = 10.0f;
     public Image mask;
+    public Character player;
+    public Character enemy;
 
 
     // Start is called before the first frame update
@@ -45,7 +47,7 @@ public class PriorityBar : MonoBehaviour
         }
     }
 
-    public void moveBar(double newValue){
-        targetPriority = (float)newValue;
+    public void moveBar(){
+        targetPriority = enemy.Priority_Current - player.Priority_Current + 10;
     }
 }

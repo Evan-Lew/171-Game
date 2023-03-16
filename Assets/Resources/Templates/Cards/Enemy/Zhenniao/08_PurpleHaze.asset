@@ -15,7 +15,7 @@ MonoBehaviour:
   cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Siphon
+  cardName: Purple Haze
   ID: 8
   description_Main: 'ENV: At the end of the player''s turn, deal 1 damage to the
     player'
