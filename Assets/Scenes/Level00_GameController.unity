@@ -11871,6 +11871,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6361353436156954174, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 24645405}
+    - target: {fileID: 6361353436156954174, guid: 8650a1fcadfb1d14aad82aef2b431ede,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 950755192}
     - target: {fileID: 6361353436156954175, guid: 8650a1fcadfb1d14aad82aef2b431ede,
         type: 3}
       propertyPath: m_Value
