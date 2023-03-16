@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 06_BlindingFog
+  m_Name: 12_BreathOfLife
   m_EditorClassIdentifier: 
   cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Blinding Fog
-  ID: 6
-  description_Main: Avoid the next time you take damage
+  cardName: Breath Of Life
+  ID: 12
+  description_Main: Deal 4 damage, Heal 7, Gain 7 Armor
   description_Log: 
-  priorityCost: 3
+  priorityCost: 7
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
   icon: {fileID: 0}

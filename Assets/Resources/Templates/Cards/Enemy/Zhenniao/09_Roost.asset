@@ -15,7 +15,7 @@ MonoBehaviour:
   cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Siphon
+  cardName: Roost
   ID: 9
   description_Main: Remove all player armor. Heal 4. Until next turn, this monster
     takes 2x damage

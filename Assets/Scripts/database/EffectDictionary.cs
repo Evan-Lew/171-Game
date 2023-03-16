@@ -1776,6 +1776,86 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
+
+    public void Action_10_Stomp()
+    {
+        Enemy_priorityInc = 7f;
+        ParticleDuration = 3f;
+        cardName = "Stomp";
+        descriptionLog = "Stompy";
+        Enemy_damageDealing = 4;
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // IMPLEMENTED
+
+    public void Action_11_Solidify()
+    {
+        Enemy_priorityInc = 7f;
+        ParticleDuration = 3f;
+        cardName = "Solidify";
+        descriptionLog = "Solidy";
+        Enemy_armorCreate = 4;
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // IMPLEMENTED
+
+    public void Action_12_BreathOfLife()
+    {
+        Enemy_priorityInc = 7f;
+        ParticleDuration = 3f;
+        cardName = "Breath of Life";
+        descriptionLog = "Big Qi";
+        Enemy_damageDealing = 4;
+        Enemy_healing = 7;
+        Enemy_armorCreate = 7;
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Heal_ToTarget(enemy, Enemy_healing);
+            CreateArmor_ToTarget(enemy, Enemy_armorCreate);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // Implemented
+
+    public void Action_13_Monsterize()
+    {
+        Enemy_priorityInc = 0f;
+        ParticleDuration = 3f;
+        cardName = "Monsterize";
+        descriptionLog = "x3";
+
+        Manipulator_Enemy();
+        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            enemyIsDealingTripleDamage = true;
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
     //-----------------------------------------------------------------
     //                       FOR ENEMY ENDS
     //=================================================================
@@ -1789,6 +1869,7 @@ public class EffectDictionary : MonoBehaviour
     bool isDealingDoubleDmg = false;
     bool isCostingExtraPriority = false;
     bool isDealingNoDmg = false;
+    // bool isDamageReflected = false;
 
     //<-----------Player-------------------------------------------------
     //this will be called for all player effect to check all flags
@@ -1803,8 +1884,9 @@ public class EffectDictionary : MonoBehaviour
         }
         Manipulator_Player_DealingExtra();
         Manipulator_Player_CostExtra();
-        Manipulator_Player_DealingDouble();
         Manipulator_Player_DealingNone();
+        Manipulator_Player_DealingDouble();
+
         PriorityIncrement(player, Player_priorityInc);
     }
 
@@ -1885,12 +1967,17 @@ public class EffectDictionary : MonoBehaviour
     }
 
     //<-----------Enemy-------------------------------------------------
+    bool enemyIsDealingTripleDamage = false;
+
     void Manipulator_Enemy()
     {
         if (ParticleDuration < 2f)
         {
             ParticleDuration = 2f;
         }
+
+        Manipulator_Enemy_DealingTriple();
+
         PriorityIncrement(enemy, Enemy_priorityInc);
     }
 
@@ -1914,6 +2001,14 @@ public class EffectDictionary : MonoBehaviour
             Enemy_priorityInc = 0;
             Enemy_armorCreate = 0;
             ParticleDuration = 0;
+        }
+    }
+
+    void Manipulator_Enemy_DealingTriple(){
+        if (enemyIsDealingTripleDamage && Enemy_damageDealing != 0)
+        {
+            Enemy_damageDealing *= 3;
+            enemyIsDealingTripleDamage = false;
         }
     }
 
@@ -2002,5 +2097,13 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Enemies.Add(4, Action_04_Siphon);
         effectDictionary_Enemies.Add(5, Action_05_Charge);
         effectDictionary_Enemies.Add(6, Action_06_BlindingFog);
+        effectDictionary_Enemies.Add(7, Action_07_RazorQuills);
+        effectDictionary_Enemies.Add(8, Action_08_PurpleHaze);
+        effectDictionary_Enemies.Add(9, Action_09_Roost);
+        effectDictionary_Enemies.Add(10, Action_10_Stomp);
+        effectDictionary_Enemies.Add(11, Action_11_Solidify);
+        effectDictionary_Enemies.Add(12, Action_12_BreathOfLife);
+        effectDictionary_Enemies.Add(13, Action_13_Monsterize);
+
     }
 }

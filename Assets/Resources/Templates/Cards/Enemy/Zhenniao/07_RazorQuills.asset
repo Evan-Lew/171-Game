@@ -15,7 +15,7 @@ MonoBehaviour:
   cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Siphon
+  cardName: Razor Quills
   ID: 7
   description_Main: Deal 1 damage, replay this action until priority is greater than
     the player's

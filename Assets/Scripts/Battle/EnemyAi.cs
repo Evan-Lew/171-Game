@@ -42,6 +42,8 @@ public class EnemyAi : MonoBehaviour
     {
         Add_Golem();
         Add_Penghou();
+        Add_Zhenniao();
+        Add_StoneRuishi();
     }
 
     void Add_Golem()
@@ -63,6 +65,25 @@ public class EnemyAi : MonoBehaviour
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Peng Hou", enemysPatterns);
+    }
+
+    // NOT IMPLEMENTED
+
+    void Add_Zhenniao(){
+        attackPattern = new List<int>() { 4, 5 };
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        EnemyDictionary.Add("Zhenniao", enemysPatterns);
+    }
+
+    // NOT IMPLEMENTED
+
+    void Add_StoneRuishi()
+    {
+        attackPattern = new List<int>() { 4, 5 };
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        EnemyDictionary.Add("Stone Ruishi", enemysPatterns);
     }
 
 
