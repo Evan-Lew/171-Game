@@ -2,9 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Stone RuiShi.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Stone RuiShi/BreathOfLife.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Stone RuiShi/BreathOfLife.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Stone RuiShi/Solidify.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Stone RuiShi/Solidify.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Stone RuiShi/Stomp.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Stone RuiShi/Stomp.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths_Loop.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths_Loop.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Misc/Transition.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Misc/Transition.wav.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Penghou/Charge.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Penghou/Charge.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_28_Materials/Effect_28_Beam.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_28_Materials/Effect_28_Beam.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_28_Materials/Effect_28_Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_28_Materials/Effect_28_Line.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_28_Materials/Effect_28_Sphere.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_28_Materials/Effect_28_Sphere.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_2(ScriptBased)/Materials/Effect_13_Materials/Effect_13_ChargeMesh.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_2(ScriptBased)/Materials/Effect_13_Materials/Effect_13_ChargeMesh.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_2(ScriptBased)/Materials/Effect_13_Materials/Effect_13_HitSphere.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_2(ScriptBased)/Materials/Effect_13_Materials/Effect_13_HitSphere.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/database/EffectDictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/database/EffectDictionary.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +32,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/CreditsMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/GraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -96,6 +117,7 @@
       <workItem from="1678513173809" duration="1202000" />
       <workItem from="1678567653517" duration="945000" />
       <workItem from="1678984345498" duration="3531000" />
+      <workItem from="1678988532637" duration="4624000" />
     </task>
     <servers />
   </component>

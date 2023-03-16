@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn, sfx_Action_04_Drain, sfx_Action_05_Charge;
 
     // Misc
-    [HideInInspector] public static AudioClip sfx_Page_Flip, sfx_Scroll_Open;
+    [HideInInspector] public static AudioClip sfx_Page_Flip, sfx_Scroll_Open, sfx_Transition;
     
     // AudioSources
     [HideInInspector] public static AudioSource bgmAudioSource;
@@ -77,6 +77,7 @@ public class SoundManager : MonoBehaviour
         // Loading misc audio files
         sfx_Page_Flip = Resources.Load<AudioClip>("SFX/Misc/Page_Flip");
         sfx_Scroll_Open = Resources.Load<AudioClip>("SFX/Misc/Scroll_Open");
+        sfx_Transition = Resources.Load<AudioClip>("SFX/Misc/Transition");
         
         // Get AudioSource components
         sfxAudioSource = GetComponent<AudioSource>();
@@ -252,6 +253,12 @@ public class SoundManager : MonoBehaviour
             
             case "sfx_Scroll_Open":
                 sfxAudioSource.clip = sfx_Scroll_Open;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Transition":
+                sfxAudioSource.clip = sfx_Transition;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;

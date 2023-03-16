@@ -1691,7 +1691,6 @@ public class EffectDictionary : MonoBehaviour
     // ZHENNIAO
 
     // IMPLEMENTED
-
     public void Action_06_BlindingFog(){
         Enemy_priorityInc = 3f;
         ParticleDuration = 3f;
@@ -1708,7 +1707,6 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // NOT IMPLEMENTED, DOES NOT REPEAT
-
     public void Action_07_RazorQuills()
     {
         Enemy_priorityInc = 2f;
@@ -1727,7 +1725,6 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // Deals damage at the end of enemy turn instead of player turn
-
     public void Action_08_PurpleHaze()
     {
         Enemy_priorityInc = 2f;
@@ -1760,7 +1757,6 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // Partially implemented, does 2x damage with next card instead of whole turn
-
     public void Action_09_Roost()
     {
         Enemy_priorityInc = 2f;
@@ -1780,18 +1776,22 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // Stone RuiShi
+    
     // IMPLEMENTED
-
     public void Action_10_Stomp()
     {
         Enemy_priorityInc = 7f;
-        ParticleDuration = 3f;
+        ParticleDuration = 1f;
         cardName = "Stomp";
-        descriptionLog = "Stompy";
+        //descriptionLog = "Stompy";
         Enemy_damageDealing = 4;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_03_Stubborn", 1);
+        
+        // Particle positioned under the player
+        ParticleEvent("Stomp", 6, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1800,17 +1800,19 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-
     public void Action_11_Solidify()
     {
         Enemy_priorityInc = 7f;
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         cardName = "Solidify";
-        descriptionLog = "Solidy";
+        //descriptionLog = "Solidy";
         Enemy_armorCreate = 4;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_03_Stubborn", 1);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Solidify", 7, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
@@ -1819,7 +1821,6 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-
     public void Action_12_BreathOfLife()
     {
         Enemy_priorityInc = 7f;
@@ -1830,8 +1831,11 @@ public class EffectDictionary : MonoBehaviour
         Enemy_healing = 7;
         Enemy_armorCreate = 7;
         Manipulator_Enemy();
+        
         SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        // Particle positioned on the player
+        ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1842,17 +1846,19 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // Implemented
-
     public void Action_13_Monsterize()
     {
         Enemy_priorityInc = 0f;
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         cardName = "Monsterize";
         descriptionLog = "x3";
-
         Manipulator_Enemy();
+        
         SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Monsterize", 9, ParticleDuration, ExtraPositioning[3], false);
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             enemyIsDealingTripleDamage = true;

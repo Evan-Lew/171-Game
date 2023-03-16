@@ -4318,6 +4318,10 @@ MonoBehaviour:
   - {fileID: 782190285946635262, guid: b6a29888c03443440ab37e21a283116a, type: 3}
   - {fileID: 76094576986992441, guid: 692852cf957c3b745a40a28eabbf7533, type: 3}
   - {fileID: 4014780428814847390, guid: 29e07f30ba4fd6e46b35c240fd74f321, type: 3}
+  - {fileID: 2809687766860551836, guid: e0317e34a4e30e64fb57d50aa86ec9f1, type: 3}
+  - {fileID: 7741230564936521548, guid: 0c04c6ad8972e6942a5e3a9615968dfe, type: 3}
+  - {fileID: 6104107114863222821, guid: 5d878e32c7dccdd43845a26cbf31c66e, type: 3}
+  - {fileID: 130371810037123645, guid: 58043417ba8a2704e8389dfb6df54ccf, type: 3}
   ExtraPositioning:
   - {fileID: 155381378}
   - {fileID: 748494009}

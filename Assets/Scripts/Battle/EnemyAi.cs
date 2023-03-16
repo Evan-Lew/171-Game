@@ -22,17 +22,14 @@ public class EnemyAi : MonoBehaviour
 
     [Header("Action# = index")]
     public List<Card_Basedata> Actions;
-
-
+    
     [HideInInspector] public Dictionary<string, List<List<int>>> EnemyDictionary = new Dictionary<string, List<List<int>>>();
     List<int> attackPattern;
     List<List<int>> enemysPatterns;
     int currentPatternIndex = 0;
 
     [HideInInspector]public bool isActioned = false;
-
-
-
+    
     private void Awake()
     {
         Load();
@@ -68,7 +65,6 @@ public class EnemyAi : MonoBehaviour
     }
 
     // NOT IMPLEMENTED
-
     void Add_Zhenniao(){
         attackPattern = new List<int>() { 4, 5 };
         enemysPatterns = new List<List<int>>();
@@ -77,7 +73,6 @@ public class EnemyAi : MonoBehaviour
     }
 
     // NOT IMPLEMENTED
-
     void Add_StoneRuishi()
     {
         attackPattern = new List<int>() { 4, 5 };
@@ -85,15 +80,13 @@ public class EnemyAi : MonoBehaviour
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Stone Ruishi", enemysPatterns);
     }
-
-
+    
     public void CastUniqueAbility_Golem()
     {
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
              EffectDictionary.instance.effectDictionary_Enemies[3]();
         }, 0.5f));
-        
     }
     
     public void EnemyAction(string enemyName)
@@ -108,8 +101,6 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-
-
     private void EnemyActionUtil(string enemyName, Character_Basedata.PatternType Type)
     {
         if (Type == Character_Basedata.PatternType.single)
@@ -119,7 +110,6 @@ public class EnemyAi : MonoBehaviour
         {
             //code the multiple pattern function and add it here.
         }
-
     }
 
     //single pattern enemy
