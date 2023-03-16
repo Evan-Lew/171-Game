@@ -1657,7 +1657,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_04_Drain", 0.3f);
-        
+
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
         
@@ -1691,6 +1691,7 @@ public class EffectDictionary : MonoBehaviour
     // ZHENNIAO
 
     // IMPLEMENTED
+    // Avoid the next time you take damage
     public void Action_06_BlindingFog(){
         Enemy_priorityInc = 3f;
         ParticleDuration = 4f;
@@ -1718,8 +1719,11 @@ public class EffectDictionary : MonoBehaviour
         //descriptionLog = "Sharp";
         Enemy_damageDealing = 1;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_03_Stubborn", 1);
+        
+        // Particle positioned under the player
+        ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1773,11 +1777,14 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2f;
         ParticleDuration = 3f;
         cardName = "Roost";
-        descriptionLog = "Zhenniao is now weak to ground this turn";
+        //descriptionLog = "Zhenniao is now weak to ground this turn";
         Enemy_healing = 4;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Cyclone", 0.5f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Roost", 12, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             player.Armor_Current = 0;
@@ -1787,9 +1794,10 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Stone RuiShi
+    // --Stone Rui Shi---
     
     // IMPLEMENTED
+    // Deal 4 damage
     public void Action_10_Stomp()
     {
         Enemy_priorityInc = 7f;
@@ -1811,6 +1819,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
+    // Gain 4 Armor
     public void Action_11_Solidify()
     {
         Enemy_priorityInc = 7f;
@@ -1832,6 +1841,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
+    // Deal 3 damage, Heal 7, Gain 7 Armor
     public void Action_12_BreathOfLife()
     {
         Enemy_priorityInc = 7f;
@@ -1857,6 +1867,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // Implemented
+    // Next turn do triple damage
     public void Action_13_Monsterize()
     {
         Enemy_priorityInc = 0f;
