@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Line.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Ring.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Ring.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Penghou/Charge.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Penghou/Charge.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +95,7 @@
       <workItem from="1678386595485" duration="4180000" />
       <workItem from="1678513173809" duration="1202000" />
       <workItem from="1678567653517" duration="945000" />
+      <workItem from="1678984345498" duration="3531000" />
     </task>
     <servers />
   </component>

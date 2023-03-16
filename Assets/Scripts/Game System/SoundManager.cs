@@ -31,7 +31,7 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public static AudioClip sfx_Spirit;
     
     // Enemy Cards
-    [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn;
+    [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn, sfx_Action_04_Drain, sfx_Action_05_Charge;
 
     // Misc
     [HideInInspector] public static AudioClip sfx_Page_Flip, sfx_Scroll_Open;
@@ -71,6 +71,8 @@ public class SoundManager : MonoBehaviour
         sfx_Action_01_Throw_Stone = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Stone");
         sfx_Action_02_Body_Slam = Resources.Load<AudioClip>("SFX/Enemy/Golem/Body_Slam");
         sfx_Action_03_Stubborn = Resources.Load<AudioClip>("SFX/Enemy/Golem/Snarl");
+        sfx_Action_04_Drain = Resources.Load<AudioClip>("SFX/Enemy/Penghou/Wind_Blow");
+        sfx_Action_05_Charge = Resources.Load<AudioClip>("SFX/Enemy/Penghou/Rock_Smash");
         
         // Loading misc audio files
         sfx_Page_Flip = Resources.Load<AudioClip>("SFX/Misc/Page_Flip");
@@ -225,6 +227,18 @@ public class SoundManager : MonoBehaviour
             
             case "sfx_Action_03_Stubborn":
                 sfxAudioSource.clip = sfx_Action_03_Stubborn;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Action_04_Drain":
+                sfxAudioSource.clip = sfx_Action_04_Drain;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Action_05_Charge":
+                sfxAudioSource.clip = sfx_Action_05_Charge;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;

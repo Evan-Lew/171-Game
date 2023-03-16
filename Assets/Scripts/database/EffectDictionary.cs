@@ -1569,7 +1569,7 @@ public class EffectDictionary : MonoBehaviour
     //                        ENEMY EFFECTS
     //-----------------------------------------------------------------
 
-    // GOLEM
+    // ---GOLEM---
 
     // Deal 3 damage, cost 2
     public void Action_01_ThrowStone()
@@ -1586,7 +1586,7 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
+            PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
         }, 1f));
 
         // Play SFX
@@ -1599,7 +1599,6 @@ public class EffectDictionary : MonoBehaviour
             DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // Deal damage to player equal to his health, cost 2
@@ -1614,7 +1613,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy();
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
+        PlaySound("sfx_Action_02_Body_Slam", 1);
         
         // Particle positioned on the player
         ParticleEvent("BodySlam", 2, ParticleDuration, ExtraPositioning[0], false);
@@ -1623,7 +1622,6 @@ public class EffectDictionary : MonoBehaviour
             DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
-        
     }
     // At the end of player turn, gain 2 armor
     public void Action_03_Stubborn()
@@ -1631,9 +1629,9 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Enemy_armorCreate = 1;
         cardName = "Stubborn";
-        descriptionLog = "at the end of every player phase.";
+        descriptionLog = "at the end of every player phase";
 
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_03_Stubborn", 1);
         
         // Particle positioned under the enemy
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
@@ -1643,10 +1641,9 @@ public class EffectDictionary : MonoBehaviour
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
             Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
         }, ParticleDuration / 2));
-        
     }
 
-    // PENGHOU
+    // ---PENGHOU---
 
     // Deal 2 damage and heal 1, cost 3
     public void Action_04_Drain()
@@ -1656,8 +1653,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 2f;
         Enemy_healing = 1f;
         cardName = "Drain";
+        descriptionLog = "and <color=#76f300>1</color> self heal";
         Manipulator_Enemy();
-        //SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
+        
+        PlaySound("sfx_Action_04_Drain", 0.3f);
         
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
@@ -1676,9 +1675,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2f;
         ParticleDuration = 2f;
         cardName = "Charge";
-        descriptionLog = "Seems like Penghou wants to do something";
+        descriptionLog = "Seems like Penghou is charging up";
         Manipulator_Enemy();
-        //SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        
+        PlaySound("sfx_Action_05_Charge", 1);
         
         // Particle positioned under the enemy
         ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
