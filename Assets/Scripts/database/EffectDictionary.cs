@@ -1660,7 +1660,7 @@ public class EffectDictionary : MonoBehaviour
         
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
-
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1693,12 +1693,15 @@ public class EffectDictionary : MonoBehaviour
     // IMPLEMENTED
     public void Action_06_BlindingFog(){
         Enemy_priorityInc = 3f;
-        ParticleDuration = 3f;
+        ParticleDuration = 4f;
         cardName = "Blinding Fog";
-        descriptionLog = "1 Green Mana and a Colorless";
+        //descriptionLog = "1 Green Mana and a Colorless";
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Breeze", 1f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             isDealingNoDmg = true;
@@ -1712,7 +1715,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2f;
         ParticleDuration = 3f;
         cardName = "Razor Quills";
-        descriptionLog = "Sharp";
+        //descriptionLog = "Sharp";
         Enemy_damageDealing = 1;
         Manipulator_Enemy();
         SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
@@ -1724,16 +1727,20 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     // Deals damage at the end of enemy turn instead of player turn
     public void Action_08_PurpleHaze()
     {
         Enemy_priorityInc = 2f;
         ParticleDuration = 3f;
         cardName = "Purple Haze";
-        descriptionLog = "ISTHATAMFINGJOJOREFERENCE?!?!??";
+        //descriptionLog = "ISTHATAMFINGJOJOREFERENCE?!?!??";
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Whoosh", 1f);
+        
+        // Particle positioned under the player
+        ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             HazeDamage();
@@ -1741,14 +1748,18 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     public void HazeDamage(){
         Enemy_priorityInc = 0f;
         ParticleDuration = 3f;
         cardName = "Haze Damage";
-        descriptionLog = "Damage";
+        //descriptionLog = "Damage";
         Enemy_damageDealing = 1;
+        
+        PlaySound("sfx_Action_Cough", 1f);
 
         // No manipulator because static
+        ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);

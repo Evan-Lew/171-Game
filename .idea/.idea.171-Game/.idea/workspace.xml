@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Stone RuiShi.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Stone RuiShi/Breath.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Stone RuiShi/Breath.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Stone RuiShi/Reverberate.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Stone RuiShi/Reverberate.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Zhenniao.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Zhenniao/BlindingFog.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Effect/Enemy/Zhenniao/BlindingFog.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Zhenniao.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Zhenniao/Breeze.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Enemy/Zhenniao/Breeze.wav.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_25_Materials/Effect_25_Particle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_25_Materials/Effect_25_Particle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_25_Materials/Effect_25_Smoke.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_25_Materials/Effect_25_Smoke.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_40_Materials/Effect_40_Ring.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_40_Materials/Effect_40_Ring.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_40_Materials/Effect_40_Shockwave.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_40_Materials/Effect_40_Shockwave.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/database/EffectDictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/database/EffectDictionary.cs" afterDir="false" />
     </list>
@@ -104,7 +109,7 @@
       <workItem from="1678513173809" duration="1202000" />
       <workItem from="1678567653517" duration="945000" />
       <workItem from="1678984345498" duration="3531000" />
-      <workItem from="1678988532637" duration="9050000" />
+      <workItem from="1678988532637" duration="13168000" />
     </task>
     <servers />
   </component>

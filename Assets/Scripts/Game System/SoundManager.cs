@@ -33,10 +33,11 @@ public class SoundManager : MonoBehaviour
     
     // Enemy Cards
     [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn, 
-        sfx_Action_04_Drain, sfx_Action_Rock_Smash, sfx_Action_Reverberate, sfx_Action_Breath, sfx_Action_Monsterize;
+        sfx_Action_04_Drain, sfx_Action_Rock_Smash, sfx_Action_Reverberate, sfx_Action_Breath, sfx_Action_Monsterize, 
+        sfx_Action_Breeze, sfx_Action_Whoosh;
 
     // Misc
-    [HideInInspector] public static AudioClip sfx_Page_Flip, sfx_Scroll_Open, sfx_Transition;
+    [HideInInspector] public static AudioClip sfx_Page_Flip, sfx_Scroll_Open, sfx_Transition, sfx_Cough;
     
     // AudioSources
     [HideInInspector] public static AudioSource bgmAudioSource;
@@ -78,11 +79,14 @@ public class SoundManager : MonoBehaviour
         sfx_Action_Reverberate = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Reverberate");
         sfx_Action_Breath = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Breath");
         sfx_Action_Monsterize = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Monsterize");
+        sfx_Action_Breeze = Resources.Load<AudioClip>("SFX/Enemy/Zhenniao/Breeze");
+        sfx_Action_Whoosh = Resources.Load<AudioClip>("SFX/Enemy/Zhenniao/Whoosh");
 
         // Loading misc audio files
         sfx_Page_Flip = Resources.Load<AudioClip>("SFX/Misc/Page_Flip");
         sfx_Scroll_Open = Resources.Load<AudioClip>("SFX/Misc/Scroll_Open");
         sfx_Transition = Resources.Load<AudioClip>("SFX/Misc/Transition");
+        sfx_Cough = Resources.Load<AudioClip>("SFX/Misc/Cough");
         
         // Get AudioSource components
         sfxAudioSource = GetComponent<AudioSource>();
@@ -267,6 +271,18 @@ public class SoundManager : MonoBehaviour
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;
             
+            case "sfx_Action_Breeze":
+                sfxAudioSource.clip = sfx_Action_Breeze;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Action_Whoosh":
+                sfxAudioSource.clip = sfx_Action_Whoosh;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
             //----------Misc SFX----------
             case "sfx_Page_Flip":
                 sfxAudioSource.clip = sfx_Page_Flip;
@@ -282,6 +298,12 @@ public class SoundManager : MonoBehaviour
             
             case "sfx_Transition":
                 sfxAudioSource.clip = sfx_Transition;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Cough":
+                sfxAudioSource.clip = sfx_Cough;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;
