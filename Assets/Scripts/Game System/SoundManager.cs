@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
         instance = this;
     }
 
-    //Note: To add anyother audio
+    //Note: To add any other audio
     /*           1. put your audio into folder called "Resources/SFX"
      *           2. add load in Void Start()
      *           3. add it into PlaySound() at the end of this script
@@ -25,13 +25,15 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public static AudioClip sfx_Card_Draw, sfx_Card_Place, sfx_Card_Pick;
     
     // Player Silver/Purple Cards
-    [HideInInspector] public static AudioClip sfx_Coin_Drop, sfx_Hiss, sfx_Hit, sfx_Venom, sfx_Swing, sfx_Crunch, sfx_Wisdom, sfx_Stab, sfx_Fortune, sfx_Tea_Pour, sfx_Gavel, sfx_Multiple_Splash;
+    [HideInInspector] public static AudioClip sfx_Coin_Drop, sfx_Hiss, sfx_Hit, sfx_Venom, sfx_Swing, sfx_Crunch, 
+        sfx_Wisdom, sfx_Stab, sfx_Fortune, sfx_Tea_Pour, sfx_Gavel, sfx_Multiple_Splash;
 
     // Player Jade Cards
     [HideInInspector] public static AudioClip sfx_Spirit;
     
     // Enemy Cards
-    [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn, sfx_Action_04_Drain, sfx_Action_05_Charge;
+    [HideInInspector] public static AudioClip sfx_Action_01_Throw_Stone, sfx_Action_02_Body_Slam, sfx_Action_03_Stubborn, 
+        sfx_Action_04_Drain, sfx_Action_Rock_Smash, sfx_Action_Reverberate, sfx_Action_Breath, sfx_Action_Monsterize;
 
     // Misc
     [HideInInspector] public static AudioClip sfx_Page_Flip, sfx_Scroll_Open, sfx_Transition;
@@ -72,8 +74,11 @@ public class SoundManager : MonoBehaviour
         sfx_Action_02_Body_Slam = Resources.Load<AudioClip>("SFX/Enemy/Golem/Body_Slam");
         sfx_Action_03_Stubborn = Resources.Load<AudioClip>("SFX/Enemy/Golem/Snarl");
         sfx_Action_04_Drain = Resources.Load<AudioClip>("SFX/Enemy/Penghou/Wind_Blow");
-        sfx_Action_05_Charge = Resources.Load<AudioClip>("SFX/Enemy/Penghou/Rock_Smash");
-        
+        sfx_Action_Rock_Smash = Resources.Load<AudioClip>("SFX/Enemy/Penghou/Rock_Smash");
+        sfx_Action_Reverberate = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Reverberate");
+        sfx_Action_Breath = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Breath");
+        sfx_Action_Monsterize = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Monsterize");
+
         // Loading misc audio files
         sfx_Page_Flip = Resources.Load<AudioClip>("SFX/Misc/Page_Flip");
         sfx_Scroll_Open = Resources.Load<AudioClip>("SFX/Misc/Scroll_Open");
@@ -238,8 +243,26 @@ public class SoundManager : MonoBehaviour
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;
             
-            case "sfx_Action_05_Charge":
-                sfxAudioSource.clip = sfx_Action_05_Charge;
+            case "sfx_Action_Rock_Smash":
+                sfxAudioSource.clip = sfx_Action_Rock_Smash;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+
+            case "sfx_Action_Reverberate":
+                sfxAudioSource.clip = sfx_Action_Reverberate;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Action_Breath":
+                sfxAudioSource.clip = sfx_Action_Breath;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Action_Monsterize":
+                sfxAudioSource.clip = sfx_Action_Monsterize;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;

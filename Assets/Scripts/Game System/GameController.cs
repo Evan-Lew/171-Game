@@ -7,7 +7,7 @@ using System.Linq;
 
 public class GameController : MonoBehaviour
 {
-    //flag will be turned on when setup function needed
+    // Flag will be turned on when setup function needed
     [HideInInspector] private bool setupFlag = false;
     [SerializeField] CameraUtil _script_CameraUtil;
     [SerializeField] BattleController _script_BattleController;
@@ -25,19 +25,16 @@ public class GameController : MonoBehaviour
 
     [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;
-    //set position -- character and enemy
+    // Set position -- character and enemy
     [SerializeField] List<GameObject> CharacterSpawningPoint_List = new();
     [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
     public GameObject TargetCharacterPos;
     public GameObject TargetCameraPos;
-
-
-    //flag for changing level
+    
+    // Flag for changing level
     [HideInInspector]public bool isDeckELevel = true;
     [HideInInspector] public bool isStartLevel = false;
-
-
-
+    
     public static GameController instance;
 
     private void Awake()
@@ -114,9 +111,6 @@ public class GameController : MonoBehaviour
         SetCameraPos(environmentCameraTransform);
     }
     
-
-
-
     /*  Function that will start the battle for testing, assigned deck is required
     *  Parameters:  Argument1:  The next enemy you want to setup 
     *               Argument2 (override):  true/false, doesn't matter
@@ -151,8 +145,6 @@ public class GameController : MonoBehaviour
     }
 
 
-
-
     //                GameController API End
     //===========================================================
 
@@ -163,9 +155,7 @@ public class GameController : MonoBehaviour
     //==========================================================================================================================
     //Ignore all function below
 
-
-
-
+    
     //===========================================================
     //                  Helper Functions
     //===========================================================
@@ -204,8 +194,6 @@ public class GameController : MonoBehaviour
         _script_BattleController.SetUp();
         _script_EffectDictionary.SetUp();
     }
-
-
 
     //StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
     /*  Function that will setup battle system
@@ -259,7 +247,6 @@ public class GameController : MonoBehaviour
             playerCharacter.CharacterData = newCharacter;
             playerCharacter.SetUp();
         }
-
     }
 
     //SetSpawningPoint()
@@ -278,8 +265,4 @@ public class GameController : MonoBehaviour
 
     //                  Helper Function End
     //===========================================================
-
-
-
-
 }

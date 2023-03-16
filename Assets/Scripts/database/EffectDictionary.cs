@@ -1637,7 +1637,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            //manipulator not needed since this is static effect
+            // Manipulator not needed since this is static effect
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
             Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
         }, ParticleDuration / 2));
@@ -1678,7 +1678,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Seems like Penghou is charging up";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_05_Charge", 1);
+        PlaySound("sfx_Action_Rock_Smash", 1);
         
         // Particle positioned under the enemy
         ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
@@ -1788,7 +1788,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 4;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_Rock_Smash", 1);
         
         // Particle positioned under the player
         ParticleEvent("Stomp", 6, ParticleDuration, ExtraPositioning[1], false);
@@ -1809,7 +1809,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_armorCreate = 4;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_Reverberate", 0.4f);
         
         // Particle positioned under the enemy
         ParticleEvent("Solidify", 7, ParticleDuration, ExtraPositioning[3], false);
@@ -1826,13 +1826,13 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 7f;
         ParticleDuration = 3f;
         cardName = "Breath of Life";
-        descriptionLog = "Big Qi";
+        //descriptionLog = "Big Qi";
         Enemy_damageDealing = 4;
         Enemy_healing = 7;
         Enemy_armorCreate = 7;
         Manipulator_Enemy();
         
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_Breath", 1);
         
         // Particle positioned on the player
         ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
@@ -1851,10 +1851,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 0f;
         ParticleDuration = 2f;
         cardName = "Monsterize";
-        descriptionLog = "x3";
+        //descriptionLog = "x3";
         Manipulator_Enemy();
         
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_Monsterize", 0.8f);
         
         // Particle positioned under the enemy
         ParticleEvent("Monsterize", 9, ParticleDuration, ExtraPositioning[3], false);
