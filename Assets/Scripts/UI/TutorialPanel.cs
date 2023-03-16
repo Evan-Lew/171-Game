@@ -10,18 +10,21 @@ public class TutorialPanel : MonoBehaviour
     
     public void Tutorial_1_Return()
     {
+        SoundManager.PlaySound("sfx_Scroll_Open", 1);
         Time.timeScale = 1f;
         this.gameObject.SetActive(false);
     }
 
     public void Tutorial_2_Return()
     {
+        SoundManager.PlaySound("sfx_Scroll_Open", 1);
         Time.timeScale = 1f;
         this.gameObject.SetActive(false);
     }
 
     public void Tutorial_3_Return()
     {
+        SoundManager.PlaySound("sfx_Scroll_Open", 1);
         Time.timeScale = 1f;
         this.gameObject.SetActive(false);
     }

@@ -4316,6 +4316,8 @@ MonoBehaviour:
   - {fileID: 7960040246655339056, guid: 774acf9f373d05f48bba281b71bf6ee0, type: 3}
   - {fileID: 6234818455853893159, guid: fe2c55fa62a58b24e9bb3b5b17dfeed0, type: 3}
   - {fileID: 782190285946635262, guid: b6a29888c03443440ab37e21a283116a, type: 3}
+  - {fileID: 76094576986992441, guid: 692852cf957c3b745a40a28eabbf7533, type: 3}
+  - {fileID: 4014780428814847390, guid: 29e07f30ba4fd6e46b35c240fd74f321, type: 3}
   ExtraPositioning:
   - {fileID: 155381378}
   - {fileID: 748494009}
