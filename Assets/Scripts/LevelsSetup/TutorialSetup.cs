@@ -16,6 +16,9 @@ public class TutorialSetup : MonoBehaviour
     
     [Header("Tutorial02 Pages")]
     [SerializeField] List<GameObject> tutorial02_Pages;
+    
+    [Header("Tutorial03 Pages")]
+    [SerializeField] List<GameObject> tutorial03_Pages;
 
     [Header("Lists of Cards for the Tutorials")]
     [SerializeField] List<Card_Basedata> tutorialCards_P1;
@@ -104,7 +107,7 @@ public class TutorialSetup : MonoBehaviour
             _DeckSystem.deckForCurrentBattle.Add(card);
         }
 
-        _DeckSystem.DrawMultipleCardsThenStopDrawFeature(2);
+        _DeckSystem.DrawMultipleCardsThenStopDrawFeature(1);
         isPhase2Set = true;
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -172,6 +175,26 @@ public class TutorialSetup : MonoBehaviour
                 tutorial02_Pages[2].SetActive(true);
             }
         }
+        
+        // Tutorial03
+        if (tutorial03.activeSelf)
+        {
+            if (tutorial03_Pages[0].activeSelf)
+            {
+                tutorial03_Pages[0].SetActive(false);
+                tutorial03_Pages[1].SetActive(true);
+            }
+            else if (tutorial03_Pages[1].activeSelf)
+            {
+                tutorial03_Pages[1].SetActive(false);
+                tutorial03_Pages[2].SetActive(true);
+            }
+            else if (tutorial03_Pages[2].activeSelf)
+            {
+                tutorial03_Pages[2].SetActive(false);
+                tutorial03_Pages[3].SetActive(true);
+            }
+        }
     }
 
     public void PrevButton()
@@ -194,10 +217,30 @@ public class TutorialSetup : MonoBehaviour
                 tutorial02_Pages[1].SetActive(false);
                 tutorial02_Pages[0].SetActive(true);
             }
-            if (tutorial02_Pages[2].activeSelf)
+            else if (tutorial02_Pages[2].activeSelf)
             {
                 tutorial02_Pages[2].SetActive(false);
                 tutorial02_Pages[1].SetActive(true);
+            }
+        }
+        
+        // Tutorial03
+        if (tutorial03.activeSelf)
+        {
+            if (tutorial03_Pages[1].activeSelf)
+            {
+                tutorial03_Pages[1].SetActive(false);
+                tutorial03_Pages[0].SetActive(true);
+            }
+            else if (tutorial03_Pages[2].activeSelf)
+            {
+                tutorial03_Pages[2].SetActive(false);
+                tutorial03_Pages[1].SetActive(true);
+            }
+            else if (tutorial03_Pages[3].activeSelf)
+            {
+                tutorial03_Pages[3].SetActive(false);
+                tutorial03_Pages[2].SetActive(true);
             }
         }
     }

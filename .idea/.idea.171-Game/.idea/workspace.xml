@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Prefab/Tutorial Template.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Prefab/Tutorial Template.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Shed Skin Tutorial.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Shed Skin Tutorial.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Whack Tutorial.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Whack Tutorial.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Assassin's Teapot Tutorial.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Assassin's Teapot Tutorial.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Jade Spirit Tutorial.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Jade Spirit Tutorial.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Payment Tutorial.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Payment Tutorial.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Wisdom Of Wisteria Tutorial.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Wisdom Of Wisteria Tutorial.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
