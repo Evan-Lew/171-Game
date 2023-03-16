@@ -13,6 +13,9 @@ public class TutorialSetup : MonoBehaviour
     
     [Header("Tutorial01 Pages")]
     [SerializeField] List<GameObject> tutorial01_Pages;
+    
+    [Header("Tutorial02 Pages")]
+    [SerializeField] List<GameObject> tutorial02_Pages;
 
     [Header("Lists of Cards for the Tutorials")]
     [SerializeField] List<Card_Basedata> tutorialCards_P1;
@@ -38,10 +41,10 @@ public class TutorialSetup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //run as long as the tutorial is not end
+        // Run as long as the tutorial is not end
         if (!tutorialEnd)
         {
-            //tutorial part 1 finish
+            // Tutorial part 1 finish
             if (isPhase1Set && _HandManager.player_hands_holdCards.Count == 0)
             {
                 if (!isPhase2Set)
@@ -50,10 +53,10 @@ public class TutorialSetup : MonoBehaviour
                 }
                 else
                 {
-                    //tutorial part 2 finsih
+                    // Tutorial part 2 finish
                     if (_HandManager.player_hands_holdCards.Count == 0)
                     {
-                        //tutorial part 3 finish
+                        // Tutorial part 3 finish
                         Phase_3_Setup();
                     }
                 }
@@ -145,19 +148,57 @@ public class TutorialSetup : MonoBehaviour
 
     public void NextButton()
     {
-        if (tutorial01.activeSelf && tutorial01_Pages[0].activeSelf)
+        // Tutorial01
+        if (tutorial01.activeSelf)
         {
-            tutorial01_Pages[0].SetActive(false);
-            tutorial01_Pages[1].SetActive(true);
+            if (tutorial01_Pages[0].activeSelf)
+            {
+                tutorial01_Pages[0].SetActive(false);
+                tutorial01_Pages[1].SetActive(true);
+            }
+        }
+
+        // Tutorial02
+        if (tutorial02.activeSelf)
+        {
+            if (tutorial02_Pages[0].activeSelf)
+            {
+                tutorial02_Pages[0].SetActive(false);
+                tutorial02_Pages[1].SetActive(true);
+            }
+            else if (tutorial02_Pages[1].activeSelf)
+            {
+                tutorial02_Pages[1].SetActive(false);
+                tutorial02_Pages[2].SetActive(true);
+            }
         }
     }
 
     public void PrevButton()
     {
-        if (tutorial01.activeSelf && tutorial01_Pages[1].activeSelf)
+        // Tutorial01
+        if (tutorial01.activeSelf)
         {
-            tutorial01_Pages[1].SetActive(false);
-            tutorial01_Pages[0].SetActive(true);
+            if (tutorial01_Pages[1].activeSelf)
+            {
+                tutorial01_Pages[1].SetActive(false);
+                tutorial01_Pages[0].SetActive(true);
+            }
+        }
+        
+        // Tutorial02
+        if (tutorial02.activeSelf)
+        {
+            if (tutorial02_Pages[1].activeSelf)
+            {
+                tutorial02_Pages[1].SetActive(false);
+                tutorial02_Pages[0].SetActive(true);
+            }
+            if (tutorial02_Pages[2].activeSelf)
+            {
+                tutorial02_Pages[2].SetActive(false);
+                tutorial02_Pages[1].SetActive(true);
+            }
         }
     }
 }

@@ -7,8 +7,7 @@ public class TutorialPanel : MonoBehaviour
 {
     [SerializeField] GameObject UICanvas;
     [SerializeField] TutorialSetup _TutorialSetup;
-
-
+    
     public void Tutorial_1_Return()
     {
         Time.timeScale = 1f;

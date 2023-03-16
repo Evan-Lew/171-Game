@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c30a7e7025b68b42b3b37463735a55c
+guid: c0bf33d40ea504440a622a1409b3380d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,22 +105,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Whack Tutorial_0
+      name: Priority Bar Tie Tutorial_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 12
-        width: 145
-        height: 201
+        x: 35
+        y: 37
+        width: 1037
+        height: 109
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d497b7a83a550964da37382159c0708e
-      internalID: 19883830
+      spriteID: df7d959768a50274fa773f9fdec76de6
+      internalID: -911803999
       vertices: []
       indices: 
       edges: []
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Whack Tutorial_0: 19883830
+      Priority Bar Tie Tutorial_0: -911803999
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
