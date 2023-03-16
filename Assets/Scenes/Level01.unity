@@ -3259,6 +3259,7 @@ MonoBehaviour:
   tutorialCards_P1:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   tutorialCards_P2:
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
   tutorialCards_P3:
   - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}

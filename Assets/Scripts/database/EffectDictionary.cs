@@ -1651,7 +1651,7 @@ public class EffectDictionary : MonoBehaviour
     // Deal 2 damage and heal 1, cost 3
     public void Action_04_Siphon()
     {
-        Enemy_priorityInc = 2f;
+        Enemy_priorityInc = 3f;
         ParticleDuration = 3f;
         Enemy_damageDealing = 2f;
         Enemy_healing = 1f;
@@ -1668,7 +1668,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Deal 2 damage and heal 1, cost 3
+    // Do nothing
     public void Action_05_Charge()
     {
         Enemy_priorityInc = 2f;

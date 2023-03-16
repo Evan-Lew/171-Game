@@ -107,7 +107,7 @@ public class TutorialSetup : MonoBehaviour
             _DeckSystem.deckForCurrentBattle.Add(card);
         }
 
-        _DeckSystem.DrawMultipleCardsThenStopDrawFeature(1);
+        _DeckSystem.DrawMultipleCardsThenStopDrawFeature(2);
         isPhase2Set = true;
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
