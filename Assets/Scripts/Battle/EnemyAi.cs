@@ -64,19 +64,21 @@ public class EnemyAi : MonoBehaviour
         EnemyDictionary.Add("Peng Hou", enemysPatterns);
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     void Add_Zhenniao(){
-        attackPattern = new List<int>() { 4, 5 };
+        attackPattern = new List<int>() { 7, 7, 6, 8, 7, 7, 6, 9};
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Zhenniao", enemysPatterns);
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     void Add_StoneRuishi()
     {
-        attackPattern = new List<int>() { 4, 5 };
+        attackPattern = new List<int>() { 10, 11, 10, 11 };
         enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        attackPattern = new List<int>() { 13, 12};
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Stone Ruishi", enemysPatterns);
     }
