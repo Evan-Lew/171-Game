@@ -7,6 +7,7 @@ public class StartDeckInteraction : MonoBehaviour, IPointerExitHandler
 {
     [SerializeField] GameObject startDeckSetup;
     [SerializeField] StarterDeck _starterDeck;
+    [SerializeField] Level02_Setup _level02_Setup;
 
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -27,5 +28,8 @@ public class StartDeckInteraction : MonoBehaviour, IPointerExitHandler
             DeckEditSystem.instance.AddCardToDeck(card);
         }
         startDeckSetup.SetActive(false);
+        _level02_Setup.isFinished = true;
+
+
     }
 }

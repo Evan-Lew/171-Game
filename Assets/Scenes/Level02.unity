@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 304666180}
+  - component: {fileID: 304666181}
   m_Layer: 0
   m_Name: Level02 Setup
   m_TagString: Untagged
@@ -155,6 +156,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &304666181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304666179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f51ad270d475d1428bbd07ee44bb490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFinished: 0
 --- !u!1 &438220290
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +252,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 438220291}
     m_Modifications:
+    - target: {fileID: 2451106309373931540, guid: c08f379d95676db43a827009125f8ad5,
+        type: 3}
+      propertyPath: _level02_Setup
+      value: 
+      objectReference: {fileID: 304666181}
     - target: {fileID: 2451106309373931540, guid: c08f379d95676db43a827009125f8ad5,
         type: 3}
       propertyPath: startDeckSetup
@@ -723,6 +742,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2451106309373931540, guid: c08f379d95676db43a827009125f8ad5,
         type: 3}
+      propertyPath: _level02_Setup
+      value: 
+      objectReference: {fileID: 304666181}
+    - target: {fileID: 2451106309373931540, guid: c08f379d95676db43a827009125f8ad5,
+        type: 3}
       propertyPath: startDeckSetup
       value: 
       objectReference: {fileID: 438220290}
@@ -866,6 +890,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 438220291}
     m_Modifications:
+    - target: {fileID: 2451106309373931540, guid: c08f379d95676db43a827009125f8ad5,
+        type: 3}
+      propertyPath: _level02_Setup
+      value: 
+      objectReference: {fileID: 304666181}
     - target: {fileID: 2451106309373931540, guid: c08f379d95676db43a827009125f8ad5,
         type: 3}
       propertyPath: startDeckSetup

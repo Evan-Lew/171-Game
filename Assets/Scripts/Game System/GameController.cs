@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool isStartLevel = false;
     
     public static GameController instance;
+    [HideInInspector] public bool enableMouseEffectOnCard = true;
 
     private void Awake()
     {
@@ -83,14 +84,14 @@ public class GameController : MonoBehaviour
     //===========================================================
     //                  GameController API
     //===========================================================
-    /*  Function that will setup spawning point for characters group and Camera
-     *  Parameters: Argument1:  Target Character Group game object's transform
-     *              Argument2:  Target Environment Camera's transform                         
-     */
-    bool checkEnable = true;
+
+
+
+
+    [HideInInspector]public bool checkEnable = false;
     void BattleConditionCheck()
     {
-        if(checkEnable)
+        if (checkEnable)
         {
             if (enmey.GetComponent<Character>().Health_Current <= 0 || player.GetComponent<Character>().Health_Current <= 0)
             {
@@ -101,10 +102,20 @@ public class GameController : MonoBehaviour
                 checkEnable = false;
                 _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
                 _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-                SceneManager.LoadScene("Main Menu");
+                characters.SetActive(false);
+                SceneManager.LoadScene("Level02");
             }
         }
     }
+
+
+
+
+
+    /*  Function that will setup spawning point for characters group and Camera
+     *  Parameters: Argument1:  Target Character Group game object's transform
+     *              Argument2:  Target Environment Camera's transform                         
+     */
     public void SetSpawningPoint(Transform characterTransform, Transform environmentCameraTransform)
     {
         SetCharacterPos(characterTransform);
@@ -116,7 +127,7 @@ public class GameController : MonoBehaviour
     *               Argument2 (override):  true/false, doesn't matter
     *                                     this version will allow to start battle without deck = 10 cards
     */
-    void StartTheBattle(Character_Basedata enemy, bool overrideVer)
+    public void StartTheBattle(Character_Basedata enemy, bool overrideVer)
     {
         BattleSystemSetUp(enemy);
     }
@@ -131,7 +142,7 @@ public class GameController : MonoBehaviour
     {
         if (_script_DeckSystem.deckToUse.Count == 10)
         {
-            checkEnable = true;
+            //checkEnable = true;
             BattleSystemSetUp(enemy);
         }
     }
@@ -164,7 +175,7 @@ public class GameController : MonoBehaviour
      * Parameters: Argument1:  Target Enemy Name
      * Return:     Character_Basedata an Enemy basedata or error if enemy is not found or not unique
      */
-    private Character_Basedata GetCharacter(string name)
+    public Character_Basedata GetCharacter(string name)
     {
         Character_Basedata result;
         result = CharactersList.Where(Basedata => Basedata.name == name).SingleOrDefault();
@@ -194,6 +205,17 @@ public class GameController : MonoBehaviour
         _script_BattleController.SetUp();
         _script_EffectDictionary.SetUp();
     }
+
+
+    public void DisableBattleMode()
+    {
+        _script_HandManager.Clear();
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        characters.SetActive(false);
+    }
+
+
 
     //StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
     /*  Function that will setup battle system
@@ -232,8 +254,8 @@ public class GameController : MonoBehaviour
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), true);
     }
 
-    enum characterType {player, enemy}
-    void SetCharacter(characterType characterTarger, Character_Basedata newCharacter)
+    public enum characterType {player, enemy}
+    public void SetCharacter(characterType characterTarger, Character_Basedata newCharacter)
     {
         if (characterTarger == characterType.enemy)
         {

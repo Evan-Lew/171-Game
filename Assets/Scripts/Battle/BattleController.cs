@@ -24,7 +24,7 @@ public class BattleController : MonoBehaviour
     [HideInInspector] public bool enableCardActivation = false;
 
     // For priority system
-    private Character player, enemy;
+    [HideInInspector] public Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private EnemyAi _script_EnemyAi;
     [SerializeField] private BattleLog _script_BattleLog;

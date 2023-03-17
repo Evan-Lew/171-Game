@@ -32,6 +32,8 @@ public class TutorialSetup : MonoBehaviour
     bool isPhase2Set = false;
     bool tutorialEnd = false;
 
+    bool levelEnd = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,24 @@ public class TutorialSetup : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Tutorials();
+        LevelManagement();
+
+
+        if(tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
+        {
+            GameController.instance.enableMouseEffectOnCard = false;
+        }
+        else
+        {
+            GameController.instance.enableMouseEffectOnCard = true;
+        }
+
+
+    }
+
+    void Tutorials()
     {
         // Run as long as the tutorial is not end
         if (!tutorialEnd)
@@ -68,15 +88,21 @@ public class TutorialSetup : MonoBehaviour
                 }
             }
         }
+    }
 
-        //key for testing, for move the keytesting once the editiing is complete
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    Phase_2_Setup();
-        //} else if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    Phase_3_Setup();
-        //}
+    void LevelManagement()
+    {
+        if (BattleController.instance.enemy.Health_Current == 0)
+        {
+            levelEnd = true;
+        }
+
+        if (levelEnd)
+        {
+            GameController.instance.DisableBattleMode();
+            levelEnd = false;
+            SceneManager.LoadScene("Level02");
+        }
     }
 
     void Phase_1_Setup()

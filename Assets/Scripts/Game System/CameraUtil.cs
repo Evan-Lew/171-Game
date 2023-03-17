@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class CameraUtil : MonoBehaviour
 {
     public GameObject UIBattle, UICamp;
-    public Camera BattleCameraObj, CampCameraObj, MainCameraObj;
+    public Camera BattleCameraObj, CampCameraObj, MainCameraObj, CharCameraObj;
     [SerializeField] EventSystem EventSystem_Current;
 
     public void SetCameraActive(Camera CameraToSet, bool isActive)
@@ -24,6 +24,10 @@ public class CameraUtil : MonoBehaviour
                 CameraToSet.gameObject.SetActive(isActive);
                 UIBattle.SetActive(true);
             }
+            else if (CameraToSet.gameObject.name == "Character Camera")
+            {
+                CameraToSet.gameObject.SetActive(isActive);
+            }
         }
         else
         {
@@ -37,7 +41,10 @@ public class CameraUtil : MonoBehaviour
                 CameraToSet.gameObject.SetActive(isActive);
                 UIBattle.SetActive(false);
             }
-
+            else if (CameraToSet.gameObject.name == "Character Camera")
+            {
+                CameraToSet.gameObject.SetActive(isActive);
+            }
         }
         //re-rendering main after render the camera
         MainCameraObj.gameObject.SetActive(true);

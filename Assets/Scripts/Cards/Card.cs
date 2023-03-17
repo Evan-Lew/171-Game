@@ -16,7 +16,7 @@ public class Card : MonoBehaviour
     public int cardID;
 
     public int priorityCost;
-    
+
     public TMP_Text _Text_Cost, _Text_DescriptionMain;
     public Image _Image_Card, _Image_Name;
     [Header("Don't change the list order")]
@@ -28,21 +28,21 @@ public class Card : MonoBehaviour
     // Use to pair with hand manager
     private HandManager handManager;
     public Vector3 cardHoveringPosAdjustment;
-    
+
     // Selecting
     [HideInInspector] public bool isSelected;
     private Collider theCollider;
 
     // Using Card and triggering effect
     private Character Enemy;
-    
+
     // For card moving animation
     private Vector3 targetPoint;
     private Quaternion targetRotation;
     // lerp between 0 to 1
     public float movingSpeed;
     public float rotateSpeed = 100f;
-    
+
     // From battle controller
     private BattleController _script_BattleController;
 
@@ -64,12 +64,12 @@ public class Card : MonoBehaviour
         loadObjects();
         loadCard();
     }
-    
+
     void Start()
     {
         updateCard();
     }
-    
+
     void Update()
     {
         if (cardState == Card.state.Handcard)
@@ -82,7 +82,7 @@ public class Card : MonoBehaviour
         }
         if (cardState == Card.state.DeckDisplay)
         {
-            
+
         }
         // Reset the mouse input bool
         justPressed = false;
@@ -161,13 +161,13 @@ public class Card : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10f);
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, cardSizeChange_Lerp);
     }
-    
+
     private void selectAndUseACard()
     {
         // Left click after selecting the card. Trigger the card effect! and update the handcards
         // 0 left click and 1 right click
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
+
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f, _Mask_AreaForCardsInteraction))
         {
@@ -220,68 +220,84 @@ public class Card : MonoBehaviour
     //======================================================
     //                  Mouse Action    
     //======================================================
-    
+
     // Let the card move to the top when it's hovering
     private void OnMouseOver()
     {
-        if (cardState == Card.state.Handcard)
+        if (GameController.instance.enableMouseEffectOnCard)
         {
-            if (isInHand && enableOverEffect)
+            if (cardState == Card.state.Handcard)
             {
-                // Find the card and rise it and move up
-                MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, transform.rotation);
-                ChangeToSize(initializedScale * 1.5f);
-                if (!isHoveringAnimationCalled)
+                if (isInHand && enableOverEffect)
                 {
-                    handManager.MoveOtherCardAtHovering(this);
-                    isHoveringAnimationCalled = true;
+                    // Find the card and rise it and move up
+                    MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition] + cardHoveringPosAdjustment, transform.rotation);
+                    ChangeToSize(initializedScale * 1.5f);
+                    if (!isHoveringAnimationCalled)
+                    {
+                        handManager.MoveOtherCardAtHovering(this);
+                        isHoveringAnimationCalled = true;
+                    }
                 }
             }
+            else if (cardState == Card.state.DeckCandidate)
+            {
+
+            }
+            enableOverEffect = false;
         }
-        else if(cardState == Card.state.DeckCandidate)
-        {
-            
-        }
-        enableOverEffect = false;
+
     }
 
     private void OnMouseExit()
     {
-        enableOverEffect = true;
-        if (cardState == Card.state.Handcard)
+        if (GameController.instance.enableMouseEffectOnCard)
         {
-            if (isInHand)
+            enableOverEffect = true;
+            if (cardState == Card.state.Handcard)
             {
-                // Find the card and rise it and move up
-                handManager.MoveOtherCardAtHovering_Reset();
-                ChangeToSize(initializedScale);
-                isHoveringAnimationCalled = false;
+                if (isInHand)
+                {
+                    // Find the card and rise it and move up
+                    handManager.MoveOtherCardAtHovering_Reset();
+                    ChangeToSize(initializedScale);
+                    isHoveringAnimationCalled = false;
+                }
             }
         }
+
     }
 
     private void OnMouseDown()
     {
-        SoundManager.PlaySound("sfx_Card_Pick", 0.25f);
-        // Only activated in player turn
-        if (cardState == Card.state.Handcard)
+
+        if (GameController.instance.enableMouseEffectOnCard)
         {
-            if (isInHand && _script_BattleController.enableUsingCard)
+            SoundManager.PlaySound("sfx_Card_Pick", 0.25f);
+            // Only activated in player turn
+            if (cardState == Card.state.Handcard)
             {
-                isSelected = true;
-                theCollider.enabled = false;
-                justPressed = true;
+                if (isInHand && _script_BattleController.enableUsingCard)
+                {
+                    isSelected = true;
+                    theCollider.enabled = false;
+                    justPressed = true;
+                }
             }
-        }
-        else if (cardState == Card.state.DeckCandidate)
-        {
-            if (!_script_DeckEditSystem.isCardPicked)
+            else if (cardState == Card.state.DeckCandidate)
             {
-                _script_DeckEditSystem.AddCardToDeck(this.cardData);
-                _script_DeckEditSystem.DestroyCurrentCardsForPick();
-                _script_DeckEditSystem.UpdateText();
+                if (!_script_DeckEditSystem.isCardPicked)
+                {
+                    _script_DeckEditSystem.AddCardToDeck(this.cardData);
+                    _script_DeckEditSystem.DestroyCurrentCardsForPick();
+                    _script_DeckEditSystem.UpdateText();
+                }
             }
+
+
+
         }
+
     }
 
     //==============================================
