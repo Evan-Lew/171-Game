@@ -1656,7 +1656,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "and <color=#76f300>1</color> self heal";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_04_Drain", 0.7f);
+        PlaySound("sfx_Action_04_Drain", 0.3f);
 
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);

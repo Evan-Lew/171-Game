@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Menu/EndScreenVideo.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Menu/EndScreenVideo.mp4.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_EndScreen.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_EndScreen.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +99,7 @@
       <workItem from="1678567653517" duration="945000" />
       <workItem from="1678984345498" duration="3531000" />
       <workItem from="1678988532637" duration="16013000" />
+      <workItem from="1679072013621" duration="1926000" />
     </task>
     <servers />
   </component>
