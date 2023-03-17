@@ -1569,7 +1569,7 @@ public class EffectDictionary : MonoBehaviour
     //                        ENEMY EFFECTS
     //-----------------------------------------------------------------
 
-    // GOLEM
+    // ---GOLEM---
 
     // Deal 3 damage, cost 2
     public void Action_01_ThrowStone()
@@ -1586,7 +1586,7 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
+            PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
         }, 1f));
 
         // Play SFX
@@ -1599,7 +1599,6 @@ public class EffectDictionary : MonoBehaviour
             DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
-       
     }
 
     // Deal damage to player equal to his health, cost 2
@@ -1614,7 +1613,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy();
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
+        PlaySound("sfx_Action_02_Body_Slam", 1);
         
         // Particle positioned on the player
         ParticleEvent("BodySlam", 2, ParticleDuration, ExtraPositioning[0], false);
@@ -1623,7 +1622,6 @@ public class EffectDictionary : MonoBehaviour
             DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
-        
     }
     // At the end of player turn, gain 2 armor
     public void Action_03_Stubborn()
@@ -1631,22 +1629,21 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Enemy_armorCreate = 1;
         cardName = "Stubborn";
-        descriptionLog = "at the end of every player phase.";
+        descriptionLog = "at the end of every player phase";
 
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_03_Stubborn", 1);
         
         // Particle positioned under the enemy
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            //manipulator not needed since this is static effect
+            // Manipulator not needed since this is static effect
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
             Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
         }, ParticleDuration / 2));
-        
     }
 
-    // PENGHOU
+    // ---PENGHOU---
 
     // Deal 2 damage and heal 1, cost 3
     public void Action_04_Drain()
@@ -1656,12 +1653,14 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 2f;
         Enemy_healing = 1f;
         cardName = "Drain";
+        descriptionLog = "and <color=#76f300>1</color> self heal";
         Manipulator_Enemy();
-        //SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
         
+        PlaySound("sfx_Action_04_Drain", 0.3f);
+
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
-
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1676,9 +1675,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2f;
         ParticleDuration = 2f;
         cardName = "Charge";
-        descriptionLog = "Seems like Penghou wants to do something";
+        descriptionLog = "Seems like Penghou is charging up";
         Manipulator_Enemy();
-        //SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        
+        PlaySound("sfx_Action_Rock_Smash", 1);
         
         // Particle positioned under the enemy
         ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
@@ -1691,15 +1691,18 @@ public class EffectDictionary : MonoBehaviour
     // ZHENNIAO
 
     // IMPLEMENTED
-
+    // Avoid the next time you take damage
     public void Action_06_BlindingFog(){
         Enemy_priorityInc = 3f;
-        ParticleDuration = 3f;
+        ParticleDuration = 4f;
         cardName = "Blinding Fog";
-        descriptionLog = "1 Green Mana and a Colorless";
+        //descriptionLog = "1 Green Mana and a Colorless";
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Breeze", 1f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             isDealingNoDmg = true;
@@ -1708,17 +1711,19 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // NOT IMPLEMENTED, DOES NOT REPEAT
-
     public void Action_07_RazorQuills()
     {
         Enemy_priorityInc = 2f;
         ParticleDuration = 3f;
         cardName = "Razor Quills";
-        descriptionLog = "Sharp";
+        //descriptionLog = "Sharp";
         Enemy_damageDealing = 1;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_03_Stubborn", 1);
+        
+        // Particle positioned under the player
+        ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1726,17 +1731,20 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     // Deals damage at the end of enemy turn instead of player turn
-
     public void Action_08_PurpleHaze()
     {
         Enemy_priorityInc = 2f;
         ParticleDuration = 3f;
         cardName = "Purple Haze";
-        descriptionLog = "ISTHATAMFINGJOJOREFERENCE?!?!??";
+        //descriptionLog = "ISTHATAMFINGJOJOREFERENCE?!?!??";
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Whoosh", 1f);
+        
+        // Particle positioned under the player
+        ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             HazeDamage();
@@ -1744,14 +1752,18 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // IMPLEMENTED
     public void HazeDamage(){
         Enemy_priorityInc = 0f;
         ParticleDuration = 3f;
         cardName = "Haze Damage";
-        descriptionLog = "Damage";
+        //descriptionLog = "Damage";
         Enemy_damageDealing = 1;
+        
+        PlaySound("sfx_Action_Cough", 1f);
 
         // No manipulator because static
+        ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1760,17 +1772,19 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // Partially implemented, does 2x damage with next card instead of whole turn
-
     public void Action_09_Roost()
     {
         Enemy_priorityInc = 2f;
         ParticleDuration = 3f;
         cardName = "Roost";
-        descriptionLog = "Zhenniao is now weak to ground this turn";
+        //descriptionLog = "Zhenniao is now weak to ground this turn";
         Enemy_healing = 4;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Cyclone", 0.5f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Roost", 12, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             player.Armor_Current = 0;
@@ -1780,18 +1794,23 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // --Stone Rui Shi---
+    
     // IMPLEMENTED
-
+    // Deal 4 damage
     public void Action_10_Stomp()
     {
         Enemy_priorityInc = 7f;
-        ParticleDuration = 3f;
+        ParticleDuration = 1f;
         cardName = "Stomp";
-        descriptionLog = "Stompy";
+        //descriptionLog = "Stompy";
         Enemy_damageDealing = 4;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Rock_Smash", 1);
+        
+        // Particle positioned under the player
+        ParticleEvent("Stomp", 6, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1800,17 +1819,20 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-
+    // Gain 4 Armor
     public void Action_11_Solidify()
     {
         Enemy_priorityInc = 7f;
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         cardName = "Solidify";
-        descriptionLog = "Solidy";
+        //descriptionLog = "Solidy";
         Enemy_armorCreate = 4;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Reverberate", 0.4f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Solidify", 7, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
@@ -1819,19 +1841,22 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-
+    // Deal 3 damage, Heal 7, Gain 7 Armor
     public void Action_12_BreathOfLife()
     {
         Enemy_priorityInc = 7f;
         ParticleDuration = 3f;
         cardName = "Breath of Life";
-        descriptionLog = "Big Qi";
+        //descriptionLog = "Big Qi";
         Enemy_damageDealing = 4;
         Enemy_healing = 7;
         Enemy_armorCreate = 7;
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Breath", 1);
+        
+        // Particle positioned on the player
+        ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1842,17 +1867,20 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // Implemented
-
+    // Next turn do triple damage
     public void Action_13_Monsterize()
     {
         Enemy_priorityInc = 0f;
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         cardName = "Monsterize";
-        descriptionLog = "x3";
-
+        //descriptionLog = "x3";
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        
+        PlaySound("sfx_Action_Monsterize", 0.8f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Monsterize", 9, ParticleDuration, ExtraPositioning[3], false);
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             enemyIsDealingTripleDamage = true;

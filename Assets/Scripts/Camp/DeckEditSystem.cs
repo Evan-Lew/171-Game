@@ -5,6 +5,12 @@ using TMPro;
 
 public class DeckEditSystem : MonoBehaviour
 {
+    public static DeckEditSystem instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     [SerializeField] DeckSystem _script_DeckSystem;
     [SerializeField] Transform Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax;
@@ -117,6 +123,13 @@ public class DeckEditSystem : MonoBehaviour
     public void RemoveCardFromDeck(Card_Basedata card)
     {
         _script_DeckSystem.deckToUse.RemoveAt(_script_DeckSystem.deckToUse.FindIndex(current => current.ID == card.ID));
+    }
+
+    /*  Function that remove all cards from deck
+    */
+    public void RemoveAllCardsFromDeck()
+    {
+        _script_DeckSystem.deckToUse.Clear();
     }
 
 

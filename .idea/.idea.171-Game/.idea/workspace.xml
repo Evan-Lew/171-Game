@@ -2,15 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Stone Rui Shi Sketch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Stone Rui Shi Sketch.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Line.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Ring.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Ring.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/ruishi_sketc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/ruishi_sketc.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Zhenniao.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Zhenniao.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_LoadScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_LoadScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level03_Setup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level03_Setup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +35,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/CreditsMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/EndScreenMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/GraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -101,6 +120,9 @@
       <workItem from="1678386595485" duration="4180000" />
       <workItem from="1678513173809" duration="1202000" />
       <workItem from="1678567653517" duration="945000" />
+      <workItem from="1678984345498" duration="3531000" />
+      <workItem from="1678988532637" duration="16013000" />
+      <workItem from="1679072013621" duration="9173000" />
     </task>
     <servers />
   </component>

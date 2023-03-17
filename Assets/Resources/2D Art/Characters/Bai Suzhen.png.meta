@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 972cc114430be1445af5d6e2e47f234b
+guid: 6d827a866946a27479d057c4e06813b4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,22 +105,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bai Suzhen_0
+      name: Bai Suzhen 1_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 114
+        x: 1
+        y: 11
         width: 1913
         height: 1868
       alignment: 9
-      pivot: {x: -0.0044674035, y: -0.051046833}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6db33428208d5945adb176f77f31b79
-      internalID: 1194622367
+      spriteID: 3081493d65d82e74d9c3cc9fc37cdeaf
+      internalID: -487038820
       vertices: []
       indices: 
       edges: []
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bai Suzhen_0: 1194622367
+      Bai Suzhen 1_0: -487038820
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

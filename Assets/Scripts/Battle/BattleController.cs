@@ -7,7 +7,7 @@ public class BattleController : MonoBehaviour
 {
     [HideInInspector] bool enable_BattleController = false;
 
-    //main core script that will be called in different other objects
+    // Main core script that will be called in different other objects
     public static BattleController instance;
 
     [SerializeField] private DeckSystem _script_DeckSystem;
@@ -23,8 +23,8 @@ public class BattleController : MonoBehaviour
     [HideInInspector] public bool enableUsingCard = false;
     [HideInInspector] public bool enableCardActivation = false;
 
-    //for priority system
-    private Character player, enemy;
+    // For priority system
+    [HideInInspector] public Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private EnemyAi _script_EnemyAi;
     [SerializeField] private BattleLog _script_BattleLog;
@@ -40,7 +40,7 @@ public class BattleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //the battle controll will be enabled only if the battle is happened
+        // The battle controller will be enabled only if the battle is happened
         if (enable_BattleController)
         {
             if (enableTurnUpdate)
@@ -49,11 +49,8 @@ public class BattleController : MonoBehaviour
             }
         }
     }
-
-
-
-
-    //set this overall script active
+    
+    // Set this overall script active
     public void SetActive(bool setFlag)
     {
         if (setFlag)
@@ -66,7 +63,7 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    //setup this function
+    // Setup this function
     public void SetUp()
     {
         player = GameObject.Find("Player").GetComponent<Character>();
@@ -90,8 +87,7 @@ public class BattleController : MonoBehaviour
         _script_BattleLog.Clear();
         SetActive(false);
     }
-
-
+    
     void TurnUpdate()
     {
         enableTurnUpdate = false;
@@ -125,14 +121,12 @@ public class BattleController : MonoBehaviour
                 lastPhase = TurnOrder.playerPhase;
                 currentPhase = TurnOrder.EnemyPhase;
                 enableTurnUpdate = true;
-
             }
             else
             {
                 enableUsingCard = true;
                 enableCardActivation = true;
             }
-
         }
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.EnemyPhase)
         {
@@ -166,13 +160,9 @@ public class BattleController : MonoBehaviour
                 _script_EnemyAi.EnemyAction(enemy.CharacterName);
 
             }, TurnChangeAnimationDuration));
-        
         }
-        
     }
-
-
-
+    
     void SpecialHandling_AtEndPlayerTurn()
     {
         if (enemy.CharacterName == "Ink Golem")
@@ -189,6 +179,7 @@ public class BattleController : MonoBehaviour
 
     void TurnChangeAnimation(TurnType type)
     {
+        SoundManager.PlaySound("sfx_Transition", 0.1f);
         if (type == TurnType.player)
         {
             animator_fadeInOut.SetTrigger("Play");
