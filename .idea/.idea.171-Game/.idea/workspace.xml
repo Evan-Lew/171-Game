@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Stone Rui Shi Sketch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Stone Rui Shi Sketch.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen 1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai Suzhen.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian 1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Xu Xian.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/ruishi_sketc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/ruishi_sketc.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/zhenniao.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Peng Hou.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Peng Hou.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Zhenniao.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Zhenniao.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_LoadScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_LoadScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level03_Setup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level03_Setup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
