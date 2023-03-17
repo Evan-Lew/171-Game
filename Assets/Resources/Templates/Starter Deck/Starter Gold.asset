@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Starter Gold
   m_EditorClassIdentifier: 
   deckName: Starter Deck Gold
-  description: The sage like deck.  Combination of your cards matters.  Hard to use
-    as beginner/
+  description: Card synergy is the strength of this deck. Beginners might struggle
+    to use the complexity of the gold cards to their full potential
   deck:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
@@ -26,4 +26,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7be75cac9e0571d4eacf8e46020c7e26, type: 2}
   - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
   - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
-  DeckSprite: {fileID: 21300000, guid: 3ea19a4a65dda6245990f3ad71d4aae0, type: 3}
+  DeckSprite: {fileID: 21300000, guid: 4f178b75e282927499c528e5485d6aa5, type: 3}
