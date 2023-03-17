@@ -6,9 +6,21 @@ using System.Linq;
 
 public class TutorialSetup : MonoBehaviour
 {
+    [Header("Every Tutorial GameObject")]
     [SerializeField] GameObject tutorial01;
     [SerializeField] GameObject tutorial02;
     [SerializeField] GameObject tutorial03;
+    
+    [Header("Tutorial01 Pages")]
+    [SerializeField] List<GameObject> tutorial01_Pages;
+    
+    [Header("Tutorial02 Pages")]
+    [SerializeField] List<GameObject> tutorial02_Pages;
+    
+    [Header("Tutorial03 Pages")]
+    [SerializeField] List<GameObject> tutorial03_Pages;
+
+    [Header("Lists of Cards for the Tutorials")]
     [SerializeField] List<Card_Basedata> tutorialCards_P1;
     [SerializeField] List<Card_Basedata> tutorialCards_P2;
     [SerializeField] List<Card_Basedata> tutorialCards_P3;
@@ -32,10 +44,10 @@ public class TutorialSetup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //run as long as the tutorial is not end
+        // Run as long as the tutorial is not end
         if (!tutorialEnd)
         {
-            //tutorial part 1 finish
+            // Tutorial part 1 finish
             if (isPhase1Set && _HandManager.player_hands_holdCards.Count == 0)
             {
                 if (!isPhase2Set)
@@ -44,10 +56,10 @@ public class TutorialSetup : MonoBehaviour
                 }
                 else
                 {
-                    //tutorial part 2 finsih
+                    // Tutorial part 2 finish
                     if (_HandManager.player_hands_holdCards.Count == 0)
                     {
-                        //tutorial part 3 finish
+                        // Tutorial part 3 finish
                         Phase_3_Setup();
                     }
                 }
@@ -72,6 +84,7 @@ public class TutorialSetup : MonoBehaviour
         {
             _DeckSystem.deckToUse.Add(card);
         }
+
         GameController.instance.TutorialBattleSetup();
         isPhase1Set = true;
 
@@ -93,6 +106,7 @@ public class TutorialSetup : MonoBehaviour
             _DeckSystem.deckToUse.Add(card);
             _DeckSystem.deckForCurrentBattle.Add(card);
         }
+
         _DeckSystem.DrawMultipleCardsThenStopDrawFeature(2);
         isPhase2Set = true;
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -113,6 +127,7 @@ public class TutorialSetup : MonoBehaviour
             _DeckSystem.deckToUse.Add(card);
             _DeckSystem.deckForCurrentBattle.Add(card);
         }
+
         _DeckSystem.DrawMultipleCards(3);
         tutorialEnd = true;
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -129,12 +144,106 @@ public class TutorialSetup : MonoBehaviour
         _DeckSystem.enableDrawing = true;
     }
 
-
     private void OnDestroy()
     {
         Backupdata();
     }
 
+    public void NextButton()
+    {
+        SoundManager.PlaySound("sfx_Scroll_Open", 1);
+        // Tutorial01
+        if (tutorial01.activeSelf)
+        {
+            if (tutorial01_Pages[0].activeSelf)
+            {
+                tutorial01_Pages[0].SetActive(false);
+                tutorial01_Pages[1].SetActive(true);
+            }
+        }
 
+        // Tutorial02
+        if (tutorial02.activeSelf)
+        {
+            if (tutorial02_Pages[0].activeSelf)
+            {
+                tutorial02_Pages[0].SetActive(false);
+                tutorial02_Pages[1].SetActive(true);
+            }
+            else if (tutorial02_Pages[1].activeSelf)
+            {
+                tutorial02_Pages[1].SetActive(false);
+                tutorial02_Pages[2].SetActive(true);
+            }
+        }
+        
+        // Tutorial03
+        if (tutorial03.activeSelf)
+        {
+            if (tutorial03_Pages[0].activeSelf)
+            {
+                tutorial03_Pages[0].SetActive(false);
+                tutorial03_Pages[1].SetActive(true);
+            }
+            else if (tutorial03_Pages[1].activeSelf)
+            {
+                tutorial03_Pages[1].SetActive(false);
+                tutorial03_Pages[2].SetActive(true);
+            }
+            else if (tutorial03_Pages[2].activeSelf)
+            {
+                tutorial03_Pages[2].SetActive(false);
+                tutorial03_Pages[3].SetActive(true);
+            }
+        }
+    }
 
+    public void PrevButton()
+    {
+        SoundManager.PlaySound("sfx_Scroll_Open", 1);
+        // Tutorial01
+        if (tutorial01.activeSelf)
+        {
+            if (tutorial01_Pages[1].activeSelf)
+            {
+                tutorial01_Pages[1].SetActive(false);
+                tutorial01_Pages[0].SetActive(true);
+            }
+        }
+        
+        // Tutorial02
+        if (tutorial02.activeSelf)
+        {
+            if (tutorial02_Pages[1].activeSelf)
+            {
+                tutorial02_Pages[1].SetActive(false);
+                tutorial02_Pages[0].SetActive(true);
+            }
+            else if (tutorial02_Pages[2].activeSelf)
+            {
+                tutorial02_Pages[2].SetActive(false);
+                tutorial02_Pages[1].SetActive(true);
+            }
+        }
+        
+        // Tutorial03
+        if (tutorial03.activeSelf)
+        {
+            if (tutorial03_Pages[1].activeSelf)
+            {
+                tutorial03_Pages[1].SetActive(false);
+                tutorial03_Pages[0].SetActive(true);
+            }
+            else if (tutorial03_Pages[2].activeSelf)
+            {
+                tutorial03_Pages[2].SetActive(false);
+                tutorial03_Pages[1].SetActive(true);
+            }
+            else if (tutorial03_Pages[3].activeSelf)
+            {
+                tutorial03_Pages[3].SetActive(false);
+                tutorial03_Pages[2].SetActive(true);
+            }
+        }
+    }
 }

@@ -60,7 +60,7 @@ public class EnemyAi : MonoBehaviour
 
     void Add_Penghou()
     {
-        //Add_Penghou Pattern  Siphon #6 -> Charge #24
+        //Add_Penghou Pattern  Drain #6 -> Charge #24
         attackPattern = new List<int>() { 4, 5 };
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);

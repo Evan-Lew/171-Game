@@ -1649,16 +1649,18 @@ public class EffectDictionary : MonoBehaviour
     // PENGHOU
 
     // Deal 2 damage and heal 1, cost 3
-    public void Action_04_Siphon()
+    public void Action_04_Drain()
     {
-        Enemy_priorityInc = 2f;
-        ParticleDuration = 3f;
+        Enemy_priorityInc = 3f;
+        ParticleDuration = 4f;
         Enemy_damageDealing = 2f;
         Enemy_healing = 1f;
-        cardName = "Siphon";
+        cardName = "Drain";
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
-        ParticleEvent("BodySlam", 2, ParticleDuration, ExtraPositioning[0], false);
+        //SoundManager.PlaySound("sfx_Action_02_Body_Slam", 1);
+        
+        // Particle positioned under the player
+        ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -1668,16 +1670,18 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Deal 2 damage and heal 1, cost 3
+    // Do nothing
     public void Action_05_Charge()
     {
         Enemy_priorityInc = 2f;
-        ParticleDuration = 3f;
+        ParticleDuration = 2f;
         cardName = "Charge";
         descriptionLog = "Seems like Penghou wants to do something";
         Manipulator_Enemy();
-        SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
-        ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
+        //SoundManager.PlaySound("sfx_Action_03_Stubborn", 1);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Manipulator_Enemy_Reset();
@@ -2087,14 +2091,12 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(5007, ID5007_PerilHundun);
         effectDictionary_Players.Add(5008, ID5008_PerilTaotie);
         effectDictionary_Players.Add(5009, ID5009_Blood);
-
-
-
-        // Enemy: Golem Cards
+        
+        // Enemy: Enemy Cards
         effectDictionary_Enemies.Add(1, Action_01_ThrowStone);
         effectDictionary_Enemies.Add(2, Action_02_BodySlam);
         effectDictionary_Enemies.Add(3, Action_03_Stubborn);
-        effectDictionary_Enemies.Add(4, Action_04_Siphon);
+        effectDictionary_Enemies.Add(4, Action_04_Drain);
         effectDictionary_Enemies.Add(5, Action_05_Charge);
         effectDictionary_Enemies.Add(6, Action_06_BlindingFog);
         effectDictionary_Enemies.Add(7, Action_07_RazorQuills);

@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths - Copy.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths - Copy.wav.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/SFX/Background Music/Mountain_Of_Myths.wav.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Line.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Line.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Ring.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Ring.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External Resources/SpecialSkillsEffectsPack/AllEffects/EffectsSet_1(NotScriptBased)/Materials/Effect_15_Materials/Effect_15_Sphere_3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_GameController.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
