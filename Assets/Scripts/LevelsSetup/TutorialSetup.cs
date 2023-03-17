@@ -41,7 +41,7 @@ public class TutorialSetup : MonoBehaviour
         Phase_1_Setup();
         
         // Play bgm
-        SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.05f);
+        SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
     }
 
     // Update is called once per frame
