@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c1dec4005ccb4381e6c4e48afc7a9, type: 3}
   m_Name: Stone Ruishi
   m_EditorClassIdentifier: 
-  characterName: Stone Ruishi
-  description_Main: Rock dog lmao
+  characterName: Stone Rui Shi
+  description_Main: Rock Lion
   Health_Total: 35
   Health_Current: 35
   Priority_Initial: 0

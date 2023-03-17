@@ -979,7 +979,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1506975319}
         m_TargetAssemblyTypeName: Level03_Setup, Assembly-CSharp
-        m_MethodName: Button_StoneRuishi
+        m_MethodName: Button_StoneRuiShi
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1077,10 +1077,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37c4b2c60b45804f817701e74a18ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies4Demo:
-  - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
+  enemiesForDemo:
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
   - {fileID: 11400000, guid: 38bb62ccb1817ac40a4655d374d390e2, type: 2}
+  - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
   Canvas: {fileID: 2067627966}
 --- !u!114 &1506975320
 MonoBehaviour:
