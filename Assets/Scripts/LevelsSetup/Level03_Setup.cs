@@ -8,15 +8,13 @@ public class Level03_Setup : MonoBehaviour
 {
     [SerializeField] Character_Basedata[] enemies4Demo;
     [SerializeField] GameObject Canvas;
-    // Start is called before the first frame update
 
     private void Awake()
     {
 
         Canvas.SetActive(true);
     }
-
-
+    
     public void Button_InkGolem()
     {
         Canvas.SetActive(false);
@@ -39,10 +37,5 @@ public class Level03_Setup : MonoBehaviour
         Character_Basedata enemy = enemies4Demo.Where(obj => obj.characterName == "Zhenniao").SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
         GameController.instance.checkEnable = true;
-
     }
-
-
-
-
 }

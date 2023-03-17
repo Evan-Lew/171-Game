@@ -21,21 +21,19 @@ public class StarterDeck : MonoBehaviour, IPointerEnterHandler
         this.DeckSprite = starterDeck.DeckSprite;
         textPopup.text = starterDeck.description;
     }
-
-
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
+        SoundManager.PlaySound("sfx_Scroll_Open", 1);
         enableTextDescription = true;
     }
-
-
+    
     // Update is called once per frame
     void Update()
     {
         DisplayDescription();
     }
-
-
+    
     void DisplayDescription()
     {
         if (enableTextDescription)
@@ -47,7 +45,4 @@ public class StarterDeck : MonoBehaviour, IPointerEnterHandler
             descriptionObj.SetActive(false);
         }
     }
-
-
-
 }
