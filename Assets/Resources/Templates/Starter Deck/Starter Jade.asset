@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b029a2439a179549962704da90a9e1a, type: 3}
+  m_Name: Starter Jade
+  m_EditorClassIdentifier: 
+  deckName: Starter Deck Jade
+  description: The well balanced deck.  Can create armor, heal, and deal damage.
+    How to play is up to you!
+  deck:
+  - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: 195e288c012f67147b7204d875599662, type: 2}
+  - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
+  - {fileID: 11400000, guid: b52697612952a944d8b58b97e9093c39, type: 2}
+  - {fileID: 11400000, guid: b52697612952a944d8b58b97e9093c39, type: 2}
+  - {fileID: 11400000, guid: 6c72ea64b26933b4fa5771d1b2b5ab93, type: 2}
+  DeckSprite: {fileID: 1194622367, guid: dbf51ac5b473df94fa3c9ae4ecf41e1f, type: 3}
