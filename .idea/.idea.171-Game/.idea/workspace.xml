@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Peng Hou.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Peng Hou.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3010_Cord_&amp;_Cover.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3010_Cord_&amp;_Cover.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Starter Deck/Starter Gold.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Starter Deck/Starter Gold.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -90,9 +90,23 @@ public class GameController : MonoBehaviour
     [HideInInspector]public bool checkEnable = false;
     void BattleConditionCheck()
     {
+        // Switch to EndScene scene when player dies
+        if (player.GetComponent<Character>().Health_Current <= 0)
+        {
+            _script_DeckSystem.deckToUse.Clear();
+            _script_DeckSystem.Clear();
+            _script_HandManager.Clear();
+            player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
+            _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
+            _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+            characters.SetActive(false);
+            _script_BattleController.Clear();
+            SceneManager.LoadScene("Level00_EndScreen");
+        }
+        
         if (checkEnable)
         {
-            if (enemy.GetComponent<Character>().Health_Current <= 0 || player.GetComponent<Character>().Health_Current <= 0)
+            if (enemy.GetComponent<Character>().Health_Current <= 0)
             {
                 _script_DeckSystem.deckToUse.Clear();
                 _script_DeckSystem.Clear();

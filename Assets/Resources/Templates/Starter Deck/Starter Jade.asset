@@ -21,9 +21,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
-  - {fileID: 11400000, guid: 195e288c012f67147b7204d875599662, type: 2}
   - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
-  - {fileID: 11400000, guid: b52697612952a944d8b58b97e9093c39, type: 2}
-  - {fileID: 11400000, guid: b52697612952a944d8b58b97e9093c39, type: 2}
-  - {fileID: 11400000, guid: 6c72ea64b26933b4fa5771d1b2b5ab93, type: 2}
+  - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
+  - {fileID: 11400000, guid: 3299428caea94fc4e91564f5029a0daf, type: 2}
+  - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
+  - {fileID: 11400000, guid: 8ec9f2669d88abf4392e1a5fbdacd664, type: 2}
   DeckSprite: {fileID: 21300000, guid: e1d3275c05165de45bd2655b8d8ce32e, type: 3}
