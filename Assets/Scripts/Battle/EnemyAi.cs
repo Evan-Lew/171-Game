@@ -80,7 +80,7 @@ public class EnemyAi : MonoBehaviour
         enemysPatterns.Add(attackPattern);
         attackPattern = new List<int>() { 13, 12};
         enemysPatterns.Add(attackPattern);
-        EnemyDictionary.Add("Stone Ruishi", enemysPatterns);
+        EnemyDictionary.Add("Stone Rui Shi", enemysPatterns);
     }
     
     public void CastUniqueAbility_Golem()
