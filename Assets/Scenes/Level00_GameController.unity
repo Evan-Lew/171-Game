@@ -1913,7 +1913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &406636080
 Transform:
   m_ObjectHideFlags: 0
@@ -4669,7 +4669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e49e8549688f14cb90247e52be1cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookingAtTarget: {fileID: 406636080}
+  LookingAtTarget: {fileID: 809714813}
 --- !u!114 &677253865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5275,7 +5275,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 24
+    m_Bits: 2072
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -10027,7 +10027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e49e8549688f14cb90247e52be1cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookingAtTarget: {fileID: 406636080}
+  LookingAtTarget: {fileID: 809714813}
 --- !u!1 &1525263198
 GameObject:
   m_ObjectHideFlags: 0
