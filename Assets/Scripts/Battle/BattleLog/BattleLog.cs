@@ -16,7 +16,7 @@ public class BattleLog : MonoBehaviour
 
     public void Setup()
     {
-       // BattleLogScrollBar.onValueChanged.AddListener(OnScrollbarValueChanged);
+        Reset();
     }
 
     public void Clear()
@@ -100,42 +100,24 @@ public class BattleLog : MonoBehaviour
         instance.transform.SetAsFirstSibling();
         instance.GetComponent<TMP_Text>().text = BattleLog;
         BattleLogQueue.Enqueue(instance);
+        UpdateLayout();
         EffectDictionary.instance.descriptionLog = "";
         EffectDictionary.instance.cardName = "";
     }
 
-    //void OnScrollbarValueChanged(float value)
-    //{
-    //    if (Input.GetAxisRaw("Mouse ScrollWheel") == 0f && !IsScrollBarIsBeingUsed)
-    //    {
-    //        if (setScrollBar2Bottom)
-    //        {
-    //            SetScrollbarValueWithDelay();
-    //            setScrollBar2Bottom = false;
-    //        }
-    //    }
-    //}
 
-    //IEnumerator SetScrollbarValueAtEndFrame()
-    //{
-    //    yield return new WaitForEndOfFrame();
-    //    //BattleLogScrollBar.value = 0; 
-    //}
+    private void UpdateLayout()
+    {
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentHolder.GetComponent<RectTransform>());
+    }
 
-    //// Call this method to set the scrollbar value with a delay
-    //void SetScrollbarValueWithDelay()
-    //{
-    //    StartCoroutine(SetScrollbarValueAtEndFrame());
-    //}
+    public void Reset()
+    {
+        for (int i = contentHolder.transform.childCount - 1; i >= 0; i--)
+        {
+            GameObject.Destroy(contentHolder.transform.GetChild(i).gameObject);
+        }
+    }
 
-    //public void ScrollBarIsBeingUsed()
-    //{
-    //    IsScrollBarIsBeingUsed = true;
-    //}
-
-    //public void ScrollBarIsNotUsed()
-    //{
-    //    IsScrollBarIsBeingUsed = false;
-    //}
 
 }

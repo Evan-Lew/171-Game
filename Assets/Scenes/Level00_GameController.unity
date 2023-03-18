@@ -4928,7 +4928,6 @@ MonoBehaviour:
   BattleCameraObj: {fileID: 1487496232}
   CampCameraObj: {fileID: 1711219752}
   MainCameraObj: {fileID: 1766394220}
-  CharCameraObj: {fileID: 406636083}
   EventSystem_Current: {fileID: 334920751}
 --- !u!1 &748494009
 GameObject:
