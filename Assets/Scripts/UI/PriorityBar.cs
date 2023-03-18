@@ -28,7 +28,9 @@ public class PriorityBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(slider.value < targetPriority) {
+        moveBar();
+
+        if (slider.value < targetPriority) {
 
             slider.value += fillSpeed * Time.deltaTime;
             mask.fillAmount += fillSpeed/20 * Time.deltaTime;
