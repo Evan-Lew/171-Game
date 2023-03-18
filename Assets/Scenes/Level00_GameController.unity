@@ -4308,6 +4308,7 @@ MonoBehaviour:
   _script_PrioritySystem: {fileID: 1368281155}
   _script_HandSystem: {fileID: 409527556}
   _script_BattleLog: {fileID: 5729767904615444950}
+  runtimeParticleParentObj: {fileID: 1368477314}
   BanishPool:
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   - {fileID: 11400000, guid: 3299428caea94fc4e91564f5029a0daf, type: 2}
@@ -8110,6 +8111,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Notes: The Object is used as reference
   AsReferenceOf: []
+--- !u!1 &1368477314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1368477315}
+  m_Layer: 0
+  m_Name: Runtime Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1368477315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368477314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1486405235}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379181922
 GameObject:
   m_ObjectHideFlags: 0
@@ -9369,6 +9401,7 @@ Transform:
   - {fileID: 122679807}
   - {fileID: 629196730}
   - {fileID: 2137971095}
+  - {fileID: 1368477315}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -102,6 +102,7 @@ public class GameController : MonoBehaviour
                 _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
                 _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
                 characters.SetActive(false);
+                _script_BattleController.Clear();
                 SceneManager.LoadScene("Level02");
             }
         }

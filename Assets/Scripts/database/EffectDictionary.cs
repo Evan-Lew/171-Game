@@ -32,6 +32,7 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private PrioritySystem _script_PrioritySystem;
     [SerializeField] private HandManager _script_HandSystem;
     [SerializeField] private BattleLog _script_BattleLog;
+    [SerializeField] private GameObject runtimeParticleParentObj;
     Character player, enemy;
     GameObject playerObj, enemyObj;
 
@@ -243,6 +244,19 @@ public class EffectDictionary : MonoBehaviour
         }
     }
     
+    public void ParticlesReset()
+    {
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            foreach (Transform child in runtimeParticleParentObj.transform)
+            {
+                child.gameObject.SetActive(false);
+                Destroy(child.gameObject);
+            }
+        }, 3f));
+
+    }
+
     // If it already exists, set it to active, and when the effect is played it will be set to disabled again
     // Object Pool with special position for the particle to spawn instead of using the player/enemy pos
     private void ParticleEvent(string effectName, int ID, float duration, GameObject overrideObj, bool playerEffect)
@@ -275,7 +289,7 @@ public class EffectDictionary : MonoBehaviour
                 particleInstance = enemyParticlePrefabsList.Find(x => x.name == effectName);
             }
             
-            GameObject newParticle = Instantiate(particleInstance, overrideObj.transform.position, particleInstance.transform.rotation);
+            GameObject newParticle = Instantiate(particleInstance, overrideObj.transform.position, particleInstance.transform.rotation, runtimeParticleParentObj.transform);
             // Store it in the pool
             newEffect.particleObj = newParticle;
             newEffect.totalPlayTime = duration;

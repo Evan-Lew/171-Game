@@ -85,6 +85,7 @@ public class BattleController : MonoBehaviour
     {
         enableTurnUpdate = false;
         _script_BattleLog.Clear();
+        EffectDictionary.instance.ParticlesReset();
         SetActive(false);
     }
     
