@@ -92,9 +92,17 @@ public class TutorialSetup : MonoBehaviour
 
     void LevelManagement()
     {
-        if (BattleController.instance.enemy.Health_Current == 0)
+        // Player wins
+        if (BattleController.instance.enemy.Health_Current <= 0)
         {
             levelEnd = true;
+        }
+        
+        // Player loses
+        if (BattleController.instance.player.Health_Current <= 0)
+        {
+            GameController.instance.DisableBattleMode();
+            SceneManager.LoadScene("Level00_EndScreen");
         }
 
         if (levelEnd)

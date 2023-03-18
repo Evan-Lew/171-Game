@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Peng Hou
   description_Main: 
-  Health_Total: 15
-  Health_Current: 15
+  Health_Total: 10
+  Health_Current: 10
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0
