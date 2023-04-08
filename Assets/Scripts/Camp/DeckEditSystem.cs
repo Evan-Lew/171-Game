@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -23,8 +22,7 @@ public class DeckEditSystem : MonoBehaviour
 
     [HideInInspector]public bool isCardPicked = false;
     public TMP_Text DeckTotalText;
-
-
+    
     public List<Card> testCardList = new();
     public Transform testPos;
     public Card_Basedata testCardData;
@@ -41,8 +39,6 @@ public class DeckEditSystem : MonoBehaviour
         }
 
     }
-
-
 
     //===========================================================
     //                  DeckEditSystem API
@@ -76,8 +72,7 @@ public class DeckEditSystem : MonoBehaviour
         }
         CardList.Clear();
     }
-
-
+    
     /*  Function that destroy a card from the list
      *  Parameter:  Argument1:  CardList you want to process
      *              Argument2:  name of the game you want to destroy
@@ -100,57 +95,48 @@ public class DeckEditSystem : MonoBehaviour
         }
     }
 
-    /*  Function that get the current Deck infor
-     *  Return: List of card Basedata           ?Why not return list of cards, because cards are script for card Object
-     *                                          and card object has all components to make it work (model, texture), but card Basedata just a scriptable obj
-     */
+    // Function that get the current Deck information
+    // Return: List of card Basedata- Why not return list of cards, because cards are script for card Object
+    // Also the card object has all components to make it work (model, texture), but card Basedata just a scriptable obj
     public List<Card_Basedata> GetCurrentDeck()
     {
         return _script_DeckSystem.deckToUse;
     }
-
-
-    /*  Function that adding a Card_Basedata to deck. Note the deck will be modified until you call RemoveCardFromDeck
-     */
+    
+    // Function that adding a Card_Basedata to deck. Note the deck will be modified until you call RemoveCardFromDeck
     public void AddCardToDeck(Card_Basedata card)
     {
         _script_DeckSystem.deckToUse.Add(card);
         isCardPicked = true;
     }
 
-    /*  Function that removing a Card_Basedata from deck. Note the deck will be modified
-     */
+    // Function that removing a Card_Basedata from deck. Note the deck will be modified
     public void RemoveCardFromDeck(Card_Basedata card)
     {
         _script_DeckSystem.deckToUse.RemoveAt(_script_DeckSystem.deckToUse.FindIndex(current => current.ID == card.ID));
     }
 
-    /*  Function that remove all cards from deck
-    */
+    // Function that remove all cards from deck
     public void RemoveAllCardsFromDeck()
     {
         _script_DeckSystem.deckToUse.Clear();
     }
 
 
-    /*  Function displaying all totally deck amount. Move DeckTotalText Gameobject to adjust location
-     */
+    // Function displaying all totally deck amount. Move DeckTotalText GameObject to adjust location
     public void UpdateText()
     {
         DeckTotalText.text = _script_DeckSystem.deckToUse.Count + " /" + " 10";
     }
 
 
-    /*  This is the function called by the button under UI Camp => button pick Card, once hit, this will be call one time
-     *  Using this as example as how SpawnCardsForPick() works
-     */
+    // This is the function called by the button under UI Camp => button pick Card, once hit, this will be call one time
+    // Using this as example as how SpawnCardsForPick() works
     public void TestSpawnCandidateForPick()
     {
         SpawnCardsForPick(numberCandidate, CardCandidatesList, Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax);
     }
-
-
-
+    
     /*  Function that will spawn cards for picking/adding to deck in a row.
      *  Parameter:  Argument1: totalCandidateNum. Total number of cards will be spawned
      *              Argument2: CandidatesList. the list of optional cards where those cards will be generate from. To modify the rate
@@ -176,26 +162,17 @@ public class DeckEditSystem : MonoBehaviour
             SetCandidateCardPos(MinPos, MaxPos);
         }
     }
-
-
+    
     //                DeckEditSystem API End
     //===========================================================
-
-
-
-
-    //Use API Above
-    //==========================================================================================================================
-    //Ignore all function below
-
-
-
-
+    
+    // Use API Above and Ignore all function below
+    //=================================================================================================================
+    
     //===========================================================
     //                  Helper Functions
     //===========================================================
-
-
+    
     //SpawnCardsForPick()
     /*  Function that reset cards position in range of Pos_CandidatesMin.pos and Pos_CandidatesMin.pos.
      *      Those two gameObject can be found under->Card System->Position-> Card Spawning Min, Max
@@ -239,8 +216,7 @@ public class DeckEditSystem : MonoBehaviour
         newCard.loadCard();
         Cards_ForPick.Add(newCard);
     }
-
-
+    
     //SpawnCardsForPick()
     /*  this function is used to reset entire Candidate system
     */

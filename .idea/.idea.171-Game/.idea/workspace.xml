@@ -3,12 +3,42 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3010_Cord_&amp;_Cover.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3010_Cord_&amp;_Cover.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Bai Suzhen.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Stone Ruishi.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Characters/Xu Xian.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Starter Deck/Starter Gold.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Starter Deck/Starter Gold.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ConditionalCheck.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ConditionalCheck.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level00_LoadScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level00_LoadScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/Scrollbareffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/Scrollbareffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/ButtonTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/ButtonTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/DeckSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/DeckSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/EnemyAi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/PrioritySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/PrioritySystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camp/DeckEditSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camp/DeckEditSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camp/StartingPick/StarterDeck_SO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camp/StartingPick/StarterDeck_SO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cards/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cards/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cards/Card_Basedata.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cards/Card_Basedata.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character_Basedata.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Character_Basedata.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/CameraUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/CameraUtil.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/LevelLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/LevelLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SceneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SceneController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level02/Level02_Setup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level02/Level02_Setup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level02/StarterDeck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level02/StarterDeck.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level03_Setup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/Level03_Setup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelsSetup/TutorialSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartDeckInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartDeckInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Button.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Temporary/Button.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CreditsMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CreditsMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EndScreenMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EndScreenMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PriorityBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PriorityBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/TutorialPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UISystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UISystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +135,7 @@
       <workItem from="1678984345498" duration="3531000" />
       <workItem from="1678988532637" duration="16013000" />
       <workItem from="1679072013621" duration="9173000" />
+      <workItem from="1680979722818" duration="1979000" />
     </task>
     <servers />
   </component>

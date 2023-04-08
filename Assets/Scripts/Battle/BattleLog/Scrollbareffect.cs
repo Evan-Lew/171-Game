@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,8 +11,7 @@ public class Scrollbareffect : MonoBehaviour , IPointerClickHandler
 
     public float Speed = 1.3f;
     float current = 1, target = 1;
-
-
+    
     void Update()
     {
         current = Mathf.MoveTowards(current, target, Speed * Time.deltaTime);

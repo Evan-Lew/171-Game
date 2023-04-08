@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -83,10 +81,7 @@ public class GameController : MonoBehaviour
     //===========================================================
     //                  GameController API
     //===========================================================
-
-
-
-
+    
     [HideInInspector]public bool checkEnable = false;
     void BattleConditionCheck()
     {
@@ -164,18 +159,12 @@ public class GameController : MonoBehaviour
     {
         CampSystemSetUp();
     }
-
-
+    
     //                GameController API End
     //===========================================================
-
-
-
-
-    //Use API Above
+    
+    // Use API Above and Ignore all function below
     //==========================================================================================================================
-    //Ignore all function below
-
     
     //===========================================================
     //                  Helper Functions
@@ -230,7 +219,6 @@ public class GameController : MonoBehaviour
         characters.SetActive(false);
     }
     
-
     //StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
     /*  Function that will setup battle system
      *  

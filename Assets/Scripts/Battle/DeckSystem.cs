@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 public class DeckSystem : MonoBehaviour
 {
@@ -12,9 +10,9 @@ public class DeckSystem : MonoBehaviour
     // deckToUse is a public list for the cards we want to use
     // activeCards are the cards being played
     public List<Card_Basedata> deckToUse = new List<Card_Basedata>();
-    //this is used to handle banish
+    // Used to handle banish
     public List<Card_Basedata> deckForCurrentBattle = new List<Card_Basedata>();
-    //cards still in the current deck waiting for draw
+    // Cards still in the current deck waiting for draw
     public List<Card_Basedata> activeCards = new List<Card_Basedata>();
 
     // Reference to card that will be made in the world
@@ -27,14 +25,12 @@ public class DeckSystem : MonoBehaviour
 
     void Update()
     {
-
         if (enable_DeckSystem)
         {
             //reserved for any check
         }
     }
-
-
+    
     public void SetActive(bool setFlag)
     {
         if (setFlag)
@@ -47,7 +43,6 @@ public class DeckSystem : MonoBehaviour
         }
     }
 
-
     public void SetUp()
     {
         Clear();
@@ -55,26 +50,21 @@ public class DeckSystem : MonoBehaviour
         SetupDeck();
         SetActive(true);
     }
-
-
+    
     public void Clear()
     {
         deckForCurrentBattle.Clear();
         activeCards.Clear();
         SetActive(false);
     }
-
-
-
-
-    //copy prepared deck to the current battle deck
+    
+    // Copy prepared deck to the current battle deck
     void initDeck()
     {
         deckForCurrentBattle.Clear();
-        //copy Deck to currentDeck for this battle
+        // Copy Deck to currentDeck for this battle
         deckForCurrentBattle.AddRange(deckToUse);
     }
-
 
     // Setup the activeCards deck. Note the deckForCurrentBattle will change if banish happened
     public void SetupDeck()
@@ -82,7 +72,7 @@ public class DeckSystem : MonoBehaviour
         List<Card_Basedata> tempDeck = new List<Card_Basedata>();
         activeCards.Clear();
         tempDeck.Clear();
-        //throw all cards into temp deck
+        // Throw all cards into temp deck
         tempDeck.AddRange(deckForCurrentBattle);
 
         //tempDeck.AddRange(deckToUse);
@@ -90,7 +80,7 @@ public class DeckSystem : MonoBehaviour
         // Randomly add cards from deckToUse to activeCards
         while (tempDeck.Count > 0)
         {
-            //random won't pick the right number
+            // Random won't pick the right number
             int selectedIndex = UnityEngine.Random.Range(0, tempDeck.Count);
             activeCards.Add(tempDeck[selectedIndex]);
             tempDeck.RemoveAt(selectedIndex);
@@ -103,7 +93,7 @@ public class DeckSystem : MonoBehaviour
     {
         if (enableDrawing)
         {
-            //draw only if the hand cards not reaching the limit
+            // Draw only if the hand cards not reaching the limit
             if (deckToUse.Count != 0)
             {
                 if (HandManager.player_hands_holdCards.Count <= drawLimit)
@@ -127,9 +117,7 @@ public class DeckSystem : MonoBehaviour
             }
         }
     }
-
-
-
+    
     public void DrawMultipleCards(int amountToDraw)
     {
         StartCoroutine(DrawMultipleCoroutine(amountToDraw));

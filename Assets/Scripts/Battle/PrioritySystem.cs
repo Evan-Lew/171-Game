@@ -1,15 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class PrioritySystem : MonoBehaviour
 {
-
-    //initialize empty dictionary and starting priorities
+    // Initialize empty dictionary and starting priorities
     public Dictionary <Character, double> priorityDict = new Dictionary <Character, double> ();
     double initialPriority;
     Character playerKey;
@@ -17,7 +13,7 @@ public class PrioritySystem : MonoBehaviour
 
     [SerializeField] PriorityBar priorityBar;
 
-    //Adds a character to the dictionary, catches error if already in dict
+    // Adds a character to the dictionary, catches error if already in dict
     public void AddCharacters(Character character){
         try
         {
@@ -36,7 +32,7 @@ public class PrioritySystem : MonoBehaviour
         }
     }
 
-    //Adds priority cost to character in dictionary
+    // Adds priority cost to character in dictionary
     public void AddCost(Character character, double cost){
 
         priorityDict[character] = character.Priority_Current;
@@ -79,8 +75,6 @@ public class PrioritySystem : MonoBehaviour
         return nextChar;
     }
 
-
-
     //==============================================
     //         Helper Function for this script
     //==============================================
@@ -92,8 +86,5 @@ public class PrioritySystem : MonoBehaviour
     //    {
     //        AddCost(character, cost);
     //    }
-
     //}
-
-     
 }

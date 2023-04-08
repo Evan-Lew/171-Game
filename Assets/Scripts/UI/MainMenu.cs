@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         SoundManager.bgmAudioSource.Stop();
-        //note the 2 means the 2 index of building list
+        // Note the 2 means the 2 index of building list
         _script_GameController.isDeckELevel = true;
         SceneManager.LoadScene("Level01");
     }

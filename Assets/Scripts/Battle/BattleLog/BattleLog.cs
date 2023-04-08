@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +27,6 @@ public class BattleLog : MonoBehaviour
         BattleLogQueue.Clear();
         //BattleLogScrollBar.onValueChanged.RemoveListener(OnScrollbarValueChanged);
     }
-
 
     public void ProcessLog(string character)
     {
@@ -104,8 +102,7 @@ public class BattleLog : MonoBehaviour
         EffectDictionary.instance.descriptionLog = "";
         EffectDictionary.instance.cardName = "";
     }
-
-
+    
     private void UpdateLayout()
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentHolder.GetComponent<RectTransform>());
@@ -118,6 +115,4 @@ public class BattleLog : MonoBehaviour
             GameObject.Destroy(contentHolder.transform.GetChild(i).gameObject);
         }
     }
-
-
 }

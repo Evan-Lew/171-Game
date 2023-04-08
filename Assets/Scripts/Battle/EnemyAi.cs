@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using static EffectDictionary;
 
 public class EnemyAi : MonoBehaviour
 {
@@ -45,8 +42,8 @@ public class EnemyAi : MonoBehaviour
 
     void Add_Golem()
     {
-        //Golem Pattern Throw Stone #1 -> Body Slam #2
-        //Unique ability Stubborn #3 triggered at the end of player turn
+        // Golem Pattern Throw Stone #1 -> Body Slam #2
+        // Unique ability Stubborn #3 triggered at the end of player turn
         attackPattern = new List<int>() { 1, 2 };
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
@@ -57,7 +54,7 @@ public class EnemyAi : MonoBehaviour
 
     void Add_Penghou()
     {
-        //Add_Penghou Pattern  Drain #4 -> Charge #5
+        // Add Penghou Pattern  Drain #4 -> Charge #5
         attackPattern = new List<int>() { 4, 5 };
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
@@ -110,21 +107,21 @@ public class EnemyAi : MonoBehaviour
             EnemyAction_SinglePattern(enemyName);
         }else if (Type == Character_Basedata.PatternType.multiple)
         {
-            //code the multiple pattern function and add it here.
+            // Code the multiple pattern function and add it here.
         }
     }
 
-    //single pattern enemy
+    // Single pattern enemy
     public void EnemyAction_SinglePattern(string enemyName)
     {
         if (!isActioned)
         {
             isActioned = true;
-            //loop through the first pattern -> which is the only pattern for single pattern enemy
+            // Loop through the first pattern -> which is the only pattern for single pattern enemy
             if (currentPatternIndex < EnemyDictionary[enemyName][0].Count)
             {
                 EnemyEffect(enemyName, EnemyDictionary[enemyName][0][currentPatternIndex]);
-                //go to next effect
+                // Go to next effect
                 currentPatternIndex++;
             }
             else
@@ -133,7 +130,6 @@ public class EnemyAi : MonoBehaviour
                 currentPatternIndex = 0;
                 EnemyEffect(enemyName, EnemyDictionary[enemyName][0][currentPatternIndex]);
             }
-           
         }
     }
 

@@ -1,19 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using static SoundManager;
-using static CoroutineUtil;
 using System.Linq;
 using TMPro;
 
-//手卡
-//Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
-//牌库
-//卡面编辑后的总卡组 Player_DeckTotal = _script_DeckSystem.deckToUse.Count();
-//当前剩余的卡      Player_DeckActivate = _script_DeckSystem.activeCards.Count();
-//不算上消失的卡组   Player_DeckCurrent = _script_DeckSystem.deckForCurrentBattle.Count()
-
+// Player_HandCard = _script_HandSystem.player_hands_holdCards.Count
+// Player_DeckTotal = _script_DeckSystem.deckToUse.Count();
+// Player_DeckActivate = _script_DeckSystem.activeCards.Count();
+// Player_DeckCurrent = _script_DeckSystem.deckForCurrentBattle.Count()
 
 public class EffectDictionary : MonoBehaviour
 {
@@ -200,9 +194,7 @@ public class EffectDictionary : MonoBehaviour
         _script_DeckSystem.activeCards.Insert(0, ReturnPool[ReturnPool.IndexOf(targetCard)]);
         _script_DeckSystem.DrawCardToHand();
     }
-
-
-
+    
     // NOT IMPLEMENTED
     private void AddCardToDeck(){
 
@@ -254,7 +246,6 @@ public class EffectDictionary : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }, 3f));
-
     }
 
     // If it already exists, set it to active, and when the effect is played it will be set to disabled again
@@ -336,9 +327,7 @@ public class EffectDictionary : MonoBehaviour
             TurnManipulator();
         }, soundDuration));
     }
-
-
-
+    
     //for some unique particle, the turn will not changed
     void TurnManipulator()
     {
@@ -347,11 +336,7 @@ public class EffectDictionary : MonoBehaviour
     //-----------------------------------------------------------------
     //                      Tagged Effect Ends
     //=================================================================
-
-
-
-
-
+    
     //-----------------------------------------------------------------
     //                      SILVER CARDS
     //=================================================================
@@ -1909,21 +1894,21 @@ public class EffectDictionary : MonoBehaviour
     //=================================================================
     //                        Manipulator 
     //-----------------------------------------------------------------
-    //Note manipulator must be called at the effect funtion after basic data is loaded
-    //and reset must be called at the end of the effect function
+    // Note manipulator must be called at the effect funtion after basic data is loaded
+    // and reset must be called at the end of the effect function
     bool isDealingExtraDmg = false;
     bool isDealingDoubleDmg = false;
     bool isCostingExtraPriority = false;
     bool isDealingNoDmg = false;
     // bool isDamageReflected = false;
 
-    //<-----------Player-------------------------------------------------
-    //this will be called for all player effect to check all flags
+    //------------Player-------------------------------------------------
+    // This will be called for all player effect to check all flags
     void Manipulator_Player()
     {
-        //disable card activation until the particle is played
+        // Disable card activation until the particle is played
         BattleController.instance.enableCardActivation = false;
-        //to avoid overlap with turn change animation
+        // To avoid overlap with turn change animation
         if(ParticleDuration < 2f)
         {
             ParticleDuration = 2f;
@@ -1963,7 +1948,7 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
-    //Helper func :  Next Card dealing extra
+    // Helper function: Next Card dealing extra
     void Manipulator_Player_DealingExtra()
     {
         //cards that apply extra damage
@@ -1976,11 +1961,11 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
-    //Helper func :  Next Card dealing double
+    // Helper function: Next Card dealing double
     void Manipulator_Player_DealingDouble()
     {
-        //cards that apply extra damage
-        //setup the extra damage and turn the flag to off
+        // Cards that apply extra damage
+        // Setup the extra damage and turn the flag to off
         if (isDealingDoubleDmg && Player_damageDealing != 0)
         {
             Player_damageDealing += Player_damageDealing;
@@ -1988,7 +1973,7 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
-    //Helper func :  Next Card costing more
+    // Helper function: Next Card costing more
     void Manipulator_Player_CostExtra()
     {
         if(isCostingExtraPriority && Player_extraPriorityCost != 0)
@@ -1997,14 +1982,13 @@ public class EffectDictionary : MonoBehaviour
             isCostingExtraPriority = false;
             Player_extraPriorityCost = 0;
         }
-       
     }
     
-    //Helper func :  Next Card dealing no damage
+    // Helper function: Next Card dealing no damage
     void Manipulator_Player_DealingNone()
     {
-        //cards that apply extra damage
-        //setup the extra damage and turn the flag to off
+        // Cards that apply extra damage
+        // Setup the extra damage and turn the flag to off
         if (isDealingNoDmg && Player_damageDealing != 0)
         {
             Player_damageDealing = 0;
@@ -2012,7 +1996,7 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
-    //<-----------Enemy-------------------------------------------------
+    //------------Enemy-------------------------------------------------
     bool enemyIsDealingTripleDamage = false;
 
     void Manipulator_Enemy()
@@ -2029,7 +2013,7 @@ public class EffectDictionary : MonoBehaviour
 
     void Manipulator_Enemy_Reset()
     {
-        //enable turn change
+        // Enable turn change
         _script_BattleLog.ProcessLog("Enemy");
         Enemy_damageDealing = 0;
         Enemy_priorityInc = 0;
@@ -2148,6 +2132,5 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Enemies.Add(11, Action_11_Solidify);
         effectDictionary_Enemies.Add(12, Action_12_BreathOfLife);
         effectDictionary_Enemies.Add(13, Action_13_Monsterize);
-
     }
 }

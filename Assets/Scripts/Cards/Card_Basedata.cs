@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card", order = 2)]
@@ -25,11 +23,6 @@ public class Card_Basedata : ScriptableObject
     [TextArea]
     public string description_Log;
 
-
-
-
-
-
     [Tooltip("Priority cost of the Card")]
     public int priorityCost;
     //public int NumInHand;
@@ -39,7 +32,4 @@ public class Card_Basedata : ScriptableObject
     public Sprite Card_Front;
     public Sprite Card_Name;
     public Sprite icon;
-
-
-
 }

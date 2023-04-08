@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -11,7 +9,7 @@ public class SoundManager : MonoBehaviour
         instance = this;
     }
 
-    //Note: To add any other audio
+    // Note: To add any other audio
     /*           1. put your audio into folder called "Resources/SFX"
      *           2. add load in Void Start()
      *           3. add it into PlaySound() at the end of this script

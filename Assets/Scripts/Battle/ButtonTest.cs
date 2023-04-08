@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonTest : MonoBehaviour
@@ -11,6 +9,5 @@ public class ButtonTest : MonoBehaviour
     {
         player.Health_Current -= 5;
         enemy.Priority_Current += 2;
-
     }
 }

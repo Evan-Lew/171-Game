@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -29,7 +27,5 @@ public class StartDeckInteraction : MonoBehaviour, IPointerExitHandler
         }
         startDeckSetup.SetActive(false);
         _level02_Setup.isFinished = true;
-
-
     }
 }

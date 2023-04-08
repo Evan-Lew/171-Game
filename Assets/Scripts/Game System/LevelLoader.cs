@@ -31,8 +31,7 @@ public class LevelLoader : MonoBehaviour
         MultipleScenesToLoad.Clear();
         loadingScreen.SetActive(false);
     }
-
-
+    
     public void loadALevel(string sceneName)
     {
         StartCoroutine(LoadALevelAsyncChronously(sceneName));
@@ -73,11 +72,6 @@ public class LevelLoader : MonoBehaviour
             }
             loadCount++;
         }
-
         DisableLoader();
     }
-
-
-
-
 }

@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Linq;
 
 public class TutorialSetup : MonoBehaviour
 {
@@ -52,8 +50,7 @@ public class TutorialSetup : MonoBehaviour
         Tutorials();
         LevelManagement();
 
-
-        if(tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
+        if (tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
         {
             GameController.instance.enableMouseEffectOnCard = false;
         }
@@ -61,8 +58,6 @@ public class TutorialSetup : MonoBehaviour
         {
             GameController.instance.enableMouseEffectOnCard = true;
         }
-
-
     }
 
     void Tutorials()

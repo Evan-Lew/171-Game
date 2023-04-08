@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -82,8 +80,7 @@ public class Character : MonoBehaviour
         _armorSpriteController = armorSpriteObj.GetComponent<Animator>();
         Armor_Current = 0;
     }
-
-
+    
     void CheckHPChange()
     {
         currentFrameHP = Health_Current;
@@ -110,8 +107,7 @@ public class Character : MonoBehaviour
             Gradient_CurrentInUse = Gradient_LowHealth;
         }
     }
-
-
+    
     IEnumerator UpdateHealthColor(float TotalTime, double startColor, double endColor)
     {
         float totalTime = TotalTime;

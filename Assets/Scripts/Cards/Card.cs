@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -215,8 +214,7 @@ public class Card : MonoBehaviour
         theCollider.enabled = true;
         MoveToPoint(handManager.player_hands_holdsCardsPositions[handPosition], handManager.minPos.rotation);
     }
-
-
+    
     //======================================================
     //                  Mouse Action    
     //======================================================
@@ -293,11 +291,7 @@ public class Card : MonoBehaviour
                     _script_DeckEditSystem.UpdateText();
                 }
             }
-
-
-
         }
-
     }
 
     //==============================================

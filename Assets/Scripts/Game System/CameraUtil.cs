@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -50,7 +48,7 @@ public class CameraUtil : MonoBehaviour
         MainCameraObj.gameObject.SetActive(true);
     }
 
-    //override Function that takes Camera
+    // Override Function that takes Camera
     public void SetUIActive(Camera CameraRelatedToUI, bool isActive)
     {
         if (isActive)
@@ -102,5 +100,4 @@ public class CameraUtil : MonoBehaviour
             }
         }
     }
-
 }
