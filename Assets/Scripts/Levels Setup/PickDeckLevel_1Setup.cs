@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Level02_Setup : MonoBehaviour
+public class PickDeckLevel_1Setup : MonoBehaviour
 {
     public bool isFinished = false;
 
@@ -14,7 +14,7 @@ public class Level02_Setup : MonoBehaviour
     {
         if (isFinished)
         {
-            SceneManager.LoadScene("Level03");
+            SceneManager.LoadScene("PickDeckLevel_2");
             isFinished = false;
         }
     }

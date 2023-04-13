@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     //=======================================================
     //          AI Database Guide

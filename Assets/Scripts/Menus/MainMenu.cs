@@ -19,16 +19,27 @@ public class MainMenu : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         SoundManager.bgmAudioSource.Stop();
-        // Note the 2 means the 2 index of building list
-        _script_GameController.isDeckELevel = true;
-        SceneManager.LoadScene("Level01");
+        
+        SceneManager.LoadScene("DeveloperLevel");
     }
 
-    public void CreditsGame()
+    public void PlayTutorial()
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         SoundManager.bgmAudioSource.Stop();
-        SceneManager.LoadScene("Level00_Credits");
+        
+        // --Legacy: Not used--
+        _script_GameController.isDeckELevel = true;
+        //
+        
+        SceneManager.LoadScene("TutorialLevel");
+    }
+    
+    public void CreditsScene()
+    {
+        SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.bgmAudioSource.Stop();
+        SceneManager.LoadScene("CreditsScene");
     }
 
     public void QuitGame()

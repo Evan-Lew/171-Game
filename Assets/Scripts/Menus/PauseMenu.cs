@@ -41,8 +41,8 @@ public class PauseMenu : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         Time.timeScale = 1f;
-        // Load main menu (index 0)
-        SceneManager.LoadScene(0);
+        // Load main menu
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

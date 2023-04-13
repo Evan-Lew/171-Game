@@ -14,9 +14,9 @@ public class LevelLoader : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        MultipleScenesToLoad.Add("Level00_GameController");
-        MultipleScenesToLoad.Add("Level00_Environment");
-        MultipleScenesToLoad.Add("Level00_MainMenu");
+        MultipleScenesToLoad.Add("GameController");
+        MultipleScenesToLoad.Add("Environment");
+        MultipleScenesToLoad.Add("MainMenu");
         loadMultipleLevels(MultipleScenesToLoad);
     }
 
@@ -52,10 +52,10 @@ public class LevelLoader : MonoBehaviour
 
     public void loadMultipleLevels(List<string> sceneList)
     {
-        StartCoroutine(LoadMultipleLevelAsyncChronously(sceneList));
+        StartCoroutine(LoadMultipleLevelsAsynchronously(sceneList));
     }
 
-    IEnumerator LoadMultipleLevelAsyncChronously(List<string> sceneList)
+    IEnumerator LoadMultipleLevelsAsynchronously(List<string> sceneList)
     {
         EnableLoader();
         AsyncOperation operation;

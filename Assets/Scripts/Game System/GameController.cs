@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour
             _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
             characters.SetActive(false);
             _script_BattleController.Clear();
-            SceneManager.LoadScene("Level00_EndScreen");
+            SceneManager.LoadScene("EndScene");
         }
         
         if (checkEnable)
@@ -187,6 +187,22 @@ public class GameController : MonoBehaviour
             Debug.Log("Error: GetCharacter() in GameController. No such character is found or character is not unique");
             return result;
         }
+    }
+
+    // Helper function: Setup for the developer scene/script
+    public void DeveloperBattleSetup(string playerName, string enemyName)
+    {
+        SetCharacter(characterType.player, GetCharacter(playerName));
+        SetCharacter(characterType.enemy, GetCharacter(enemyName));
+        characters.SetActive(true);
+        
+        // Implement the character reassignment here
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_HandManager.SetUp();
+        _script_DeckSystem.SetUp();
+        _script_BattleController.SetUp();
+        _script_EffectDictionary.SetUp();
     }
     
     // Setup function for tutorial only

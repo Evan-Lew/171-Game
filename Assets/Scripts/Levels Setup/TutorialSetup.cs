@@ -97,21 +97,21 @@ public class TutorialSetup : MonoBehaviour
         if (BattleController.instance.player.Health_Current <= 0)
         {
             GameController.instance.DisableBattleMode();
-            SceneManager.LoadScene("Level00_EndScreen");
+            SceneManager.LoadScene("EndScene");
         }
 
         if (levelEnd)
         {
             GameController.instance.DisableBattleMode();
             levelEnd = false;
-            SceneManager.LoadScene("Level02");
+            SceneManager.LoadScene("PickDeckLevel_1");
         }
     }
 
     void Phase_1_Setup()
     {
         _DeckSystem.deckToUse.Clear();
-        BattleController.instance.startDrawingCrads = false;
+        BattleController.instance.startDrawingCards = false;
         foreach (Card_Basedata card in tutorialCards_P1)
         {
             _DeckSystem.deckToUse.Add(card);
@@ -172,7 +172,7 @@ public class TutorialSetup : MonoBehaviour
     void Backupdata()
     {
         BattleController.instance.startingCardsAmount = Backup_StartDraw;
-        BattleController.instance.startDrawingCrads = true;
+        BattleController.instance.startDrawingCards = true;
         _DeckSystem.enableDrawing = true;
     }
 
