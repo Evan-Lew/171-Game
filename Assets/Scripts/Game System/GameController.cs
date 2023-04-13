@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
 
             // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
             battleCondition = false;
-            SceneManager.LoadScene("PickDeckLevel_1");
+            SceneManager.LoadScene("StoryIntro");
         }
     }
     
@@ -227,8 +227,8 @@ public class GameController : MonoBehaviour
         _script_EffectDictionary.SetUp();
     }
 
-    // Setup function for PickDeckLevel_2Setup to change player sprite
-    public void PickDeckLevel_2_Initialize()
+    // Helper function to change the player sprite
+    public void changePlayerSprite()
     {
         SetCharacter(characterType.player, GetCharacter("Bai Suzhen"));
     }

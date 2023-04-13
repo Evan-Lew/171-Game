@@ -5,6 +5,6 @@ public class StoryIntro : MonoBehaviour
 {
     public void StartBattle()
     {
-        SceneManager.LoadScene("DeveloperLevel");
+        SceneManager.LoadScene("BattleLevel");
     }
 }

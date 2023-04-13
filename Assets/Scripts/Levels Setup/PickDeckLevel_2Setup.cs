@@ -8,7 +8,7 @@ public class PickDeckLevel_2Setup : MonoBehaviour
 
     private void Awake()
     {
-        GameController.instance.PickDeckLevel_2_Initialize();
+        GameController.instance.changePlayerSprite();
         Canvas.SetActive(true);
     }
     
