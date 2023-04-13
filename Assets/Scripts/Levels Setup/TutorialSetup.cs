@@ -32,7 +32,6 @@ public class TutorialSetup : MonoBehaviour
 
     bool levelEnd = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
@@ -44,7 +43,6 @@ public class TutorialSetup : MonoBehaviour
         SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Tutorials();

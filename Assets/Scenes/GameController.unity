@@ -6086,11 +6086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeeebb9efbab1841a7f2ea274ed1998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Actions:
-  - {fileID: 11400000, guid: ab6b33daa60c50b4eb898944e25041ef, type: 2}
-  - {fileID: 11400000, guid: 6aaa3b4eb2f3aec4c9e0d758be2a16e5, type: 2}
-  - {fileID: 11400000, guid: cc65fd64ada2a094cbeee77a365c9eb3, type: 2}
-  - {fileID: 11400000, guid: 26dc030e886d99443af951ddc0f6277d, type: 2}
+  Actions: []
   isActioned: 0
 --- !u!4 &939407031
 Transform:

@@ -1037,9 +1037,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1506975318}
   - component: {fileID: 1506975319}
-  - component: {fileID: 1506975320}
   m_Layer: 5
-  m_Name: Level03 Setup
+  m_Name: Setup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1080,23 +1079,6 @@ MonoBehaviour:
   enemiesForDemo:
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
   - {fileID: 11400000, guid: 38bb62ccb1817ac40a4655d374d390e2, type: 2}
-  - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
-  Canvas: {fileID: 2067627966}
---- !u!114 &1506975320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506975317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37c4b2c60b45804f817701e74a18ec8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesForDemo:
-  - {fileID: 11400000, guid: 38bb62ccb1817ac40a4655d374d390e2, type: 2}
-  - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
   - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
   Canvas: {fileID: 2067627966}
 --- !u!1 &1516318257
@@ -1361,7 +1343,7 @@ GameObject:
   - component: {fileID: 2067627968}
   - component: {fileID: 2067627967}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Enemy Names Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

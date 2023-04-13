@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-public class Level03_Setup : MonoBehaviour
+public class PickDeckLevel_2Setup : MonoBehaviour
 {
     [SerializeField] Character_Basedata[] enemiesForDemo;
     [SerializeField] GameObject Canvas;

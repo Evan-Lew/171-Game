@@ -6,7 +6,10 @@ using System.Linq;
 public class GameController : MonoBehaviour
 {
     // Flag will be turned on when setup function needed
+    
+    /* --Legacy: Not Used--
     [HideInInspector] private bool setupFlag = false;
+    */
     [SerializeField] CameraUtil _script_CameraUtil;
     [SerializeField] BattleController _script_BattleController;
     [SerializeField] HandManager _script_HandManager;
@@ -39,17 +42,16 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
-        //SceneManager.LoadScene("Main Menu");
         characters.SetActive(false);
         // SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
     }
     
-    // Update is called once per frame
     void Update()
     {
+        BattleConditionCheck();
+        
         //if (isDeckELevel)
         //{
         //    isDeckELevel = false;
@@ -60,6 +62,7 @@ public class GameController : MonoBehaviour
         //    isStartLevel = false;
         //}
         
+        /* --Legacy: Not used--
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartTheCamp();
@@ -75,7 +78,7 @@ public class GameController : MonoBehaviour
                 setupFlag = false;
             }
         }
-        BattleConditionCheck();
+        */
     }
 
     //===========================================================
@@ -85,36 +88,41 @@ public class GameController : MonoBehaviour
     [HideInInspector]public bool checkEnable = false;
     void BattleConditionCheck()
     {
-        // Switch to EndScene scene when player dies
+        // Switch scenes if player dies
         if (player.GetComponent<Character>().Health_Current <= 0)
         {
             _script_DeckSystem.deckToUse.Clear();
             _script_DeckSystem.Clear();
             _script_HandManager.Clear();
+            _script_BattleController.Clear();
+            
             player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
             _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
             _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
             characters.SetActive(false);
-            _script_BattleController.Clear();
             SceneManager.LoadScene("EndScene");
         }
         
-        if (checkEnable)
-        {
-            if (enemy.GetComponent<Character>().Health_Current <= 0)
-            {
-                _script_DeckSystem.deckToUse.Clear();
-                _script_DeckSystem.Clear();
-                _script_HandManager.Clear();
-                player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
-                checkEnable = false;
-                _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
-                _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-                characters.SetActive(false);
-                _script_BattleController.Clear();
-                SceneManager.LoadScene("Level02");
-            }
-        }
+        // // Switch scene if player wins
+        // if (enemy.GetComponent<Character>().Health_Current <= 0)
+        // {
+        //     DisableBattleMode();
+        //     _script_DeckSystem.deckToUse.Clear();
+        //     _script_DeckSystem.Clear();
+        //     _script_HandManager.Clear();
+        //     _script_BattleController.Clear();
+        //         
+        //     // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
+        //     // _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        //     // _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        //     // characters.SetActive(false);
+        //     
+        //   
+        //     _script_DeckSystem.deckForCurrentBattle.Clear();
+        //
+        //
+        //     SceneManager.LoadScene("CreditsScene");
+        // }
     }
     
     /*  Function that will setup spawning point for characters group and Camera
@@ -229,7 +237,7 @@ public class GameController : MonoBehaviour
 
     public void DisableBattleMode()
     {
-        _script_HandManager.Clear();
+        //_script_HandManager.Clear();
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
         characters.SetActive(false);

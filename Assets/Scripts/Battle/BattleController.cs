@@ -33,8 +33,7 @@ public class BattleController : MonoBehaviour
     {
         instance = this;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         // The battle controller will be enabled only if the battle is happened
@@ -78,6 +77,7 @@ public class BattleController : MonoBehaviour
         SetActive(true);
     }
 
+    // Reset the battle controller
     public void Clear()
     {
         enableTurnUpdate = false;
@@ -90,7 +90,7 @@ public class BattleController : MonoBehaviour
     {
         enableTurnUpdate = false;
 
-        //special handling AtPlayerEndPhase
+        // Special handling AtPlayerEndPhase
         if (currentPhase == TurnOrder.playerEndPhase)
         {
             SpecialHandling_AtEndPlayerTurn();
@@ -161,6 +161,7 @@ public class BattleController : MonoBehaviour
         }
     }
     
+    // Used for special card attacks
     void SpecialHandling_AtEndPlayerTurn()
     {
         if (enemy.CharacterName == "Ink Golem")

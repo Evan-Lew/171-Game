@@ -6,6 +6,7 @@ public class DeveloperSetup : MonoBehaviour
 {
     DeckSystem _deckSystem;
     HandManager _handManager;
+    BattleController _battleController;
 
     [Header("List of Cards for the Deck")]
     [SerializeField] List<Card_Basedata> developerCards;
@@ -18,31 +19,14 @@ public class DeveloperSetup : MonoBehaviour
     {
         _deckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
         _handManager = GameObject.Find("Hand System").GetComponent<HandManager>();
+        _battleController = GameObject.Find("Battle Controller").GetComponent<BattleController>();
         
         StartTheBattle();
     }
 
     private void Update()
     {
-        // Reset level if Player wins
-        if (BattleController.instance.enemy.Health_Current <= 0)
-        {
-            GameController.instance.DisableBattleMode();
-            _deckSystem.deckToUse.Clear();
-            _deckSystem.deckForCurrentBattle.Clear();
-            _handManager.Clear();
-            SceneManager.LoadScene("DeveloperLevel");
-        }
-        
-        // Reset level if Enemy wins
-        if (BattleController.instance.player.Health_Current <= 0)
-        {
-            GameController.instance.DisableBattleMode();
-            _deckSystem.deckToUse.Clear();
-            _deckSystem.deckForCurrentBattle.Clear();
-            _handManager.Clear();
-            SceneManager.LoadScene("DeveloperLevel");
-        }
+        LevelManagement();
     }
 
     void StartTheBattle()
@@ -56,5 +40,30 @@ public class DeveloperSetup : MonoBehaviour
         }
         
         GameController.instance.DeveloperBattleSetup(playerName, enemyName);
+    }
+
+    void LevelManagement()
+    {
+        // Player wins switch scenes
+        if (BattleController.instance.enemy.Health_Current <= 0)
+        {
+            GameController.instance.DisableBattleMode();
+            _deckSystem.deckToUse.Clear();
+            _deckSystem.deckForCurrentBattle.Clear();
+            _handManager.Clear();
+            _battleController.Clear();
+            SceneManager.LoadScene("CreditsScene");
+        }
+        
+        // Player loses reset current scene
+        if (BattleController.instance.player.Health_Current <= 0)
+        {
+            GameController.instance.DisableBattleMode();
+            _deckSystem.deckToUse.Clear();
+            _deckSystem.deckForCurrentBattle.Clear();
+            _handManager.Clear();
+            _battleController.Clear();
+            SceneManager.LoadScene("DeveloperLevel");
+        }
     }
 }
