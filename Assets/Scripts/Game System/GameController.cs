@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     public GameObject TargetCameraPos;
     
     // Flag for changing level
-    [HideInInspector]public bool isDeckELevel = true;
+    [HideInInspector] public bool isDeckELevel = true;
     [HideInInspector] public bool isStartLevel = false;
     
     public static GameController instance;
@@ -127,13 +127,7 @@ public class GameController : MonoBehaviour
     {
         BattleSystemSetUp(enemy);
     }
-
-    //public Character_Basedata playTest2;
-    //public void PlayTestStartBattle()
-    //{
-    //     StartTheBattle(playTest2);
-    //}
-
+    
     void StartTheBattle(Character_Basedata enemy)
     {
         if (_script_DeckSystem.deckToUse.Count == 10)
@@ -160,10 +154,30 @@ public class GameController : MonoBehaviour
     //===========================================================
     //                  Helper Functions
     //===========================================================
+    
+    /* StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
+     *  Function that will setup battle system
+     *  
+     *  Parameters: Argument1:  Target Character Group game object's transform
+     *              Argument2:  Target Environment Camera's transform                         
+     */
+    void BattleSystemSetUp(Character_Basedata enemy)
+    {
+        // Don't change order of call
+        SetCharacter(characterType.enemy,enemy);
+        characters.SetActive(true);
+        // Implement the character reassignment here
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_HandManager.SetUp();
+        _script_DeckSystem.SetUp();
+        _script_BattleController.SetUp();
+        _script_EffectDictionary.SetUp();
+    }
 
-    /* Function that will get Enemy From the Enemy List by Name
-     * Parameters: Argument1:  Target Enemy Name
-     * Return:     Character_Basedata an Enemy basedata or error if enemy is not found or not unique
+    /*  Function that will get Enemy From the Enemy List by Name
+     *  Parameters: Argument1:  Target Enemy Name
+     *  Return:     Character_Basedata an Enemy basedata or error if enemy is not found or not unique
      */
     public Character_Basedata GetCharacter(string name)
     {
@@ -213,8 +227,8 @@ public class GameController : MonoBehaviour
         _script_EffectDictionary.SetUp();
     }
 
-    // Setup function for level03 to change player sprite
-    public void Level03Setup()
+    // Setup function for PickDeckLevel_2Setup to change player sprite
+    public void PickDeckLevel_2_Initialize()
     {
         SetCharacter(characterType.player, GetCharacter("Bai Suzhen"));
     }
@@ -230,28 +244,8 @@ public class GameController : MonoBehaviour
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
         characters.SetActive(false);
     }
-    
-    //StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
-    /*  Function that will setup battle system
-     *  
-     *  Parameters: Argument1:  Target Character Group game object's transform
-     *              Argument2:  Target Environment Camera's transform                         
-     */
-    void BattleSystemSetUp(Character_Basedata enemy)
-    {
-        // Don't change order of call
-        SetCharacter(characterType.enemy,enemy);
-        characters.SetActive(true);
-        // Implement the character reassignment here
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        _script_HandManager.SetUp();
-        _script_DeckSystem.SetUp();
-        _script_BattleController.SetUp();
-        _script_EffectDictionary.SetUp();
-    }
 
-    //StartTheCamp()
+    //  StartTheCamp()
     /*  Function that will setup battle system
     *  
     *   Parameters: Argument1:  Target Character Group game object's transform

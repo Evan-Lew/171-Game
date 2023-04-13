@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialLevel.unity
     guid: 68642062e8c24984a9a9e8d18476f64c
   - enabled: 1
+    path: Assets/Scenes/StoryIntro.unity
+    guid: 8b162fae64944194380302bd7d31b009
+  - enabled: 1
+    path: Assets/Scenes/DeveloperLevel.unity
+    guid: 14c451a29f05f4f44adc1616d648d0d1
+  - enabled: 1
     path: Assets/Scenes/PickDeckLevel_1.unity
     guid: c049dc7646211214dbeec3c75dd692f4
   - enabled: 1
@@ -32,7 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: cd6eaf45c26fa1846bfd815d7f455127
-  - enabled: 1
-    path: Assets/Scenes/DeveloperLevel.unity
-    guid: 14c451a29f05f4f44adc1616d648d0d1
   m_configObjects: {}

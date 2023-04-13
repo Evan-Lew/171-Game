@@ -20,7 +20,8 @@ public class MainMenu : MonoBehaviour
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         SoundManager.bgmAudioSource.Stop();
         
-        SceneManager.LoadScene("DeveloperLevel");
+        //LevelLoader.instance.LoadALevel("Environment");
+        SceneManager.LoadScene("StoryIntro");
     }
 
     public void PlayTutorial()

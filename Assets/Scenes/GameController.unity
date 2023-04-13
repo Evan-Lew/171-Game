@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28153282, g: 0.29911917, b: 0.283292, a: 1}
+  m_IndirectSpecularColor: {r: 0.2767552, g: 0.29738194, b: 0.2833572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12938,7 +12938,7 @@ MonoBehaviour:
   isDeckELevel: 0
   isStartLevel: 0
   enableMouseEffectOnCard: 1
-  checkEnable: 0
+  battleCondition: 0
 --- !u!114 &2137971098
 MonoBehaviour:
   m_ObjectHideFlags: 0
