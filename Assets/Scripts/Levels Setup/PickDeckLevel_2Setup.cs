@@ -17,7 +17,7 @@ public class PickDeckLevel_2Setup : MonoBehaviour
         Canvas.SetActive(false);
         Character_Basedata enemy = enemiesForDemo.Where(obj => obj.characterName == "Ink Golem").SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
-        GameController.instance.checkEnable = true;
+        GameController.instance.battleCondition = true;
     }
 
     public void Button_StoneRuiShi()
@@ -25,7 +25,7 @@ public class PickDeckLevel_2Setup : MonoBehaviour
         Canvas.SetActive(false);
         Character_Basedata enemy = enemiesForDemo.Where(obj => obj.characterName == "Stone Rui Shi").SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
-        GameController.instance.checkEnable = true;
+        GameController.instance.battleCondition = true;
     }
 
     public void Button_Zhenniao()
@@ -33,6 +33,6 @@ public class PickDeckLevel_2Setup : MonoBehaviour
         Canvas.SetActive(false);
         Character_Basedata enemy = enemiesForDemo.Where(obj => obj.characterName == "Zhenniao").SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
-        GameController.instance.checkEnable = true;
+        GameController.instance.battleCondition = true;
     }
 }

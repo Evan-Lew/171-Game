@@ -85,44 +85,27 @@ public class GameController : MonoBehaviour
     //                  GameController API
     //===========================================================
     
-    [HideInInspector]public bool checkEnable = false;
+    [HideInInspector]public bool battleCondition = false;
     void BattleConditionCheck()
     {
         // Switch scenes if player dies
         if (player.GetComponent<Character>().Health_Current <= 0)
         {
-            _script_DeckSystem.deckToUse.Clear();
-            _script_DeckSystem.Clear();
-            _script_HandManager.Clear();
-            _script_BattleController.Clear();
+            DisableBattleMode();
             
             player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
-            _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
-            _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-            characters.SetActive(false);
             SceneManager.LoadScene("EndScene");
         }
         
-        // // Switch scene if player wins
-        // if (enemy.GetComponent<Character>().Health_Current <= 0)
-        // {
-        //     DisableBattleMode();
-        //     _script_DeckSystem.deckToUse.Clear();
-        //     _script_DeckSystem.Clear();
-        //     _script_HandManager.Clear();
-        //     _script_BattleController.Clear();
-        //         
-        //     // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
-        //     // _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        //     // _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        //     // characters.SetActive(false);
-        //     
-        //   
-        //     _script_DeckSystem.deckForCurrentBattle.Clear();
-        //
-        //
-        //     SceneManager.LoadScene("CreditsScene");
-        // }
+        // Switch scene if player wins
+        if (enemy.GetComponent<Character>().Health_Current <= 0 && battleCondition)
+        {
+            DisableBattleMode();
+
+            // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
+            battleCondition = false;
+            SceneManager.LoadScene("PickDeckLevel_1");
+        }
     }
     
     /*  Function that will setup spawning point for characters group and Camera
@@ -137,7 +120,7 @@ public class GameController : MonoBehaviour
     
     /*  Function that will start the battle for testing, assigned deck is required
     *  Parameters:  Argument1:  The next enemy you want to setup 
-    *               Argument2 (override):  true/false, doesn't matter
+    *               Argument2 (override): true/false, doesn't matter
     *                                     this version will allow to start battle without deck = 10 cards
     */
     public void StartTheBattle(Character_Basedata enemy, bool overrideVer)
@@ -155,7 +138,7 @@ public class GameController : MonoBehaviour
     {
         if (_script_DeckSystem.deckToUse.Count == 10)
         {
-            //checkEnable = true;
+            //battleCondition = true;
             BattleSystemSetUp(enemy);
         }
     }
@@ -200,6 +183,7 @@ public class GameController : MonoBehaviour
     // Helper function: Setup for the developer scene/script
     public void DeveloperBattleSetup(string playerName, string enemyName)
     {
+        battleCondition = true;
         SetCharacter(characterType.player, GetCharacter(playerName));
         SetCharacter(characterType.enemy, GetCharacter(enemyName));
         characters.SetActive(true);
@@ -237,7 +221,11 @@ public class GameController : MonoBehaviour
 
     public void DisableBattleMode()
     {
-        //_script_HandManager.Clear();
+        _script_DeckSystem.deckToUse.Clear();
+        _script_DeckSystem.Clear();
+        _script_HandManager.Clear();
+        _script_BattleController.Clear();
+        
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
         characters.SetActive(false);

@@ -24,10 +24,10 @@ public class DeveloperSetup : MonoBehaviour
         StartTheBattle();
     }
 
-    private void Update()
-    {
-        LevelManagement();
-    }
+    // private void Update()
+    // {
+    //     LevelManagement();
+    // }
 
     void StartTheBattle()
     {
@@ -42,28 +42,28 @@ public class DeveloperSetup : MonoBehaviour
         GameController.instance.DeveloperBattleSetup(playerName, enemyName);
     }
 
-    void LevelManagement()
-    {
-        // Player wins switch scenes
-        if (BattleController.instance.enemy.Health_Current <= 0)
-        {
-            GameController.instance.DisableBattleMode();
-            _deckSystem.deckToUse.Clear();
-            _deckSystem.deckForCurrentBattle.Clear();
-            _handManager.Clear();
-            _battleController.Clear();
-            SceneManager.LoadScene("CreditsScene");
-        }
-        
-        // Player loses reset current scene
-        if (BattleController.instance.player.Health_Current <= 0)
-        {
-            GameController.instance.DisableBattleMode();
-            _deckSystem.deckToUse.Clear();
-            _deckSystem.deckForCurrentBattle.Clear();
-            _handManager.Clear();
-            _battleController.Clear();
-            SceneManager.LoadScene("DeveloperLevel");
-        }
-    }
+    // void LevelManagement()
+    // {
+    //     // Player wins switch scenes
+    //     if (BattleController.instance.enemy.Health_Current <= 0)
+    //     {
+    //         GameController.instance.DisableBattleMode();
+    //         _deckSystem.deckToUse.Clear();
+    //         _deckSystem.deckForCurrentBattle.Clear();
+    //         _handManager.Clear();
+    //         _battleController.Clear();
+    //         SceneManager.LoadScene("CreditsScene");
+    //     }
+    //     
+    //     // Player loses reset current scene
+    //     if (BattleController.instance.player.Health_Current <= 0)
+    //     {
+    //         GameController.instance.DisableBattleMode();
+    //         _deckSystem.deckToUse.Clear();
+    //         _deckSystem.deckForCurrentBattle.Clear();
+    //         _handManager.Clear();
+    //         _battleController.Clear();
+    //         SceneManager.LoadScene("DeveloperLevel");
+    //     }
+    // }
 }

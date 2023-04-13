@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Environment.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Environment.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PickDeckLevel_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PickDeckLevel_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PickDeckLevel_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PickDeckLevel_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/DeveloperSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/DeveloperSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Level03_Setup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Level03_Setup.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/PickDeckLevel_2Setup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/PickDeckLevel_2Setup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +123,7 @@
       <workItem from="1681232040570" duration="617000" />
       <workItem from="1681233917418" duration="5490000" />
       <workItem from="1681346579384" duration="6799000" />
-      <workItem from="1681406032990" duration="4547000" />
+      <workItem from="1681406032990" duration="5335000" />
     </task>
     <servers />
   </component>
