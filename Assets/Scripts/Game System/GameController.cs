@@ -26,11 +26,13 @@ public class GameController : MonoBehaviour
 
     [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;
+    
+    // --Not used anymore--
     // Set position -- character and enemy
-    [SerializeField] List<GameObject> CharacterSpawningPoint_List = new();
-    [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
-    public GameObject TargetCharacterPos;
-    public GameObject TargetCameraPos;
+    // [SerializeField] List<GameObject> CharacterSpawningPoint_List = new();
+    // [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
+    // public GameObject TargetCharacterPos;
+    // public GameObject TargetCameraPos;
     
     // Flag for changing level
     [HideInInspector] public bool isDeckELevel = true;

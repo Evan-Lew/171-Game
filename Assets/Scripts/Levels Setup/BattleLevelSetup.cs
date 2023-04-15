@@ -14,14 +14,9 @@ public class BattleLevelSetup : MonoBehaviour
 
     [SerializeField] Character_Basedata[] listOfEnemies;
     
-    // private void Awake()
-    // {
-    //     GameController.instance.changePlayerSprite();
-    // }
-    
     private void Start()
     {
-        GameController.instance.changePlayerSprite();
+        //GameController.instance.changePlayerSprite();
         _deckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
         _handManager = GameObject.Find("Hand System").GetComponent<HandManager>();
         StartTheBattle();
