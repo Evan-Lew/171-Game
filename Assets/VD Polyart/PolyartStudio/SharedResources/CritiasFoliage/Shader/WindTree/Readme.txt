@@ -1,1 +1,0 @@
-The shaders in this folder should be used only with SpeedTree models! They will be set by default if a SpeedTree type is detected when added to the system!

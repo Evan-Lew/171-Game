@@ -15,7 +15,6 @@ public class LevelLoader : MonoBehaviour
     {
         instance = this;
         MultipleScenesToLoad.Add("GameController");
-        //MultipleScenesToLoad.Add("Environment");
         MultipleScenesToLoad.Add("MainMenu");
         loadMultipleLevels(MultipleScenesToLoad);
     }
