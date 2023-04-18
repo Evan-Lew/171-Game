@@ -44,11 +44,11 @@ public class EnemyAI : MonoBehaviour
     {
         // Golem Pattern Throw Stone #1 -> Body Slam #2
         // Unique ability Stubborn #3 triggered at the end of player turn
-        attackPattern = new List<int>() { 1, 2 };
+        attackPattern = new List<int>() { 1 };
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
-        attackPattern = new List<int>() {3};
-        enemysPatterns.Add(attackPattern);
+        // attackPattern = new List<int>() {3};
+        // enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Ink Golem", enemysPatterns);
     }
 

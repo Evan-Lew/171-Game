@@ -19,7 +19,7 @@ MonoBehaviour:
   ID: 2015
   description_Main: Deal 2 damage to yourself at the start of your turn. -2 Priority
   description_Log: Deal 2 damage to yourself at the start of your turn. -2 Priority
-  priorityCost: 2
+  priorityCost: 1
   Card_Front: {fileID: 21300000, guid: f7e2a77bacc971a4a81ab8954e761460, type: 3}
   Card_Name: {fileID: 21300000, guid: 2d7555b70e9447b479b2f41bbce9ba82, type: 3}
   icon: {fileID: 0}

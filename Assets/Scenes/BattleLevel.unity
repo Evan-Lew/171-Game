@@ -155,6 +155,14 @@ MonoBehaviour:
   startingCards:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: dfe8fb4f647f6c04799bcfb4111b4f9a, type: 2}
+  - {fileID: 11400000, guid: 73c013f57b60c644c85da24b5dcdf838, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
+  - {fileID: 11400000, guid: cd09dfccaaa4f2b4d9e0066aca4ac21c, type: 2}
   listOfEnemies:
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
 --- !u!4 &1652796184

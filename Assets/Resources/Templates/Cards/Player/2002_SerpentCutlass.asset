@@ -19,7 +19,7 @@ MonoBehaviour:
   ID: 2002
   description_Main: Deal 6 damage. Next card +4 damage.
   description_Log: Next card +4 damage.
-  priorityCost: 5
+  priorityCost: 4
   Card_Front: {fileID: 21300000, guid: 292bdd2b3c24f4b48ba52f0e8d0f3599, type: 3}
   Card_Name: {fileID: 21300000, guid: 06713c495700b4e48ae9454353b095c3, type: 3}
   icon: {fileID: 0}

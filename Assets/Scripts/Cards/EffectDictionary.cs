@@ -366,7 +366,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID1002_Whack()
     {
         ParticleDuration = 1.5f;
-        Player_priorityInc = 2;
+        Player_priorityInc = 1;
         Player_damageDealing = 3;
         Manipulator_Player();
         
@@ -437,11 +437,11 @@ public class EffectDictionary : MonoBehaviour
     //                      PURPLE CARDS
     //=================================================================
     // IMPLEMENTED
-    // Deal 3 Damage, Banish this card, cost 1
+    // Deal 3 Damage, Banish this card, cost 0
     public void ID2001_ForbiddenVenom()
     {
         ParticleDuration = 2f;
-        Player_priorityInc = 1;
+        Player_priorityInc = 0;
         Player_damageDealing = 3;
         Manipulator_Player();
         
@@ -637,7 +637,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
+        Player_priorityInc = 2;
         Player_damageDealing = 4;
         if (player.Health_Current < 10)
         {
@@ -769,19 +769,19 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
     
-    // NOT IMPLEMENTED
-    // Env: Deal 2 damage to yourself at the start of your turn. -2 Priority
+    // IMPLEMENTED
+    // Env: Deal 3 damage to yourself, -2 Priority
     public void ID2015_Intoxication()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 6;
+        Player_priorityInc = -2;
+        Player_damageDealing = 3;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
+            DealDamage_ToTarget(player, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -923,7 +923,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID3007_FavoredFates()
     {        
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
+        Player_priorityInc = 3;
         Player_cardsDrawing = 1;
         Manipulator_Player();
 
@@ -1065,7 +1065,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
-        Player_priorityInc = 6;
+        Player_priorityInc = 5;
         Player_cardsDrawing = 2;
         Manipulator_Player();
 
@@ -1167,8 +1167,8 @@ public class EffectDictionary : MonoBehaviour
     public void ID4003_DauntlessDraw()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 3;
-        Player_healing = 4;
+        Player_priorityInc = 4;
+        Player_healing = 6;
         Player_cardsDrawing = 2;
         Manipulator_Player();
         
@@ -1570,13 +1570,13 @@ public class EffectDictionary : MonoBehaviour
 
     // ---GOLEM---
 
-    // Deal 3 damage, cost 2
+    // Deal 5 damage, cost 3
     public void Action_01_ThrowStone()
     {
         // Card Description
         ParticleDuration = 3f;
-        Enemy_priorityInc = 4;
-        Enemy_damageDealing = 3;
+        Enemy_priorityInc = 3;
+        Enemy_damageDealing = 4;
         cardName = "Throw Stone";
         descriptionLog = "";
 

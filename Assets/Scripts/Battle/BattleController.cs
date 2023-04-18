@@ -11,7 +11,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private HandManager _script_HandManager;
     [HideInInspector]public bool startDrawingCards = true;
     public int startingCardsAmount;
-    public float TurnChangeAnimationDuration = 2f;
+    public float TurnChangeAnimationDuration = 0.5f;
     [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
     [HideInInspector]public enum TurnType { player, enemy}
     [HideInInspector]public TurnOrder currentPhase;
@@ -164,16 +164,18 @@ public class BattleController : MonoBehaviour
     // Used for special card attacks
     void SpecialHandling_AtEndPlayerTurn()
     {
-        if (enemy.CharacterName == "Ink Golem")
-        {
-            _script_EnemyAI.CastUniqueAbility_Golem();
-            currentPhase = nextPhase;
-        }
-        else
-        {
-            currentPhase = nextPhase;
-            BattleController.instance.enableTurnUpdate = true;
-        }
+        currentPhase = nextPhase;
+        BattleController.instance.enableTurnUpdate = true;
+        // if (enemy.CharacterName == "Ink Golem")
+        // {
+        //     // _script_EnemyAI.CastUniqueAbility_Golem();
+        //     currentPhase = nextPhase;
+        // }
+        // else
+        // {
+        //     currentPhase = nextPhase;
+        //     BattleController.instance.enableTurnUpdate = true;
+        // }
     }
 
     void TurnChangeAnimation(TurnType type)

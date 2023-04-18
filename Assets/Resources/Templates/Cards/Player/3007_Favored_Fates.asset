@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 1
   rirty: 0
+  cardActivity: 0
   cardName: Favored Fates
   ID: 3007
   description_Main: 'Env: At the start of your turn draw an additional card'
-  priorityCost: 2
+  description_Log: 
+  priorityCost: 3
   Card_Front: {fileID: 21300000, guid: 9f902db7b7c2e2d4990e095647a20a05, type: 3}
   Card_Name: {fileID: 21300000, guid: e388196b288ec5541b639781808d35da, type: 3}
   icon: {fileID: 0}
