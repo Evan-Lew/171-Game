@@ -8214,7 +8214,7 @@ MonoBehaviour:
   _script_HandManager: {fileID: 409527556}
   startDrawingCards: 1
   startingCardsAmount: 4
-  TurnChangeAnimationDuration: 2
+  TurnChangeAnimationDuration: 0.5
   currentPhase: 0
   lastPhase: 1
   nextPhase: 0
