@@ -16,8 +16,8 @@ MonoBehaviour:
   description_Main: 'Poison bird
 
 '
-  Health_Total: 25
-  Health_Current: 25
+  Health_Total: 35
+  Health_Current: 35
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0

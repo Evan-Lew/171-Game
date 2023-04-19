@@ -38,6 +38,7 @@ public class EnemyAI : MonoBehaviour
         Add_Penghou();
         Add_Zhenniao();
         Add_StoneRuishi();
+        Add_InkChimera();
     }
 
     void Add_Golem()
@@ -63,7 +64,8 @@ public class EnemyAI : MonoBehaviour
 
     // IMPLEMENTED
     void Add_Zhenniao(){
-        attackPattern = new List<int>() { 7, 7, 6, 8, 7, 7, 6, 9};
+        // 6(blindingfog) 7(razoorquills) 8(purplehaze) 9(roost)
+        attackPattern = new List<int>() { 7, 7, 9, 7, 7, 7, 12, 7};
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Zhenniao", enemysPatterns);
@@ -78,6 +80,14 @@ public class EnemyAI : MonoBehaviour
         attackPattern = new List<int>() { 13, 12};
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Stone Rui Shi", enemysPatterns);
+    }
+
+    void Add_InkChimera()
+    {
+        attackPattern = new List<int>() { 1, 1, 4, 4, 10, 4, 1, 4, 1};
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        EnemyDictionary.Add("Ink Chimera", enemysPatterns);
     }
     
     public void CastUniqueAbility_Golem()

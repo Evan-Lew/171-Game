@@ -7,14 +7,14 @@ public class PickDeckLevel_1Setup : MonoBehaviour
 
     private void Start()
     {
-        GameController.instance.SetCharacter(GameController.characterType.player, GameController.instance.GetCharacter("Bai Suzhen"));
+        //GameController.instance.SetCharacter(GameController.characterType.player, GameController.instance.GetCharacter("Bai Suzhen"));
     }
 
     private void Update()
     {
         if (isFinished)
         {
-            SceneManager.LoadScene("PickDeckLevel_2");
+            SceneManager.LoadScene("BattleLevel");
             isFinished = false;
         }
     }

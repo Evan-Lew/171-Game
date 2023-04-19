@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97c98555b57a7554abf649ef8c622e65
+guid: faccbac66262daf46b3debd088b55cec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Xu Xian 1_0
+      name: Xu Xian
       rect:
         serializedVersion: 2
         x: 2
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a86a028c9453134ca30a78402dc73c9
-      internalID: 892278455
+      spriteID: c00239c36e0a1cd4cb2d1cffd16a78bb
+      internalID: 1361177387
       vertices: []
       indices: 
       edges: []
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Xu Xian 1_0: 892278455
+      Xu Xian: 1361177387
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

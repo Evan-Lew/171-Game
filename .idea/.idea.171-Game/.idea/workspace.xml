@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="" />
+    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,6 +124,7 @@
       <workItem from="1681233917418" duration="5490000" />
       <workItem from="1681346579384" duration="6799000" />
       <workItem from="1681406032990" duration="5335000" />
+      <workItem from="1681833883971" duration="14427000" />
     </task>
     <servers />
   </component>

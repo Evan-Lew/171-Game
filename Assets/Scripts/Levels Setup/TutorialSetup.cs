@@ -102,7 +102,7 @@ public class TutorialSetup : MonoBehaviour
         {
             GameController.instance.DisableBattleMode();
             levelEnd = false;
-            SceneManager.LoadScene("PickDeckLevel_1");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -118,7 +118,7 @@ public class TutorialSetup : MonoBehaviour
         GameController.instance.TutorialBattleSetup();
         isPhase1Set = true;
 
-        _DeckSystem.DrawMultipleCardsThenStopDrawFeature(2);
+        _DeckSystem.DrawMultipleCardsThenStopDrawFeature(1);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Time.timeScale = 0;

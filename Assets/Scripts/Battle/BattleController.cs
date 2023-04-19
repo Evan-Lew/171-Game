@@ -29,6 +29,9 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_EnemyTurn;
 
+    // Used in BattleLevelSetup
+    public static int battleNum = 0;
+
     private void Awake()
     {
         instance = this;

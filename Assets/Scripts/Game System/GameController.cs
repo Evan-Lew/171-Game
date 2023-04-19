@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
-        BattleConditionCheck();
+        //BattleConditionCheck();
         
         //if (isDeckELevel)
         //{

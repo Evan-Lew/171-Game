@@ -352,6 +352,8 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Coin_Drop", 1);
         
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned under the player
         ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -380,6 +382,8 @@ public class EffectDictionary : MonoBehaviour
             PlaySound("sfx_Swing", 1);
         }, 0.1f));
 
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned on the enemy
         ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -401,8 +405,10 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Hiss", 1);
         
-        // Particle positioned under the player
-        ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[1], true);
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned on the player
+        ParticleEvent("WhiteScales", 1003, ParticleDuration, ExtraPositioning[0], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
@@ -423,6 +429,8 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Hiss", 1);
 
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned under the player
         ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -460,10 +468,12 @@ public class EffectDictionary : MonoBehaviour
         }, 1));
         
         // Play SFX
-        SoundManager.PlaySound("sfx_Venom", 1);
+        PlaySound("sfx_Venom", 1);
 
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned on the enemy
-        ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, enemyObj, true);
+        ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -511,8 +521,10 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Swing", 1);
 
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned on the enemy
-        ParticleEvent("SerpentCutlass", 2002, ParticleDuration, enemyObj, true);
+        ParticleEvent("SerpentCutlass", 2002, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -529,13 +541,15 @@ public class EffectDictionary : MonoBehaviour
         isDealingDoubleDmg = true;
         Manipulator_Player();
         
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             PlaySound("sfx_Wisdom", 0.2f);
+            Manipulator_Player_Reset();
         }, 1.1f));
-        
-        ParticleEvent("WisdomOfWisteria", 2003, ParticleDuration, ExtraPositioning[1], true);
-        Manipulator_Player_Reset();
     }
 
     // IMPLEMENTED
@@ -564,8 +578,10 @@ public class EffectDictionary : MonoBehaviour
         }, 0.9f));
         SoundManager.PlaySound("sfx_Crunch", 1);
         
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned on the enemy
-        ParticleEvent("DemonFang", 2004, ParticleDuration, enemyObj, true);
+        ParticleEvent("DemonFang", 2004, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -664,6 +680,8 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player();
         
         PlaySound("sfx_Multiple_Splash", 0.01f);
+        
+        //WithoutParticle(ParticleDuration);
         
         // Particle positioned under the player
         ParticleEvent("ToxicTorment", 2009, ParticleDuration, ExtraPositioning[1], true);
@@ -801,6 +819,8 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Fortune", 1);
         
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned under the player
         ParticleEvent("ForetoldFortune", 3001, ParticleDuration, ExtraPositioning[0], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -865,6 +885,8 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Tea_Pour", 1);
         
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned under the player
         ParticleEvent("Assassin'sTeapot", 3004, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -908,6 +930,8 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Gavel", 0.5f);
 
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned under the player
         ParticleEvent("UnbreakingEmperor", 3006, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -942,9 +966,11 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         Player_priorityInc = 8;
         int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
-        Player_armorCreate = 4 * cardsInHand;
+        Player_armorCreate = 3 * cardsInHand;
         Player_damageDealing = 2 * cardsInHand;
         Manipulator_Player();
+        
+        //WithoutParticle(ParticleDuration);
         
         // Particle positioned under the player
         ParticleEvent("RoyalGambit", 3008, ParticleDuration, ExtraPositioning[1], true);
@@ -971,7 +997,7 @@ public class EffectDictionary : MonoBehaviour
         }
         else
         {
-            Player_armorCreate = 10;
+            Player_armorCreate = 8;
         }
         Manipulator_Player();
 
@@ -1135,6 +1161,8 @@ public class EffectDictionary : MonoBehaviour
        
         PlaySound("sfx_Spirit", 1);
 
+        //WithoutParticle(ParticleDuration);
+        
         // Particle positioned under the player
         ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1644,12 +1672,12 @@ public class EffectDictionary : MonoBehaviour
 
     // ---PENGHOU---
 
-    // Deal 2 damage and heal 1, cost 3
+    // Deal 3 damage and heal 2, cost 4
     public void Action_04_Drain()
     {
-        Enemy_priorityInc = 3f;
+        Enemy_priorityInc = 4f;
         ParticleDuration = 4f;
-        Enemy_damageDealing = 2f;
+        Enemy_damageDealing = 4f;
         Enemy_healing = 1f;
         cardName = "Drain";
         descriptionLog = "and <color=#76f300>1</color> self heal";
@@ -1712,7 +1740,7 @@ public class EffectDictionary : MonoBehaviour
     // NOT IMPLEMENTED, DOES NOT REPEAT
     public void Action_07_RazorQuills()
     {
-        Enemy_priorityInc = 2f;
+        Enemy_priorityInc = 3f;
         ParticleDuration = 3f;
         cardName = "Razor Quills";
         //descriptionLog = "Sharp";
@@ -1726,15 +1754,18 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
 
-    // IMPLEMENTED
+    // NOT IMPLEMENTED
+    // does not work properly
     // Deals damage at the end of enemy turn instead of player turn
     public void Action_08_PurpleHaze()
     {
-        Enemy_priorityInc = 2f;
+        Enemy_priorityInc = 4f;
         ParticleDuration = 3f;
         cardName = "Purple Haze";
         //descriptionLog = "ISTHATAMFINGJOJOREFERENCE?!?!??";
@@ -1773,11 +1804,11 @@ public class EffectDictionary : MonoBehaviour
     // Partially implemented, does 2x damage with next card instead of whole turn
     public void Action_09_Roost()
     {
-        Enemy_priorityInc = 2f;
+        Enemy_priorityInc = 4f;
         ParticleDuration = 3f;
         cardName = "Roost";
         //descriptionLog = "Zhenniao is now weak to ground this turn";
-        Enemy_healing = 4;
+        Enemy_healing = 7;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Cyclone", 0.5f);
@@ -1799,11 +1830,11 @@ public class EffectDictionary : MonoBehaviour
     // Deal 4 damage
     public void Action_10_Stomp()
     {
-        Enemy_priorityInc = 7f;
+        Enemy_priorityInc = 6f;
         ParticleDuration = 1f;
         cardName = "Stomp";
         //descriptionLog = "Stompy";
-        Enemy_damageDealing = 4;
+        Enemy_damageDealing = 8;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
@@ -1847,7 +1878,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         cardName = "Breath of Life";
         //descriptionLog = "Big Qi";
-        Enemy_damageDealing = 4;
+        Enemy_damageDealing = 3;
         Enemy_healing = 7;
         Enemy_armorCreate = 7;
         Manipulator_Enemy();
