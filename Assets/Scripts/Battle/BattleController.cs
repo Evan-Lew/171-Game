@@ -23,7 +23,7 @@ public class BattleController : MonoBehaviour
     // For priority system
     [HideInInspector] public Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
-    [SerializeField] private EnemyAI _script_EnemyAI;
+    [SerializeField] private EnemyAi _script_EnemyAI;
     [SerializeField] private BattleLog _script_BattleLog;
     [HideInInspector] public bool enableTurnUpdate = false;
 
@@ -87,6 +87,9 @@ public class BattleController : MonoBehaviour
         _script_BattleLog.Clear();
         EffectDictionary.instance.ParticlesReset();
         SetActive(false);
+        // Reset priority
+        _script_PrioritySystem.ResetPriority(player);
+        _script_PrioritySystem.ResetPriority(enemy);
     }
     
     void TurnUpdate()

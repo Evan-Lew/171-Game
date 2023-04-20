@@ -64,12 +64,12 @@ public class PrioritySystem : MonoBehaviour
         //priorityBar.moveBar();
     }
 
+    // Called in BattleContoller.clear
     public void ResetPriority(Character character){
         priorityDict[character] = 0;
     }
 
     public Character GetNextTurnCharacter(){
-
         Character nextChar = priorityDict.OrderBy(kvp => kvp.Value).FirstOrDefault().Key;
         return nextChar;
     }
