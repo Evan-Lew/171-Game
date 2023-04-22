@@ -55,11 +55,15 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public int Player_extraCardsDrawing = 0;
     [HideInInspector] public double Player_priorityInc = 0;
     [HideInInspector] public double Player_extraPriorityCost = 0;
+    [HideInInspector] public int Player_herbsInTotal = 0;
+    [HideInInspector] public int Player_statusInTotal = 0;
 
     [HideInInspector] public double Enemy_damageDealing = 0;
     [HideInInspector] public double Enemy_healing = 0;
     [HideInInspector] public double Enemy_armorCreate = 0;
     [HideInInspector] public double Enemy_priorityInc = 0;
+    [HideInInspector] public double Enemy_permanantCostIncrease = 0;
+
 
     float ParticleDuration = 0;
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
@@ -165,20 +169,30 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
+    bool isJadeResolve = false;
+    bool isMalachiteChain = false;
     private void Heal_ToTarget(Character target, double hpAdded)
     {
         // Variable to display health text
         double healthText = hpAdded;
         
-        if ((target.Health_Current + hpAdded) > target.Health_Total)
-        {
-            healthText = target.Health_Total - target.Health_Current;
-            target.Health_Current = target.Health_Total;
+        if(target != player && !isMalachiteChain){
+            if ((target.Health_Current + hpAdded) > target.Health_Total)
+            {
+                healthText = target.Health_Total - target.Health_Current;
+                target.Health_Current = target.Health_Total;
+                if(isJadeResolve && target == player){
+                    DealDamage_ToTarget(enemy, 1);
+                }
+            }
+            else
+            {
+                target.Health_Current += hpAdded;
+            }
+        } else {
+            enemy.Health_Current -= hpAdded;
         }
-        else
-        {
-            target.Health_Current += hpAdded;
-        }
+
         
         // Check which target to use indicator for
         if (target == enemy)
@@ -1177,20 +1191,17 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: All enemy cards cost 1 more
     public void ID4002_BrightKarma()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 3;
-        Player_healing = 6;
+        Enemy_permanantCostIncrease += 1;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
-
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1266,36 +1277,35 @@ public class EffectDictionary : MonoBehaviour
     }
 
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: If you would heal more than your maximum hitpoints, instead deal 1 damage
     public void ID4007_JadeResolve()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 1;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: All healing becomes damage instead
     public void ID4008_MalechiteChain()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 3;
         Manipulator_Player();
         
+        isMalachiteChain = true;
+
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1373,15 +1383,16 @@ public class EffectDictionary : MonoBehaviour
     public void ID4013_NephriteCurse()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Enemy_priorityInc = 2;
+        Player_priorityInc = 0;
         Manipulator_Player();
+        Manipulator_Enemy()
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
+            Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
 
@@ -2092,6 +2103,9 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy_DealingTriple();
         Manipulator_Enemy_DealingNone();
 
+        // from card 4002 
+        Enemy_priorityInc += Enemy_permanantCostIncrease;
+        
         PriorityIncrement(enemy, Enemy_priorityInc);
     }
 
