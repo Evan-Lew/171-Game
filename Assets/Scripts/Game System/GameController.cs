@@ -6,7 +6,10 @@ using System.Linq;
 public class GameController : MonoBehaviour
 {
     // Flag will be turned on when setup function needed
+    
+    /* --Legacy: Not Used--
     [HideInInspector] private bool setupFlag = false;
+    */
     [SerializeField] CameraUtil _script_CameraUtil;
     [SerializeField] BattleController _script_BattleController;
     [SerializeField] HandManager _script_HandManager;
@@ -23,14 +26,16 @@ public class GameController : MonoBehaviour
 
     [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;
+    
+    // --Not used anymore--
     // Set position -- character and enemy
-    [SerializeField] List<GameObject> CharacterSpawningPoint_List = new();
-    [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
-    public GameObject TargetCharacterPos;
-    public GameObject TargetCameraPos;
+    // [SerializeField] List<GameObject> CharacterSpawningPoint_List = new();
+    // [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
+    // public GameObject TargetCharacterPos;
+    // public GameObject TargetCameraPos;
     
     // Flag for changing level
-    [HideInInspector]public bool isDeckELevel = true;
+    [HideInInspector] public bool isDeckELevel = true;
     [HideInInspector] public bool isStartLevel = false;
     
     public static GameController instance;
@@ -39,17 +44,16 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
-        //SceneManager.LoadScene("Main Menu");
         characters.SetActive(false);
         // SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
     }
     
-    // Update is called once per frame
     void Update()
     {
+        //BattleConditionCheck();
+        
         //if (isDeckELevel)
         //{
         //    isDeckELevel = false;
@@ -60,6 +64,7 @@ public class GameController : MonoBehaviour
         //    isStartLevel = false;
         //}
         
+        /* --Legacy: Not used--
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartTheCamp();
@@ -75,45 +80,33 @@ public class GameController : MonoBehaviour
                 setupFlag = false;
             }
         }
-        BattleConditionCheck();
+        */
     }
 
     //===========================================================
     //                  GameController API
     //===========================================================
     
-    [HideInInspector]public bool checkEnable = false;
+    [HideInInspector]public bool battleCondition = false;
     void BattleConditionCheck()
     {
-        // Switch to EndScene scene when player dies
+        // Switch scenes if player dies
         if (player.GetComponent<Character>().Health_Current <= 0)
         {
-            _script_DeckSystem.deckToUse.Clear();
-            _script_DeckSystem.Clear();
-            _script_HandManager.Clear();
+            DisableBattleMode();
+            
             player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
-            _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
-            _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-            characters.SetActive(false);
-            _script_BattleController.Clear();
-            SceneManager.LoadScene("Level00_EndScreen");
+            SceneManager.LoadScene("EndScene");
         }
         
-        if (checkEnable)
+        // Switch scene if player wins
+        if (enemy.GetComponent<Character>().Health_Current <= 0 && battleCondition)
         {
-            if (enemy.GetComponent<Character>().Health_Current <= 0)
-            {
-                _script_DeckSystem.deckToUse.Clear();
-                _script_DeckSystem.Clear();
-                _script_HandManager.Clear();
-                player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
-                checkEnable = false;
-                _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
-                _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-                characters.SetActive(false);
-                _script_BattleController.Clear();
-                SceneManager.LoadScene("Level02");
-            }
+            DisableBattleMode();
+
+            // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
+            battleCondition = false;
+            SceneManager.LoadScene("StoryIntro");
         }
     }
     
@@ -129,25 +122,19 @@ public class GameController : MonoBehaviour
     
     /*  Function that will start the battle for testing, assigned deck is required
     *  Parameters:  Argument1:  The next enemy you want to setup 
-    *               Argument2 (override):  true/false, doesn't matter
+    *               Argument2 (override): true/false, doesn't matter
     *                                     this version will allow to start battle without deck = 10 cards
     */
     public void StartTheBattle(Character_Basedata enemy, bool overrideVer)
     {
         BattleSystemSetUp(enemy);
     }
-
-    //public Character_Basedata playTest2;
-    //public void PlayTestStartBattle()
-    //{
-    //     StartTheBattle(playTest2);
-    //}
-
+    
     void StartTheBattle(Character_Basedata enemy)
     {
         if (_script_DeckSystem.deckToUse.Count == 10)
         {
-            //checkEnable = true;
+            //battleCondition = true;
             BattleSystemSetUp(enemy);
         }
     }
@@ -169,58 +156,9 @@ public class GameController : MonoBehaviour
     //===========================================================
     //                  Helper Functions
     //===========================================================
-
-    /* Function that will get Enemy From the Enemy List by Name
-     * Parameters: Argument1:  Target Enemy Name
-     * Return:     Character_Basedata an Enemy basedata or error if enemy is not found or not unique
-     */
-    public Character_Basedata GetCharacter(string name)
-    {
-        Character_Basedata result;
-        result = CharactersList.Where(Basedata => Basedata.name == name).SingleOrDefault();
-        if (result != null)
-        {
-            return result;
-        }
-        else
-        {
-            Debug.Log("Error: GetCharacter() in GameController. No such character is found or character is not unique");
-            return result;
-        }
-    }
     
-    // Setup function for tutorial only
-    public void TutorialBattleSetup()
-    {
-        SetCharacter(characterType.enemy, GetCharacter("Peng Hou"));
-        SetCharacter(characterType.player, GetCharacter("Xu Xian"));
-        characters.SetActive(true);
-        
-        // Implement the character reassignment here
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        _script_HandManager.SetUp();
-        _script_DeckSystem.SetUp();
-        _script_BattleController.SetUp();
-        _script_EffectDictionary.SetUp();
-    }
-
-    // Setup function for level03 to change player sprite
-    public void Level03Setup()
-    {
-        SetCharacter(characterType.player, GetCharacter("Bai Suzhen"));
-    }
-
-    public void DisableBattleMode()
-    {
-        _script_HandManager.Clear();
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        characters.SetActive(false);
-    }
-    
-    //StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
-    /*  Function that will setup battle system
+    /* StartTheBattle(Character_Basedata enemy, bool overrideVer) or StartTheBattle(Character_Basedata enemy)
+     *  Function that will setup battle system
      *  
      *  Parameters: Argument1:  Target Character Group game object's transform
      *              Argument2:  Target Environment Camera's transform                         
@@ -239,7 +177,77 @@ public class GameController : MonoBehaviour
         _script_EffectDictionary.SetUp();
     }
 
-    //StartTheCamp()
+    /*  Function that will get Enemy From the Enemy List by Name
+     *  Parameters: Argument1:  Target Enemy Name
+     *  Return:     Character_Basedata an Enemy basedata or error if enemy is not found or not unique
+     */
+    public Character_Basedata GetCharacter(string name)
+    {
+        Character_Basedata result;
+        result = CharactersList.Where(Basedata => Basedata.name == name).SingleOrDefault();
+        if (result != null)
+        {
+            return result;
+        }
+        else
+        {
+            Debug.Log("Error: GetCharacter() in GameController. No such character is found or character is not unique");
+            return result;
+        }
+    }
+
+    // Helper function: Setup for the developer scene/script
+    public void DeveloperBattleSetup(string playerName, string enemyName)
+    {
+        battleCondition = true;
+        SetCharacter(characterType.player, GetCharacter(playerName));
+        SetCharacter(characterType.enemy, GetCharacter(enemyName));
+        characters.SetActive(true);
+        
+        // Implement the character reassignment here
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_HandManager.SetUp();
+        _script_DeckSystem.SetUp();
+        _script_BattleController.SetUp();
+        _script_EffectDictionary.SetUp();
+    }
+    
+    // Setup function for tutorial only
+    public void TutorialBattleSetup()
+    {
+        SetCharacter(characterType.enemy, GetCharacter("Peng Hou"));
+        SetCharacter(characterType.player, GetCharacter("Xu Xian"));
+        characters.SetActive(true);
+        
+        // Implement the character reassignment here
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_HandManager.SetUp();
+        _script_DeckSystem.SetUp();
+        _script_BattleController.SetUp();
+        _script_EffectDictionary.SetUp();
+    }
+
+    // Helper function to change the player sprite
+    public void changePlayerSprite()
+    {
+        SetCharacter(characterType.player, GetCharacter("Bai Suzhen"));
+    }
+
+    public void DisableBattleMode()
+    {
+        _script_DeckSystem.deckToUse.Clear();
+        _script_DeckSystem.Clear();
+        _script_HandManager.Clear();
+        _script_BattleController.Clear();
+        
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        characters.SetActive(false);
+    }
+
+    //  StartTheCamp()
     /*  Function that will setup battle system
     *  
     *   Parameters: Argument1:  Target Character Group game object's transform

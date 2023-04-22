@@ -9,9 +9,9 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private HandManager _script_HandManager;
-    [HideInInspector]public bool startDrawingCrads = true;
+    [HideInInspector]public bool startDrawingCards = true;
     public int startingCardsAmount;
-    public float TurnChangeAnimationDuration = 2f;
+    public float TurnChangeAnimationDuration = 0.5f;
     [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
     [HideInInspector]public enum TurnType { player, enemy}
     [HideInInspector]public TurnOrder currentPhase;
@@ -23,18 +23,20 @@ public class BattleController : MonoBehaviour
     // For priority system
     [HideInInspector] public Character player, enemy;
     [SerializeField] private PrioritySystem _script_PrioritySystem;
-    [SerializeField] private EnemyAi _script_EnemyAi;
+    [SerializeField] private EnemyAi _script_EnemyAI;
     [SerializeField] private BattleLog _script_BattleLog;
     [HideInInspector] public bool enableTurnUpdate = false;
 
     [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_EnemyTurn;
 
+    // Used in BattleLevelSetup
+    public static int battleNum = 0;
+
     private void Awake()
     {
         instance = this;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         // The battle controller will be enabled only if the battle is happened
@@ -65,7 +67,7 @@ public class BattleController : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<Character>();
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
-        if (startDrawingCrads)
+        if (startDrawingCards)
         {
             _script_DeckSystem.DrawMultipleCards(startingCardsAmount);
         }
@@ -78,19 +80,23 @@ public class BattleController : MonoBehaviour
         SetActive(true);
     }
 
+    // Reset the battle controller
     public void Clear()
     {
         enableTurnUpdate = false;
         _script_BattleLog.Clear();
         EffectDictionary.instance.ParticlesReset();
         SetActive(false);
+        // Reset priority
+        _script_PrioritySystem.ResetPriority(player);
+        _script_PrioritySystem.ResetPriority(enemy);
     }
     
     void TurnUpdate()
     {
         enableTurnUpdate = false;
 
-        //special handling AtPlayerEndPhase
+        // Special handling AtPlayerEndPhase
         if (currentPhase == TurnOrder.playerEndPhase)
         {
             SpecialHandling_AtEndPlayerTurn();
@@ -142,8 +148,8 @@ public class BattleController : MonoBehaviour
             enableCardActivation = false;
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                _script_EnemyAi.isActioned = false;
-                _script_EnemyAi.EnemyAction(enemy.CharacterName);
+                _script_EnemyAI.isActioned = false;
+                _script_EnemyAI.EnemyAction(enemy.CharacterName);
 
             }, 1.5f));
         }
@@ -154,25 +160,28 @@ public class BattleController : MonoBehaviour
             TurnChangeAnimation(TurnType.enemy);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                _script_EnemyAi.isActioned = false;
-                _script_EnemyAi.EnemyAction(enemy.CharacterName);
+                _script_EnemyAI.isActioned = false;
+                _script_EnemyAI.EnemyAction(enemy.CharacterName);
 
             }, TurnChangeAnimationDuration));
         }
     }
     
+    // Used for special card attacks
     void SpecialHandling_AtEndPlayerTurn()
     {
-        if (enemy.CharacterName == "Ink Golem")
-        {
-            _script_EnemyAi.CastUniqueAbility_Golem();
-            currentPhase = nextPhase;
-        }
-        else
-        {
-            currentPhase = nextPhase;
-            BattleController.instance.enableTurnUpdate = true;
-        }
+        currentPhase = nextPhase;
+        BattleController.instance.enableTurnUpdate = true;
+        // if (enemy.CharacterName == "Ink Golem")
+        // {
+        //     // _script_EnemyAI.CastUniqueAbility_Golem();
+        //     currentPhase = nextPhase;
+        // }
+        // else
+        // {
+        //     currentPhase = nextPhase;
+        //     BattleController.instance.enableTurnUpdate = true;
+        // }
     }
 
     void TurnChangeAnimation(TurnType type)

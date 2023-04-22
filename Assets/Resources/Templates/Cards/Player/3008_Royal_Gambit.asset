@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 1
   rirty: 0
+  cardActivity: 0
   cardName: Royal Gambit
   ID: 3008
-  description_Main: For each card in your hand, gain 4 Armor and deal 2 damage to
+  description_Main: For each card in your hand, gain 3 Armor and deal 2 damage to
     the enemy
+  description_Log: 
   priorityCost: 8
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: a4347b74ade1f54449b707565d33c92e, type: 3}
   Card_Name: {fileID: 21300000, guid: 8a6aa8d992152224398a72f698ba971c, type: 3}
   icon: {fileID: 0}

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Xu Xian
   description_Main: 
-  Health_Total: 25
-  Health_Current: 25
+  Health_Total: 35
+  Health_Current: 35
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 3
-  characterSprite: {fileID: 892278455, guid: 97c98555b57a7554abf649ef8c622e65, type: 3}
+  characterSprite: {fileID: 1361177387, guid: faccbac66262daf46b3debd088b55cec, type: 3}

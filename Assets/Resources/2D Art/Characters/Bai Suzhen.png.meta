@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bai Suzhen 1_0
+      name: Bai Suzhen
       rect:
         serializedVersion: 2
         x: 1
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bai Suzhen 1_0: -487038820
+      Bai Suzhen: -487038820
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

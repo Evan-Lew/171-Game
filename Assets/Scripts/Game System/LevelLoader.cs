@@ -14,9 +14,8 @@ public class LevelLoader : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        MultipleScenesToLoad.Add("Level00_GameController");
-        MultipleScenesToLoad.Add("Level00_Environment");
-        MultipleScenesToLoad.Add("Level00_MainMenu");
+        MultipleScenesToLoad.Add("GameController");
+        MultipleScenesToLoad.Add("MainMenu");
         loadMultipleLevels(MultipleScenesToLoad);
     }
 
@@ -32,12 +31,12 @@ public class LevelLoader : MonoBehaviour
         loadingScreen.SetActive(false);
     }
     
-    public void loadALevel(string sceneName)
+    public void LoadALevel(string sceneName)
     {
-        StartCoroutine(LoadALevelAsyncChronously(sceneName));
+        StartCoroutine(LoadALevelAsynchronously(sceneName));
     }
 
-    IEnumerator LoadALevelAsyncChronously(string sceneName)
+    IEnumerator LoadALevelAsynchronously(string sceneName)
     {
         EnableLoader();
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
@@ -52,10 +51,10 @@ public class LevelLoader : MonoBehaviour
 
     public void loadMultipleLevels(List<string> sceneList)
     {
-        StartCoroutine(LoadMultipleLevelAsyncChronously(sceneList));
+        StartCoroutine(LoadMultipleLevelsAsynchronously(sceneList));
     }
 
-    IEnumerator LoadMultipleLevelAsyncChronously(List<string> sceneList)
+    IEnumerator LoadMultipleLevelsAsynchronously(List<string> sceneList)
     {
         EnableLoader();
         AsyncOperation operation;

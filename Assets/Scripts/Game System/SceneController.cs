@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// This script is not being used
 public class SceneController : MonoBehaviour
 {
     public int sceneCount;
@@ -28,8 +29,7 @@ public class SceneController : MonoBehaviour
             Operation[i].allowSceneActivation = false;
         }
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -43,7 +43,6 @@ public class SceneController : MonoBehaviour
         // Enable one scene at a time
         if (Input.GetKeyDown(KeyCode.D))
         {
-            
             Operation[inc].allowSceneActivation = true;
             inc++;
         }
