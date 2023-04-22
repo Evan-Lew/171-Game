@@ -3442,9 +3442,11 @@ MonoBehaviour:
   descriptionLog: 
   Player_damageDealing: 0
   Player_extraDamage: 0
+  Player_extraHealing: 0
   Player_armorCreate: 0
   Player_healing: 0
   Player_cardsDrawing: 0
+  Player_extraCardsDrawing: 0
   Player_priorityInc: 0
   Player_extraPriorityCost: 0
   Enemy_damageDealing: 0
