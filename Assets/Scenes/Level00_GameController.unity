@@ -4335,6 +4335,10 @@ MonoBehaviour:
   ReturnPool:
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
   - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
+  SacredHerbPool:
+  - {fileID: 11400000, guid: 4a0fcfd2bd83695408bb7515683523f1, type: 2}
+  - {fileID: 11400000, guid: ec65df614a480bc4788bbf6cd278446c, type: 2}
+  - {fileID: 11400000, guid: 905f02384c65ccd4f868c19d6809e04b, type: 2}
   cardName: Test
   descriptionLog: 
   Player_damageDealing: 0

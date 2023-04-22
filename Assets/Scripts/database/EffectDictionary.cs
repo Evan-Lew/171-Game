@@ -34,6 +34,8 @@ public class EffectDictionary : MonoBehaviour
     public List<Card_Basedata> BanishPool;
     [Header("List of return cards")]
     public List<Card_Basedata> ReturnPool;
+    [Header("List of Sacred Herbs")]
+    public List<Card_Basedata> SacredHerbPool;
 
     [HideInInspector] public delegate void funcHolder();
     [HideInInspector] public funcHolder funcHolder_EffectFunc;
@@ -46,9 +48,11 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public string descriptionLog;
     [HideInInspector]public double Player_damageDealing = 0;
     [HideInInspector] public double Player_extraDamage = 0;
+    [HideInInspector] public double Player_extraHealing = 0;
     [HideInInspector] public double Player_armorCreate = 0;
     [HideInInspector] public double Player_healing = 0;
     [HideInInspector] public int Player_cardsDrawing = 0;
+    [HideInInspector] public int Player_extraCardsDrawing = 0;
     [HideInInspector] public double Player_priorityInc = 0;
     [HideInInspector] public double Player_extraPriorityCost = 0;
 
@@ -196,8 +200,8 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // NOT IMPLEMENTED
-    private void AddCardToDeck(){
-
+    private void AddCardToDeck(Card_Basedata targetCard){
+        _script_DeckSystem.activeCards.Insert(Random.Range(0, _script_DeckSystem.activeCards.Count), SacredHerbPool[SacredHerbPool.IndexOf(targetCard)]);
     }
 
     private void PriorityIncrement(Character target, double cost)
@@ -481,6 +485,7 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 6;
         Player_extraDamage = 4;
         Manipulator_Player();
+        isDealingExtraDmg = true;
 
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1198,7 +1203,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // Partially IMPLEMENTED - doesn't do random herb yet
     // Shuffle a random Sacred Herb* into your deck
     public void ID4005_HiddenGrotto()
     {
@@ -1210,7 +1215,7 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            AddCardToDeck(SacredHerbPool.Find(cardBase => cardBase.ID == 5002));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1426,53 +1431,59 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // The next card you play is free
     public void ID5002_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 0;
         Manipulator_Player();
+
+        isCostingNoPriority = true;
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // The next card you play deals +3 damage
     public void ID5003_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 0;
+        
         Manipulator_Player();
         
+        Player_extraDamage += 3;
+        isDealingExtraDmg = true;
+
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // The next card you play heals 2 and draws 1
     public void ID5004_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 0;
+
         Manipulator_Player();
+
+        Player_extraCardsDrawing = 1;
+        Player_extraHealing = 2;
+        isDrawingExtraCard = true;
+        isHealingExtraHealth = true;
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1511,8 +1522,8 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
-    // Your opponent skips their next turn. Banish this card.
+    // IMPLEMENTED
+    // Your opponent deals no damage their next card. Banish this card.
     public void ID5007_PerilHundun()
     {
         ParticleDuration = 3f;
@@ -1900,6 +1911,9 @@ public class EffectDictionary : MonoBehaviour
     bool isDealingDoubleDmg = false;
     bool isCostingExtraPriority = false;
     bool isDealingNoDmg = false;
+    bool isCostingNoPriority = false;
+    bool isDrawingExtraCard = false;
+    bool isHealingExtraHealth = false;
     // bool isDamageReflected = false;
 
     //------------Player-------------------------------------------------
@@ -1915,8 +1929,11 @@ public class EffectDictionary : MonoBehaviour
         }
         Manipulator_Player_DealingExtra();
         Manipulator_Player_CostExtra();
+        Manipulator_Player_CostNone();
         Manipulator_Player_DealingNone();
         Manipulator_Player_DealingDouble();
+        Manipulator_Player_HealingExtra();
+        Manipulator_Player_DrawExtra();
 
         PriorityIncrement(player, Player_priorityInc);
     }
@@ -1957,7 +1974,7 @@ public class EffectDictionary : MonoBehaviour
         {
             Player_damageDealing += Player_extraDamage;
             isDealingExtraDmg = false;
-            Player_damageDealing = 0;
+            Player_extraDamage = 0;
         }
     }
 
@@ -1984,6 +2001,16 @@ public class EffectDictionary : MonoBehaviour
         }
     }
     
+    // Helper function: Next Card costing zero
+    void Manipulator_Player_CostNone()
+    {
+        if(isCostingNoPriority)
+        {
+            Player_priorityInc = 0;
+            isCostingNoPriority = false;
+        }
+    }
+
     // Helper function: Next Card dealing no damage
     void Manipulator_Player_DealingNone()
     {
@@ -1996,8 +2023,33 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
+    void Manipulator_Player_HealingExtra()
+    {
+        //cards that apply extra damage
+        //setup the extra damage and turn the flag to off
+        if (isHealingExtraHealth)
+        {
+            Player_healing += Player_extraHealing;
+            isHealingExtraHealth = false;
+            Player_extraHealing = 0;
+        }
+    }
+
+    void Manipulator_Player_DrawExtra()
+    {
+        //cards that apply extra damage
+        //setup the extra damage and turn the flag to off
+        if (isDrawingExtraCard)
+        {
+            Player_cardsDrawing += Player_extraCardsDrawing;
+            isDrawingExtraCard = false;
+            Player_extraCardsDrawing = 0;
+        }
+    }
+
     //------------Enemy-------------------------------------------------
     bool enemyIsDealingTripleDamage = false;
+    bool enemyIsDealingNoDamage = false;
 
     void Manipulator_Enemy()
     {
@@ -2007,6 +2059,7 @@ public class EffectDictionary : MonoBehaviour
         }
 
         Manipulator_Enemy_DealingTriple();
+        Manipulator_Enemy_DealingNone();
 
         PriorityIncrement(enemy, Enemy_priorityInc);
     }
@@ -2039,6 +2092,14 @@ public class EffectDictionary : MonoBehaviour
         {
             Enemy_damageDealing *= 3;
             enemyIsDealingTripleDamage = false;
+        }
+    }
+
+    void Manipulator_Enemy_DealingNone(){
+        if (enemyIsDealingNoDamage && Enemy_damageDealing != 0)
+        {
+            Enemy_damageDealing = 0;
+            enemyIsDealingNoDamage = false;
         }
     }
 
