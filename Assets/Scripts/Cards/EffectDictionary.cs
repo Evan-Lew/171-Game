@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using static SoundManager;
 using System.Linq;
@@ -368,7 +368,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Deal 3 damage, cost 2
+    // Deal 3 damage, cost 1
     public void ID1002_Whack()
     {
         ParticleDuration = 1.5f;
@@ -988,7 +988,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Draw cards until you have 4 cards , if you already have 4 cards gain 10 Armor
+    // Draw cards until you have 4 cards , if you already have 4 cards gain 8 Armor
     public void ID3009_DeadlyDraw()
     {
         ParticleDuration = 3f;
