@@ -36,6 +36,8 @@ public class EffectDictionary : MonoBehaviour
     public List<Card_Basedata> ReturnPool;
     [Header("List of Sacred Herbs")]
     public List<Card_Basedata> SacredHerbPool;
+    [Header("List of Perils")]
+    public List<Card_Basedata> PerilPool;
 
     [HideInInspector] public delegate void funcHolder();
     [HideInInspector] public funcHolder funcHolder_EffectFunc;
@@ -214,7 +216,14 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // NOT IMPLEMENTED
-    private void AddCardToDeck(Card_Basedata targetCard){
+    private void AddHerbToDeck(Card_Basedata targetCard){
+        Player_herbsInTotal += 1;
+        Player_statusInTotal += 1;
+        _script_DeckSystem.activeCards.Insert(Random.Range(0, _script_DeckSystem.activeCards.Count), SacredHerbPool[SacredHerbPool.IndexOf(targetCard)]);
+    }
+
+    private void AddPerilToDeck(Card_Basedata targetCard){
+        Player_statusInTotal += 1;
         _script_DeckSystem.activeCards.Insert(Random.Range(0, _script_DeckSystem.activeCards.Count), SacredHerbPool[SacredHerbPool.IndexOf(targetCard)]);
     }
 
@@ -1254,7 +1263,7 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            AddCardToDeck(SacredHerbPool.Find(cardBase => cardBase.ID == 5002));
+            AddHerbToDeck(SacredHerbPool.Find(cardBase => cardBase.ID == 5002));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1283,6 +1292,7 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
+        isJadeResolve = true;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
@@ -1540,6 +1550,7 @@ public class EffectDictionary : MonoBehaviour
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5005));
+            Player_statusInTotal -= 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1557,6 +1568,7 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5006));
+            Player_statusInTotal -= 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1574,6 +1586,7 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5007));
+            Player_statusInTotal -= 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1591,6 +1604,7 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Player_damageDealing);
+            Player_statusInTotal -= 1;
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5008));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
