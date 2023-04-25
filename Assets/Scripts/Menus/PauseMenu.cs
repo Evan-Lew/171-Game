@@ -41,6 +41,9 @@ public class PauseMenu : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 1);
         Time.timeScale = 1f;
+        
+        pauseMenuUI.SetActive(false);
+        GameController.instance.DisableBattleMode();
         // Load main menu
         SceneManager.LoadScene("MainMenu");
     }

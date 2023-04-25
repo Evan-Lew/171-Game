@@ -71,7 +71,15 @@ public class BattleLevelSetup : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _levelEnd = false;
-                SceneManager.LoadScene("PickDeckLevel_1"); 
+                Debug.Log(BattleController.battleNum);
+                if (BattleController.battleNum == 2)
+                {
+                    SceneManager.LoadScene("StoryContinue");
+                }
+                else
+                {
+                    SceneManager.LoadScene("PickDeckLevel_1");     
+                }
             }, 1f));
         }
     }

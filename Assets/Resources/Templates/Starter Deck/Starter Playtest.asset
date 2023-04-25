@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Starter Playtest
   m_EditorClassIdentifier: 
   deckName: Starter Deck Playtest
-  description: Playtest 1 Starter Deck
+  description: "Pick a new deck \nfor this playtest"
   deck:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}

@@ -17,10 +17,14 @@ public class GameController : MonoBehaviour
     [SerializeField] PrioritySystem _script_PrioritySystem;
     [SerializeField] DeckSystem _script_DeckSystem;
     [SerializeField] DeckEditSystem _script_DeckEditSystem;
-
-
+    
     [SerializeField] GameObject characters;
     [SerializeField] GameObject player, enemy;
+    
+    [Header("Animator Controllers")]
+    [SerializeField] Animator animatorSceneFade;
+    [SerializeField] Animator animatorAspectRatioSwitch, animatorDarkenBackground;
+    
     public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
@@ -52,6 +56,26 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            animatorSceneFade.SetTrigger("In");
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            animatorSceneFade.SetTrigger("Out");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            animatorAspectRatioSwitch.SetTrigger("In");
+            animatorDarkenBackground.SetTrigger("Dark");
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            animatorAspectRatioSwitch.SetTrigger("Out");
+            animatorDarkenBackground.SetTrigger("Bright");
+        }
+        
         //BattleConditionCheck();
         
         //if (isDeckELevel)
