@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 0
   rirty: 0
+  cardActivity: 0
   cardName: Entangled
-  ID: 5001
+  ID: 5009
   description_Main: Deal 3 damage to yourself. Draw one card. Banish this card. Add
     one Blood to your hand.
+  description_Log: 
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: 58506c00384fa7a498b6a90e0d66e9a0, type: 3}
   Card_Name: {fileID: 21300000, guid: a7dbaf2106025b84ab1608ce9cf8ee1b, type: 3}

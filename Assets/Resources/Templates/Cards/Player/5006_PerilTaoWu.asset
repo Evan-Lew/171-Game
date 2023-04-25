@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 0
   rirty: 0
+  cardActivity: 0
   cardName: Entangled
-  ID: 5001
+  ID: 5006
   description_Main: Draw 3 cards. Banish this card
+  description_Log: 
   priorityCost: 0
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
   Card_Name: {fileID: 21300000, guid: 82557e5190781674b8afe4157a825380, type: 3}

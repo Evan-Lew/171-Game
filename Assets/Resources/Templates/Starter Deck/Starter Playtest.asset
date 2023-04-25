@@ -15,14 +15,19 @@ MonoBehaviour:
   deckName: Starter Deck Playtest
   description: "Pick a new deck \nfor this playtest"
   deck:
+  - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: 2494a8498474f3545be024ac195e74f5, type: 2}
-  - {fileID: 11400000, guid: 7be75cac9e0571d4eacf8e46020c7e26, type: 2}
-  - {fileID: 11400000, guid: 47caee8448022a444b4f028e1a88295d, type: 2}
-  - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
-  - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
-  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
-  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: fa6d7c435e43b7348a5a5e9ac65cd30c, type: 2}
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: 8ec9f2669d88abf4392e1a5fbdacd664, type: 2}
+  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
+  - {fileID: 11400000, guid: b52697612952a944d8b58b97e9093c39, type: 2}
+  - {fileID: 11400000, guid: 631481b4eb37fd14c8538c47a661ecdd, type: 2}
   DeckSprite: {fileID: 21300000, guid: e1d3275c05165de45bd2655b8d8ce32e, type: 3}
