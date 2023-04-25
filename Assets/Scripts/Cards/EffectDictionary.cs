@@ -178,7 +178,9 @@ public class EffectDictionary : MonoBehaviour
         // Variable to display health text
         double healthText = hpAdded;
         
-        if(target != player && !isMalachiteChain){
+        if(target == player && isMalachiteChain){
+            enemy.Health_Current -= hpAdded;
+        } else {
             if ((target.Health_Current + hpAdded) > target.Health_Total)
             {
                 healthText = target.Health_Total - target.Health_Current;
@@ -191,8 +193,6 @@ public class EffectDictionary : MonoBehaviour
             {
                 target.Health_Current += hpAdded;
             }
-        } else {
-            enemy.Health_Current -= hpAdded;
         }
 
         
@@ -1263,7 +1263,9 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            AddHerbToDeck(SacredHerbPool.Find(cardBase => cardBase.ID == 5002));
+            int herbtoAdd = Random.Range(5002, 5004);
+            //Debug.Log(herbtoAdd);
+            AddHerbToDeck(SacredHerbPool.Find(cardBase => cardBase.ID == herbtoAdd));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
