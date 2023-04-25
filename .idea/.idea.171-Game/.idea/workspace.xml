@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="" />
+    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Enemy Orb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Enemy Orb.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Player Orb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Player Orb.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Tutorial Template.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Tutorial Template.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,6 +136,7 @@
       <workItem from="1681833883971" duration="14427000" />
       <workItem from="1682188506051" duration="635000" />
       <workItem from="1682357011275" duration="4175000" />
+      <workItem from="1682440335844" duration="1382000" />
     </task>
     <servers />
   </component>

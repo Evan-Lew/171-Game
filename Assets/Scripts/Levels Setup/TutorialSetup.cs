@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TutorialSetup : MonoBehaviour
 {
+    [SerializeField] GameObject textBox;
+    
     [Header("Every Tutorial GameObject")]
     [SerializeField] GameObject tutorial01;
     [SerializeField] GameObject tutorial02;
@@ -32,30 +35,81 @@ public class TutorialSetup : MonoBehaviour
 
     bool levelEnd = false;
 
+    private bool dialoguePlaying = true;
+    
     void Start()
     {
-        _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
-        _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
-        Backup_StartDraw = BattleController.instance.startingCardsAmount;
-        Phase_1_Setup();
+        GameController.instance.StartDialogue();
         
-        // Play bgm
-        SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+        // Time delay to activate the text box
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            textBox.SetActive(true);
+        }, 4f));
+
+        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        // {
+        //     GameController.instance.StopDialogue();
+        //     
+        // }, 4f));
+        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        // {
+        //     SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+        //     
+        // }, 7f));
+        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        // {
+        //     _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
+        //     _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
+        //     Backup_StartDraw = BattleController.instance.startingCardsAmount;
+        //     Phase_1_Setup();
+        //     
+        //     dialoguePlaying = false;
+        // }, 10f));
     }
 
     void Update()
     {
-        Tutorials();
-        LevelManagement();
+        if (dialoguePlaying == false)
+        {
+            Tutorials();
+            LevelManagement();
 
-        if (tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
-        {
-            GameController.instance.enableMouseEffectOnCard = false;
+            if (tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
+            {
+                GameController.instance.enableMouseEffectOnCard = false;
+            }
+            else
+            {
+                GameController.instance.enableMouseEffectOnCard = true;
+            }    
         }
-        else
+    }
+
+    public void DialogueButton()
+    {
+        textBox.SetActive(false);
+        
+        // Remove aspect ratio and darken background
+        GameController.instance.StopDialogue();
+        
+        // Time delay to start the music
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            GameController.instance.enableMouseEffectOnCard = true;
-        }
+            SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+            
+        }, 3f));
+        
+        // Time delay to start the battle
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
+            _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
+            Backup_StartDraw = BattleController.instance.startingCardsAmount;
+            Phase_1_Setup();
+            
+            dialoguePlaying = false;
+        }, 4f));
     }
 
     void Tutorials()

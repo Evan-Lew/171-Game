@@ -56,12 +56,21 @@ TagManager:
   - name: Sprites
     uniqueID: 1374146625
     locked: 0
+  - name: Darken When Talking
+    uniqueID: 2088765635
+    locked: 0
   - name: Aspect Ratio Bars
     uniqueID: 4240681219
+    locked: 0
+  - name: Text Box
+    uniqueID: 1080224937
     locked: 0
   - name: Text
     uniqueID: 1887032687
     locked: 0
   - name: Black Screen
     uniqueID: 2888901389
+    locked: 0
+  - name: New Layer 11
+    uniqueID: 2005082531
     locked: 0

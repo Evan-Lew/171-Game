@@ -23,7 +23,13 @@ public class GameController : MonoBehaviour
     
     [Header("Animator Controllers")]
     [SerializeField] Animator animatorSceneFade;
-    [SerializeField] Animator animatorAspectRatioSwitch, animatorDarkenBackground;
+    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXianDialogue, animatorFaHaiDialogue;
+
+    [Header("Characters Talking")] 
+    [SerializeField] GameObject leftCharacter;
+    [SerializeField] GameObject rightCharacter;
+    private SpriteRenderer _leftCharacterSprite;
+    private SpriteRenderer _rightCharacterSprite;
     
     public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
@@ -76,6 +82,16 @@ public class GameController : MonoBehaviour
             animatorDarkenBackground.SetTrigger("Bright");
         }
         
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            _leftCharacterSprite = leftCharacter.GetComponent<SpriteRenderer>();
+            _leftCharacterSprite.sortingOrder = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            _leftCharacterSprite.sortingOrder = 0;
+        }
+
         //BattleConditionCheck();
         
         //if (isDeckELevel)
@@ -107,6 +123,26 @@ public class GameController : MonoBehaviour
         */
     }
 
+    public void FadeIn()
+    {
+        animatorSceneFade.SetTrigger("In");
+    }
+    
+    public void StartDialogue()
+    {
+        FadeIn();
+        animatorAspectRatioSwitch.SetTrigger("StartWithRatio");
+        animatorDarkenBackground.SetTrigger("StartDark");
+    }
+
+    public void StopDialogue()
+    {
+        animatorAspectRatioSwitch.SetTrigger("Out");
+        animatorDarkenBackground.SetTrigger("Bright");
+        animatorXuXianDialogue.SetTrigger("Disappear");
+        animatorFaHaiDialogue.SetTrigger("Disappear");
+    }
+    
     //===========================================================
     //                  GameController API
     //===========================================================

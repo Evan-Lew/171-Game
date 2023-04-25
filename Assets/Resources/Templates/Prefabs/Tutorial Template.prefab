@@ -812,7 +812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -689687441, guid: aaee8dffaf2760a44a3386c7de7e0bf1, type: 3}
+  m_Sprite: {fileID: 970506440, guid: db34db637d10bc04c8849f9afe902125, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -888,7 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7749086859357594241}
   m_Layer: 5
-  m_Name: Extra Page
+  m_Name: Extra Pages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

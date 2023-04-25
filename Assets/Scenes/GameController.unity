@@ -410,7 +410,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -646100787
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1564,13 +1564,14 @@ GameObject:
   - component: {fileID: 392726969}
   - component: {fileID: 392726971}
   - component: {fileID: 392726970}
+  - component: {fileID: 392726972}
   m_Layer: 8
   m_Name: Xu Xian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &392726969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1584,7 +1585,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507914033}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1629,8 +1630,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1374146625
-  m_SortingLayer: 1
+  m_SortingLayerID: 2088765635
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 79340415, guid: 16a30591394ccac40b5629a4bdca08aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1651,6 +1652,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392726968}
   m_CullTransparentMesh: 1
+--- !u!95 &392726972
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392726968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2690c478deb1336499e2d4c5a9b83d9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &409527555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,8 +2931,9 @@ GameObject:
   - component: {fileID: 558794439}
   - component: {fileID: 558794438}
   - component: {fileID: 558794440}
+  - component: {fileID: 558794441}
   m_Layer: 8
-  m_Name: Darkened Background
+  m_Name: Darken Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2930,7 +2952,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507914033}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2950,7 +2972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2995,6 +3017,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!223 &558794441
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558794436}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 2088765635
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
 --- !u!1 &560284603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3695,6 +3738,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a0fcfd2bd83695408bb7515683523f1, type: 2}
   - {fileID: 11400000, guid: ec65df614a480bc4788bbf6cd278446c, type: 2}
   - {fileID: 11400000, guid: 905f02384c65ccd4f868c19d6809e04b, type: 2}
+  PerilPool: []
   cardName: Test
   descriptionLog: 
   Player_damageDealing: 0
@@ -3706,10 +3750,13 @@ MonoBehaviour:
   Player_extraCardsDrawing: 0
   Player_priorityInc: 0
   Player_extraPriorityCost: 0
+  Player_herbsInTotal: 0
+  Player_statusInTotal: 0
   Enemy_damageDealing: 0
   Enemy_healing: 0
   Enemy_armorCreate: 0
   Enemy_priorityInc: 0
+  Enemy_permanantCostIncrease: 0
   playerParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 5511052677990246615, guid: c1a79a3a095f1a148a6dc7b0bfde3712, type: 3}
@@ -6477,7 +6524,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -8148,7 +8195,7 @@ Transform:
   - {fileID: 675614099}
   - {fileID: 1078543388}
   m_Father: {fileID: 1507914033}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1474474523
 GameObject:
@@ -8680,6 +8727,7 @@ RectTransform:
   - {fileID: 560284604}
   - {fileID: 454805843}
   - {fileID: 195012395}
+  - {fileID: 2013424621}
   - {fileID: 2064261145}
   - {fileID: 558794437}
   - {fileID: 392726969}
@@ -10761,13 +10809,14 @@ GameObject:
   - component: {fileID: 2008620571}
   - component: {fileID: 2008620573}
   - component: {fileID: 2008620572}
+  - component: {fileID: 2008620574}
   m_Layer: 8
-  m_Name: Fahai
+  m_Name: Fa Hai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2008620571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10781,7 +10830,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507914033}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10826,8 +10875,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2088765635
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1156001380, guid: 26cecf7390c23b040b134696bc718150, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10848,6 +10897,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008620570}
   m_CullTransparentMesh: 1
+--- !u!95 &2008620574
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008620570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7da55aec0834734d9e79404fe6c27d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!1 &2013424620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013424621}
+  - component: {fileID: 2013424622}
+  m_Layer: 5
+  m_Name: ---Initialize below before playing---
+  m_TagString: EditorOnly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2013424621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013424620}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.18999146, y: -10.181149, z: -387.9352}
+  m_LocalScale: {x: 3.8971143, y: 3.8971143, z: 3.8971143}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1507914033}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2013424622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013424620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2b5cc950f43c249ae10efbe67ef428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes: 'Higher UI is designed for anything happened in the front of everything.
+    The order (layer) of display is HUI(higher UI) -> card -> UI -> Envrionment '
 --- !u!1 &2060714349
 GameObject:
   m_ObjectHideFlags: 0
@@ -10912,7 +11027,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507914033}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11275,6 +11390,10 @@ MonoBehaviour:
   animatorSceneFade: {fileID: 2064261146}
   animatorAspectRatioSwitch: {fileID: 1454019363}
   animatorDarkenBackground: {fileID: 558794440}
+  animatorXuXianDialogue: {fileID: 392726972}
+  animatorFaHaiDialogue: {fileID: 2008620574}
+  leftCharacter: {fileID: 392726968}
+  rightCharacter: {fileID: 2008620570}
   CharactersList:
   - {fileID: 11400000, guid: 5b1b9016051e2a9478866d5e706b49a2, type: 2}
   - {fileID: 11400000, guid: 85cc55650dd5ecf4086be893b04d83cd, type: 2}

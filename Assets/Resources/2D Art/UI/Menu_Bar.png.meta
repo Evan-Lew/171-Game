@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7a2a2a160cfb7345bab3ff2d76d8580
+guid: f07d7e6d6d7c49542a693dca29b3df39
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,22 +105,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_0
+      name: Menu_Bar
       rect:
         serializedVersion: 2
-        x: 4
-        y: 135
-        width: 770
-        height: 240
+        x: 15
+        y: 8
+        width: 657
+        height: 1001
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 671ce9c034f58d1468bc7fe46a08634a
-      internalID: 1874970677
+      spriteID: f591f2bb52397ae4696e854b54df724d
+      internalID: 752997645
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3ed8c56bfe67055459ffd959ae657c9c
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      button_0: 1874970677
+      Menu_Bar: 752997645
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
