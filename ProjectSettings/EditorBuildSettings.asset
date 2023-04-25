@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleLevel.unity
     guid: 819a27e6646201f42ba43b5a9415293a
+  - enabled: 1
+    path: Assets/Scenes/StoryContinue.unity
+    guid: 6169c3f4b56a94643b00b4fc7d4a830b
   m_configObjects: {}

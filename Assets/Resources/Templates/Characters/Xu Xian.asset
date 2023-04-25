@@ -19,4 +19,4 @@ MonoBehaviour:
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 3
-  characterSprite: {fileID: 1361177387, guid: faccbac66262daf46b3debd088b55cec, type: 3}
+  characterSprite: {fileID: 79340415, guid: 16a30591394ccac40b5629a4bdca08aa, type: 3}

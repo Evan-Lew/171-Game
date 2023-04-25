@@ -27,7 +27,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private BattleLog _script_BattleLog;
     [HideInInspector] public bool enableTurnUpdate = false;
 
-    [SerializeField] Animator animator_fadeInOut, animator_PlayerTurn, animator_EnemyTurn;
+    [SerializeField] Animator animatorPlayerTurn, animatorEnemyTurn, animatorFadeInOut;
 
     // Used in BattleLevelSetup
     public static int battleNum = 0;
@@ -189,13 +189,13 @@ public class BattleController : MonoBehaviour
         SoundManager.PlaySound("sfx_Transition", 0.1f);
         if (type == TurnType.player)
         {
-            animator_fadeInOut.SetTrigger("Play");
-            animator_PlayerTurn.SetTrigger("Play");
+            animatorFadeInOut.SetTrigger("Play");
+            animatorPlayerTurn.SetTrigger("Play");
         }
         else if (type == TurnType.enemy)
         {
-            animator_fadeInOut.SetTrigger("Play");
-            animator_EnemyTurn.SetTrigger("Play");
+            animatorFadeInOut.SetTrigger("Play");
+            animatorEnemyTurn.SetTrigger("Play");
         }
     }
 }

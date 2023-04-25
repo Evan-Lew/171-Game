@@ -58,7 +58,7 @@ public class Card : MonoBehaviour
     // Candidate for Adding to Deck
     [HideInInspector] public int CandidatePosition;
 
-    private float delay = 2;
+    //private float delay = 2;
     float timer;
 
     void Awake()
@@ -74,28 +74,42 @@ public class Card : MonoBehaviour
 
     void Update()
     {
-        // bug occured if cards were hovered over before they were fully drawn
-        
-        if (timer > delay)
+        if (cardState == Card.state.Handcard)
         {
-            if (cardState == Card.state.Handcard)
-            {
-                Actions_Handcards();
-            }
-            if (cardState == Card.state.DeckCandidate)
-            {
-                CardUtil_Movement();
-            }
-            if (cardState == Card.state.DeckDisplay)
-            {
-
-            }
-            // Reset the mouse input bool
-            justPressed = false;
-        } else {
-            timer += Time.deltaTime;
+            Actions_Handcards();
         }
+        if (cardState == Card.state.DeckCandidate)
+        {
+            CardUtil_Movement();
+        }
+        if (cardState == Card.state.DeckDisplay)
+        {
+
+        }
+        // Reset the mouse input bool
+        justPressed = false;
         
+        // // bug occured if cards were hovered over before they were fully drawn
+        //
+        // if (timer > delay)
+        // {
+        //     if (cardState == Card.state.Handcard)
+        //     {
+        //         Actions_Handcards();
+        //     }
+        //     if (cardState == Card.state.DeckCandidate)
+        //     {
+        //         CardUtil_Movement();
+        //     }
+        //     if (cardState == Card.state.DeckDisplay)
+        //     {
+        //
+        //     }
+        //     // Reset the mouse input bool
+        //     justPressed = false;
+        // } else {
+        //     timer += Time.deltaTime;
+        // }
     }
 
     public void loadObjects()
