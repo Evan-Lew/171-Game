@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta
-guid: 85f634a423f0acb42933e8deed8649db
-========
-guid: aaee8dffaf2760a44a3386c7de7e0bf1
->>>>>>>> evan-4/20:Assets/Resources/2D Art/UI/left arrow.png.meta
+guid: db34db637d10bc04c8849f9afe902125
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -66,15 +62,15 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
-  cookieLightType: 0
+  applyGammaDecoding: 1
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +82,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,12 +103,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta
-    sprites: []
-========
     sprites:
     - serializedVersion: 2
-      name: Left_Arrow
+      name: left arrow_0
       rect:
         serializedVersion: 2
         x: 6
@@ -120,35 +113,30 @@ TextureImporter:
         width: 79
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c3251b83ba712a48bd85bb59a9efcdb
-      internalID: -689687441
+      spriteID: d267ff7a6e2cc99499d4e75daf535e71
+      internalID: 970506440
       vertices: []
       indices: 
       edges: []
       weights: []
->>>>>>>> evan-4/20:Assets/Resources/2D Art/UI/left arrow.png.meta
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cf068d8b34b190d46bdea1fe7949e51a
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta
-    nameFileIdTable: {}
-========
     nameFileIdTable:
-      Left_Arrow: -689687441
->>>>>>>> evan-4/20:Assets/Resources/2D Art/UI/left arrow.png.meta
+      left arrow_0: 970506440
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
