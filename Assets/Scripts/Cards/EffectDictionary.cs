@@ -1396,7 +1396,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2;
         Player_priorityInc = 0;
         Manipulator_Player();
-        Manipulator_Enemy()
+        Manipulator_Enemy();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
