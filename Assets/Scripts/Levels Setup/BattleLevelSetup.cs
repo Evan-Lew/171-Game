@@ -18,6 +18,8 @@ public class BattleLevelSetup : MonoBehaviour
     
     private void Start()
     {
+        GameController.instance.NoDialogue();
+        
         GameController.instance.changePlayerSprite();
         _deckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
         _handManager = GameObject.Find("Hand System").GetComponent<HandManager>();

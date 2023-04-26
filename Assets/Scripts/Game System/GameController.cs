@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
@@ -21,8 +22,9 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject characters;
     [SerializeField] GameObject player, enemy;
     
+    [FormerlySerializedAs("animatorSceneFade")]
     [Header("Animator Controllers")]
-    [SerializeField] Animator animatorSceneFade;
+    [SerializeField] Animator animatorFadeScene;
     [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXianDialogue, animatorFaHaiDialogue;
 
     [Header("Characters Talking")] 
@@ -58,17 +60,21 @@ public class GameController : MonoBehaviour
         // SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        
+        // For dialogue
+        _leftCharacterSprite = leftCharacter.GetComponent<SpriteRenderer>();
+        _rightCharacterSprite = rightCharacter.GetComponent<SpriteRenderer>();
     }
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            animatorSceneFade.SetTrigger("In");
+            animatorFadeScene.SetTrigger("In");
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            animatorSceneFade.SetTrigger("Out");
+            animatorFadeScene.SetTrigger("Out");
         }
         
         if (Input.GetKeyDown(KeyCode.I))
@@ -125,7 +131,17 @@ public class GameController : MonoBehaviour
 
     public void FadeIn()
     {
-        animatorSceneFade.SetTrigger("In");
+        animatorFadeScene.SetTrigger("FadeIn");
+    }
+
+    public void FadeOut()
+    {
+        animatorFadeScene.SetTrigger("FadeOut");
+    }
+
+    public void StartDark()
+    {
+        animatorDarkenBackground.SetTrigger("StartDark");
     }
     
     public void StartDialogue()
@@ -141,6 +157,45 @@ public class GameController : MonoBehaviour
         animatorDarkenBackground.SetTrigger("Bright");
         animatorXuXianDialogue.SetTrigger("Disappear");
         animatorFaHaiDialogue.SetTrigger("Disappear");
+    }
+
+    public void CharacterTalking(bool leftIsTalking)
+    {
+        if (leftIsTalking)
+        {
+            int sortingOrder = _leftCharacterSprite.sortingOrder;
+            // Brighten the left character when talking
+            if (sortingOrder == 0)
+            {
+                _leftCharacterSprite.sortingOrder = 2;        
+            }
+            // Darken the left character when talking
+            else if (sortingOrder == 2)
+            {
+                _leftCharacterSprite.sortingOrder = 0;
+            }
+        }
+        else
+        {
+            int sortingOrder = _rightCharacterSprite.sortingOrder;
+            // Brighten the right character when talking
+            if (sortingOrder == 0)
+            {
+                _rightCharacterSprite.sortingOrder = 2;        
+            }
+            // Darken the right character when talking
+            else if (sortingOrder == 2)
+            {
+                _rightCharacterSprite.sortingOrder = 0;
+            }
+        }
+    }
+
+    public void NoDialogue()
+    {
+        leftCharacter.SetActive(false);
+        rightCharacter.SetActive(false);
+        animatorDarkenBackground.SetTrigger("StartBright");
     }
     
     //===========================================================

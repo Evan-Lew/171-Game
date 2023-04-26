@@ -44,6 +44,7 @@ public class TutorialSetup : MonoBehaviour
         // Time delay to activate the text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            GameController.instance.CharacterTalking(false);
             textBox.SetActive(true);
         }, 4f));
 
@@ -89,6 +90,7 @@ public class TutorialSetup : MonoBehaviour
     public void DialogueButton()
     {
         textBox.SetActive(false);
+        GameController.instance.CharacterTalking(false);
         
         // Remove aspect ratio and darken background
         GameController.instance.StopDialogue();
@@ -109,7 +111,7 @@ public class TutorialSetup : MonoBehaviour
             Phase_1_Setup();
             
             dialoguePlaying = false;
-        }, 4f));
+        }, 4.5f));
     }
 
     void Tutorials()

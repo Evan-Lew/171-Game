@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Enemy Orb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Enemy Orb.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Player Orb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tutorial Images/Player Orb.jpg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Tutorial Template.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Tutorial Template.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Clear_Screen.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Clear_Screen.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Clear_Screen.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Clear_Screen.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Scene_Fade_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Scene_Fade_Controller.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

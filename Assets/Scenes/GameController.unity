@@ -2972,7 +2972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8727,8 +8727,8 @@ RectTransform:
   - {fileID: 560284604}
   - {fileID: 454805843}
   - {fileID: 195012395}
-  - {fileID: 2013424621}
   - {fileID: 2064261145}
+  - {fileID: 2013424621}
   - {fileID: 558794437}
   - {fileID: 392726969}
   - {fileID: 2008620571}
@@ -10947,7 +10947,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507914033}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2013424622
 MonoBehaviour:
@@ -11008,7 +11008,7 @@ GameObject:
   - component: {fileID: 2064261146}
   - component: {fileID: 2064261149}
   m_Layer: 8
-  m_Name: Scene Fade
+  m_Name: Fade Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11027,7 +11027,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507914033}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11387,7 +11387,7 @@ MonoBehaviour:
   characters: {fileID: 53530623}
   player: {fileID: 950755190}
   enemy: {fileID: 24645404}
-  animatorSceneFade: {fileID: 2064261146}
+  animatorFadeScene: {fileID: 2064261146}
   animatorAspectRatioSwitch: {fileID: 1454019363}
   animatorDarkenBackground: {fileID: 558794440}
   animatorXuXianDialogue: {fileID: 392726972}
