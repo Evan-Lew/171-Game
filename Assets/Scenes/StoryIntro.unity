@@ -233,7 +233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 269, y: -119}
+  m_AnchoredPosition: {x: 281, y: -119}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &950406864
@@ -365,11 +365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-<<<<<<< Updated upstream
-  m_AnchoredPosition: {x: 10.9, y: 0}
-=======
   m_AnchoredPosition: {x: 8.8, y: 0}
->>>>>>> Stashed changes
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &977644481
@@ -392,11 +388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< Updated upstream
-  m_text: PROCEED
-=======
   m_text: To Map
->>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
   m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
@@ -512,13 +504,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
-  m_AnchoredPosition: {x: 296.4, y: -181.4}
+  m_AnchoredPosition: {x: 40, y: -125}
   m_SizeDelta: {x: 184.378, y: 90.7678}
-=======
-  m_AnchoredPosition: {x: 2, y: -118}
-  m_SizeDelta: {x: 200, y: 100}
->>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1049841542
 MonoBehaviour:
@@ -537,7 +524,7 @@ MonoBehaviour:
     sentences:
     - ' '
     - in anceint China...
-    - in a land of mystical creatures, there lived a Snake Spirit.
+    - in a land of mystical creatures, lived a Snake Spirit.
     - Her name was BaiZhe, meaning White Snake
     - She was a powerful creature and took the form of a woman
 --- !u!114 &1049841543
@@ -972,13 +959,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
-  m_AnchoredPosition: {x: 8.5, y: -89.55069}
+  m_AnchoredPosition: {x: 8.5, y: -65}
   m_SizeDelta: {x: 505.5499, y: 143.0798}
-=======
-  m_AnchoredPosition: {x: 17.7755, y: 21.571}
-  m_SizeDelta: {x: 742.4236, y: 269.14}
->>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046945296
 MonoBehaviour:
@@ -1000,11 +982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< Updated upstream
   m_text: The journey of Bai Suzhen is about to unfold... [insert more story]
-=======
-  m_text: Story Intro, text doesnt go here
->>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
   m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
