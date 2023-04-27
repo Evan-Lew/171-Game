@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TutorialSetup : MonoBehaviour
 {
     [SerializeField] GameObject textBox;
+    [SerializeField] GameObject textManager;
     
     [Header("Every Tutorial GameObject")]
     [SerializeField] GameObject tutorial01;
@@ -34,9 +36,10 @@ public class TutorialSetup : MonoBehaviour
     bool tutorialEnd = false;
 
     bool levelEnd = false;
-
-    private bool dialoguePlaying = true;
     
+    private bool _dialoguePlaying = true;
+    private bool _introDialogueDone = false;
+
     void Start()
     {
         GameController.instance.StartDialogue();
@@ -44,34 +47,40 @@ public class TutorialSetup : MonoBehaviour
         // Time delay to activate the text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            GameController.instance.CharacterTalking(false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
             textBox.SetActive(true);
+            textManager.SetActive(true);
         }, 4f));
-
-        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        // {
-        //     GameController.instance.StopDialogue();
-        //     
-        // }, 4f));
-        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        // {
-        //     SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
-        //     
-        // }, 7f));
-        // StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        // {
-        //     _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
-        //     _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
-        //     Backup_StartDraw = BattleController.instance.startingCardsAmount;
-        //     Phase_1_Setup();
-        //     
-        //     dialoguePlaying = false;
-        // }, 10f));
     }
 
     void Update()
     {
-        if (dialoguePlaying == false)
+        BrightenCharacterTalking();
+        
+        if (GameController.instance.tutorialIntroDialoguePlaying == false && _introDialogueDone == false)
+        {
+            _introDialogueDone = true;
+            textBox.SetActive(false);
+
+            // Time delay to start the music
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+            
+            }, 3f));
+        
+            // Time delay to start the battle
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
+                _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
+                Backup_StartDraw = BattleController.instance.startingCardsAmount;
+                Phase_1_Setup();
+                _dialoguePlaying = false;
+            }, 4.5f));
+        }
+        
+        if (_dialoguePlaying == false)
         {
             Tutorials();
             LevelManagement();
@@ -86,32 +95,31 @@ public class TutorialSetup : MonoBehaviour
             }    
         }
     }
-
-    public void DialogueButton()
+    
+    // Helper function to brighten characters when talking (this is hardcoded to match the TextManager's sentences)
+    public void BrightenCharacterTalking()
     {
-        textBox.SetActive(false);
-        GameController.instance.CharacterTalking(false);
-        
-        // Remove aspect ratio and darken background
-        GameController.instance.StopDialogue();
-        
-        // Time delay to start the music
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        {
-            SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+        int sentenceLength = textManager.GetComponent<TextManager>().sentencesLength;
+        bool isCharacterBright = textManager.GetComponent<TextManager>().characterHasBeenBrightened;
             
-        }, 3f));
-        
-        // Time delay to start the battle
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        if (sentenceLength == 2 && isCharacterBright == false)
         {
-            _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
-            _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
-            Backup_StartDraw = BattleController.instance.startingCardsAmount;
-            Phase_1_Setup();
-            
-            dialoguePlaying = false;
-        }, 4.5f));
+            GameController.instance.CharacterTalking("leftIsTalking", true);
+            GameController.instance.CharacterTalking("rightIsTalking", false);
+            textManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
+        }
+        else if (sentenceLength == 1 && isCharacterBright == false)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+            textManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
+        }
+    }
+
+    // Helper function for a button to skip the tutorial dialogue
+    public void IntroDialogueSkipButton()
+    {
+        GameController.instance.TutorialDialogueDone();
     }
 
     void Tutorials()
@@ -232,7 +240,7 @@ public class TutorialSetup : MonoBehaviour
 
     private void OnDestroy()
     {
-        Backupdata();
+        //Backupdata();
     }
 
     public void NextButton()

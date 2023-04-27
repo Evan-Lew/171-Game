@@ -52,7 +52,10 @@ public class GameController : MonoBehaviour
     
     public static GameController instance;
     [HideInInspector] public bool enableMouseEffectOnCard = true;
-
+    
+    // New
+    public bool tutorialIntroDialoguePlaying = true;
+    
     private void Awake()
     {
         instance = this;
@@ -68,36 +71,6 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            animatorFadeScene.SetTrigger("In");
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            animatorFadeScene.SetTrigger("Out");
-        }
-        
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            animatorAspectRatioSwitch.SetTrigger("In");
-            animatorDarkenBackground.SetTrigger("Dark");
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            animatorAspectRatioSwitch.SetTrigger("Out");
-            animatorDarkenBackground.SetTrigger("Bright");
-        }
-        
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            _leftCharacterSprite = leftCharacter.GetComponent<SpriteRenderer>();
-            _leftCharacterSprite.sortingOrder = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            _leftCharacterSprite.sortingOrder = 0;
-        }
-
         //BattleConditionCheck();
         
         //if (isDeckELevel)
@@ -128,27 +101,14 @@ public class GameController : MonoBehaviour
         }
         */
     }
-
-    public void FadeIn()
-    {
-        animatorFadeScene.SetTrigger("FadeIn");
-    }
-
-    public void FadeOut()
-    {
-        animatorFadeScene.SetTrigger("FadeOut");
-    }
-
-    public void StartDark()
-    {
-        animatorDarkenBackground.SetTrigger("StartDark");
-    }
     
     public void StartDialogue()
     {
-        FadeIn();
+        animatorFadeScene.SetTrigger("FadeIn");
         animatorAspectRatioSwitch.SetTrigger("StartWithRatio");
         animatorDarkenBackground.SetTrigger("StartDark");
+        leftCharacter.SetActive(true);
+        rightCharacter.SetActive(true);
     }
 
     public void StopDialogue()
@@ -159,32 +119,41 @@ public class GameController : MonoBehaviour
         animatorFaHaiDialogue.SetTrigger("Disappear");
     }
 
-    public void CharacterTalking(bool leftIsTalking)
+    // Helper Function for the tutorial dialogue
+    public void TutorialDialogueDone()
     {
-        if (leftIsTalking)
+        CharacterTalking("leftIsTalking", false);
+        CharacterTalking("rightIsTalking", false);
+        StopDialogue();
+        tutorialIntroDialoguePlaying = false;
+    }
+    
+    public void CharacterTalking(string whoIsTalking, bool brightenCharacter)
+    {
+        if (whoIsTalking == "leftIsTalking")
         {
-            int sortingOrder = _leftCharacterSprite.sortingOrder;
+            //int sortingOrder = _leftCharacterSprite.sortingOrder;
             // Brighten the left character when talking
-            if (sortingOrder == 0)
+            if (brightenCharacter)
             {
                 _leftCharacterSprite.sortingOrder = 2;        
             }
             // Darken the left character when talking
-            else if (sortingOrder == 2)
+            else
             {
                 _leftCharacterSprite.sortingOrder = 0;
             }
         }
-        else
+        else if (whoIsTalking == "rightIsTalking")
         {
-            int sortingOrder = _rightCharacterSprite.sortingOrder;
+            //int sortingOrder = _rightCharacterSprite.sortingOrder;
             // Brighten the right character when talking
-            if (sortingOrder == 0)
+            if (brightenCharacter)
             {
                 _rightCharacterSprite.sortingOrder = 2;        
             }
             // Darken the right character when talking
-            else if (sortingOrder == 2)
+            else
             {
                 _rightCharacterSprite.sortingOrder = 0;
             }

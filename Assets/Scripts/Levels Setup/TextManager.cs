@@ -6,19 +6,22 @@ using TMPro;
 
 public class TextManager : MonoBehaviour
 {
- //public Text nameText;   //for NPCs
-   public TMP_Text dialogueText;
-   public Queue<string> sentences;
-   public Dialogue dialogue;
+    //public Text nameText;   //for NPCs
+    public TMP_Text dialogueText;
+    public Queue<string> sentences;
+    public Dialogue dialogue;
+
+    public int sentencesLength;
+    public bool characterHasBeenBrightened = false;
     void Start()
     {   
         sentences = new Queue<string>();
         StartDialogue(dialogue);
     }
-    public void StartDialogue (Dialogue dialogue)
+    public void StartDialogue(Dialogue moreDialogue)
     {
         sentences.Clear(); 
-        foreach (string sentence in dialogue.sentences)
+        foreach (string sentence in moreDialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -26,13 +29,21 @@ public class TextManager : MonoBehaviour
     }
     public void DisplayNext()
     {
+        characterHasBeenBrightened = false;
+        Debug.Log(sentences.Count);
+        sentencesLength = sentences.Count;
         if (sentences.Count == 0){
-            //EndDialogue(); //make another function, im lazy
-            return;
+            if (GameController.instance.tutorialIntroDialoguePlaying)
+            {
+                GameController.instance.TutorialDialogueDone();    
+            }
         }
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        else
+        {
+            string sentence = sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));    
+        }
     }
     IEnumerator TypeSentence (string sentence)
     {

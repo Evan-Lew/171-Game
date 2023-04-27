@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b86c8ea72d1c20e4d88dee65f90ace61
+guid: 24e4b244636f6b44e80ef52faa98ab1b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,22 +105,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bai Suzhen
+      name: Cards Example
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 1911
-        height: 1877
-      alignment: 6
-      pivot: {x: 0, y: 0}
+        x: 72
+        y: 34
+        width: 424
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 205cf53a4b498244c92d01ff02a8296b
-      internalID: 487210978
+      spriteID: d65358634f4baf34f8f44704ca33d8a0
+      internalID: 551738226
       vertices: []
       indices: 
       edges: []
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bai Suzhen: 487210978
+      Cards Example: 551738226
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

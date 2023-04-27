@@ -12,6 +12,8 @@ public class BattleLog : MonoBehaviour
     [SerializeField] Queue<GameObject> BattleLogQueue = new();
     //bool IsScrollBarIsBeingUsed = false;
     //bool setScrollBar2Bottom = false;
+    
+    public Font historyLogFont;
 
     public void Setup()
     {
@@ -97,6 +99,7 @@ public class BattleLog : MonoBehaviour
         GameObject instance = Instantiate(Prefab_BattleLog, contentHolder.transform);
         instance.transform.SetAsFirstSibling();
         instance.GetComponent<TMP_Text>().text = BattleLog;
+
         BattleLogQueue.Enqueue(instance);
         UpdateLayout();
         EffectDictionary.instance.descriptionLog = "";
