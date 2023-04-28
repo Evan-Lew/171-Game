@@ -214,11 +214,11 @@ public class GameController : MonoBehaviour
      *  Parameters: Argument1:  Target Character Group game object's transform
      *              Argument2:  Target Environment Camera's transform                         
      */
-    public void SetSpawningPoint(Transform characterTransform, Transform environmentCameraTransform)
-    {
-        SetCharacterPos(characterTransform);
-        SetCameraPos(environmentCameraTransform);
-    }
+    // public void SetSpawningPoint(Transform characterTransform, Transform environmentCameraTransform)
+    // {
+    //     SetCharacterPos(characterTransform);
+    //     SetCameraPos(environmentCameraTransform);
+    // }
     
     /*  Function that will start the battle for testing, assigned deck is required
     *  Parameters:  Argument1:  The next enemy you want to setup 
@@ -375,6 +375,23 @@ public class GameController : MonoBehaviour
         {
             Character enemyCharacter = enemy.GetComponent<Character>();
             enemyCharacter.CharacterData = newCharacter;
+
+            if (enemyCharacter.CharacterData.characterName == "Ink Golem")
+            {
+                // ??? i don't know why but if the Z isn't set to 50 then it becomes -50, temp fix
+                enemy.transform.position = new Vector3(12.61F, -7.66F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.02F, 1.02F, 1.02F);
+            } 
+            if (enemyCharacter.CharacterData.characterName == "Ink Chimera")
+            {
+                enemy.transform.position = new Vector3(8.84F, -9.1F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.38F, 1.38F, 1.38F);
+            }
+            if (enemyCharacter.CharacterData.characterName == "Zhenniao")
+            {
+                enemy.transform.position = new Vector3(3.01F, -15.09F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.72F, 1.72F, 1.72F);
+            }
             enemyCharacter.SetUp();
         }
         else if (characterTarget == characterType.player)
