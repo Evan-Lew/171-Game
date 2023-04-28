@@ -9,6 +9,8 @@ public class BattleLevelSetup : MonoBehaviour
     DeckSystem _deckSystem;
     HandManager _handManager;
 
+    Character_Basedata enemy;
+
     [Header("List of Cards to start the deck with")]
     [SerializeField] List<Card_Basedata> startingCards;
 
@@ -43,7 +45,13 @@ public class BattleLevelSetup : MonoBehaviour
         }
         
         // GameController.instance.DeveloperBattleSetup(playerName, enemyName);
-        Character_Basedata enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[BattleController.battleNum].characterName).SingleOrDefault();
+        if (BattleController.battleNum == 99)
+        {
+            enemy = listOfEnemies.Where(obj => obj.characterName == "Stone Rui Shi").SingleOrDefault();
+        } else {
+            enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[BattleController.battleNum].characterName).SingleOrDefault();
+        }
+        
         // Character_Basedata enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[1].characterName).SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
         GameController.instance.battleCondition = true;
@@ -55,11 +63,13 @@ public class BattleLevelSetup : MonoBehaviour
         if (BattleController.instance.enemy.Health_Current <= 0 && _levelEnd == false)
         {
             BattleController.battleNum++;
+            BattleController.totalLevel++;
             _levelEnd = true;
         }
         
         // Player loses
-        if (BattleController.instance.player.Health_Current <= 0 || BattleController.battleNum >= 3)
+        //  || BattleController.battleNum >= 3
+        if (BattleController.instance.player.Health_Current <= 0)
         {
             GameController.instance.DisableBattleMode();
             SceneManager.LoadScene("EndScene");
@@ -74,14 +84,19 @@ public class BattleLevelSetup : MonoBehaviour
             {
                 _levelEnd = false;
                 Debug.Log(BattleController.battleNum);
-                if (BattleController.battleNum == 2)
+                if (BattleController.battleNum == 3)
                 {
-                    SceneManager.LoadScene("StoryContinue");
+                    SceneManager.LoadScene("MountainChallenge");
+                }
+                else if (BattleController.battleNum == 100)
+                {
+                    SceneManager.LoadScene("EndScene");
                 }
                 else
                 {
                     SceneManager.LoadScene("PickDeckLevel_1");     
                 }
+
             }, 1f));
         }
     }

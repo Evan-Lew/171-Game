@@ -31,6 +31,7 @@ public class BattleController : MonoBehaviour
 
     // Used in BattleLevelSetup
     public static int battleNum = 0;
+    public static int totalLevel = 0;
 
     private void Awake()
     {
