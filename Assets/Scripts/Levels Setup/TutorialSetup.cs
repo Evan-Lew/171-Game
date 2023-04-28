@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class TutorialSetup : MonoBehaviour
 {
-    [SerializeField] GameObject textBox;
-    [SerializeField] GameObject textManager;
+    [SerializeField] GameObject introTextBox;
+    [SerializeField] GameObject introTextManager;
+    [SerializeField] GameObject outroTextBox;
+    [SerializeField] GameObject outroTextManager;
     
     [Header("Every Tutorial GameObject")]
     [SerializeField] GameObject tutorial01;
@@ -35,7 +37,7 @@ public class TutorialSetup : MonoBehaviour
     bool isPhase2Set = false;
     bool tutorialEnd = false;
 
-    bool levelEnd = false;
+    public bool levelEnd = false;
     
     private bool _dialoguePlaying = true;
     private bool _introDialogueDone = false;
@@ -48,8 +50,8 @@ public class TutorialSetup : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             GameController.instance.CharacterTalking("rightIsTalking", true);
-            textBox.SetActive(true);
-            textManager.SetActive(true);
+            introTextBox.SetActive(true);
+            introTextManager.SetActive(true);
         }, 4f));
     }
 
@@ -60,7 +62,7 @@ public class TutorialSetup : MonoBehaviour
         if (GameController.instance.tutorialIntroDialoguePlaying == false && _introDialogueDone == false)
         {
             _introDialogueDone = true;
-            textBox.SetActive(false);
+            introTextBox.SetActive(false);
 
             // Time delay to start the music
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -99,20 +101,43 @@ public class TutorialSetup : MonoBehaviour
     // Helper function to brighten characters when talking (this is hardcoded to match the TextManager's sentences)
     public void BrightenCharacterTalking()
     {
-        int sentenceLength = textManager.GetComponent<TextManager>().sentencesLength;
-        bool isCharacterBright = textManager.GetComponent<TextManager>().characterHasBeenBrightened;
-            
-        if (sentenceLength == 2 && isCharacterBright == false)
+        int introSentenceLength = introTextManager.GetComponent<TextManager>().sentencesLength;
+        int outroSentenceLength = outroTextManager.GetComponent<TextManager>().sentencesLength;
+        bool isIntroCharacterBright = introTextManager.GetComponent<TextManager>().characterHasBeenBrightened;
+        bool isOutroCharacterBright = outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened;
+        
+        // Intro Dialogue
+        if (introSentenceLength == 2 && isIntroCharacterBright == false)
         {
             GameController.instance.CharacterTalking("leftIsTalking", true);
             GameController.instance.CharacterTalking("rightIsTalking", false);
-            textManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
+            introTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
         }
-        else if (sentenceLength == 1 && isCharacterBright == false)
+        else if (introSentenceLength == 1 && isIntroCharacterBright == false)
         {
             GameController.instance.CharacterTalking("leftIsTalking", false);
             GameController.instance.CharacterTalking("rightIsTalking", true);
-            textManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
+            introTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
+        }
+        
+        // Outro Dialogue
+        else if (outroSentenceLength == 3 && isOutroCharacterBright == false)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+            outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
+        }
+        else if (outroSentenceLength == 2 && isOutroCharacterBright == false)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", true);
+            GameController.instance.CharacterTalking("rightIsTalking", false);
+            outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
+        }
+        else if (outroSentenceLength == 1 && isOutroCharacterBright == false)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+            outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
         }
     }
 
@@ -147,12 +172,28 @@ public class TutorialSetup : MonoBehaviour
         }
     }
 
+    private bool loopedWinStatements = false;
     void LevelManagement()
     {
-        // Player wins
+        // Player wins/Tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
         {
             levelEnd = true;
+            GameController.instance.DisableBattleController();
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                GameController.instance.DisableBattleMode();
+                GameController.instance.RestartDialogue();
+            }, 2f));
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                if (loopedWinStatements == false)
+                {
+                    outroTextBox.SetActive(true);
+                    outroTextManager.SetActive(true);
+                    loopedWinStatements = true;
+                }
+            }, 6f));
         }
         
         // Player loses
@@ -161,13 +202,19 @@ public class TutorialSetup : MonoBehaviour
             GameController.instance.DisableBattleMode();
             SceneManager.LoadScene("EndScene");
         }
+    }
 
-        if (levelEnd)
+    public void EndTutorial()
+    {
+        Debug.Log("ending");
+        GameController.instance.CharacterTalking("rightIsTalking", false);
+        outroTextBox.SetActive(false);
+        GameController.instance.FadeOut();
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            GameController.instance.DisableBattleMode();
             levelEnd = false;
             SceneManager.LoadScene("MainMenu");
-        }
+        }, 6f));
     }
 
     void Phase_1_Setup()
@@ -264,11 +311,6 @@ public class TutorialSetup : MonoBehaviour
                 tutorial02_Pages[0].SetActive(false);
                 tutorial02_Pages[1].SetActive(true);
             }
-            else if (tutorial02_Pages[1].activeSelf)
-            {
-                tutorial02_Pages[1].SetActive(false);
-                tutorial02_Pages[2].SetActive(true);
-            }
         }
         
         // Tutorial03
@@ -279,16 +321,12 @@ public class TutorialSetup : MonoBehaviour
                 tutorial03_Pages[0].SetActive(false);
                 tutorial03_Pages[1].SetActive(true);
             }
-            else if (tutorial03_Pages[1].activeSelf)
-            {
-                tutorial03_Pages[1].SetActive(false);
-                tutorial03_Pages[2].SetActive(true);
-            }
-            else if (tutorial03_Pages[2].activeSelf)
-            {
-                tutorial03_Pages[2].SetActive(false);
-                tutorial03_Pages[3].SetActive(true);
-            }
+            // For additional pages
+            // else if (tutorial03_Pages[1].activeSelf)
+            // {
+            //     tutorial03_Pages[1].SetActive(false);
+            //     tutorial03_Pages[2].SetActive(true);
+            // }
         }
     }
 

@@ -6,6 +6,7 @@ using TMPro;
 
 public class TextManager : MonoBehaviour
 {
+    public TutorialSetup tutorialSetup;
     //public Text nameText;   //for NPCs
     public TMP_Text dialogueText;
     public Queue<string> sentences;
@@ -30,12 +31,16 @@ public class TextManager : MonoBehaviour
     public void DisplayNext()
     {
         characterHasBeenBrightened = false;
-        Debug.Log(sentences.Count);
         sentencesLength = sentences.Count;
         if (sentences.Count == 0){
             if (GameController.instance.tutorialIntroDialoguePlaying)
             {
                 GameController.instance.TutorialDialogueDone();    
+            }
+
+            if (tutorialSetup.levelEnd)
+            {
+                tutorialSetup.EndTutorial();
             }
         }
         else

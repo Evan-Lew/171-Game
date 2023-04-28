@@ -111,12 +111,28 @@ public class GameController : MonoBehaviour
         rightCharacter.SetActive(true);
     }
 
+    public void RestartDialogue()
+    {
+        animatorAspectRatioSwitch.SetTrigger("In");
+        animatorDarkenBackground.SetTrigger("Dark");
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            animatorXuXianDialogue.SetTrigger("Appear");
+            animatorFaHaiDialogue.SetTrigger("Appear");
+        }, 1f));
+    }
+
     public void StopDialogue()
     {
         animatorAspectRatioSwitch.SetTrigger("Out");
         animatorDarkenBackground.SetTrigger("Bright");
         animatorXuXianDialogue.SetTrigger("Disappear");
         animatorFaHaiDialogue.SetTrigger("Disappear");
+    }
+
+    public void FadeOut()
+    {
+        animatorFadeScene.SetTrigger("FadeOut");
     }
 
     // Helper Function for the tutorial dialogue
@@ -319,6 +335,11 @@ public class GameController : MonoBehaviour
         SetCharacter(characterType.player, GetCharacter("Bai Suzhen"));
     }
 
+    public void DisableBattleController()
+    {
+        _script_BattleController.Clear();
+    }
+    
     public void DisableBattleMode()
     {
         _script_DeckSystem.deckToUse.Clear();
