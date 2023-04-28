@@ -393,6 +393,11 @@ public class GameController : MonoBehaviour
                 enemy.transform.position = new Vector3(3.01F, -15.09F, 50.0F);
                 enemy.transform.localScale = new Vector3(1.72F, 1.72F, 1.72F);
             }
+            if (enemyCharacter.CharacterData.characterName == "Stone Rui Shi")
+            {
+                enemy.transform.position = new Vector3(5.3F, -14.5F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.78F, 1.78F, 1.78F);
+            }
             enemyCharacter.SetUp();
         }
         else if (characterTarget == characterType.player)
