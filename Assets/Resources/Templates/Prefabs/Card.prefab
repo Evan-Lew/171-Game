@@ -264,7 +264,7 @@ MonoBehaviour:
   - {fileID: 5396272600942532514}
   isInHand: 0
   handPosition: 0
-  cardHoveringPosAdjustment: {x: 0, y: 1, z: 0.8}
+  cardHoveringPosAdjustment: {x: 0, y: 1, z: 1.4}
   isSelected: 0
   movingSpeed: 3
   rotateSpeed: 100

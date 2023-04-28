@@ -376,6 +376,7 @@ public class GameController : MonoBehaviour
             Character enemyCharacter = enemy.GetComponent<Character>();
             enemyCharacter.CharacterData = newCharacter;
 
+            // does not scale, only works in 16:9
             if (enemyCharacter.CharacterData.characterName == "Ink Golem")
             {
                 // ??? i don't know why but if the Z isn't set to 50 then it becomes -50, temp fix
