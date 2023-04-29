@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameController.unity
     guid: b9b5bf6833f12954e886d8788b078ae1
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 5c60297ca14c5fa4998702a20528d513
@@ -44,9 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleLevel.unity
     guid: 819a27e6646201f42ba43b5a9415293a
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MountainChallenge.unity
     guid: b52b19c5263a2864e978a04cbfb3c991

@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] PrioritySystem _script_PrioritySystem;
     [SerializeField] DeckSystem _script_DeckSystem;
     [SerializeField] DeckEditSystem _script_DeckEditSystem;
-    
+
     [SerializeField] GameObject characters;
     [SerializeField] GameObject player, enemy;
     
