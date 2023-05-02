@@ -32,6 +32,7 @@ public class BattleController : MonoBehaviour
     // Used in BattleLevelSetup
     public static int battleNum = 0;
     public static int totalLevel = 0;
+    public static double end_HP = 35;
 
     private void Awake()
     {

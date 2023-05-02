@@ -16,6 +16,7 @@ public class MountainChallenge : MonoBehaviour
     {
         Canvas.SetActive(false);
         BattleController.battleNum = 99;
+        Debug.Log(BattleController.battleNum);
         SceneManager.LoadScene("BattleLevel");
     }
 
@@ -23,6 +24,7 @@ public class MountainChallenge : MonoBehaviour
     {
         Canvas.SetActive(false);
         BattleController.battleNum = 0;
+        Debug.Log(BattleController.battleNum);
         SceneManager.LoadScene("BattleLevel");
     }
 

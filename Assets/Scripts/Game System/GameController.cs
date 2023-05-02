@@ -195,7 +195,7 @@ public class GameController : MonoBehaviour
         {
             DisableBattleMode();
             
-            player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
+            // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
             SceneManager.LoadScene("EndScene");
         }
         

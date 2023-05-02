@@ -55,6 +55,7 @@ public class BattleLevelSetup : MonoBehaviour
         // Character_Basedata enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[1].characterName).SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
         GameController.instance.battleCondition = true;
+        BattleController.instance.player.Health_Current = BattleController.end_HP;
     }
 
     void LevelManagement()
@@ -64,6 +65,7 @@ public class BattleLevelSetup : MonoBehaviour
         {
             BattleController.battleNum++;
             BattleController.totalLevel++;
+
             _levelEnd = true;
         }
         
@@ -72,11 +74,13 @@ public class BattleLevelSetup : MonoBehaviour
         if (BattleController.instance.player.Health_Current <= 0)
         {
             GameController.instance.DisableBattleMode();
+            BattleController.battleNum = 100;
             SceneManager.LoadScene("EndScene");
         }
         
         if (_levelEnd)
         {
+            BattleController.end_HP = BattleController.instance.player.Health_Current;
             GameController.instance.DisableBattleMode();
             
             // SceneManager.UnloadSceneAsync("BattleLevel");

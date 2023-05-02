@@ -17,7 +17,7 @@ MonoBehaviour:
 
 '
   Health_Total: 40
-  Health_Current: 40
+  Health_Current: 1
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0
