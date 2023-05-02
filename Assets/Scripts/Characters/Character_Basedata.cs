@@ -11,9 +11,8 @@ public class Character_Basedata : ScriptableObject
     public string description_Main;
     
     [Tooltip("Health of this Unit")]
-    public double Health_Start;
-    public double Health_Current;
     public double Health_Total;
+    public double Health_Current;
 
     [Tooltip("Priority of this Unit")]
     public double Priority_Initial;

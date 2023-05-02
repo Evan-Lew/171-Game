@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Bai Suzhen
   description_Main: 
-  Health_Start: 35
-  Health_Current: 35
   Health_Total: 35
+  Health_Current: 35
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0

@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Ink Chimera
   description_Main: Another Enmey Just for testing
-  Health_Start: 45
-  Health_Current: 1
   Health_Total: 45
+  Health_Current: 1
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0
