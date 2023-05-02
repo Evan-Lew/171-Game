@@ -68,6 +68,7 @@ public class BattleController : MonoBehaviour
     public void SetUp()
     {
         player = GameObject.Find("Player").GetComponent<Character>();
+        player.Health_Total = end_HP;
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
         if (startDrawingCards)
         {

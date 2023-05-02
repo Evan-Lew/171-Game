@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Stone Rui Shi
   description_Main: Rock Lion
-  Health_Total: 45
+  Health_Start: 45
   Health_Current: 1
+  Health_Total: 45
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0

@@ -90,7 +90,8 @@ public class BattleLevelSetup : MonoBehaviour
                 Debug.Log(BattleController.battleNum);
                 if (BattleController.battleNum == 3)
                 {
-                    SceneManager.LoadScene("MountainChallenge");
+                    // SceneManager.LoadScene("MountainChallenge");
+                    SceneManager.LoadScene("LevelTransition");
                 }
                 else if (BattleController.battleNum == 100)
                 {
@@ -98,7 +99,8 @@ public class BattleLevelSetup : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene("PickDeckLevel_1");     
+                    SceneManager.LoadScene("PickDeckLevel_1");
+                    // SceneManager.LoadScene("LevelTransition");     
                 }
 
             }, 1f));
