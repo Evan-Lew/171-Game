@@ -48,14 +48,27 @@ public class BattleLevelSetup : MonoBehaviour
         if (BattleController.battleNum == 99)
         {
             enemy = listOfEnemies.Where(obj => obj.characterName == "Stone Rui Shi").SingleOrDefault();
-        } else {
+        } else  if (BattleController.battleNum <= 3)
+        {
             enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[BattleController.battleNum].characterName).SingleOrDefault();
+        } else 
+        {
+            Debug.Log(BattleController.battleNum);
+            Debug.Log("you messed up");
         }
         
         // Character_Basedata enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[1].characterName).SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
         GameController.instance.battleCondition = true;
         BattleController.instance.player.Health_Current = BattleController.end_HP;
+
+        if (BattleController.healthPlus)
+        {
+            BattleController.instance.player.Health_Current += 5;
+            BattleController.instance.player.Health_Total += 5;
+
+            BattleController.healthPlus = false;
+        }
     }
 
     void LevelManagement()
