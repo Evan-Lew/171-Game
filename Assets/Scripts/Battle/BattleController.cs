@@ -33,7 +33,6 @@ public class BattleController : MonoBehaviour
     public static int battleNum = 0;
     public static int totalLevel = 0;
     public static double end_HP = 35;
-    public static bool healthPlus = false;
 
     private void Awake()
     {
@@ -69,6 +68,7 @@ public class BattleController : MonoBehaviour
     public void SetUp()
     {
         player = GameObject.Find("Player").GetComponent<Character>();
+        player.Health_Total = end_HP;
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
         if (startDrawingCards)
         {

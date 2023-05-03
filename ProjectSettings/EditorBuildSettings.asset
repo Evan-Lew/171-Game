@@ -44,7 +44,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MountainChallenge.unity
     guid: b52b19c5263a2864e978a04cbfb3c991
-  - enabled: 1
-    path: Assets/Scenes/LevelTransition.unity
-    guid: d180fb57abb5bb54aac11eff8df31444
   m_configObjects: {}

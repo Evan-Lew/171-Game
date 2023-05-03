@@ -7,8 +7,6 @@ public class BT_HealthInteraction : MonoBehaviour, IPointerExitHandler
     [SerializeField] BT_Health healthscript;
     [SerializeField] LevelTransition _levelMove;
     [SerializeField] Character_Basedata current_player;
-    Character player;
-    GameObject playerObj;
 
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -22,7 +20,8 @@ public class BT_HealthInteraction : MonoBehaviour, IPointerExitHandler
 
     public void Button_Confirm()
     {
-        BattleController.healthPlus = true;
+        current_player.Health_Total += 5;
+        current_player.Health_Current += 5;
         _levelMove.optionSelected = true;
     }
 }
