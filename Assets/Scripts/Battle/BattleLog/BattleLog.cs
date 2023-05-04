@@ -13,6 +13,8 @@ public class BattleLog : MonoBehaviour
     //bool IsScrollBarIsBeingUsed = false;
     //bool setScrollBar2Bottom = false;
     
+    [SerializeField] TMP_Text enemyAttackText;
+    
     public Font historyLogFont;
 
     public void Setup()
@@ -36,6 +38,7 @@ public class BattleLog : MonoBehaviour
         string BattleLog;
         string tempLog;
 
+        // Player actions
         if (character == "Player")
         {
             BattleLog = "<color=#3400fb>" + character + "</color>" + " casts " + EffectDictionary.instance.cardName + ", costs " + EffectDictionary.instance.Player_priorityInc + ". ";
@@ -71,12 +74,12 @@ public class BattleLog : MonoBehaviour
                 BattleLog = BattleLog + " " + tempLog;
             }
         }
+        // Enemy Actions
         else
         {
             BattleLog = "<color=#df0074>" + character + "</color>" + " casts " + EffectDictionary.instance.cardName + ", costs " + EffectDictionary.instance.Enemy_priorityInc + ". ";
             tempLog = "";
-
-
+            
             if (EffectDictionary.instance.Enemy_damageDealing != 0)
             {
                 tempLog = "Deal <color=#f9303f>{0}</color> damage";
@@ -94,7 +97,14 @@ public class BattleLog : MonoBehaviour
                 tempLog = EffectDictionary.instance.descriptionLog;
                 BattleLog = BattleLog + " " + tempLog;
             }
+            
+            // Enemy Attack Popup
+            enemyAttackText.text = BattleLog;
         }
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            enemyAttackText.text = "";
+        }, 3f));
 
         GameObject instance = Instantiate(Prefab_BattleLog, contentHolder.transform);
         instance.transform.SetAsFirstSibling();
