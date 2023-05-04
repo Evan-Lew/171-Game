@@ -17,8 +17,11 @@ public class BattleLog : MonoBehaviour
     
     public Font historyLogFont;
 
+    [SerializeField] private Animator animatorEnemyAttackPopup;
+    
     public void Setup()
     {
+        animatorEnemyAttackPopup.SetTrigger("Off Screen");
         Reset();
     }
 
@@ -97,12 +100,17 @@ public class BattleLog : MonoBehaviour
                 tempLog = EffectDictionary.instance.descriptionLog;
                 BattleLog = BattleLog + " " + tempLog;
             }
-            
+            Debug.Log(BattleLog);
             // Enemy Attack Popup
             enemyAttackText.text = BattleLog;
+            
+            animatorEnemyAttackPopup.SetTrigger("Appear");
         }
+        
+        // Delay for the enemy attack popup to disappear
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            animatorEnemyAttackPopup.SetTrigger("Disappear");
             enemyAttackText.text = "";
         }, 3f));
 
