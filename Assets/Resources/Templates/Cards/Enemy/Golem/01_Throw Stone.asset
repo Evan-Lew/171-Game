@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 4
   rirty: 0
+  cardActivity: 0
   cardName: Throw Stones
   ID: 1
   description_Main: Deal 3 damage
+  description_Log: 
   priorityCost: 2
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}

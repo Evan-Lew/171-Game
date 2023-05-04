@@ -5,13 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Appear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Appear.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Controller.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Controller.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Disappear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Disappear.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" afterDir="false" />
     </list>
@@ -139,7 +132,7 @@
       <workItem from="1682357011275" duration="4175000" />
       <workItem from="1682440335844" duration="1382000" />
       <workItem from="1683059328008" duration="3909000" />
-      <workItem from="1683221856141" duration="7924000" />
+      <workItem from="1683221856141" duration="10154000" />
     </task>
     <servers />
   </component>
