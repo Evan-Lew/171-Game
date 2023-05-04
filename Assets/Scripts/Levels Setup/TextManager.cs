@@ -13,7 +13,6 @@ public class TextManager : MonoBehaviour
     public Dialogue dialogue;
 
     public int sentencesLength;
-    public bool characterHasBeenBrightened = false;
     void Start()
     {   
         sentences = new Queue<string>();
@@ -30,17 +29,16 @@ public class TextManager : MonoBehaviour
     }
     public void DisplayNext()
     {
-        characterHasBeenBrightened = false;
         sentencesLength = sentences.Count;
         if (sentences.Count == 0){
             if (GameController.instance.tutorialIntroDialoguePlaying)
             {
-                GameController.instance.TutorialDialogueDone();    
+                GameController.instance.TutorialIntroDialogueDone();    
             }
 
-            if (tutorialSetup.levelEnd)
+            if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd)
             {
-                tutorialSetup.EndTutorial();
+                GameController.instance.TutorialOutroDialogueDone(); 
             }
         }
         else

@@ -6,11 +6,6 @@ using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
-    // Flag will be turned on when setup function needed
-    
-    /* --Legacy: Not Used--
-    [HideInInspector] private bool setupFlag = false;
-    */
     [SerializeField] CameraUtil _script_CameraUtil;
     [SerializeField] BattleController _script_BattleController;
     [SerializeField] HandManager _script_HandManager;
@@ -53,18 +48,19 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [HideInInspector] public bool enableMouseEffectOnCard = true;
     
-    // New
-    public bool tutorialIntroDialoguePlaying = true;
+    // Tutorial Variables
+    public bool tutorialIntroDialoguePlaying = false;
+    public bool tutorialOutroDialoguePlaying = false;
+    public bool tutorialLevelEnd = false;
     
     private void Awake()
     {
         instance = this;
         characters.SetActive(false);
-        // SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
         
-        // For dialogue
+        // Assign sprites used for the dialogue
         _leftCharacterSprite = leftCharacter.GetComponent<SpriteRenderer>();
         _rightCharacterSprite = rightCharacter.GetComponent<SpriteRenderer>();
     }
@@ -102,6 +98,11 @@ public class GameController : MonoBehaviour
         */
     }
     
+    //=============================================================================================
+    //                  Dialogue Helper Functions
+    //=============================================================================================
+    
+    // Helper function: Start dialogue at the start of a scene
     public void StartDialogue()
     {
         animatorFadeScene.SetTrigger("FadeIn");
@@ -111,6 +112,7 @@ public class GameController : MonoBehaviour
         rightCharacter.SetActive(true);
     }
 
+    // Helper function: Restart the dialogue during an active scene
     public void RestartDialogue()
     {
         animatorAspectRatioSwitch.SetTrigger("In");
@@ -122,6 +124,7 @@ public class GameController : MonoBehaviour
         }, 1f));
     }
 
+    // Helper function: Stop the dialogue by calling animators
     public void StopDialogue()
     {
         animatorAspectRatioSwitch.SetTrigger("Out");
@@ -134,9 +137,13 @@ public class GameController : MonoBehaviour
     {
         animatorFadeScene.SetTrigger("FadeOut");
     }
-
-    // Helper Function for the tutorial dialogue
-    public void TutorialDialogueDone()
+    
+    //=============================================================================================
+    //                  Tutorial Helper Functions
+    //=============================================================================================
+    
+    // Helper Function: for the tutorial dialogue
+    public void TutorialIntroDialogueDone()
     {
         CharacterTalking("leftIsTalking", false);
         CharacterTalking("rightIsTalking", false);
@@ -144,11 +151,21 @@ public class GameController : MonoBehaviour
         tutorialIntroDialoguePlaying = false;
     }
     
+    public void TutorialOutroDialogueDone()
+    {
+        CharacterTalking("leftIsTalking", false);
+        CharacterTalking("rightIsTalking", false);
+        StopDialogue();
+        tutorialOutroDialoguePlaying = false;
+    }
+    
+    //=============================================================================================
+
+    // Helper Function: Call this function to bring a sprite above the darken background during dialogue
     public void CharacterTalking(string whoIsTalking, bool brightenCharacter)
     {
         if (whoIsTalking == "leftIsTalking")
         {
-            //int sortingOrder = _leftCharacterSprite.sortingOrder;
             // Brighten the left character when talking
             if (brightenCharacter)
             {
@@ -162,7 +179,6 @@ public class GameController : MonoBehaviour
         }
         else if (whoIsTalking == "rightIsTalking")
         {
-            //int sortingOrder = _rightCharacterSprite.sortingOrder;
             // Brighten the right character when talking
             if (brightenCharacter)
             {
@@ -175,7 +191,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
+    
     public void NoDialogue()
     {
         leftCharacter.SetActive(false);
@@ -183,9 +199,9 @@ public class GameController : MonoBehaviour
         animatorDarkenBackground.SetTrigger("StartBright");
     }
     
-    //===========================================================
+    //=============================================================================================
     //                  GameController API
-    //===========================================================
+    //=============================================================================================
     
     [HideInInspector]public bool battleCondition = false;
     void BattleConditionCheck()
@@ -239,7 +255,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    /*  Funtion that will start camp view
+    /*  Function that will start camp view
     *  Parameters:  void
     */
     void StartTheCamp()
@@ -251,7 +267,7 @@ public class GameController : MonoBehaviour
     //===========================================================
     
     // Use API Above and Ignore all function below
-    //==========================================================================================================================
+    //=============================================================================================
     
     //===========================================================
     //                  Helper Functions

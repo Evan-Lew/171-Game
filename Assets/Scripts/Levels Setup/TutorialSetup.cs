@@ -40,13 +40,15 @@ public class TutorialSetup : MonoBehaviour
     public bool levelEnd = false;
     
     private bool _dialoguePlaying = true;
-    private bool _introDialogueDone = false;
+    private bool _introDialoguePlayed = false;
 
     void Start()
     {
         GameController.instance.StartDialogue();
+        GameController.instance.tutorialIntroDialoguePlaying = true;
+        GameController.instance.tutorialOutroDialoguePlaying = true;
         
-        // Time delay to activate the text box
+        // Time delay to activate the dialogue text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             GameController.instance.CharacterTalking("rightIsTalking", true);
@@ -57,11 +59,12 @@ public class TutorialSetup : MonoBehaviour
 
     void Update()
     {
-        BrightenCharacterTalking();
+        HighlightCharacterTalking();
         
-        if (GameController.instance.tutorialIntroDialoguePlaying == false && _introDialogueDone == false)
+        // If the tutorial dialogue intro is over then start the battle 
+        if (_introDialoguePlayed == false && GameController.instance.tutorialIntroDialoguePlaying == false)
         {
-            _introDialogueDone = true;
+            _introDialoguePlayed = true;
             introTextBox.SetActive(false);
 
             // Time delay to start the music
@@ -96,55 +99,60 @@ public class TutorialSetup : MonoBehaviour
                 GameController.instance.enableMouseEffectOnCard = true;
             }    
         }
+
+        // Check if the outro text is over
+        if (GameController.instance.tutorialOutroDialoguePlaying == false)
+        {
+            GameController.instance.CharacterTalking("rightIsTalking", false);
+            outroTextBox.SetActive(false);
+            GameController.instance.FadeOut();
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                SceneManager.LoadScene("MainMenu");
+            }, 6f));    
+        }
     }
     
-    // Helper function to brighten characters when talking (this is hardcoded to match the TextManager's sentences)
-    public void BrightenCharacterTalking()
+    // Helper Function: highlight characters when talking (this is hardcoded to match the length of the TextManager's sentences)
+    public void HighlightCharacterTalking()
     {
         int introSentenceLength = introTextManager.GetComponent<TextManager>().sentencesLength;
         int outroSentenceLength = outroTextManager.GetComponent<TextManager>().sentencesLength;
-        bool isIntroCharacterBright = introTextManager.GetComponent<TextManager>().characterHasBeenBrightened;
-        bool isOutroCharacterBright = outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened;
-        
+
         // Intro Dialogue
-        if (introSentenceLength == 2 && isIntroCharacterBright == false)
+        if (introSentenceLength == 2)
         {
             GameController.instance.CharacterTalking("leftIsTalking", true);
             GameController.instance.CharacterTalking("rightIsTalking", false);
-            introTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
         }
-        else if (introSentenceLength == 1 && isIntroCharacterBright == false)
+        else if (introSentenceLength == 1)
         {
             GameController.instance.CharacterTalking("leftIsTalking", false);
             GameController.instance.CharacterTalking("rightIsTalking", true);
-            introTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
         }
         
         // Outro Dialogue
-        else if (outroSentenceLength == 3 && isOutroCharacterBright == false)
+        else if (outroSentenceLength == 3)
         {
             GameController.instance.CharacterTalking("leftIsTalking", false);
             GameController.instance.CharacterTalking("rightIsTalking", true);
-            outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
         }
-        else if (outroSentenceLength == 2 && isOutroCharacterBright == false)
+        else if (outroSentenceLength == 2)
         {
             GameController.instance.CharacterTalking("leftIsTalking", true);
             GameController.instance.CharacterTalking("rightIsTalking", false);
-            outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
         }
-        else if (outroSentenceLength == 1 && isOutroCharacterBright == false)
+        else if (outroSentenceLength == 1)
         {
             GameController.instance.CharacterTalking("leftIsTalking", false);
             GameController.instance.CharacterTalking("rightIsTalking", true);
-            outroTextManager.GetComponent<TextManager>().characterHasBeenBrightened = true;
         }
     }
 
-    // Helper function for a button to skip the tutorial dialogue
+    // Helper function: For a button to skip the intro tutorial dialogue
     public void IntroDialogueSkipButton()
     {
-        GameController.instance.TutorialDialogueDone();
+        GameController.instance.TutorialIntroDialogueDone();
     }
 
     void Tutorials()
@@ -172,13 +180,13 @@ public class TutorialSetup : MonoBehaviour
         }
     }
 
-    private bool loopedWinStatements = false;
+    private bool outroTextStarted = false;
     void LevelManagement()
     {
-        // Player wins/Tutorial is over
+        // Player wins and the tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
         {
-            levelEnd = true;
+            GameController.instance.tutorialLevelEnd = true;
             GameController.instance.DisableBattleController();
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
@@ -187,11 +195,11 @@ public class TutorialSetup : MonoBehaviour
             }, 2f));
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                if (loopedWinStatements == false)
+                if (outroTextStarted == false)
                 {
                     outroTextBox.SetActive(true);
                     outroTextManager.SetActive(true);
-                    loopedWinStatements = true;
+                    outroTextStarted = true;
                 }
             }, 6f));
         }
@@ -202,19 +210,6 @@ public class TutorialSetup : MonoBehaviour
             GameController.instance.DisableBattleMode();
             SceneManager.LoadScene("EndScene");
         }
-    }
-
-    public void EndTutorial()
-    {
-        Debug.Log("ending");
-        GameController.instance.CharacterTalking("rightIsTalking", false);
-        outroTextBox.SetActive(false);
-        GameController.instance.FadeOut();
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        {
-            levelEnd = false;
-            SceneManager.LoadScene("MainMenu");
-        }, 6f));
     }
 
     void Phase_1_Setup()
