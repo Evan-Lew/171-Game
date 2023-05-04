@@ -143,9 +143,9 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    void EnemyEffect(string enemyName,int ActionID)
+    void EnemyEffect(string enemyName,int actionID)
     {
-        EffectDictionary.instance.effectDictionary_Enemies[ActionID]();   
+        EffectDictionary.instance.effectDictionary_Enemies[actionID]();   
     }
 }
 
