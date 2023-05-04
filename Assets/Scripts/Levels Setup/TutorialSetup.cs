@@ -186,6 +186,7 @@ public class TutorialSetup : MonoBehaviour
         // Player wins and the tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
         {
+            tutorialEnd = true;
             GameController.instance.tutorialLevelEnd = true;
             GameController.instance.DisableBattleController();
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
