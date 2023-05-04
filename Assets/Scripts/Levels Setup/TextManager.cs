@@ -36,9 +36,9 @@ public class TextManager : MonoBehaviour
                 GameController.instance.TutorialIntroDialogueDone();    
             }
 
-            if (tutorialSetup.levelEnd)
+            if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd)
             {
-                tutorialSetup.EndTutorial();
+                GameController.instance.TutorialOutroDialogueDone(); 
             }
         }
         else

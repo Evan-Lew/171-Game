@@ -50,6 +50,8 @@ public class GameController : MonoBehaviour
     
     // Tutorial Variables
     public bool tutorialIntroDialoguePlaying = false;
+    public bool tutorialOutroDialoguePlaying = false;
+    public bool tutorialLevelEnd = false;
     
     private void Awake()
     {
@@ -135,7 +137,11 @@ public class GameController : MonoBehaviour
     {
         animatorFadeScene.SetTrigger("FadeOut");
     }
-
+    
+    //=============================================================================================
+    //                  Tutorial Helper Functions
+    //=============================================================================================
+    
     // Helper Function: for the tutorial dialogue
     public void TutorialIntroDialogueDone()
     {
@@ -145,6 +151,16 @@ public class GameController : MonoBehaviour
         tutorialIntroDialoguePlaying = false;
     }
     
+    public void TutorialOutroDialogueDone()
+    {
+        CharacterTalking("leftIsTalking", false);
+        CharacterTalking("rightIsTalking", false);
+        StopDialogue();
+        tutorialOutroDialoguePlaying = false;
+    }
+    
+    //=============================================================================================
+
     // Helper Function: Call this function to bring a sprite above the darken background during dialogue
     public void CharacterTalking(string whoIsTalking, bool brightenCharacter)
     {
