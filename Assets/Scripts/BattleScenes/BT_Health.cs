@@ -9,6 +9,8 @@ public class BT_Health : MonoBehaviour, IPointerEnterHandler
     [SerializeField] GameObject descriptionObj;
     [HideInInspector] public bool enableTextDescription = false;
 
+    // hello
+
     private void Awake()
     {
         textPopup.text = "Gain 5 Maximum Health";
