@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta
 guid: 85f634a423f0acb42933e8deed8649db
+========
+guid: aaee8dffaf2760a44a3386c7de7e0bf1
+>>>>>>>> evan-4/20:Assets/Resources/2D Art/UI/left arrow.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -103,18 +107,48 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta
     sprites: []
+========
+    sprites:
+    - serializedVersion: 2
+      name: Left_Arrow
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 16
+        width: 79
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c3251b83ba712a48bd85bb59a9efcdb
+      internalID: -689687441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+>>>>>>>> evan-4/20:Assets/Resources/2D Art/UI/left arrow.png.meta
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: cf068d8b34b190d46bdea1fe7949e51a
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta
     nameFileIdTable: {}
+========
+    nameFileIdTable:
+      Left_Arrow: -689687441
+>>>>>>>> evan-4/20:Assets/Resources/2D Art/UI/left arrow.png.meta
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

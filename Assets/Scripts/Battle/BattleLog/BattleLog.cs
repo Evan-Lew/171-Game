@@ -12,9 +12,14 @@ public class BattleLog : MonoBehaviour
     [SerializeField] Queue<GameObject> BattleLogQueue = new();
     //bool IsScrollBarIsBeingUsed = false;
     //bool setScrollBar2Bottom = false;
+    
+    [SerializeField] TMP_Text enemyAttackText;
 
+    [SerializeField] private Animator animatorEnemyAttackPopup;
+    
     public void Setup()
     {
+        animatorEnemyAttackPopup.SetTrigger("Off Screen");
         Reset();
     }
 
@@ -33,7 +38,9 @@ public class BattleLog : MonoBehaviour
         //setScrollBar2Bottom = true;
         string BattleLog;
         string tempLog;
+        string attackPopup;
 
+        // Player actions
         if (character == "Player")
         {
             BattleLog = "<color=#3400fb>" + character + "</color>" + " casts " + EffectDictionary.instance.cardName + ", costs " + EffectDictionary.instance.Player_priorityInc + ". ";
@@ -46,13 +53,13 @@ public class BattleLog : MonoBehaviour
             }
             if (EffectDictionary.instance.Player_armorCreate != 0)
             {
-                tempLog = "Create <color=#9dc8f6>{0}</color> armors";
+                tempLog = "Create <color=#d16c64>{0}</color> armors";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Player_armorCreate);
                 BattleLog = BattleLog + formattedText;
             }
             if (EffectDictionary.instance.Player_cardsDrawing != 0)
             {
-                tempLog = "Draw <color=#9dc8f6>{0}</color> cards";
+                tempLog = "Draw <color=#d16c64>{0}</color> cards";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Player_cardsDrawing);
                 BattleLog = BattleLog + formattedText;
             }
@@ -69,21 +76,23 @@ public class BattleLog : MonoBehaviour
                 BattleLog = BattleLog + " " + tempLog;
             }
         }
+        // Enemy Actions
         else
         {
             BattleLog = "<color=#df0074>" + character + "</color>" + " casts " + EffectDictionary.instance.cardName + ", costs " + EffectDictionary.instance.Enemy_priorityInc + ". ";
+            attackPopup = "<u>" + "<color=#2f617a>" + EffectDictionary.instance.cardName + "</color>" + "</u>" + "\n" + " costs " + EffectDictionary.instance.Enemy_priorityInc + "\n";
             tempLog = "";
-
-
+            
             if (EffectDictionary.instance.Enemy_damageDealing != 0)
             {
-                tempLog = "Deal <color=#f9303f>{0}</color> damage";
+                tempLog = "Deal <color=#d16c64>{0}</color> damage";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Enemy_damageDealing);
                 BattleLog = BattleLog + formattedText;
+                attackPopup = attackPopup + formattedText;
             }
             if (EffectDictionary.instance.Enemy_armorCreate != 0)
             {
-                tempLog = "Create <color=#9dc8f6>{0}</color> armors";
+                tempLog = "Create <color=#d16c64>{0}</color> armors";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Enemy_armorCreate);
                 BattleLog = BattleLog + formattedText;
             }
@@ -91,12 +100,26 @@ public class BattleLog : MonoBehaviour
             {
                 tempLog = EffectDictionary.instance.descriptionLog;
                 BattleLog = BattleLog + " " + tempLog;
+                //attackPopup = attackPopup + " " + tempLog;
             }
+            Debug.Log(attackPopup);
+            // Enemy Attack Popup
+            enemyAttackText.text = attackPopup;
+            
+            animatorEnemyAttackPopup.SetTrigger("Appear");
         }
+        
+        // Delay for the enemy attack popup to disappear
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            animatorEnemyAttackPopup.SetTrigger("Disappear");
+            enemyAttackText.text = "";
+        }, 3f));
 
         GameObject instance = Instantiate(Prefab_BattleLog, contentHolder.transform);
         instance.transform.SetAsFirstSibling();
         instance.GetComponent<TMP_Text>().text = BattleLog;
+
         BattleLogQueue.Enqueue(instance);
         UpdateLayout();
         EffectDictionary.instance.descriptionLog = "";

@@ -2,14 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
-    // Flag will be turned on when setup function needed
-    
-    /* --Legacy: Not Used--
-    [HideInInspector] private bool setupFlag = false;
-    */
     [SerializeField] CameraUtil _script_CameraUtil;
     [SerializeField] BattleController _script_BattleController;
     [SerializeField] HandManager _script_HandManager;
@@ -18,9 +14,20 @@ public class GameController : MonoBehaviour
     [SerializeField] DeckSystem _script_DeckSystem;
     [SerializeField] DeckEditSystem _script_DeckEditSystem;
 
-
     [SerializeField] GameObject characters;
     [SerializeField] GameObject player, enemy;
+    
+    [FormerlySerializedAs("animatorSceneFade")]
+    [Header("Animator Controllers")]
+    [SerializeField] Animator animatorFadeScene;
+    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXianDialogue, animatorFaHaiDialogue;
+
+    [Header("Characters Talking")] 
+    [SerializeField] GameObject leftCharacter;
+    [SerializeField] GameObject rightCharacter;
+    private SpriteRenderer _leftCharacterSprite;
+    private SpriteRenderer _rightCharacterSprite;
+    
     public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
@@ -40,14 +47,22 @@ public class GameController : MonoBehaviour
     
     public static GameController instance;
     [HideInInspector] public bool enableMouseEffectOnCard = true;
-
+    
+    // Tutorial Variables
+    public bool tutorialIntroDialoguePlaying = false;
+    public bool tutorialOutroDialoguePlaying = false;
+    public bool tutorialLevelEnd = false;
+    
     private void Awake()
     {
         instance = this;
         characters.SetActive(false);
-        // SetSpawningPoint(TargetCharacterPos.transform, TargetCameraPos.transform);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
+        
+        // Assign sprites used for the dialogue
+        _leftCharacterSprite = leftCharacter.GetComponent<SpriteRenderer>();
+        _rightCharacterSprite = rightCharacter.GetComponent<SpriteRenderer>();
     }
     
     void Update()
@@ -82,10 +97,111 @@ public class GameController : MonoBehaviour
         }
         */
     }
+    
+    //=============================================================================================
+    //                  Dialogue Helper Functions
+    //=============================================================================================
+    
+    // Helper function: Start dialogue at the start of a scene
+    public void StartDialogue()
+    {
+        animatorFadeScene.SetTrigger("FadeIn");
+        animatorAspectRatioSwitch.SetTrigger("StartWithRatio");
+        animatorDarkenBackground.SetTrigger("StartDark");
+        leftCharacter.SetActive(true);
+        rightCharacter.SetActive(true);
+    }
 
-    //===========================================================
+    // Helper function: Restart the dialogue during an active scene
+    public void RestartDialogue()
+    {
+        animatorAspectRatioSwitch.SetTrigger("In");
+        animatorDarkenBackground.SetTrigger("Dark");
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            animatorXuXianDialogue.SetTrigger("Appear");
+            animatorFaHaiDialogue.SetTrigger("Appear");
+        }, 1f));
+    }
+
+    // Helper function: Stop the dialogue by calling animators
+    public void StopDialogue()
+    {
+        animatorAspectRatioSwitch.SetTrigger("Out");
+        animatorDarkenBackground.SetTrigger("Bright");
+        animatorXuXianDialogue.SetTrigger("Disappear");
+        animatorFaHaiDialogue.SetTrigger("Disappear");
+    }
+
+    public void FadeOut()
+    {
+        animatorFadeScene.SetTrigger("FadeOut");
+    }
+    
+    //=============================================================================================
+    //                  Tutorial Helper Functions
+    //=============================================================================================
+    
+    // Helper Function: for the tutorial dialogue
+    public void TutorialIntroDialogueDone()
+    {
+        CharacterTalking("leftIsTalking", false);
+        CharacterTalking("rightIsTalking", false);
+        StopDialogue();
+        tutorialIntroDialoguePlaying = false;
+    }
+    
+    public void TutorialOutroDialogueDone()
+    {
+        CharacterTalking("leftIsTalking", false);
+        CharacterTalking("rightIsTalking", false);
+        StopDialogue();
+        tutorialOutroDialoguePlaying = false;
+    }
+    
+    //=============================================================================================
+
+    // Helper Function: Call this function to bring a sprite above the darken background during dialogue
+    public void CharacterTalking(string whoIsTalking, bool brightenCharacter)
+    {
+        if (whoIsTalking == "leftIsTalking")
+        {
+            // Brighten the left character when talking
+            if (brightenCharacter)
+            {
+                _leftCharacterSprite.sortingOrder = 2;        
+            }
+            // Darken the left character when talking
+            else
+            {
+                _leftCharacterSprite.sortingOrder = 0;
+            }
+        }
+        else if (whoIsTalking == "rightIsTalking")
+        {
+            // Brighten the right character when talking
+            if (brightenCharacter)
+            {
+                _rightCharacterSprite.sortingOrder = 2;        
+            }
+            // Darken the right character when talking
+            else
+            {
+                _rightCharacterSprite.sortingOrder = 0;
+            }
+        }
+    }
+    
+    public void NoDialogue()
+    {
+        leftCharacter.SetActive(false);
+        rightCharacter.SetActive(false);
+        animatorDarkenBackground.SetTrigger("StartBright");
+    }
+    
+    //=============================================================================================
     //                  GameController API
-    //===========================================================
+    //=============================================================================================
     
     [HideInInspector]public bool battleCondition = false;
     void BattleConditionCheck()
@@ -95,7 +211,7 @@ public class GameController : MonoBehaviour
         {
             DisableBattleMode();
             
-            player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
+            // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
             SceneManager.LoadScene("EndScene");
         }
         
@@ -114,11 +230,11 @@ public class GameController : MonoBehaviour
      *  Parameters: Argument1:  Target Character Group game object's transform
      *              Argument2:  Target Environment Camera's transform                         
      */
-    public void SetSpawningPoint(Transform characterTransform, Transform environmentCameraTransform)
-    {
-        SetCharacterPos(characterTransform);
-        SetCameraPos(environmentCameraTransform);
-    }
+    // public void SetSpawningPoint(Transform characterTransform, Transform environmentCameraTransform)
+    // {
+    //     SetCharacterPos(characterTransform);
+    //     SetCameraPos(environmentCameraTransform);
+    // }
     
     /*  Function that will start the battle for testing, assigned deck is required
     *  Parameters:  Argument1:  The next enemy you want to setup 
@@ -139,7 +255,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    /*  Funtion that will start camp view
+    /*  Function that will start camp view
     *  Parameters:  void
     */
     void StartTheCamp()
@@ -151,7 +267,7 @@ public class GameController : MonoBehaviour
     //===========================================================
     
     // Use API Above and Ignore all function below
-    //==========================================================================================================================
+    //=============================================================================================
     
     //===========================================================
     //                  Helper Functions
@@ -235,6 +351,11 @@ public class GameController : MonoBehaviour
         SetCharacter(characterType.player, GetCharacter("Bai Suzhen"));
     }
 
+    public void DisableBattleController()
+    {
+        _script_BattleController.Clear();
+    }
+    
     public void DisableBattleMode()
     {
         _script_DeckSystem.deckToUse.Clear();
@@ -270,6 +391,29 @@ public class GameController : MonoBehaviour
         {
             Character enemyCharacter = enemy.GetComponent<Character>();
             enemyCharacter.CharacterData = newCharacter;
+
+            // does not scale, only works in 16:9
+            if (enemyCharacter.CharacterData.characterName == "Ink Golem")
+            {
+                // ??? i don't know why but if the Z isn't set to 50 then it becomes -50, temp fix
+                enemy.transform.position = new Vector3(12.61F, -7.66F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.02F, 1.02F, 1.02F);
+            } 
+            if (enemyCharacter.CharacterData.characterName == "Ink Chimera")
+            {
+                enemy.transform.position = new Vector3(8.84F, -9.1F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.38F, 1.38F, 1.38F);
+            }
+            if (enemyCharacter.CharacterData.characterName == "Zhenniao")
+            {
+                enemy.transform.position = new Vector3(3.01F, -15.09F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.72F, 1.72F, 1.72F);
+            }
+            if (enemyCharacter.CharacterData.characterName == "Stone Rui Shi")
+            {
+                enemy.transform.position = new Vector3(5.3F, -14.5F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.78F, 1.78F, 1.78F);
+            }
             enemyCharacter.SetUp();
         }
         else if (characterTarget == characterType.player)

@@ -22,7 +22,7 @@ public class Scrollbareffect : MonoBehaviour , IPointerClickHandler
     {
         SoundManager.PlaySound("sfx_Scroll_Open", 0.2f);
         //timeLerped += Time.deltaTime;
-        if(IsAlreadyDisplayed == false)
+        if (IsAlreadyDisplayed == false)
         {
             IsAlreadyDisplayed = true;
             target = 1;

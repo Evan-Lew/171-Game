@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using static SoundManager;
 using System.Linq;
@@ -34,6 +34,10 @@ public class EffectDictionary : MonoBehaviour
     public List<Card_Basedata> BanishPool;
     [Header("List of return cards")]
     public List<Card_Basedata> ReturnPool;
+    [Header("List of Sacred Herbs")]
+    public List<Card_Basedata> SacredHerbPool;
+    [Header("List of Perils")]
+    public List<Card_Basedata> PerilPool;
 
     [HideInInspector] public delegate void funcHolder();
     [HideInInspector] public funcHolder funcHolder_EffectFunc;
@@ -46,16 +50,22 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public string descriptionLog;
     [HideInInspector]public double Player_damageDealing = 0;
     [HideInInspector] public double Player_extraDamage = 0;
+    [HideInInspector] public double Player_extraHealing = 0;
     [HideInInspector] public double Player_armorCreate = 0;
     [HideInInspector] public double Player_healing = 0;
     [HideInInspector] public int Player_cardsDrawing = 0;
+    [HideInInspector] public int Player_extraCardsDrawing = 0;
     [HideInInspector] public double Player_priorityInc = 0;
     [HideInInspector] public double Player_extraPriorityCost = 0;
+    [HideInInspector] public int Player_herbsInTotal = 0;
+    [HideInInspector] public int Player_statusInTotal = 0;
 
     [HideInInspector] public double Enemy_damageDealing = 0;
     [HideInInspector] public double Enemy_healing = 0;
     [HideInInspector] public double Enemy_armorCreate = 0;
     [HideInInspector] public double Enemy_priorityInc = 0;
+    [HideInInspector] public double Enemy_permanantCostIncrease = 0;
+
 
     float ParticleDuration = 0;
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
@@ -161,20 +171,30 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
+    bool isJadeResolve = false;
+    bool isMalachiteChain = false;
     private void Heal_ToTarget(Character target, double hpAdded)
     {
         // Variable to display health text
         double healthText = hpAdded;
         
-        if ((target.Health_Current + hpAdded) > target.Health_Total)
-        {
-            healthText = target.Health_Total - target.Health_Current;
-            target.Health_Current = target.Health_Total;
+        if(target == player && isMalachiteChain){
+            enemy.Health_Current -= hpAdded;
+        } else {
+            if ((target.Health_Current + hpAdded) > target.Health_Total)
+            {
+                healthText = target.Health_Total - target.Health_Current;
+                target.Health_Current = target.Health_Total;
+                if(isJadeResolve && target == player){
+                    DealDamage_ToTarget(enemy, 1);
+                }
+            }
+            else
+            {
+                target.Health_Current += hpAdded;
+            }
         }
-        else
-        {
-            target.Health_Current += hpAdded;
-        }
+
         
         // Check which target to use indicator for
         if (target == enemy)
@@ -196,8 +216,15 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // NOT IMPLEMENTED
-    private void AddCardToDeck(){
+    private void AddHerbToDeck(Card_Basedata targetCard){
+        Player_herbsInTotal += 1;
+        Player_statusInTotal += 1;
+        _script_DeckSystem.activeCards.Insert(Random.Range(0, _script_DeckSystem.activeCards.Count), SacredHerbPool[SacredHerbPool.IndexOf(targetCard)]);
+    }
 
+    private void AddPerilToDeck(Card_Basedata targetCard){
+        Player_statusInTotal += 1;
+        _script_DeckSystem.activeCards.Insert(Random.Range(0, _script_DeckSystem.activeCards.Count), SacredHerbPool[SacredHerbPool.IndexOf(targetCard)]);
     }
 
     private void PriorityIncrement(Character target, double cost)
@@ -364,7 +391,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Deal 3 damage, cost 2
+    // Deal 3 damage, cost 1
     public void ID1002_Whack()
     {
         ParticleDuration = 1.5f;
@@ -491,6 +518,7 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 6;
         Player_extraDamage = 4;
         Manipulator_Player();
+        isDealingExtraDmg = true;
 
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -983,7 +1011,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Draw cards until you have 4 cards , if you already have 4 cards gain 10 Armor
+    // Draw cards until you have 4 cards , if you already have 4 cards gain 8 Armor
     public void ID3009_DeadlyDraw()
     {
         ParticleDuration = 3f;
@@ -1172,20 +1200,17 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: All enemy cards cost 1 more
     public void ID4002_BrightKarma()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 3;
-        Player_healing = 6;
+        Enemy_permanantCostIncrease += 1;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
-
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1226,7 +1251,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // Partially IMPLEMENTED - doesn't do random herb yet
     // Shuffle a random Sacred Herb* into your deck
     public void ID4005_HiddenGrotto()
     {
@@ -1238,7 +1263,9 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            int herbtoAdd = Random.Range(5002, 5004);
+            //Debug.Log(herbtoAdd);
+            AddHerbToDeck(SacredHerbPool.Find(cardBase => cardBase.ID == herbtoAdd));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1261,36 +1288,36 @@ public class EffectDictionary : MonoBehaviour
     }
 
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: If you would heal more than your maximum hitpoints, instead deal 1 damage
     public void ID4007_JadeResolve()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 1;
+        isJadeResolve = true;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
+            
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: All healing becomes damage instead
     public void ID4008_MalechiteChain()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 3;
         Manipulator_Player();
         
+        isMalachiteChain = true;
+
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1368,15 +1395,16 @@ public class EffectDictionary : MonoBehaviour
     public void ID4013_NephriteCurse()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Enemy_priorityInc = 2;
+        Player_priorityInc = 0;
         Manipulator_Player();
+        Manipulator_Enemy();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
+            Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
 
@@ -1454,53 +1482,59 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // The next card you play is free
     public void ID5002_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 0;
         Manipulator_Player();
+
+        isCostingNoPriority = true;
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // The next card you play deals +3 damage
     public void ID5003_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 0;
+        
         Manipulator_Player();
         
+        Player_extraDamage += 3;
+        isDealingExtraDmg = true;
+
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // The next card you play heals 2 and draws 1
     public void ID5004_SacredHerb()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 0;
+
         Manipulator_Player();
+
+        Player_extraCardsDrawing = 1;
+        Player_extraHealing = 2;
+        isDrawingExtraCard = true;
+        isHealingExtraHealth = true;
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            Heal_ToTarget(player, Player_healing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1518,6 +1552,7 @@ public class EffectDictionary : MonoBehaviour
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5005));
+            Player_statusInTotal -= 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1535,12 +1570,13 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5006));
+            Player_statusInTotal -= 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
-    // Your opponent skips their next turn. Banish this card.
+    // IMPLEMENTED
+    // Your opponent deals no damage their next card. Banish this card.
     public void ID5007_PerilHundun()
     {
         ParticleDuration = 3f;
@@ -1552,6 +1588,7 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5007));
+            Player_statusInTotal -= 1;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1569,6 +1606,7 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Player_damageDealing);
+            Player_statusInTotal -= 1;
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5008));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
@@ -1830,11 +1868,11 @@ public class EffectDictionary : MonoBehaviour
     // Deal 4 damage
     public void Action_10_Stomp()
     {
-        Enemy_priorityInc = 6f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 1f;
         cardName = "Stomp";
         //descriptionLog = "Stompy";
-        Enemy_damageDealing = 8;
+        Enemy_damageDealing = 7;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
@@ -1856,7 +1894,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 2f;
         cardName = "Solidify";
         //descriptionLog = "Solidy";
-        Enemy_armorCreate = 4;
+        Enemy_armorCreate = 14;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Reverberate", 0.4f);
@@ -1931,6 +1969,9 @@ public class EffectDictionary : MonoBehaviour
     bool isDealingDoubleDmg = false;
     bool isCostingExtraPriority = false;
     bool isDealingNoDmg = false;
+    bool isCostingNoPriority = false;
+    bool isDrawingExtraCard = false;
+    bool isHealingExtraHealth = false;
     // bool isDamageReflected = false;
 
     //------------Player-------------------------------------------------
@@ -1946,8 +1987,11 @@ public class EffectDictionary : MonoBehaviour
         }
         Manipulator_Player_DealingExtra();
         Manipulator_Player_CostExtra();
+        Manipulator_Player_CostNone();
         Manipulator_Player_DealingNone();
         Manipulator_Player_DealingDouble();
+        Manipulator_Player_HealingExtra();
+        Manipulator_Player_DrawExtra();
 
         PriorityIncrement(player, Player_priorityInc);
     }
@@ -1988,7 +2032,7 @@ public class EffectDictionary : MonoBehaviour
         {
             Player_damageDealing += Player_extraDamage;
             isDealingExtraDmg = false;
-            Player_damageDealing = 0;
+            Player_extraDamage = 0;
         }
     }
 
@@ -2015,6 +2059,16 @@ public class EffectDictionary : MonoBehaviour
         }
     }
     
+    // Helper function: Next Card costing zero
+    void Manipulator_Player_CostNone()
+    {
+        if(isCostingNoPriority)
+        {
+            Player_priorityInc = 0;
+            isCostingNoPriority = false;
+        }
+    }
+
     // Helper function: Next Card dealing no damage
     void Manipulator_Player_DealingNone()
     {
@@ -2027,8 +2081,33 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
+    void Manipulator_Player_HealingExtra()
+    {
+        //cards that apply extra damage
+        //setup the extra damage and turn the flag to off
+        if (isHealingExtraHealth)
+        {
+            Player_healing += Player_extraHealing;
+            isHealingExtraHealth = false;
+            Player_extraHealing = 0;
+        }
+    }
+
+    void Manipulator_Player_DrawExtra()
+    {
+        //cards that apply extra damage
+        //setup the extra damage and turn the flag to off
+        if (isDrawingExtraCard)
+        {
+            Player_cardsDrawing += Player_extraCardsDrawing;
+            isDrawingExtraCard = false;
+            Player_extraCardsDrawing = 0;
+        }
+    }
+
     //------------Enemy-------------------------------------------------
     bool enemyIsDealingTripleDamage = false;
+    bool enemyIsDealingNoDamage = false;
 
     void Manipulator_Enemy()
     {
@@ -2038,7 +2117,11 @@ public class EffectDictionary : MonoBehaviour
         }
 
         Manipulator_Enemy_DealingTriple();
+        Manipulator_Enemy_DealingNone();
 
+        // from card 4002 
+        Enemy_priorityInc += Enemy_permanantCostIncrease;
+        
         PriorityIncrement(enemy, Enemy_priorityInc);
     }
 
@@ -2070,6 +2153,14 @@ public class EffectDictionary : MonoBehaviour
         {
             Enemy_damageDealing *= 3;
             enemyIsDealingTripleDamage = false;
+        }
+    }
+
+    void Manipulator_Enemy_DealingNone(){
+        if (enemyIsDealingNoDamage && Enemy_damageDealing != 0)
+        {
+            Enemy_damageDealing = 0;
+            enemyIsDealingNoDamage = false;
         }
     }
 
