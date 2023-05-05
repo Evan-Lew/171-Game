@@ -9,13 +9,19 @@ public class KarmaScale : MonoBehaviour
     public SpriteRenderer ScaleRight;
     public SpriteRenderer ScaleBar;
 
+    private float ScaleBarXSize;
+    private float ScaleYSize;
+    private Vector3 ScaleBarPosition;
+
     public Character player;
     public Character enemy;
     private float priorityDifference = 0.0f;
 
-    private float ScaleBarXSize;
-    private float ScaleYSize;
-    private Vector3 ScaleBarPosition;
+    public GameObject playerOrbPrefab;
+    public Transform  playerOrbSpawn;
+    public GameObject enemyOrbPrefab;
+    public Transform  enemyOrbSpawn;    
+    private float OrbDifference = 0.0f;
 
     //lerp starting value
     private float lerpMin = 0.0f;
@@ -59,6 +65,11 @@ public class KarmaScale : MonoBehaviour
             lerpMax = angle;
             lerpMin = temp;
             t = 0.0f;
+            if(OrbDifference > karmaDiff) {
+                StartCoroutine(spawnOrb(playerOrbSpawn, playerOrbPrefab));
+            } else if (OrbDifference < karmaDiff) {
+                StartCoroutine(spawnOrb(enemyOrbSpawn, enemyOrbPrefab));
+            }
         }
 
     }
@@ -76,6 +87,26 @@ public class KarmaScale : MonoBehaviour
             }
             MoveScales(Mathf.Lerp(lerpMin, lerpMax, t));
             
+        }
+    }
+
+    private IEnumerator spawnOrb(Transform spawnPoint, GameObject orbType){
+        yield return new WaitForSeconds(1.0f);
+
+        Vector3 pos = spawnPoint.position;
+        Debug.Log("Spawning new orb");
+        GameObject newOrb = Instantiate(orbType, pos, Quaternion.identity, spawnPoint);
+
+        if (OrbDifference > priorityDifference) {
+            OrbDifference -= 1;
+            if (OrbDifference != priorityDifference){
+                StartCoroutine(spawnOrb(playerOrbSpawn, playerOrbPrefab));
+            }
+        } else if (OrbDifference < priorityDifference) {
+            OrbDifference += 1;
+            if (OrbDifference != priorityDifference){
+                StartCoroutine(spawnOrb(enemyOrbSpawn, enemyOrbPrefab));
+            }
         }
     }
 
