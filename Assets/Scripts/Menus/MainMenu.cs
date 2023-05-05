@@ -1,9 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
     GameController _script_GameController;
+    public Animator transition; 
+    IEnumerator FadeScreen()
+    {
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+    }
 
     private void Awake()
     {
@@ -21,6 +29,9 @@ public class MainMenu : MonoBehaviour
         SoundManager.bgmAudioSource.Stop();
         
         //LevelLoader.instance.LoadALevel("Environment");
+        //fade animation plays 
+        //animatorFadeScene.SetTrigger("FadeIn");
+        StartCoroutine(FadeScreen());
         SceneManager.LoadScene("StoryIntro");
     }
 

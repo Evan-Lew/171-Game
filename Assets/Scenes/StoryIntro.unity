@@ -718,3 +718,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046945294}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
+=======
+--- !u!114 &2046945298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046945294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005b2888cc9ecf944925a9240320b59d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialSetup: {fileID: 0}
+  dialogueText: {fileID: 0}
+  dialogue:
+    sentences:
+    - ' '
+  sentencesLength: 0
+  characterHasBeenBrightened: 0
+>>>>>>> Stashed changes
