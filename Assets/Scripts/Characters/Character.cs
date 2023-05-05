@@ -73,6 +73,37 @@ public class Character : MonoBehaviour
         Health_Current = CharacterData.Health_Current;
         Priority_Initial = CharacterData.Priority_Initial;
         Priority_Current = CharacterData.Priority_Current;
+        
+        // Evan
+        //Debug.Log(CharacterData.characterName);
+
+        if (CharacterData.characterName == "Bai Suzhen")
+        {
+            Debug.Log(CharacterData.characterName);
+        }
+        
+        // Deactivate all enemy sprite game objects
+        for (int i = 0; i < GameController.instance.enemySpriteGameObjects.Count; i++)
+        {
+            GameController.instance.enemySpriteGameObjects[i].SetActive(false);
+        }
+
+        // Check what enemy is active and activate their sprite
+        if (CharacterData.characterName == "Peng Hou")
+        {
+            GameController.instance.enemySpriteGameObjects[0].SetActive(true);
+        }
+        else if (CharacterData.characterName == "Ink Golem")
+        {
+            GameController.instance.enemySpriteGameObjects[1].SetActive(true);
+        }
+        else if (CharacterData.characterName == "Ink Chimera")
+        {
+            GameController.instance.enemySpriteGameObjects[2].SetActive(true);
+        }
+        
+        
+        //
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterData.characterSprite;
         
         // Armor variable
