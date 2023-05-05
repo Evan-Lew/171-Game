@@ -1,9 +1,16 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TutorialSetup : MonoBehaviour
 {
+    [SerializeField] GameObject introTextBox;
+    [SerializeField] GameObject introTextManager;
+    [SerializeField] GameObject outroTextBox;
+    [SerializeField] GameObject outroTextManager;
+    
     [Header("Every Tutorial GameObject")]
     [SerializeField] GameObject tutorial01;
     [SerializeField] GameObject tutorial02;
@@ -30,32 +37,122 @@ public class TutorialSetup : MonoBehaviour
     bool isPhase2Set = false;
     bool tutorialEnd = false;
 
-    bool levelEnd = false;
+    public bool levelEnd = false;
+    
+    private bool _dialoguePlaying = true;
+    private bool _introDialoguePlayed = false;
 
     void Start()
     {
-        _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
-        _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
-        Backup_StartDraw = BattleController.instance.startingCardsAmount;
-        Phase_1_Setup();
+        GameController.instance.StartDialogue();
+        GameController.instance.tutorialIntroDialoguePlaying = true;
+        GameController.instance.tutorialOutroDialoguePlaying = true;
         
-        // Play bgm
-        SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+        // Time delay to activate the dialogue text box
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+            introTextBox.SetActive(true);
+            introTextManager.SetActive(true);
+        }, 4f));
     }
 
     void Update()
     {
-        Tutorials();
-        LevelManagement();
+        HighlightCharacterTalking();
+        
+        // If the tutorial dialogue intro is over then start the battle 
+        if (_introDialoguePlayed == false && GameController.instance.tutorialIntroDialoguePlaying == false)
+        {
+            _introDialoguePlayed = true;
+            introTextBox.SetActive(false);
 
-        if (tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
-        {
-            GameController.instance.enableMouseEffectOnCard = false;
+            // Time delay to start the music
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+            
+            }, 3f));
+        
+            // Time delay to start the battle
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                _DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
+                _HandManager = GameObject.Find("Hand System").GetComponent<HandManager>();
+                Backup_StartDraw = BattleController.instance.startingCardsAmount;
+                Phase_1_Setup();
+                _dialoguePlaying = false;
+            }, 4.5f));
         }
-        else
+        
+        if (_dialoguePlaying == false)
         {
-            GameController.instance.enableMouseEffectOnCard = true;
+            Tutorials();
+            LevelManagement();
+
+            if (tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
+            {
+                GameController.instance.enableMouseEffectOnCard = false;
+            }
+            else
+            {
+                GameController.instance.enableMouseEffectOnCard = true;
+            }    
         }
+
+        // Check if the outro text is over
+        if (GameController.instance.tutorialOutroDialoguePlaying == false)
+        {
+            GameController.instance.CharacterTalking("rightIsTalking", false);
+            outroTextBox.SetActive(false);
+            GameController.instance.FadeOut();
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                SceneManager.LoadScene("MainMenu");
+            }, 6f));    
+        }
+    }
+    
+    // Helper Function: highlight characters when talking (this is hardcoded to match the length of the TextManager's sentences)
+    public void HighlightCharacterTalking()
+    {
+        int introSentenceLength = introTextManager.GetComponent<TextManager>().sentencesLength;
+        int outroSentenceLength = outroTextManager.GetComponent<TextManager>().sentencesLength;
+
+        // Intro Dialogue
+        if (introSentenceLength == 2)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", true);
+            GameController.instance.CharacterTalking("rightIsTalking", false);
+        }
+        else if (introSentenceLength == 1)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
+        
+        // Outro Dialogue
+        else if (outroSentenceLength == 3)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
+        else if (outroSentenceLength == 2)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", true);
+            GameController.instance.CharacterTalking("rightIsTalking", false);
+        }
+        else if (outroSentenceLength == 1)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
+    }
+
+    // Helper function: For a button to skip the intro tutorial dialogue
+    public void IntroDialogueSkipButton()
+    {
+        GameController.instance.TutorialIntroDialogueDone();
     }
 
     void Tutorials()
@@ -83,12 +180,29 @@ public class TutorialSetup : MonoBehaviour
         }
     }
 
+    private bool outroTextStarted = false;
     void LevelManagement()
     {
-        // Player wins
+        // Player wins and the tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
         {
-            levelEnd = true;
+            tutorialEnd = true;
+            GameController.instance.tutorialLevelEnd = true;
+            GameController.instance.DisableBattleController();
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                GameController.instance.DisableBattleMode();
+                GameController.instance.RestartDialogue();
+            }, 2f));
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                if (outroTextStarted == false)
+                {
+                    outroTextBox.SetActive(true);
+                    outroTextManager.SetActive(true);
+                    outroTextStarted = true;
+                }
+            }, 6f));
         }
         
         // Player loses
@@ -96,13 +210,6 @@ public class TutorialSetup : MonoBehaviour
         {
             GameController.instance.DisableBattleMode();
             SceneManager.LoadScene("EndScene");
-        }
-
-        if (levelEnd)
-        {
-            GameController.instance.DisableBattleMode();
-            levelEnd = false;
-            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -176,7 +283,7 @@ public class TutorialSetup : MonoBehaviour
 
     private void OnDestroy()
     {
-        Backupdata();
+        //Backupdata();
     }
 
     public void NextButton()
@@ -200,11 +307,6 @@ public class TutorialSetup : MonoBehaviour
                 tutorial02_Pages[0].SetActive(false);
                 tutorial02_Pages[1].SetActive(true);
             }
-            else if (tutorial02_Pages[1].activeSelf)
-            {
-                tutorial02_Pages[1].SetActive(false);
-                tutorial02_Pages[2].SetActive(true);
-            }
         }
         
         // Tutorial03
@@ -215,16 +317,12 @@ public class TutorialSetup : MonoBehaviour
                 tutorial03_Pages[0].SetActive(false);
                 tutorial03_Pages[1].SetActive(true);
             }
-            else if (tutorial03_Pages[1].activeSelf)
-            {
-                tutorial03_Pages[1].SetActive(false);
-                tutorial03_Pages[2].SetActive(true);
-            }
-            else if (tutorial03_Pages[2].activeSelf)
-            {
-                tutorial03_Pages[2].SetActive(false);
-                tutorial03_Pages[3].SetActive(true);
-            }
+            // For additional pages
+            // else if (tutorial03_Pages[1].activeSelf)
+            // {
+            //     tutorial03_Pages[1].SetActive(false);
+            //     tutorial03_Pages[2].SetActive(true);
+            // }
         }
     }
 

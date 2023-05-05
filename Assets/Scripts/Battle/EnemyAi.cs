@@ -77,8 +77,8 @@ public class EnemyAi : MonoBehaviour
         attackPattern = new List<int>() { 10, 11, 10, 11 };
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
-        attackPattern = new List<int>() { 13, 12};
-        enemysPatterns.Add(attackPattern);
+        // attackPattern = new List<int>() { 13, 12};
+        // enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Stone Rui Shi", enemysPatterns);
     }
 
@@ -143,9 +143,9 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    void EnemyEffect(string enemyName,int ActionID)
+    void EnemyEffect(string enemyName,int actionID)
     {
-        EffectDictionary.instance.effectDictionary_Enemies[ActionID]();   
+        EffectDictionary.instance.effectDictionary_Enemies[actionID]();   
     }
 }
 

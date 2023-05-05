@@ -1868,11 +1868,11 @@ public class EffectDictionary : MonoBehaviour
     // Deal 4 damage
     public void Action_10_Stomp()
     {
-        Enemy_priorityInc = 6f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 1f;
         cardName = "Stomp";
         //descriptionLog = "Stompy";
-        Enemy_damageDealing = 8;
+        Enemy_damageDealing = 7;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
@@ -1894,7 +1894,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 2f;
         cardName = "Solidify";
         //descriptionLog = "Solidy";
-        Enemy_armorCreate = 4;
+        Enemy_armorCreate = 14;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Reverberate", 0.4f);

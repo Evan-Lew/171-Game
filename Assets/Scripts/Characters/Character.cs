@@ -193,4 +193,5 @@ public class Character : MonoBehaviour
     void UpdatePriorityText() {
         PriorityText.text = Priority_Current.ToString();
     }
+
 }
