@@ -7289,9 +7289,8 @@ MonoBehaviour:
   ScaleLeft: {fileID: 1258913609}
   ScaleRight: {fileID: 1741776656}
   ScaleBar: {fileID: 960736519}
-  leftPivot: {fileID: 1258913610}
-  rightPivot: {fileID: 1741776657}
-  testCircle: {fileID: 383128425}
+  player: {fileID: 950755192}
+  enemy: {fileID: 24645405}
 --- !u!1 &1283526597
 GameObject:
   m_ObjectHideFlags: 0
@@ -11068,7 +11067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1953713437
 RectTransform:
   m_ObjectHideFlags: 0

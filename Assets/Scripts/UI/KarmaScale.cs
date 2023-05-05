@@ -9,9 +9,19 @@ public class KarmaScale : MonoBehaviour
     public SpriteRenderer ScaleRight;
     public SpriteRenderer ScaleBar;
 
+    public Character player;
+    public Character enemy;
+    private float priorityDifference = 0.0f;
+
     private float ScaleBarXSize;
     private float ScaleYSize;
     private Vector3 ScaleBarPosition;
+
+    //lerp starting value
+    private float lerpMin = 0.0f;
+    private float lerpMax = 0.0f;
+    static float t = 0.0f; 
+    private float angle = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +34,8 @@ public class KarmaScale : MonoBehaviour
     }
 
     // Takes the karma difference and rotates the scales based on it
-    public void MoveScales(float karmaDiff){
-        float newRotation = 10*karmaDiff;
+    public void MoveScales(float newRotation){
+        // float newRotation = 10*karmaDiff;
 
         newRotation = newRotation > 60 ? 60 : newRotation;
         newRotation = newRotation < -60 ? -60 : newRotation;
@@ -40,8 +50,33 @@ public class KarmaScale : MonoBehaviour
         ScaleBar.transform.localRotation = rotation;
     }
 
+    public void setRotation(float karmaDiff){
+
+        float temp = angle;
+        angle = 10.0f*karmaDiff;
+
+        if(angle != temp) { 
+            lerpMax = angle;
+            lerpMin = temp;
+            t = 0.0f;
+        }
+
+    }
+
     private void Update(){
 
+        priorityDifference = (float)(enemy.Priority_Current - player.Priority_Current);
+        setRotation(priorityDifference);
+
+        if (t < 1.0f){
+
+            t += 0.5f * Time.deltaTime;
+            if(t > 1.0f){
+                t = 1.0f;
+            }
+            MoveScales(Mathf.Lerp(lerpMin, lerpMax, t));
+            
+        }
     }
 
 }
