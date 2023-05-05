@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Appear.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Appear.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Disappear.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_Disappear.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_On_Screen.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/Enemy Attack Popup/Enemy_Attack_Popup_On_Screen.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BattleLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BattleLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cards/EffectDictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cards/EffectDictionary.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

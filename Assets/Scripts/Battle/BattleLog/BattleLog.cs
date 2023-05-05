@@ -100,7 +100,7 @@ public class BattleLog : MonoBehaviour
             {
                 tempLog = EffectDictionary.instance.descriptionLog;
                 BattleLog = BattleLog + " " + tempLog;
-                //attackPopup = attackPopup + " " + tempLog;
+                attackPopup = attackPopup + " " + tempLog;
             }
             Debug.Log(attackPopup);
             // Enemy Attack Popup

@@ -1718,7 +1718,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 4f;
         Enemy_healing = 1f;
         cardName = "Drain";
-        descriptionLog = "and <color=#76f300>1</color> self heal";
+        descriptionLog = "and <color=#6bba6a>1</color> self heal";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_04_Drain", 0.3f);
@@ -1740,7 +1740,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2f;
         ParticleDuration = 2f;
         cardName = "Charge";
-        descriptionLog = "Seems like Penghou is charging up";
+        descriptionLog = "Peng Hou does nothing";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
