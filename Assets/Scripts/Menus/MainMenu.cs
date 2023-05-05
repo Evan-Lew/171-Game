@@ -6,12 +6,13 @@ using System.Collections.Generic;
 public class MainMenu : MonoBehaviour
 {
     GameController _script_GameController;
-    public Animator transition; 
-    IEnumerator FadeScreen()
-    {
-        transition.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(1);
-    }
+    //Chris trying to load fade animation, still figuring out
+    //public Animator transition; 
+    //IEnumerator FadeScreen()
+    //{
+    //    transition.SetTrigger("FadeIn");
+    //    yield return new WaitForSeconds(1);
+    //}
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class MainMenu : MonoBehaviour
         //LevelLoader.instance.LoadALevel("Environment");
         //fade animation plays 
         //animatorFadeScene.SetTrigger("FadeIn");
-        StartCoroutine(FadeScreen());
+        //StartCoroutine(FadeScreen());
         SceneManager.LoadScene("StoryIntro");
     }
 
