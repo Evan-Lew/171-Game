@@ -66,7 +66,8 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public double Enemy_priorityInc = 0;
     [HideInInspector] public double Enemy_permanantCostIncrease = 0;
 
-
+    [SerializeField] Animator animatorInkGolem;
+    
     float ParticleDuration = 0;
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
 
@@ -128,6 +129,7 @@ public class EffectDictionary : MonoBehaviour
         // Check which target to use indicator for
         if (target == enemy)
         {
+            GameController.instance.animatorEnemy.SetTrigger("Damage");
             enemyIndicatorText.text = "-" + damageDealt.ToString();
             _enemyIndicatorController.SetTrigger(damageTrigger);
         }

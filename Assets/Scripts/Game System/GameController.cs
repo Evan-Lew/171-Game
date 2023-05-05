@@ -33,7 +33,10 @@ public class GameController : MonoBehaviour
     public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
+    // List to keep track of all enemy sprites
     public List<GameObject> enemySpriteGameObjects = new();
+    public List<Animator> animatorEnemyList = new();
+    public Animator animatorEnemy;
     
     [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;

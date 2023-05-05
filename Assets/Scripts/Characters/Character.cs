@@ -77,10 +77,10 @@ public class Character : MonoBehaviour
         // Evan
         //Debug.Log(CharacterData.characterName);
 
-        if (CharacterData.characterName == "Bai Suzhen")
-        {
-            Debug.Log(CharacterData.characterName);
-        }
+        // if (CharacterData.characterName == "Bai Suzhen")
+        // {
+        //     Debug.Log(CharacterData.characterName);
+        // }
         
         // Deactivate all enemy sprite game objects
         for (int i = 0; i < GameController.instance.enemySpriteGameObjects.Count; i++)
@@ -92,10 +92,12 @@ public class Character : MonoBehaviour
         if (CharacterData.characterName == "Peng Hou")
         {
             GameController.instance.enemySpriteGameObjects[0].SetActive(true);
+            GameController.instance.animatorEnemy = GameController.instance.animatorEnemyList[0];
         }
         else if (CharacterData.characterName == "Ink Golem")
         {
             GameController.instance.enemySpriteGameObjects[1].SetActive(true);
+            GameController.instance.animatorEnemy = GameController.instance.animatorEnemyList[1];
         }
         else if (CharacterData.characterName == "Ink Chimera")
         {

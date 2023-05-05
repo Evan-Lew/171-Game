@@ -155,7 +155,7 @@ MonoBehaviour:
   developerCards:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   playerName: Xu Xian
-  enemyName: Peng Hou
+  enemyName: Ink Golem
 --- !u!4 &146657063
 Transform:
   m_ObjectHideFlags: 0

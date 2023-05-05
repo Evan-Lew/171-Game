@@ -299,8 +299,8 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1520370999}
   - {fileID: 1397268697}
+  - {fileID: 1520370999}
   - {fileID: 847429890}
   m_Father: {fileID: 53530624}
   m_RootOrder: 1
@@ -782,6 +782,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1520370998}
   targetPoint: 0
+  player: {fileID: 950755190}
+  enemy: {fileID: 24645404}
+  enemySpriteGameObjects:
+  - {fileID: 1397268696}
+  - {fileID: 1520370998}
+  - {fileID: 847429889}
 --- !u!1 &94110468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,6 +1368,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 677253862}
   targetPoint: 0
+  player: {fileID: 950755190}
+  enemy: {fileID: 24645404}
+  enemySpriteGameObjects:
+  - {fileID: 1397268696}
+  - {fileID: 1520370998}
+  - {fileID: 847429889}
 --- !u!1 &158846908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,7 +2749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417422923}
   m_LocalRotation: {x: 0, y: 0, z: -0.055739623, w: 0.9984454}
-  m_LocalPosition: {x: 2.2716904, y: -0.12970537, z: 0}
+  m_LocalPosition: {x: 2.27169, y: -0.1297054, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4832,6 +4844,7 @@ MonoBehaviour:
   Enemy_armorCreate: 0
   Enemy_priorityInc: 0
   Enemy_permanantCostIncrease: 0
+  animatorInkGolem: {fileID: 1520371004}
   playerParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 5511052677990246615, guid: c1a79a3a095f1a148a6dc7b0bfde3712, type: 3}
@@ -5676,6 +5689,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 677253862}
   targetPoint: 1
+  player: {fileID: 950755190}
+  enemy: {fileID: 24645404}
+  enemySpriteGameObjects:
+  - {fileID: 1397268696}
+  - {fileID: 1520370998}
+  - {fileID: 847429889}
 --- !u!1 &753470308
 GameObject:
   m_ObjectHideFlags: 0
@@ -9298,7 +9317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1397268697
 Transform:
   m_ObjectHideFlags: 0
@@ -9313,7 +9332,7 @@ Transform:
   m_Children:
   - {fileID: 57014973}
   m_Father: {fileID: 24645406}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1397268698
 MonoBehaviour:
@@ -9373,7 +9392,7 @@ Animator:
   m_GameObject: {fileID: 1397268696}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 062fc85c0ee4b37449ccc8dbc6d0cbf0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9605,6 +9624,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1520370998}
   targetPoint: 1
+  player: {fileID: 950755190}
+  enemy: {fileID: 24645404}
+  enemySpriteGameObjects:
+  - {fileID: 1397268696}
+  - {fileID: 1520370998}
+  - {fileID: 847429889}
 --- !u!1 &1439198078
 GameObject:
   m_ObjectHideFlags: 0
@@ -10830,7 +10855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1520370999
 Transform:
   m_ObjectHideFlags: 0
@@ -10845,7 +10870,7 @@ Transform:
   m_Children:
   - {fileID: 30245529}
   m_Father: {fileID: 24645406}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1520371000
 SpriteRenderer:
@@ -10958,7 +10983,7 @@ Animator:
   m_GameObject: {fileID: 1520370998}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7eec8fe0af459d74c977f5bcbfbd09d3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14642,6 +14667,10 @@ MonoBehaviour:
   - {fileID: 1397268696}
   - {fileID: 1520370998}
   - {fileID: 847429889}
+  animatorEnemyList:
+  - {fileID: 1397268699}
+  - {fileID: 1520371004}
+  animatorEnemy: {fileID: 1520371004}
   CamerasObj:
   - {fileID: 809714812}
   - {fileID: 1766394216}
