@@ -392,11 +392,7 @@ public class GameController : MonoBehaviour
     }
 
     public enum characterType {player, enemy}
-
-    public SpriteSkin spriteSkin;
-    public SpriteRenderer spriteRenderer;
-    public Transform newRootBone;
-
+    
     // Change character basedata
     public void SetCharacter(characterType characterTarget, Character_Basedata newCharacter)
     {
@@ -409,12 +405,6 @@ public class GameController : MonoBehaviour
             if (enemyCharacter.CharacterData.characterName == "Ink Golem")
             {
                 // ??? i don't know why but if the Z isn't set to 50 then it becomes -50, temp fix
-                //Debug.Log("Ink Golem");
-                //enemyCharacter.GetComponentInChildren<SpriteSkin>().rootBone = skeletonList[0];
-                //SpriteSkin spriteSkin = enemyCharacter.GetComponentInChildren<SpriteSkin>();
-                //SpriteSkin newSpriteSkin = gameObject.AddComponent<SpriteSkin>();
-
-                
                 enemy.transform.position = new Vector3(12.61F, -7.66F, 50.0F);
                 enemy.transform.localScale = new Vector3(1.02F, 1.02F, 1.02F);
             } 
