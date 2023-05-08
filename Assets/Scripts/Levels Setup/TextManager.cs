@@ -7,6 +7,7 @@ using TMPro;
 public class TextManager : MonoBehaviour
 {
     public TutorialSetup tutorialSetup;
+    public GameObject scroll;
     //public Text nameText;   //for NPCs
     public TMP_Text dialogueText;
     public Queue<string> sentences;
@@ -30,6 +31,11 @@ public class TextManager : MonoBehaviour
     public void DisplayNext()
     {
         sentencesLength = sentences.Count;
+        int count = 0;
+        if (sentences.Count == count){
+            scroll.SetActive(false);
+        
+        }
         if (sentences.Count == 0){
             if (GameController.instance.tutorialIntroDialoguePlaying)
             {
@@ -43,7 +49,9 @@ public class TextManager : MonoBehaviour
         }
         else
         {
+            
             string sentence = sentences.Dequeue();
+            count += 1;
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));    
         }
