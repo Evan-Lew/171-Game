@@ -21,6 +21,7 @@ public class TextManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue moreDialogue)
     {
+       
         sentences.Clear(); 
         foreach (string sentence in moreDialogue.sentences)
         {
@@ -28,12 +29,13 @@ public class TextManager : MonoBehaviour
         }
         DisplayNext();
     }
+
     public void DisplayNext()
     {
         sentencesLength = sentences.Count;
         int count = 0;
         if (sentences.Count == count){
-            scroll.SetActive(false);
+            scroll.SetActive(false);                //once all messages are read, hides button
         
         }
         if (sentences.Count == 0){
