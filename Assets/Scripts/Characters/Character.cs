@@ -102,6 +102,7 @@ public class Character : MonoBehaviour
         else if (CharacterData.characterName == "Ink Chimera")
         {
             GameController.instance.enemySpriteGameObjects[2].SetActive(true);
+            GameController.instance.animatorEnemy = GameController.instance.animatorEnemyList[2];
         }
         
         

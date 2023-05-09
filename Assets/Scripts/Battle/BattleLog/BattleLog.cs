@@ -102,7 +102,6 @@ public class BattleLog : MonoBehaviour
                 BattleLog = BattleLog + " " + tempLog;
                 attackPopup = attackPopup + " " + tempLog;
             }
-            Debug.Log(attackPopup);
             // Enemy Attack Popup
             enemyAttackText.text = attackPopup;
             

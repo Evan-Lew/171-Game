@@ -410,7 +410,6 @@ public class GameController : MonoBehaviour
             } 
             if (enemyCharacter.CharacterData.characterName == "Ink Chimera")
             {
-                Debug.Log("Ink Chimera");
                 enemy.transform.position = new Vector3(8.84F, -9.1F, 50.0F);
                 enemy.transform.localScale = new Vector3(1.38F, 1.38F, 1.38F);
             }
