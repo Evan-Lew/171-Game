@@ -75,12 +75,13 @@ public class Character : MonoBehaviour
         Priority_Current = CharacterData.Priority_Current;
         
         // Evan
-        //Debug.Log(CharacterData.characterName);
-
-        // if (CharacterData.characterName == "Bai Suzhen")
-        // {
-        //     Debug.Log(CharacterData.characterName);
-        // }
+        // Deactivate all player sprite game objects
+        for (int i = 0; i < GameController.instance.playerSpriteGameObjects.Count; i++)
+        {
+            GameController.instance.playerSpriteGameObjects[i].SetActive(false);
+        }
+        
+        // Check what enemy is active and activate their sprite
         
         // Deactivate all enemy sprite game objects
         for (int i = 0; i < GameController.instance.enemySpriteGameObjects.Count; i++)
@@ -92,17 +93,22 @@ public class Character : MonoBehaviour
         if (CharacterData.characterName == "Peng Hou")
         {
             GameController.instance.enemySpriteGameObjects[0].SetActive(true);
-            GameController.instance.animatorEnemy = GameController.instance.animatorEnemyList[0];
+            GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[0];
         }
         else if (CharacterData.characterName == "Ink Golem")
         {
             GameController.instance.enemySpriteGameObjects[1].SetActive(true);
-            GameController.instance.animatorEnemy = GameController.instance.animatorEnemyList[1];
+            GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[1];
         }
         else if (CharacterData.characterName == "Ink Chimera")
         {
             GameController.instance.enemySpriteGameObjects[2].SetActive(true);
-            GameController.instance.animatorEnemy = GameController.instance.animatorEnemyList[2];
+            GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[2];
+        }
+        else if (CharacterData.characterName == "Zhenniao")
+        {
+            GameController.instance.enemySpriteGameObjects[3].SetActive(true);
+            GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[3];
         }
         
         

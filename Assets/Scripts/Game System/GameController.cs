@@ -19,11 +19,11 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject characters;
     [SerializeField] GameObject player, enemy;
     
-    [FormerlySerializedAs("animatorSceneFade")]
     [Header("Animator Controllers")]
     [SerializeField] Animator animatorFadeScene;
-    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXianDialogue, animatorFaHaiDialogue;
+    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue;
 
+    // Dialogue GameObjects
     [Header("Characters Talking")] 
     [SerializeField] GameObject leftCharacter;
     [SerializeField] GameObject rightCharacter;
@@ -33,10 +33,15 @@ public class GameController : MonoBehaviour
     public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
+    // List to keep track of player sprites
+    public List<GameObject> playerSpriteGameObjects = new();
+    public List<Animator> animatorPlayerList = new();
+    public Animator currAnimatorPlayer;
+    
     // List to keep track of all enemy sprites
     public List<GameObject> enemySpriteGameObjects = new();
     public List<Animator> animatorEnemyList = new();
-    public Animator animatorEnemy;
+    public Animator currAnimatorEnemy;
     
     [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;
@@ -47,8 +52,7 @@ public class GameController : MonoBehaviour
     // [SerializeField] List<GameObject> CameraSpawningPoint_List = new();
     // public GameObject TargetCharacterPos;
     // public GameObject TargetCameraPos;
-    
-    // Flag for changing level
+    // Flag for changing level (NOT USED)
     [HideInInspector] public bool isDeckELevel = true;
     [HideInInspector] public bool isStartLevel = false;
     
@@ -56,9 +60,9 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool enableMouseEffectOnCard = true;
     
     // Tutorial Variables
-    public bool tutorialIntroDialoguePlaying = false;
-    public bool tutorialOutroDialoguePlaying = false;
-    public bool tutorialLevelEnd = false;
+    [HideInInspector] public bool tutorialIntroDialoguePlaying = false;
+    [HideInInspector] public bool tutorialOutroDialoguePlaying = false;
+    [HideInInspector] public bool tutorialLevelEnd = false;
     
     private void Awake()
     {
@@ -126,7 +130,7 @@ public class GameController : MonoBehaviour
         animatorDarkenBackground.SetTrigger("Dark");
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            animatorXuXianDialogue.SetTrigger("Appear");
+            animatorXuXuanDialogue.SetTrigger("Appear");
             animatorFaHaiDialogue.SetTrigger("Appear");
         }, 1f));
     }
@@ -136,7 +140,7 @@ public class GameController : MonoBehaviour
     {
         animatorAspectRatioSwitch.SetTrigger("Out");
         animatorDarkenBackground.SetTrigger("Bright");
-        animatorXuXianDialogue.SetTrigger("Disappear");
+        animatorXuXuanDialogue.SetTrigger("Disappear");
         animatorFaHaiDialogue.SetTrigger("Disappear");
     }
 
@@ -340,7 +344,7 @@ public class GameController : MonoBehaviour
     public void TutorialBattleSetup()
     {
         SetCharacter(characterType.enemy, GetCharacter("Peng Hou"));
-        SetCharacter(characterType.player, GetCharacter("Xu Xian"));
+        SetCharacter(characterType.player, GetCharacter("Xu Xuan"));
         characters.SetActive(true);
         
         // Implement the character reassignment here
@@ -355,7 +359,7 @@ public class GameController : MonoBehaviour
     // Helper function to change the player sprite
     public void changePlayerSprite()
     {
-        SetCharacter(characterType.player, GetCharacter("Bai Suzhen"));
+        SetCharacter(characterType.player, GetCharacter("Bai She Zhuan"));
     }
 
     public void DisableBattleController()

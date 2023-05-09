@@ -5,13 +5,22 @@ public class Scrollbareffect : MonoBehaviour , IPointerClickHandler
 {
     [SerializeField] private Transform battleLogSystem;
     [SerializeField] private AnimationCurve curve;
-    bool IsAlreadyDisplayed = false;
+    bool IsAlreadyDisplayed = true;
     public Transform inScene;
     public Transform outScene;
 
     public float Speed = 1.3f;
     float current = 1, target = 1;
     
+    // Variables for the tutorial
+    public static Scrollbareffect instance;
+    [HideInInspector] public bool firstHistoryClick = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Update()
     {
         current = Mathf.MoveTowards(current, target, Speed * Time.deltaTime);
@@ -21,6 +30,7 @@ public class Scrollbareffect : MonoBehaviour , IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         SoundManager.PlaySound("sfx_Scroll_Open", 0.2f);
+        firstHistoryClick = true;
         //timeLerped += Time.deltaTime;
         if (IsAlreadyDisplayed == false)
         {

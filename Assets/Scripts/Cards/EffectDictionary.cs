@@ -123,7 +123,7 @@ public class EffectDictionary : MonoBehaviour
     // Special Helper Function to trigger character damage animation
     private void enemyCharacterDamageAnim()
     {
-        GameController.instance.animatorEnemy.SetTrigger("Damage");
+        GameController.instance.currAnimatorEnemy.SetTrigger("Damage");
     }    
     
     //=================================================================

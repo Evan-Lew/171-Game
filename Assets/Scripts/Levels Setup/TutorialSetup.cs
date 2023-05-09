@@ -15,6 +15,7 @@ public class TutorialSetup : MonoBehaviour
     [SerializeField] GameObject tutorial01;
     [SerializeField] GameObject tutorial02;
     [SerializeField] GameObject tutorial03;
+    [SerializeField] GameObject historyTutorial;
     
     [Header("Tutorial01 Pages")]
     [SerializeField] List<GameObject> tutorial01_Pages;
@@ -36,6 +37,7 @@ public class TutorialSetup : MonoBehaviour
     bool isPhase1Set = false;
     bool isPhase2Set = false;
     bool tutorialEnd = false;
+    private bool _historyTutorialStarted = false;
 
     public bool levelEnd = false;
     
@@ -163,24 +165,34 @@ public class TutorialSetup : MonoBehaviour
             // Tutorial part 1 finish
             if (isPhase1Set && _HandManager.player_hands_holdCards.Count == 0)
             {
-                if (!isPhase2Set)
+                if (isPhase2Set == false)
                 {
                     Phase_2_Setup();
                 }
                 else
                 {
-                    // Tutorial part 2 finish
-                    if (_HandManager.player_hands_holdCards.Count == 0)
-                    {
-                        // Tutorial part 3 finish
-                        Phase_3_Setup();
-                    }
+                    // Tutorial part 3 finish
+                    Phase_3_Setup();
                 }
+            }
+        }
+        // Tutorial part 3 is over
+        else
+        {
+            if (!_historyTutorialStarted)
+            {
+                historyTutorial.SetActive(true);
+                _historyTutorialStarted = true;
+            }
+            
+            if (Scrollbareffect.instance.firstHistoryClick)
+            {
+                historyTutorial.SetActive(false);
             }
         }
     }
 
-    private bool outroTextStarted = false;
+private bool outroTextStarted = false;
     void LevelManagement()
     {
         // Player wins and the tutorial is over
@@ -271,7 +283,7 @@ public class TutorialSetup : MonoBehaviour
         {
             Time.timeScale = 0;
             tutorial03.SetActive(true);
-        }, 11f));
+        }, 5f));
     }
 
     void Backupdata()
