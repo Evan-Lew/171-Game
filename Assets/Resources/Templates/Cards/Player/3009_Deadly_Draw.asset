@@ -21,6 +21,6 @@ MonoBehaviour:
     gain 8 Armor
   description_Log: 
   priorityCost: 3
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: a4347b74ade1f54449b707565d33c92e, type: 3}
   Card_Name: {fileID: 21300000, guid: 0c85760e51d80bc40a6a2decdf2fa0e6, type: 3}
   icon: {fileID: 0}

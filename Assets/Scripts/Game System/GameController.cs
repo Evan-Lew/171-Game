@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
+using UnityEngine.U2D.Animation;
 
 public class GameController : MonoBehaviour
 {
@@ -31,6 +33,11 @@ public class GameController : MonoBehaviour
     public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
+    // List to keep track of all enemy sprites
+    public List<GameObject> enemySpriteGameObjects = new();
+    public List<Animator> animatorEnemyList = new();
+    public Animator animatorEnemy;
+    
     [Header("Don't change order!")]
     [SerializeField] List<GameObject> CamerasObj;
     
@@ -385,6 +392,8 @@ public class GameController : MonoBehaviour
     }
 
     public enum characterType {player, enemy}
+    
+    // Change character basedata
     public void SetCharacter(characterType characterTarget, Character_Basedata newCharacter)
     {
         if (characterTarget == characterType.enemy)

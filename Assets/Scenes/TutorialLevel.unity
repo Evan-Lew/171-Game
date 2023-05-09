@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -772,6 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSetup: {fileID: 1612920530}
+  scroll: {fileID: 230233882}
   dialogueText: {fileID: 249036564}
   dialogue:
     sentences:
@@ -782,7 +783,6 @@ MonoBehaviour:
     - Ah, your hubris will one day catch up to you son. Just listen to what I have
       to say...
   sentencesLength: 0
-  characterHasBeenBrightened: 0
 --- !u!1 &383565706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7749086859542336405, guid: 1ae28f30075fd374ca066c807bb2870c,
@@ -1359,6 +1359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSetup: {fileID: 1612920530}
+  scroll: {fileID: 463126651}
   dialogueText: {fileID: 1687530474}
   dialogue:
     sentences:
@@ -1366,7 +1367,6 @@ MonoBehaviour:
     - Can I go now? I still need to talk with my wife before I make my trek
     - I have one last thing to tell you...
   sentencesLength: 0
-  characterHasBeenBrightened: 0
 --- !u!4 &917028384
 Transform:
   m_ObjectHideFlags: 0

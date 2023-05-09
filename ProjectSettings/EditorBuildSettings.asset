@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadManagerScene.unity
     guid: d2ddf56b15e4f374e8f32d60c8b8e8d2
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/GameController.unity
-    guid: b9b5bf6833f12954e886d8788b078ae1
+    guid: 6aa5085c2291c63459d6a0233f7aa136
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 5c60297ca14c5fa4998702a20528d513

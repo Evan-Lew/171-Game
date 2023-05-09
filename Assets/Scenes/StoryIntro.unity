@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 329.2, y: -182.9}
+  m_AnchoredPosition: {x: 329.2, y: -142}
   m_SizeDelta: {x: 133.7779, y: 65.8578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295877489
@@ -259,7 +259,6 @@ MonoBehaviour:
     - Her name was BaiZhe, meaning White Snake
     - She was a powerful creature and took the form of a woman
   sentencesLength: 0
-  characterHasBeenBrightened: 0
 --- !u!114 &295877490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 329.2, y: -125}
+  m_AnchoredPosition: {x: 329.2, y: -81}
   m_SizeDelta: {x: 133.7779, y: 65.8578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1049841542
@@ -548,12 +547,16 @@ MonoBehaviour:
   dialogue:
     sentences:
     - ' '
-    - in ancient China
-    - in a land of mystical creatures, lived a Snake Spirit.
-    - Her name was Bai She Zhuan, meaning White Snake
-    - She was a powerful creature and took the form of a woman
+    - Within a village hidden by a bamboo grove, lived a talented herbalist pioneer
+      named Xu Xuan.
+    - Finding himself immensely sick one night and believing his time was nearing,
+      Xu Xuan decided to look for Guai Wu.
+    - The Guai Wu are powerful monsters that possess other-worldly artifice. Each
+      one unique from the next, they are a force to behold.
+    - "It has been said that those who have slain a Guai Wu are rewarded with good
+      Karma. \r\n"
+    - Go to the map to start your adventure
   sentencesLength: 0
-  characterHasBeenBrightened: 0
 --- !u!114 &1049841543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,9 +938,8 @@ MonoBehaviour:
   dialogueText: {fileID: 2046945296}
   dialogue:
     sentences:
-    - Once upon a time...
+    - Once upon a time in ancient China...
   sentencesLength: 0
-  characterHasBeenBrightened: 0
 --- !u!4 &1967058047
 Transform:
   m_ObjectHideFlags: 0
@@ -1107,4 +1109,3 @@ MonoBehaviour:
   dialogue:
     sentences: []
   sentencesLength: 0
-  characterHasBeenBrightened: 0

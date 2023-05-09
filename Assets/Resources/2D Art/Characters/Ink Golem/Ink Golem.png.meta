@@ -119,7 +119,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones:
-      - name: Hip
+      - name: Ink Golem Hip
         guid: 32e09b1db1d523244bb9bad4df5031ce
         position: {x: 1407.9092, y: 1208.7789, z: 0}
         rotation: {x: 0, y: 0, z: 0.71574545, w: 0.6983613}
@@ -150,15 +150,15 @@ TextureImporter:
         guid: c313dc53eea2bf242bddf90baf0893df
         position: {x: 91.15103, y: 256.5364, z: 3}
         rotation: {x: 0, y: -0, z: 0.99408495, w: 0.10860527}
-        length: 510.65912
+        length: 510.659
         parentId: 0
         color:
           serializedVersion: 2
           rgba: 4294967040
       - name: LeftFoot
         guid: c481bbe10790f3c45b2535c36afe37c4
-        position: {x: 510.65903, y: 0.000024511699, z: 1}
-        rotation: {x: 0, y: 0, z: 0.0827935, w: 0.9965667}
+        position: {x: 510.6589, y: 0.0000010916174, z: 1}
+        rotation: {x: 0, y: 0, z: 0.08279349, w: 0.9965667}
         length: 605.7476
         parentId: 3
         color:
@@ -176,7 +176,7 @@ TextureImporter:
       - name: RightFoot
         guid: da863f71a8a50f94487f90d528819e7a
         position: {x: 509.3876, y: 0.000037609352, z: 2}
-        rotation: {x: 0, y: 0, z: -0.026864793, w: 0.9996391}
+        rotation: {x: 0, y: 0, z: -0.026864791, w: 0.99963915}
         length: 737.5329
         parentId: 5
         color:
@@ -185,34 +185,34 @@ TextureImporter:
       - name: LeftShoulder
         guid: 62e77d88f3c0517409f8430b0dc69bec
         position: {x: 734.4793, y: 410.1609, z: 5}
-        rotation: {x: 0, y: 0, z: 0.7023482, w: 0.71183366}
-        length: 340.3638
+        rotation: {x: 0, y: 0, z: 0.70234823, w: 0.7118336}
+        length: 340.36377
         parentId: 1
         color:
           serializedVersion: 2
           rgba: 4286643968
       - name: LeftArm
         guid: ef326bdc18e191143b8c625cb171a083
-        position: {x: 340.3638, y: -0.000019853462, z: 6}
-        rotation: {x: 0, y: 0, z: 0.6694627, w: 0.7428458}
-        length: 681.9033
+        position: {x: 340.3638, y: -0.00016332725, z: 6}
+        rotation: {x: 0, y: 0, z: 0.66946256, w: 0.74284583}
+        length: 681.90314
         parentId: 7
         color:
           serializedVersion: 2
           rgba: 4294934528
       - name: LeftElbow
         guid: cbc1f713a9bddab418c46718c168abe2
-        position: {x: 681.9033, y: -0.00013727605, z: 7}
-        rotation: {x: 0, y: 0, z: -0.15296762, w: 0.98823124}
-        length: 215.89189
+        position: {x: 681.9033, y: -0.00015479267, z: 7}
+        rotation: {x: 0, y: 0, z: -0.15296769, w: 0.9882312}
+        length: 215.89182
         parentId: 8
         color:
           serializedVersion: 2
           rgba: 4294901888
       - name: LeftHand
         guid: f138cdfc389169d4b89a69ee19995424
-        position: {x: 215.89177, y: -0.000012443654, z: 8}
-        rotation: {x: 0, y: 0, z: -0.039844226, w: 0.99920595}
+        position: {x: 215.8919, y: 0.000036806756, z: 8}
+        rotation: {x: 0, y: 0, z: -0.039844148, w: 0.99920595}
         length: 762.2087
         parentId: 9
         color:
@@ -239,16 +239,16 @@ TextureImporter:
       - name: RightElbow
         guid: 5f82c8a332194df48a93d355cc6bb86d
         position: {x: 547.3416, y: 0.000008399039, z: 7}
-        rotation: {x: 0, y: 0, z: 0.071975134, w: 0.9974064}
-        length: 190.28159
+        rotation: {x: 0, y: 0, z: 0.07197534, w: 0.9974064}
+        length: 190.2815
         parentId: 12
         color:
           serializedVersion: 2
           rgba: 4294901760
       - name: RightHand
         guid: ab97314b83b1b8c41b6689cbc8b5b371
-        position: {x: 190.2815, y: 0.000016686114, z: 8}
-        rotation: {x: 0, y: 0, z: 0.027216986, w: 0.9996296}
+        position: {x: 190.2815, y: -0.000014096397, z: 8}
+        rotation: {x: 0, y: 0, z: 0.027216775, w: 0.99962956}
         length: 608.5409
         parentId: 13
         color:

@@ -66,7 +66,8 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public double Enemy_priorityInc = 0;
     [HideInInspector] public double Enemy_permanantCostIncrease = 0;
 
-
+    [SerializeField] Animator animatorInkGolem;
+    
     float ParticleDuration = 0;
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
 
@@ -118,6 +119,12 @@ public class EffectDictionary : MonoBehaviour
         enemyIndicatorText = enemyIndicatorObj.GetComponent<TMP_Text>();
         _enemyIndicatorController = enemyIndicatorObj.GetComponent<Animator>();
     }
+    
+    // Special Helper Function to trigger character damage animation
+    private void enemyCharacterDamageAnim()
+    {
+        GameController.instance.animatorEnemy.SetTrigger("Damage");
+    }    
     
     //=================================================================
     //                       Tagged Effect
@@ -379,8 +386,6 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Coin_Drop", 1);
         
-        //WithoutParticle(ParticleDuration);
-        
         // Particle positioned under the player
         ParticleEvent("Payment", 1001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -408,8 +413,9 @@ public class EffectDictionary : MonoBehaviour
         { 
             PlaySound("sfx_Swing", 1);
         }, 0.1f));
-
-        //WithoutParticle(ParticleDuration);
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
         
         // Particle positioned on the enemy
         ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
@@ -456,8 +462,6 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Hiss", 1);
 
-        //WithoutParticle(ParticleDuration);
-        
         // Particle positioned under the player
         ParticleEvent("ShedSkin", 1004, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -497,7 +501,8 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Venom", 1);
 
-        //WithoutParticle(ParticleDuration);
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
         
         // Particle positioned on the enemy
         ParticleEvent("ForbiddenVenom", 2001, ParticleDuration, ExtraPositioning[2], true);
@@ -549,10 +554,12 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Swing", 1);
 
-        //WithoutParticle(ParticleDuration);
-        
         // Particle positioned on the enemy
         ParticleEvent("SerpentCutlass", 2002, ParticleDuration, ExtraPositioning[2], true);
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -606,7 +613,8 @@ public class EffectDictionary : MonoBehaviour
         }, 0.9f));
         SoundManager.PlaySound("sfx_Crunch", 1);
         
-        //WithoutParticle(ParticleDuration);
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
         
         // Particle positioned on the enemy
         ParticleEvent("DemonFang", 2004, ParticleDuration, ExtraPositioning[2], true);
@@ -629,6 +637,13 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
+
+        if (cardsInDeck < 10)
+        {
+            // Trigger Damage Anim
+            enemyCharacterDamageAnim();
+        }
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             if (cardsInDeck < 10)
@@ -648,6 +663,9 @@ public class EffectDictionary : MonoBehaviour
         int banishedCards = BanishPool.Count();
         Player_damageDealing = banishedCards * 2;
         Manipulator_Player();
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -686,6 +704,8 @@ public class EffectDictionary : MonoBehaviour
         if (player.Health_Current < 10)
         {
             Player_damageDealing = 8;
+            // Trigger Damage Anim
+            enemyCharacterDamageAnim();
         }
         Manipulator_Player();
         
@@ -727,8 +747,10 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 5;
         Player_damageDealing = 12;
         Enemy_damageDealing = 6;
-
         Manipulator_Player();
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -748,6 +770,9 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = player.Health_Current - 1;
         Enemy_damageDealing = Player_damageDealing;
         Manipulator_Player();
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -784,6 +809,9 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 3;
         Manipulator_Player();
         
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
+        
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -805,6 +833,9 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 2;
         Manipulator_Player();
         
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
+        
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -823,6 +854,9 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = -2;
         Player_damageDealing = 3;
         Manipulator_Player();
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1000,6 +1034,9 @@ public class EffectDictionary : MonoBehaviour
         
         //WithoutParticle(ParticleDuration);
         
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
+        
         // Particle positioned under the player
         ParticleEvent("RoyalGambit", 3008, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1104,6 +1141,9 @@ public class EffectDictionary : MonoBehaviour
             Player_damageDealing = 6;
         }
         Manipulator_Player();
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
 
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1122,6 +1162,9 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 5;
         Player_cardsDrawing = 2;
         Manipulator_Player();
+        
+        // Trigger Damage Anim
+        enemyCharacterDamageAnim();
 
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -1718,7 +1761,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 4f;
         Enemy_healing = 1f;
         cardName = "Drain";
-        descriptionLog = "and <color=#76f300>1</color> self heal";
+        descriptionLog = "and <color=#6bba6a>1</color> self heal";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_04_Drain", 0.3f);
@@ -1740,7 +1783,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 2f;
         ParticleDuration = 2f;
         cardName = "Charge";
-        descriptionLog = "Seems like Penghou is charging up";
+        descriptionLog = "Peng Hou does nothing";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
