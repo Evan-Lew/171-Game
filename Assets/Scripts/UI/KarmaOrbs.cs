@@ -22,6 +22,7 @@ public class KarmaOrbs : MonoBehaviour
     void Update(){
         scalePos = scale.position;
         transform.position = Vector3.SmoothDamp(transform.position, scalePos, ref velocity, smooth);
+
     }
 
     // // Update is called once per frame

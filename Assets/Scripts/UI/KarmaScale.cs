@@ -65,10 +65,12 @@ public class KarmaScale : MonoBehaviour
             lerpMax = angle;
             lerpMin = temp;
             t = 0.0f;
-            if(OrbDifference > karmaDiff) {
+            if(OrbDifference < karmaDiff) {
                 StartCoroutine(spawnOrb(playerOrbSpawn, playerOrbPrefab));
-            } else if (OrbDifference < karmaDiff) {
+                playerOrbPrefab.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            } else if (OrbDifference > karmaDiff) {
                 StartCoroutine(spawnOrb(enemyOrbSpawn, enemyOrbPrefab));
+                enemyOrbPrefab.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
             }
         }
 
@@ -76,7 +78,7 @@ public class KarmaScale : MonoBehaviour
 
     private void Update(){
 
-        priorityDifference = (float)(enemy.Priority_Current - player.Priority_Current);
+        priorityDifference = (float)(player.Priority_Current - enemy.Priority_Current);
         setRotation(priorityDifference);
 
         if (t < 1.0f){
@@ -91,19 +93,21 @@ public class KarmaScale : MonoBehaviour
     }
 
     private IEnumerator spawnOrb(Transform spawnPoint, GameObject orbType){
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.2f);
 
         Vector3 pos = spawnPoint.position;
-        Debug.Log("Spawning new orb");
+        // Debug.Log("Spawning new orb");
         GameObject newOrb = Instantiate(orbType, pos, Quaternion.identity, spawnPoint);
+        
+        Destroy(newOrb, 5);
 
-        if (OrbDifference > priorityDifference) {
-            OrbDifference -= 1;
+        if (OrbDifference < priorityDifference) {
+            OrbDifference += 1;
             if (OrbDifference != priorityDifference){
                 StartCoroutine(spawnOrb(playerOrbSpawn, playerOrbPrefab));
             }
-        } else if (OrbDifference < priorityDifference) {
-            OrbDifference += 1;
+        } else if (OrbDifference > priorityDifference) {
+            OrbDifference -= 1;
             if (OrbDifference != priorityDifference){
                 StartCoroutine(spawnOrb(enemyOrbSpawn, enemyOrbPrefab));
             }
