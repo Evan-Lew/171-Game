@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSetup: {fileID: 0}
+  scroll: {fileID: 0}
   dialogueText: {fileID: 2046945296}
   dialogue:
     sentences:
@@ -543,6 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSetup: {fileID: 0}
+  scroll: {fileID: 1049841540}
   dialogueText: {fileID: 2046945296}
   dialogue:
     sentences:
@@ -935,6 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSetup: {fileID: 0}
+  scroll: {fileID: 0}
   dialogueText: {fileID: 2046945296}
   dialogue:
     sentences:
@@ -1105,6 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialSetup: {fileID: 0}
+  scroll: {fileID: 0}
   dialogueText: {fileID: 0}
   dialogue:
     sentences: []
