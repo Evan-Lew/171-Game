@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,8 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
 using UnityEngine.U2D.Animation;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
@@ -22,7 +25,11 @@ public class GameController : MonoBehaviour
     [Header("Animator Controllers")]
     [SerializeField] Animator animatorFadeScene;
     [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue;
-
+    
+    [Header("Background Variables")] 
+    public List<Texture> backgroundsList = new();
+    public GameObject currBackground;
+    
     // Dialogue GameObjects
     [Header("Characters Talking")] 
     [SerializeField] GameObject leftCharacter;
@@ -30,6 +37,7 @@ public class GameController : MonoBehaviour
     private SpriteRenderer _leftCharacterSprite;
     private SpriteRenderer _rightCharacterSprite;
     
+    // List for all the characters (don't know what this is for -Evan)
     public List<Character_Basedata> CharactersList = new();
     Character_Basedata newEnemy;
 
@@ -205,9 +213,12 @@ public class GameController : MonoBehaviour
     
     public void NoDialogue()
     {
+        StopDialogue();
         leftCharacter.SetActive(false);
         rightCharacter.SetActive(false);
         animatorDarkenBackground.SetTrigger("StartBright");
+        //animatorFadeScene.SetTrigger("FadeIn");
+        animatorAspectRatioSwitch.SetTrigger("Out");
     }
     
     //=============================================================================================
@@ -451,6 +462,23 @@ public class GameController : MonoBehaviour
         CamerasObj[0].transform.rotation = targetTrans.rotation;
     }
 
+    // Helper Function to change the background
+    public void ChangeBackground(string newBackgroundName)
+    {
+         Texture background = backgroundsList[0];
+        
+         for (int i = 0; i < backgroundsList.Count; i++)
+         {
+             if (newBackgroundName == backgroundsList[i].name)
+             {
+                 background = backgroundsList[i];
+             }
+         }
+        
+         currBackground.GetComponent<RawImage>().texture = background;
+    }
+    
+    
     //                  Helper Function End
     //===========================================================
 }

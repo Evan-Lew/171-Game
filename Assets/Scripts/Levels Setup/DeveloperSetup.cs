@@ -14,8 +14,13 @@ public class DeveloperSetup : MonoBehaviour
     [SerializeField] String playerName;
     [SerializeField] String enemyName;
     
+    [SerializeField] String backgroundName;
+    
     private void Start()
     {
+        // Change background
+        GameController.instance.ChangeBackground(backgroundName);
+        
         _deckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
         _handManager = GameObject.Find("Hand System").GetComponent<HandManager>();
         StartTheBattle();

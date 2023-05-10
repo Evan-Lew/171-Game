@@ -16,7 +16,7 @@ MonoBehaviour:
   description_Main: Rocks cultivated themselves into spirits because of their greed
     for beauty. Although unremarkable, they are unexpectedly tough.
   Health_Total: 30
-  Health_Current: 15
+  Health_Current: 30
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0

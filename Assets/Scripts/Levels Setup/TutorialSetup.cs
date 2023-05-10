@@ -181,7 +181,10 @@ public class TutorialSetup : MonoBehaviour
         {
             if (!_historyTutorialStarted)
             {
-                historyTutorial.SetActive(true);
+                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+                {
+                    historyTutorial.SetActive(true);
+                }, 7f));
                 _historyTutorialStarted = true;
             }
             
@@ -198,6 +201,7 @@ private bool outroTextStarted = false;
         // Player wins and the tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
         {
+            historyTutorial.SetActive(false);
             tutorialEnd = true;
             GameController.instance.tutorialLevelEnd = true;
             GameController.instance.DisableBattleController();

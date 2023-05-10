@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   playerName: Xu Xuan
   enemyName: Zhenniao
+  backgroundName: Main_Menu_Background
 --- !u!4 &146657063
 Transform:
   m_ObjectHideFlags: 0

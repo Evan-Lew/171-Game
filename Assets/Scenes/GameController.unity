@@ -9230,8 +9230,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11854,8 +11854,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14129,6 +14129,11 @@ MonoBehaviour:
   animatorDarkenBackground: {fileID: 558794440}
   animatorXuXuanDialogue: {fileID: 392726972}
   animatorFaHaiDialogue: {fileID: 2008620574}
+  backgroundsList:
+  - {fileID: 2800000, guid: b183c6194932aa84487efb6ca469ada1, type: 3}
+  - {fileID: 2800000, guid: a4bcf424c09fb7142aa900913d98fc1a, type: 3}
+  - {fileID: 2800000, guid: ef24a103390923f4c94fdb944315f462, type: 3}
+  currBackground: {fileID: 497643016}
   leftCharacter: {fileID: 392726968}
   rightCharacter: {fileID: 2008620570}
   CharactersList:
