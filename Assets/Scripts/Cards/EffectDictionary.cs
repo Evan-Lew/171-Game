@@ -1679,7 +1679,7 @@ public class EffectDictionary : MonoBehaviour
 
     // ---GOLEM---
 
-    // Deal 5 damage, cost 3
+    // Deal 4 damage, cost 3
     public void Action_01_ThrowStone()
     {
         // Card Description
@@ -1687,7 +1687,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 3;
         Enemy_damageDealing = 4;
         cardName = "Throw Stone";
-        descriptionLog = "";
+        descriptionLog = "Deal 4 damage";
 
         Manipulator_Enemy();
         
@@ -1709,14 +1709,14 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Deal damage to player equal to his health, cost 2
+    // Deal damage to player equal to his health, cost 4
     public void Action_02_BodySlam()
     {
         ParticleDuration = 2f;
-        Enemy_priorityInc = 5;
+        Enemy_priorityInc = 4;
         Enemy_damageDealing = enemy.Armor_Current;
         cardName = "Body Slam";
-        descriptionLog = "Deal Damage equal to his current armor.";
+        descriptionLog = "Deal Damage equal current armor";
 
         Manipulator_Enemy();
 
@@ -1731,13 +1731,14 @@ public class EffectDictionary : MonoBehaviour
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
-    // At the end of player turn, gain 2 armor
+    // Gain 5 armor
     public void Action_03_Stubborn()
     {
         ParticleDuration = 3f;
-        Enemy_armorCreate = 1;
+        Enemy_armorCreate = 5;
+        Enemy_priorityInc = 3;
         cardName = "Stubborn";
-        descriptionLog = "at the end of every player phase";
+        descriptionLog = "Gain 5 armor";
 
         PlaySound("sfx_Action_03_Stubborn", 1);
         
@@ -1930,14 +1931,14 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Gain 4 Armor
+    // Gain 14 Armor
     public void Action_11_Solidify()
     {
-        Enemy_priorityInc = 7f;
+        Enemy_priorityInc = 6f;
         ParticleDuration = 2f;
         cardName = "Solidify";
-        //descriptionLog = "Solidy";
-        Enemy_armorCreate = 14;
+        descriptionLog = "Gain 11 Armor";
+        Enemy_armorCreate = 11;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Reverberate", 0.4f);
@@ -1981,10 +1982,10 @@ public class EffectDictionary : MonoBehaviour
     // Next turn do triple damage
     public void Action_13_Monsterize()
     {
-        Enemy_priorityInc = 0f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 2f;
         cardName = "Monsterize";
-        //descriptionLog = "x3";
+        descriptionLog = "Next attack does triple damage";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Monsterize", 0.8f);
