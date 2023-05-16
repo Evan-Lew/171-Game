@@ -1804,12 +1804,14 @@ public class EffectDictionary : MonoBehaviour
     // ZHENNIAO
 
     // IMPLEMENTED
-    // Avoid the next time you take damage
+    // Deal 5 Damage, Player's next card costs 3 more
     public void Action_06_BlindingFog(){
-        Enemy_priorityInc = 3f;
+        Enemy_priorityInc = 7f;
         ParticleDuration = 4f;
         cardName = "Blinding Fog";
-        //descriptionLog = "1 Green Mana and a Colorless";
+        Enemy_damageDealing = 5f;
+        isCostingExtraPriority = true;
+        Player_extraPriorityCost = 3;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Breeze", 1f);
@@ -1818,19 +1820,19 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            isDealingNoDmg = true;
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED, DOES NOT REPEAT
+    // deal 7
     public void Action_07_RazorQuills()
     {
-        Enemy_priorityInc = 3f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 3f;
         cardName = "Razor Quills";
         //descriptionLog = "Sharp";
-        Enemy_damageDealing = 1;
+        Enemy_damageDealing = 7f;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_03_Stubborn", 1);
@@ -1839,8 +1841,6 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(player, Enemy_damageDealing);
-            DealDamage_ToTarget(player, Enemy_damageDealing);
             DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
@@ -1887,14 +1887,13 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Partially implemented, does 2x damage with next card instead of whole turn
+    // Charging up
     public void Action_09_Roost()
     {
-        Enemy_priorityInc = 4f;
+        Enemy_priorityInc = 3f;
         ParticleDuration = 3f;
         cardName = "Roost";
-        //descriptionLog = "Zhenniao is now weak to ground this turn";
-        Enemy_healing = 7;
+        Enemy_healing = 1;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Cyclone", 0.5f);
@@ -1903,9 +1902,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("Roost", 12, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            player.Armor_Current = 0;
             Heal_ToTarget(enemy, Enemy_healing);
-            isDealingDoubleDmg = true;
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
@@ -1964,7 +1961,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         cardName = "Breath of Life";
         //descriptionLog = "Big Qi";
-        Enemy_damageDealing = 3;
+        // Enemy_damageDealing = 3;
         Enemy_healing = 7;
         Enemy_armorCreate = 7;
         Manipulator_Enemy();
@@ -1975,7 +1972,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(player, Enemy_damageDealing);
+            // DealDamage_ToTarget(player, Enemy_damageDealing);
             Heal_ToTarget(enemy, Enemy_healing);
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
             Manipulator_Enemy_Reset();

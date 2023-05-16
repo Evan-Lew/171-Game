@@ -67,8 +67,13 @@ public class EnemyAi : MonoBehaviour
 
     // IMPLEMENTED
     void Add_Zhenniao(){
-        // 6(blindingfog) 7(razoorquills) 8(purplehaze) 9(roost)
-        attackPattern = new List<int>() { 7, 7, 9, 7, 7, 7, 12, 7};
+        // Zhenniao Pattern v.01
+        // 1 -> (3) Deal 4 damage
+        // 6 -> (7) Deal 5 Damage, Player's next card costs 3 more
+        // 7 -> (5) Deal 7
+        // 9 -> (3) Heal 1
+        // 12 -> (7) Heal 7, Gain 7 Armor
+        attackPattern = new List<int>() { 6, 7, 7, 6, 12, 9, 9, 12, 9, 9, 1};
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Zhenniao", enemysPatterns);

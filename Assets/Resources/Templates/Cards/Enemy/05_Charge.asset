@@ -17,9 +17,9 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Charge
   ID: 5
-  description_Main: Charge, do nothing(match story)
+  description_Main: Deal 7 Damage, Take 2 Damage
   description_Log: 
-  priorityCost: 0
+  priorityCost: 4
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
   icon: {fileID: 0}
