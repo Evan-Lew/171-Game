@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3c1dec4005ccb4381e6c4e48afc7a9, type: 3}
   m_Name: Fa Hai
   m_EditorClassIdentifier: 
-  characterName: Xu Xuan
+  characterName: Fa Hai
   description_Main: 
-  Health_Total: 35
-  Health_Current: 35
+  Health_Total: 60
+  Health_Current: 60
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 3
-  characterSprite: {fileID: 79340415, guid: 16a30591394ccac40b5629a4bdca08aa, type: 3}
+  characterSprite: {fileID: -857552672, guid: f59826b3693f4234eb6633dde51a4a50, type: 3}

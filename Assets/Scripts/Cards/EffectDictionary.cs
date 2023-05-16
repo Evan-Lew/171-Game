@@ -1687,7 +1687,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 3;
         Enemy_damageDealing = 4;
         cardName = "Throw Stone";
-        descriptionLog = "Deal 4 damage";
+        // descriptionLog = "Deal 4 damage";
 
         Manipulator_Enemy();
         
@@ -1739,6 +1739,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 3;
         cardName = "Stubborn";
         descriptionLog = "Gain 5 armor";
+        Manipulator_Enemy();
 
         PlaySound("sfx_Action_03_Stubborn", 1);
         
@@ -1746,9 +1747,8 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            // Manipulator not needed since this is static effect
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
-            Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
+            Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
 
@@ -1931,7 +1931,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Gain 14 Armor
+    // Gain 11 Armor
     public void Action_11_Solidify()
     {
         Enemy_priorityInc = 6f;

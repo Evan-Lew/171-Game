@@ -46,7 +46,7 @@ public class EnemyAi : MonoBehaviour
         // Golem Pattern v.02
         // 1 -> (3) Deal 4 damage
         // 2 -> (4) Deal damage equal to armor
-        // 3 -> (5) Gain 5 armor
+        // 3 -> (3) Gain 5 armor
         // 11 -> (6) Gain 11 armor
         // 13 -> (5) Next attack deals triple damage
         attackPattern = new List<int>() { 1, 3, 1, 3, 13, 1, 11, 2, 13, 1 };
