@@ -1687,7 +1687,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 3;
         Enemy_damageDealing = 4;
         cardName = "Throw Stone";
-        // descriptionLog = "Deal 4 damage";
+        descriptionLog = "Deal 4 damage";
 
         Manipulator_Enemy();
         
@@ -1762,7 +1762,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 3f;
         Enemy_healing = 3f;
         cardName = "Drain";
-        descriptionLog = "and <color=#6bba6a>1</color> self heal";
+        descriptionLog = "Deal 3 Damage and Heal 3";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_04_Drain", 0.3f);
@@ -1812,6 +1812,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 5f;
         isCostingExtraPriority = true;
         Player_extraPriorityCost = 3;
+        descriptionLog = "Deal 5 Damage, Player's next card costs 3 more";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Breeze", 1f);
@@ -1833,6 +1834,7 @@ public class EffectDictionary : MonoBehaviour
         cardName = "Razor Quills";
         //descriptionLog = "Sharp";
         Enemy_damageDealing = 7f;
+        descriptionLog = "Deal 7 Damage";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_03_Stubborn", 1);
@@ -1894,6 +1896,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 3f;
         cardName = "Roost";
         Enemy_healing = 1;
+        descriptionLog = "Heal 1";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Cyclone", 0.5f);
@@ -1916,7 +1919,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 5f;
         ParticleDuration = 1f;
         cardName = "Stomp";
-        //descriptionLog = "Stompy";
+        descriptionLog = "Deal 7 Damage";
         Enemy_damageDealing = 7;
         Manipulator_Enemy();
         
@@ -1960,7 +1963,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 7f;
         ParticleDuration = 3f;
         cardName = "Breath of Life";
-        //descriptionLog = "Big Qi";
+        descriptionLog = "Heal 7, Gain 7 Armor";
         // Enemy_damageDealing = 3;
         Enemy_healing = 7;
         Enemy_armorCreate = 7;
