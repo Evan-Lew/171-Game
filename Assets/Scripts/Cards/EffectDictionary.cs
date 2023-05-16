@@ -1754,13 +1754,13 @@ public class EffectDictionary : MonoBehaviour
 
     // ---PENGHOU---
 
-    // Deal 3 damage and heal 2, cost 4
+    // Deal 3 damage and heal 3, cost 5
     public void Action_04_Drain()
     {
-        Enemy_priorityInc = 4f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 4f;
-        Enemy_damageDealing = 4f;
-        Enemy_healing = 1f;
+        Enemy_damageDealing = 3f;
+        Enemy_healing = 3f;
         cardName = "Drain";
         descriptionLog = "and <color=#6bba6a>1</color> self heal";
         Manipulator_Enemy();
@@ -1778,13 +1778,15 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Do nothing
+    // 5
     public void Action_05_Charge()
     {
-        Enemy_priorityInc = 2f;
+        Enemy_priorityInc = 4f;
         ParticleDuration = 2f;
         cardName = "Charge";
-        descriptionLog = "Peng Hou does nothing";
+        descriptionLog = "Deal 6 Damage, Take 3 Damage";
+        Enemy_damageDealing = 6f;
+        Enemy_healing = -3f;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
@@ -1793,6 +1795,8 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Heal_ToTarget(enemy, Enemy_healing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }

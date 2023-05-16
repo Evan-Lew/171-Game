@@ -87,7 +87,11 @@ public class EnemyAi : MonoBehaviour
 
     void Add_InkChimera()
     {
-        attackPattern = new List<int>() { 1, 1, 4, 4, 10, 4, 1, 4, 1};
+        // Chimera Pattern v.01
+        // 1 -> (3) Deal 4 damage
+        // 4 -> (5) Deal 3 damage and heal 3
+        // 5 -> (4) Deal 7 Damage, Take 3 Damage
+        attackPattern = new List<int>() { 5, 4, 1, 4, 1, 5, 4, 1, 1, 5, 4, 1, 1};
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Ink Chimera", enemysPatterns);
