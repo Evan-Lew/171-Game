@@ -73,41 +73,65 @@ public class Character : MonoBehaviour
         Health_Current = CharacterData.Health_Current;
         Priority_Initial = CharacterData.Priority_Initial;
         Priority_Current = CharacterData.Priority_Current;
-        
+
         // Evan
         // Deactivate all player sprite game objects
-        for (int i = 0; i < GameController.instance.playerSpriteGameObjects.Count; i++)
-        {
-            GameController.instance.playerSpriteGameObjects[i].SetActive(false);
-        }
+        // for (int i = 0; i < GameController.instance.playerSpriteGameObjects.Count; i++)
+        // {
+        //     GameController.instance.playerSpriteGameObjects[i].SetActive(false);
+        // }
         
-        // Check what enemy is active and activate their sprite
+        // Check what player is active and activate their sprite
+        if (CharacterData.characterName == "Xu Xuan")
+        {
+            //Debug.Log(GameController.instance.playerSpriteGameObjects[0]);
+            GameController.instance.playerSpriteGameObjects[0].SetActive(true);
+            GameController.instance.playerSpriteGameObjects[1].SetActive(false);
+        }
+        else if (CharacterData.characterName == "Bai She Zhuan")
+        {
+            Debug.Log("here");
+            GameController.instance.playerSpriteGameObjects[1].SetActive(true);
+            GameController.instance.playerSpriteGameObjects[0].SetActive(false);
+        }
         
         // Deactivate all enemy sprite game objects
-        for (int i = 0; i < GameController.instance.enemySpriteGameObjects.Count; i++)
-        {
-            GameController.instance.enemySpriteGameObjects[i].SetActive(false);
-        }
+        // for (int i = 0; i < GameController.instance.enemySpriteGameObjects.Count; i++)
+        // {
+        //     GameController.instance.enemySpriteGameObjects[i].SetActive(false);
+        // }
 
         // Check what enemy is active and activate their sprite
         if (CharacterData.characterName == "Peng Hou")
         {
             GameController.instance.enemySpriteGameObjects[0].SetActive(true);
+            GameController.instance.enemySpriteGameObjects[1].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[2].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[0];
         }
         else if (CharacterData.characterName == "Ink Golem")
         {
             GameController.instance.enemySpriteGameObjects[1].SetActive(true);
+            GameController.instance.enemySpriteGameObjects[2].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[0].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[1];
         }
         else if (CharacterData.characterName == "Ink Chimera")
         {
             GameController.instance.enemySpriteGameObjects[2].SetActive(true);
+            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[0].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[1].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[2];
         }
         else if (CharacterData.characterName == "Zhenniao")
         {
             GameController.instance.enemySpriteGameObjects[3].SetActive(true);
+            GameController.instance.enemySpriteGameObjects[0].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[1].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[2].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[3];
         }
         

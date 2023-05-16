@@ -5015,7 +5015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &677253865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14363,7 +14363,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 559fd727c0ec37c46a8e4cc619082b53, type: 2}
   - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
   - {fileID: 11400000, guid: 38bb62ccb1817ac40a4655d374d390e2, type: 2}
-  playerSpriteGameObjects: []
+  playerSpriteGameObjects:
+  - {fileID: 677253862}
+  - {fileID: 1874155238}
   animatorPlayerList:
   - {fileID: 0}
   - {fileID: 0}
