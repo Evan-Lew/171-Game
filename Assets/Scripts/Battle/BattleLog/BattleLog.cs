@@ -83,19 +83,20 @@ public class BattleLog : MonoBehaviour
             attackPopup = "<u>" + "<color=#2f617a>" + EffectDictionary.instance.cardName + "</color>" + "</u>" + "\n" + " costs " + EffectDictionary.instance.Enemy_priorityInc + "\n";
             tempLog = "";
             
-            if (EffectDictionary.instance.Enemy_damageDealing != 0)
-            {
-                tempLog = "Deal <color=#d16c64>{0}</color> damage";
-                string formattedText = string.Format(tempLog, EffectDictionary.instance.Enemy_damageDealing);
-                BattleLog = BattleLog + formattedText;
-                attackPopup = attackPopup + formattedText;
-            }
-            if (EffectDictionary.instance.Enemy_armorCreate != 0)
-            {
-                tempLog = "Create <color=#d16c64>{0}</color> armors";
-                string formattedText = string.Format(tempLog, EffectDictionary.instance.Enemy_armorCreate);
-                BattleLog = BattleLog + formattedText;
-            }
+            // if (EffectDictionary.instance.Enemy_damageDealing != 0)
+            // {
+            //     tempLog = "Deal <color=#d16c64>{0}</color> damage";
+            //     string formattedText = string.Format(tempLog, EffectDictionary.instance.Enemy_damageDealing);
+            //     BattleLog = BattleLog + formattedText;
+            //     attackPopup = attackPopup + formattedText;
+            // }
+            // if (EffectDictionary.instance.Enemy_armorCreate != 0)
+            // {
+            //     tempLog = "Create <color=#d16c64>{0}</color> armors";
+            //     string formattedText = string.Format(tempLog, EffectDictionary.instance.Enemy_armorCreate);
+            //     BattleLog = BattleLog + formattedText;
+            // }
+            
             if (EffectDictionary.instance.descriptionLog != "")
             {
                 tempLog = EffectDictionary.instance.descriptionLog;

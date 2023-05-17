@@ -88,33 +88,33 @@ public class GameController : MonoBehaviour
     {
         //BattleConditionCheck();
         
-        //if (isDeckELevel)
-        //{
-        //    isDeckELevel = false;
-        //    StartTheCamp();
-        //}
-        //else if (isStartLevel)
-        //{
-        //    isStartLevel = false;
-        //}
+        // if (isDeckELevel)
+        // {
+        //     isDeckELevel = false;
+        //     StartTheCamp();
+        // }
+        // else if (isStartLevel)
+        // {
+        //     isStartLevel = false;
+        // }
+        //
+        // //--Legacy: Not used--
+        // if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     StartTheCamp();
+        // }
         
-        /* --Legacy: Not used--
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartTheCamp();
-        }
+        // if (Input.GetKeyDown(KeyCode.T))
+        // {
+        //     SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+        //     setupFlag = true;
+        //     if (setupFlag)
+        //     {
+        //         StartTheBattle(GetCharacter("Ink Golem"), true);
+        //         setupFlag = false;
+        //     }
+        // }
         
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
-            setupFlag = true;
-            if (setupFlag)
-            {
-                StartTheBattle(GetCharacter("Ink Golem"), true);
-                setupFlag = false;
-            }
-        }
-        */
     }
     
     //=============================================================================================

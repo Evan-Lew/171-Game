@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3c1dec4005ccb4381e6c4e48afc7a9, type: 3}
-  m_Name: Ink Chimera
+  m_Name: Fa Hai
   m_EditorClassIdentifier: 
-  characterName: Ink Chimera
-  description_Main: Another Enmey Just for testing
-  Health_Total: 45
-  Health_Current: 45
+  characterName: Fa Hai
+  description_Main: 
+  Health_Total: 60
+  Health_Current: 60
   Priority_Initial: 0
   Priority_Current: 0
-  Pattern: 0
-  characterSprite: {fileID: 51847762, guid: e8c947b5c49707742921cdfc5cf88766, type: 3}
+  Pattern: 3
+  characterSprite: {fileID: -857552672, guid: f59826b3693f4234eb6633dde51a4a50, type: 3}
