@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     [Header("Background Variables")] 
     public List<Texture> backgroundsList = new();
     public GameObject currBackground;
+    public GameObject currForeground;
     
     // Dialogue GameObjects
     [Header("Characters Talking")] 
@@ -472,6 +473,16 @@ public class GameController : MonoBehaviour
              if (newBackgroundName == backgroundsList[i].name)
              {
                  background = backgroundsList[i];
+                 
+                 // Edge Case: To set the foreground for the Mountain_Top
+                 if (newBackgroundName == "Mountain_Top_BG")
+                 {
+                     currForeground.GetComponent<RawImage>().texture = backgroundsList[7];
+                 }
+                 else
+                 {
+                     currForeground.GetComponent<RawImage>().texture = backgroundsList[0];
+                 }
              }
          }
         
