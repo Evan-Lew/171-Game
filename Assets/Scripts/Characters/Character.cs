@@ -84,15 +84,15 @@ public class Character : MonoBehaviour
         // Check what player is active and activate their sprite
         if (CharacterData.characterName == "Xu Xuan")
         {
-            //Debug.Log(GameController.instance.playerSpriteGameObjects[0]);
             GameController.instance.playerSpriteGameObjects[0].SetActive(true);
             GameController.instance.playerSpriteGameObjects[1].SetActive(false);
+            GameController.instance.currAnimatorPlayer = GameController.instance.animatorPlayerList[0];
         }
         else if (CharacterData.characterName == "Bai She Zhuan")
         {
-            Debug.Log("here");
             GameController.instance.playerSpriteGameObjects[1].SetActive(true);
             GameController.instance.playerSpriteGameObjects[0].SetActive(false);
+            GameController.instance.currAnimatorPlayer = GameController.instance.animatorPlayerList[1];
         }
         
         // Deactivate all enemy sprite game objects

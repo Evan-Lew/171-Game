@@ -120,10 +120,19 @@ public class EffectDictionary : MonoBehaviour
         _enemyIndicatorController = enemyIndicatorObj.GetComponent<Animator>();
     }
     
-    // Special Helper Function to trigger character damage animation
+    //=================================================================
+    //                   Animation Helper Functions
+    //-----------------------------------------------------------------
+    
+    // Special Helper Function to trigger enemy damage animation
     private void enemyCharacterDamageAnim()
     {
         GameController.instance.currAnimatorEnemy.SetTrigger("Damage");
+    }
+    // Special Helper Function to trigger player damage animation
+    private void playerCharacterDamageAnim()
+    {
+        GameController.instance.currAnimatorPlayer.SetTrigger("Damage");
     }    
     
     //=================================================================
@@ -1699,6 +1708,9 @@ public class EffectDictionary : MonoBehaviour
 
         // Play SFX
         SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
+        
+        // Trigger Damage Anim
+        playerCharacterDamageAnim();
         
         // Particle positioned under the player
         ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[1], false);
