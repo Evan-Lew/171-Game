@@ -7493,7 +7493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1029022051
 Transform:
   m_ObjectHideFlags: 0
@@ -10942,7 +10942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1520370999
 Transform:
   m_ObjectHideFlags: 0
@@ -11254,7 +11254,7 @@ MonoBehaviour:
   _script_HandManager: {fileID: 409527556}
   startDrawingCards: 1
   startingCardsAmount: 4
-  TurnChangeAnimationDuration: 0.5
+  TurnChangeAnimationDuration: 1.5
   currentPhase: 0
   lastPhase: 1
   nextPhase: 0
@@ -11269,6 +11269,7 @@ MonoBehaviour:
   animatorPlayerTurn: {fileID: 560284607}
   animatorEnemyTurn: {fileID: 454805844}
   animatorFadeInOut: {fileID: 195012396}
+  battleLog: {fileID: 1679645122}
 --- !u!114 &1558164863
 MonoBehaviour:
   m_ObjectHideFlags: 0

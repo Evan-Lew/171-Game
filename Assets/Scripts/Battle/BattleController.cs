@@ -11,7 +11,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private HandManager _script_HandManager;
     [HideInInspector]public bool startDrawingCards = true;
     public int startingCardsAmount;
-    public float TurnChangeAnimationDuration = 0.5f;
+    public float TurnChangeAnimationDuration = 1.5f;
     [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
     [HideInInspector]public enum TurnType { player, enemy}
     [HideInInspector]public TurnOrder currentPhase;
@@ -28,6 +28,9 @@ public class BattleController : MonoBehaviour
     [HideInInspector] public bool enableTurnUpdate = false;
 
     [SerializeField] Animator animatorPlayerTurn, animatorEnemyTurn, animatorFadeInOut;
+    
+    // Reference to BattleLog
+    public BattleLog battleLog;
 
     // Used in BattleLevelSetup
     public static int battleNum = 0;
@@ -138,13 +141,17 @@ public class BattleController : MonoBehaviour
         // Player turn and previous turn was the enemy
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.EnemyPhase)
         {
-            TurnChangeAnimation(TurnType.player);
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                TurnChangeAnimation(TurnType.player);
+            }, TurnChangeAnimationDuration + 0.5f));
+            
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _script_DeckSystem.DrawCardToHand();
                 enableUsingCard = true;
                 enableCardActivation = true;
-            }, TurnChangeAnimationDuration));
+            }, TurnChangeAnimationDuration + 1.5f));
         }
         // Enemy turn and previous turn was the enemy
         else if (currentPhase == TurnOrder.EnemyPhase && lastPhase == TurnOrder.EnemyPhase)
@@ -153,10 +160,10 @@ public class BattleController : MonoBehaviour
             enableCardActivation = false;
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                Debug.Log("here prev turn enemy");
                 _script_EnemyAI.isActioned = false;
                 _script_EnemyAI.EnemyAction(enemy.CharacterName);
-            }, 1.5f));
+                battleLog.EnemyAttackPopup();
+            }, 2.5f));
         }
         // Enemy turn and previous turn was the player
         else if (currentPhase == TurnOrder.EnemyPhase && lastPhase == TurnOrder.playerPhase)
@@ -166,10 +173,10 @@ public class BattleController : MonoBehaviour
             TurnChangeAnimation(TurnType.enemy);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                Debug.Log("here prev turn player");
                 _script_EnemyAI.isActioned = false;
                 _script_EnemyAI.EnemyAction(enemy.CharacterName);
-            }, TurnChangeAnimationDuration + 1.5f));
+                battleLog.EnemyAttackPopup();
+            }, TurnChangeAnimationDuration + 0.5f));
         }
     }
     
