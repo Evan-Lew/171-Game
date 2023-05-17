@@ -10,6 +10,9 @@ public class FollowPosition : MonoBehaviour
     
     [SerializeField] GameObject player, enemy;
     
+    // List to keep track of all player sprites
+    public List<GameObject> playerSpriteGameObjects = new();
+    
     // List to keep track of all enemy sprites
     public List<GameObject> enemySpriteGameObjects = new();
 
@@ -19,6 +22,18 @@ public class FollowPosition : MonoBehaviour
 
     void Update()
     {
+        Character playerCharacter = player.GetComponent<Character>();
+        // Change the target object for the position of the particles for each player
+        if (playerCharacter.CharacterData.characterName == "Xu Xuan" && characterIs == TypeOfCharacter.Player)
+        {
+            targetObject = playerSpriteGameObjects[0];
+        }
+        else if (playerCharacter.CharacterData.characterName == "Bai She Zhuan" && characterIs == TypeOfCharacter.Player)
+        {
+            targetObject = playerSpriteGameObjects[1];
+        }
+        
+        
         Character enemyCharacter = enemy.GetComponent<Character>();
         // Change the target object for the position of the particles for each enemy
         if (enemyCharacter.CharacterData.characterName == "Peng Hou" && characterIs == TypeOfCharacter.Enemy)
