@@ -72,8 +72,8 @@ public class SoundManager : MonoBehaviour
         sfx_Action_01_Throw_Stone = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Stone");
         sfx_Action_02_Body_Slam = Resources.Load<AudioClip>("SFX/Enemy/Golem/Body_Slam");
         sfx_Action_03_Stubborn = Resources.Load<AudioClip>("SFX/Enemy/Golem/Snarl");
-        sfx_Action_04_Drain = Resources.Load<AudioClip>("SFX/Enemy/Penghou/Wind_Blow");
-        sfx_Action_Rock_Smash = Resources.Load<AudioClip>("SFX/Enemy/Penghou/Rock_Smash");
+        sfx_Action_04_Drain = Resources.Load<AudioClip>("SFX/Enemy/Wind_Blow");
+        sfx_Action_Rock_Smash = Resources.Load<AudioClip>("SFX/Enemy/Rock_Smash");
         sfx_Action_Reverberate = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Reverberate");
         sfx_Action_Breath = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Breath");
         sfx_Action_Monsterize = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Monsterize");
