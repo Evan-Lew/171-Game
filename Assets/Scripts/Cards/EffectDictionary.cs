@@ -135,6 +135,12 @@ public class EffectDictionary : MonoBehaviour
         GameController.instance.currAnimatorPlayer.SetTrigger("Damage");
     }    
     
+    // Trigger player attack animation
+    private void playerCharacterAttackAnim()
+    {
+        GameController.instance.currAnimatorPlayer.SetTrigger("Attack");
+    }   
+    
     //=================================================================
     //                       Tagged Effect
     //-----------------------------------------------------------------
@@ -423,7 +429,10 @@ public class EffectDictionary : MonoBehaviour
             PlaySound("sfx_Swing", 1);
         }, 0.1f));
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         // Particle positioned on the enemy
@@ -510,7 +519,10 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX
         PlaySound("sfx_Venom", 1);
 
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         // Particle positioned on the enemy
@@ -566,7 +578,10 @@ public class EffectDictionary : MonoBehaviour
         // Particle positioned on the enemy
         ParticleEvent("SerpentCutlass", 2002, ParticleDuration, ExtraPositioning[2], true);
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -622,7 +637,10 @@ public class EffectDictionary : MonoBehaviour
         }, 0.9f));
         SoundManager.PlaySound("sfx_Crunch", 1);
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         // Particle positioned on the enemy
@@ -649,7 +667,10 @@ public class EffectDictionary : MonoBehaviour
 
         if (cardsInDeck < 10)
         {
-            // Trigger Damage Anim
+            // Animations
+            // Trigger player attack anim
+            playerCharacterAttackAnim();
+            // Trigger enemy damage anim
             enemyCharacterDamageAnim();
         }
         
@@ -673,7 +694,10 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = banishedCards * 2;
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
@@ -713,7 +737,10 @@ public class EffectDictionary : MonoBehaviour
         if (player.Health_Current < 10)
         {
             Player_damageDealing = 8;
-            // Trigger Damage Anim
+            // Animations
+            // Trigger player attack anim
+            playerCharacterAttackAnim();
+            // Trigger enemy damage anim
             enemyCharacterDamageAnim();
         }
         Manipulator_Player();
@@ -758,7 +785,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 6;
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
@@ -780,7 +810,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = Player_damageDealing;
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
@@ -818,7 +851,10 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 3;
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
@@ -842,7 +878,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 2;
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
@@ -864,7 +903,10 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 3;
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         WithoutParticle(ParticleDuration);
@@ -1043,7 +1085,10 @@ public class EffectDictionary : MonoBehaviour
         
         //WithoutParticle(ParticleDuration);
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
         // Particle positioned under the player
@@ -1151,7 +1196,10 @@ public class EffectDictionary : MonoBehaviour
         }
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
 
         WithoutParticle(ParticleDuration);
@@ -1172,7 +1220,10 @@ public class EffectDictionary : MonoBehaviour
         Player_cardsDrawing = 2;
         Manipulator_Player();
         
-        // Trigger Damage Anim
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
         enemyCharacterDamageAnim();
 
         WithoutParticle(ParticleDuration);
