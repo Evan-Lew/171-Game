@@ -124,21 +124,25 @@ public class EffectDictionary : MonoBehaviour
     //                   Animation Helper Functions
     //-----------------------------------------------------------------
     
-    // Special Helper Function to trigger enemy damage animation
-    private void enemyCharacterDamageAnim()
-    {
-        GameController.instance.currAnimatorEnemy.SetTrigger("Damage");
-    }
-    // Special Helper Function to trigger player damage animation
+    // Trigger player damage animation
     private void playerCharacterDamageAnim()
     {
         GameController.instance.currAnimatorPlayer.SetTrigger("Damage");
     }    
-    
+    // Trigger enemy damage animation
+    private void enemyCharacterDamageAnim()
+    {
+        GameController.instance.currAnimatorEnemy.SetTrigger("Damage");
+    }
     // Trigger player attack animation
     private void playerCharacterAttackAnim()
     {
         GameController.instance.currAnimatorPlayer.SetTrigger("Attack");
+    }
+    // Trigger player attack animation
+    private void enemyCharacterAttackAnim()
+    {
+        GameController.instance.currAnimatorEnemy.SetTrigger("Attack");
     }   
     
     //=================================================================
@@ -1759,12 +1763,16 @@ public class EffectDictionary : MonoBehaviour
 
         // Play SFX
         SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
-        
-        // Trigger Damage Anim
-        playerCharacterDamageAnim();
-        
+
         // Particle positioned under the player
         ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[1], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1788,6 +1796,13 @@ public class EffectDictionary : MonoBehaviour
         
         // Particle positioned on the player
         ParticleEvent("BodySlam", 2, ParticleDuration, ExtraPositioning[0], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1833,6 +1848,12 @@ public class EffectDictionary : MonoBehaviour
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
         
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1854,8 +1875,17 @@ public class EffectDictionary : MonoBehaviour
         
         PlaySound("sfx_Action_Rock_Smash", 1);
         
-        // Particle positioned under the enemy
-        ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
+        // // Particle positioned under the enemy
+        // ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
+        // Particle positioned on the enemy
+        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[0], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1882,6 +1912,13 @@ public class EffectDictionary : MonoBehaviour
         
         // Particle positioned under the enemy
         ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1900,10 +1937,17 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Deal 7 Damage";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_03_Stubborn", 0.25f);
         
         // Particle positioned under the player
         ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1945,6 +1989,13 @@ public class EffectDictionary : MonoBehaviour
 
         // No manipulator because static
         ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -1990,6 +2041,13 @@ public class EffectDictionary : MonoBehaviour
         
         // Particle positioned under the player
         ParticleEvent("Stomp", 6, ParticleDuration, ExtraPositioning[1], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
@@ -2036,6 +2094,13 @@ public class EffectDictionary : MonoBehaviour
         
         // Particle positioned on the player
         ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             // DealDamage_ToTarget(player, Enemy_damageDealing);
