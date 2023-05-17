@@ -1679,7 +1679,7 @@ public class EffectDictionary : MonoBehaviour
 
     // ---GOLEM---
 
-    // Deal 5 damage, cost 3
+    // Deal 4 damage, cost 3
     public void Action_01_ThrowStone()
     {
         // Card Description
@@ -1687,7 +1687,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 3;
         Enemy_damageDealing = 4;
         cardName = "Throw Stone";
-        descriptionLog = "";
+        descriptionLog = "Deal 4 damage";
 
         Manipulator_Enemy();
         
@@ -1709,14 +1709,14 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Deal damage to player equal to his health, cost 2
+    // Deal damage to player equal to his health, cost 4
     public void Action_02_BodySlam()
     {
         ParticleDuration = 2f;
-        Enemy_priorityInc = 5;
+        Enemy_priorityInc = 4;
         Enemy_damageDealing = enemy.Armor_Current;
         cardName = "Body Slam";
-        descriptionLog = "Deal Damage equal to his current armor.";
+        descriptionLog = "Deal Damage equal current armor";
 
         Manipulator_Enemy();
 
@@ -1731,13 +1731,15 @@ public class EffectDictionary : MonoBehaviour
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
-    // At the end of player turn, gain 2 armor
+    // Gain 5 armor
     public void Action_03_Stubborn()
     {
         ParticleDuration = 3f;
-        Enemy_armorCreate = 1;
+        Enemy_armorCreate = 5;
+        Enemy_priorityInc = 3;
         cardName = "Stubborn";
-        descriptionLog = "at the end of every player phase";
+        descriptionLog = "Gain 5 armor";
+        Manipulator_Enemy();
 
         PlaySound("sfx_Action_03_Stubborn", 1);
         
@@ -1745,23 +1747,22 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            // Manipulator not needed since this is static effect
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
-            Manipulator_Enemy_Reset(specialHandling.CastAt_playerEnd);
+            Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
 
     // ---PENGHOU---
 
-    // Deal 3 damage and heal 2, cost 4
+    // Deal 3 damage and heal 3, cost 5
     public void Action_04_Drain()
     {
-        Enemy_priorityInc = 4f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 4f;
-        Enemy_damageDealing = 4f;
-        Enemy_healing = 1f;
+        Enemy_damageDealing = 3f;
+        Enemy_healing = 3f;
         cardName = "Drain";
-        descriptionLog = "and <color=#6bba6a>1</color> self heal";
+        descriptionLog = "Deal 3 Damage and Heal 3";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_04_Drain", 0.3f);
@@ -1777,13 +1778,15 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Do nothing
+    // 5
     public void Action_05_Charge()
     {
-        Enemy_priorityInc = 2f;
+        Enemy_priorityInc = 4f;
         ParticleDuration = 2f;
         cardName = "Charge";
-        descriptionLog = "Peng Hou does nothing";
+        descriptionLog = "Deal 6 Damage, Take 3 Damage";
+        Enemy_damageDealing = 6f;
+        Enemy_healing = -3f;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
@@ -1792,6 +1795,8 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Heal_ToTarget(enemy, Enemy_healing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
@@ -1799,12 +1804,15 @@ public class EffectDictionary : MonoBehaviour
     // ZHENNIAO
 
     // IMPLEMENTED
-    // Avoid the next time you take damage
+    // Deal 5 Damage, Player's next card costs 3 more
     public void Action_06_BlindingFog(){
-        Enemy_priorityInc = 3f;
+        Enemy_priorityInc = 7f;
         ParticleDuration = 4f;
         cardName = "Blinding Fog";
-        //descriptionLog = "1 Green Mana and a Colorless";
+        Enemy_damageDealing = 5f;
+        isCostingExtraPriority = true;
+        Player_extraPriorityCost = 3;
+        descriptionLog = "Deal 5 Damage, Player's next card costs 3 more";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Breeze", 1f);
@@ -1813,19 +1821,20 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            isDealingNoDmg = true;
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED, DOES NOT REPEAT
+    // deal 7
     public void Action_07_RazorQuills()
     {
-        Enemy_priorityInc = 3f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 3f;
         cardName = "Razor Quills";
         //descriptionLog = "Sharp";
-        Enemy_damageDealing = 1;
+        Enemy_damageDealing = 7f;
+        descriptionLog = "Deal 7 Damage";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_03_Stubborn", 1);
@@ -1834,8 +1843,6 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(player, Enemy_damageDealing);
-            DealDamage_ToTarget(player, Enemy_damageDealing);
             DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
@@ -1882,14 +1889,14 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // Partially implemented, does 2x damage with next card instead of whole turn
+    // Charging up
     public void Action_09_Roost()
     {
-        Enemy_priorityInc = 4f;
+        Enemy_priorityInc = 3f;
         ParticleDuration = 3f;
         cardName = "Roost";
-        //descriptionLog = "Zhenniao is now weak to ground this turn";
-        Enemy_healing = 7;
+        Enemy_healing = 1;
+        descriptionLog = "Heal 1";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Cyclone", 0.5f);
@@ -1898,9 +1905,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("Roost", 12, ParticleDuration, ExtraPositioning[3], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            player.Armor_Current = 0;
             Heal_ToTarget(enemy, Enemy_healing);
-            isDealingDoubleDmg = true;
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
@@ -1914,7 +1919,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 5f;
         ParticleDuration = 1f;
         cardName = "Stomp";
-        //descriptionLog = "Stompy";
+        descriptionLog = "Deal 7 Damage";
         Enemy_damageDealing = 7;
         Manipulator_Enemy();
         
@@ -1930,14 +1935,14 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Gain 4 Armor
+    // Gain 11 Armor
     public void Action_11_Solidify()
     {
-        Enemy_priorityInc = 7f;
+        Enemy_priorityInc = 6f;
         ParticleDuration = 2f;
         cardName = "Solidify";
-        //descriptionLog = "Solidy";
-        Enemy_armorCreate = 14;
+        descriptionLog = "Gain 11 Armor";
+        Enemy_armorCreate = 11;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Reverberate", 0.4f);
@@ -1958,8 +1963,8 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 7f;
         ParticleDuration = 3f;
         cardName = "Breath of Life";
-        //descriptionLog = "Big Qi";
-        Enemy_damageDealing = 3;
+        descriptionLog = "Heal 7, Gain 7 Armor";
+        // Enemy_damageDealing = 3;
         Enemy_healing = 7;
         Enemy_armorCreate = 7;
         Manipulator_Enemy();
@@ -1970,7 +1975,7 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(player, Enemy_damageDealing);
+            // DealDamage_ToTarget(player, Enemy_damageDealing);
             Heal_ToTarget(enemy, Enemy_healing);
             CreateArmor_ToTarget(enemy, Enemy_armorCreate);
             Manipulator_Enemy_Reset();
@@ -1981,10 +1986,10 @@ public class EffectDictionary : MonoBehaviour
     // Next turn do triple damage
     public void Action_13_Monsterize()
     {
-        Enemy_priorityInc = 0f;
+        Enemy_priorityInc = 5f;
         ParticleDuration = 2f;
         cardName = "Monsterize";
-        //descriptionLog = "x3";
+        descriptionLog = "Next attack does triple damage";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Monsterize", 0.8f);

@@ -18,8 +18,13 @@ public class BattleLevelSetup : MonoBehaviour
 
     bool _levelEnd = false;
     
+    [SerializeField] String backgroundName;
+    
     private void Start()
     {
+        // Change background
+        GameController.instance.ChangeBackground(backgroundName);
+        
         GameController.instance.NoDialogue();
         
         GameController.instance.changePlayerSprite();
@@ -44,7 +49,11 @@ public class BattleLevelSetup : MonoBehaviour
             _deckSystem.deckToUse.Add(card);
         }
         
-        // GameController.instance.DeveloperBattleSetup(playerName, enemyName);
+        // listOfEnemies
+        // 0, 1, 2 == fodder enemies
+        // 3 == elite enemy
+        // 99 == boss
+
         if (BattleController.battleNum == 99)
         {
             enemy = listOfEnemies.Where(obj => obj.characterName == "Stone Rui Shi").SingleOrDefault();
@@ -52,7 +61,6 @@ public class BattleLevelSetup : MonoBehaviour
             enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[BattleController.battleNum].characterName).SingleOrDefault();
         }
         
-        // Character_Basedata enemy = listOfEnemies.Where(obj => obj.characterName == listOfEnemies[1].characterName).SingleOrDefault();
         GameController.instance.StartTheBattle(enemy, true);
         GameController.instance.battleCondition = true;
         BattleController.instance.player.Health_Current = BattleController.end_HP;

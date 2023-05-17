@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 07_RazorQuills
+  m_Name: 09_Roost
   m_EditorClassIdentifier: 
   cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Razor Quills
-  ID: 7
-  description_Main: Deal 1 damage, replay this action until priority is greater than
-    the player's
-  description_Log: 
-  priorityCost: 1
+  cardName: Roost
+  ID: 9
+  description_Main: Heal 1
+  description_Log: Charging Up
+  priorityCost: 3
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
   icon: {fileID: 0}

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 04_Siphon
+  m_Name: 13_Monsterize
   m_EditorClassIdentifier: 
   cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Siphon
-  ID: 4
-  description_Main: Deal 2 damage and heal 1
+  cardName: Monsterize
+  ID: 13
+  description_Main: Next attack does triple damage
   description_Log: 
-  priorityCost: 3
+  priorityCost: 5
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
   icon: {fileID: 0}
