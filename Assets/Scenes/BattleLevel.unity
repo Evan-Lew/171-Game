@@ -165,13 +165,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
   - {fileID: 11400000, guid: 631481b4eb37fd14c8538c47a661ecdd, type: 2}
   - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
-  - {fileID: 11400000, guid: b52697612952a944d8b58b97e9093c39, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
-  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   listOfEnemies:
-  - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
+  - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
+  backgroundName: Village_Background
 --- !u!4 &1652796184
 Transform:
   m_ObjectHideFlags: 0

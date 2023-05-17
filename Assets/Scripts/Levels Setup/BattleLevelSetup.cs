@@ -18,8 +18,13 @@ public class BattleLevelSetup : MonoBehaviour
 
     bool _levelEnd = false;
     
+    [SerializeField] String backgroundName;
+    
     private void Start()
     {
+        // Change background
+        GameController.instance.ChangeBackground(backgroundName);
+        
         GameController.instance.NoDialogue();
         
         GameController.instance.changePlayerSprite();

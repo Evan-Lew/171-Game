@@ -9930,18 +9930,83 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080558719}
     m_Modifications:
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047052, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122136714165047053, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8122136714410944466, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bc187bf8191896645ba1511c6b9ab66d,
         type: 3}
+    - target: {fileID: 8122136714665162102, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8122136715219911780, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1c8ac34c567539f4492a1a48da47710e,
         type: 3}
+    - target: {fileID: 8122136715228135293, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8122136715976680952, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
         type: 3}
       propertyPath: enemy
@@ -10040,7 +10105,7 @@ PrefabInstance:
     - target: {fileID: 8122136715976680953, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200
+      value: 176
       objectReference: {fileID: 0}
     - target: {fileID: 8122136715976680953, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
         type: 3}
@@ -11691,7 +11756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -290, y: 330}
+  m_AnchoredPosition: {x: 290, y: 330}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1785010725
@@ -13724,8 +13789,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
