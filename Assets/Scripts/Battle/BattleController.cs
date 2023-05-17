@@ -120,9 +120,10 @@ public class BattleController : MonoBehaviour
                 enableCardActivation = true;
             }, TurnChangeAnimationDuration));
         }
+        // Player turn and previous turn was the player
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.playerPhase)
         {
-            if(_script_HandManager.player_hands_holdCards.Count == 0)
+            if (_script_HandManager.player_hands_holdCards.Count == 0)
             {
                 lastPhase = TurnOrder.playerPhase;
                 currentPhase = TurnOrder.EnemyPhase;
@@ -134,6 +135,7 @@ public class BattleController : MonoBehaviour
                 enableCardActivation = true;
             }
         }
+        // Player turn and previous turn was the enemy
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.EnemyPhase)
         {
             TurnChangeAnimation(TurnType.player);
@@ -144,17 +146,19 @@ public class BattleController : MonoBehaviour
                 enableCardActivation = true;
             }, TurnChangeAnimationDuration));
         }
+        // Enemy turn and previous turn was the enemy
         else if (currentPhase == TurnOrder.EnemyPhase && lastPhase == TurnOrder.EnemyPhase)
         {
             enableUsingCard = false;
             enableCardActivation = false;
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
+                Debug.Log("here prev turn enemy");
                 _script_EnemyAI.isActioned = false;
                 _script_EnemyAI.EnemyAction(enemy.CharacterName);
-
             }, 1.5f));
         }
+        // Enemy turn and previous turn was the player
         else if (currentPhase == TurnOrder.EnemyPhase && lastPhase == TurnOrder.playerPhase)
         {
             enableUsingCard = false;
@@ -162,10 +166,10 @@ public class BattleController : MonoBehaviour
             TurnChangeAnimation(TurnType.enemy);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
+                Debug.Log("here prev turn player");
                 _script_EnemyAI.isActioned = false;
                 _script_EnemyAI.EnemyAction(enemy.CharacterName);
-
-            }, TurnChangeAnimationDuration));
+            }, TurnChangeAnimationDuration + 1.5f));
         }
     }
     

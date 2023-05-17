@@ -1819,7 +1819,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Gain 5 armor";
         Manipulator_Enemy();
 
-        PlaySound("sfx_Action_03_Stubborn", 1);
+        PlaySound("sfx_Action_03_Stubborn", 0.25f);
         
         // Particle positioned under the enemy
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
@@ -1982,7 +1982,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 0f;
         ParticleDuration = 3f;
         cardName = "Haze Damage";
-        //descriptionLog = "Damage";
+        descriptionLog = "Deal 1 Damage";
         Enemy_damageDealing = 1;
         
         PlaySound("sfx_Action_Cough", 1f);

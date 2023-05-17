@@ -83,6 +83,7 @@ public class BattleLog : MonoBehaviour
             attackPopup = "<u>" + "<color=#2f617a>" + EffectDictionary.instance.cardName + "</color>" + "</u>" + "\n" + " costs " + EffectDictionary.instance.Enemy_priorityInc + "\n";
             tempLog = "";
             
+            // // Not used anymore
             // if (EffectDictionary.instance.Enemy_damageDealing != 0)
             // {
             //     tempLog = "Deal <color=#d16c64>{0}</color> damage";
