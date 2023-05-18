@@ -44,6 +44,11 @@ public class TutorialSetup : MonoBehaviour
     private bool _dialoguePlaying = true;
     private bool _introDialoguePlayed = false;
 
+    // Flags to stop updates being called over and over
+    private bool _fadeSceneOutFlag = false;
+    private bool _outroTextStartedFlag = false;
+    private bool _restartedDialogueFlag = false;
+    
     void Start()
     {
         GameController.instance.StartDialogue();
@@ -59,6 +64,8 @@ public class TutorialSetup : MonoBehaviour
         }, 4f));
     }
 
+    
+    
     void Update()
     {
         HighlightCharacterTalking();
@@ -105,11 +112,17 @@ public class TutorialSetup : MonoBehaviour
         // Check if the outro text is over
         if (GameController.instance.tutorialOutroDialoguePlaying == false)
         {
-            GameController.instance.CharacterTalking("rightIsTalking", false);
-            outroTextBox.SetActive(false);
-            GameController.instance.FadeOut();
+            if (_fadeSceneOutFlag == false)
+            {
+                GameController.instance.CharacterTalking("rightIsTalking", false);
+                outroTextBox.SetActive(false);
+                GameController.instance.FadeOut();
+                _fadeSceneOutFlag = true;
+            }
+            
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
+                GameController.instance.EndDialogue();
                 SceneManager.LoadScene("MainMenu");
             }, 6f));    
         }
@@ -194,9 +207,8 @@ public class TutorialSetup : MonoBehaviour
             }
         }
     }
-
-private bool outroTextStarted = false;
-    void LevelManagement()
+    
+void LevelManagement()
     {
         // Player wins and the tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
@@ -207,16 +219,20 @@ private bool outroTextStarted = false;
             GameController.instance.DisableBattleController();
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                GameController.instance.DisableBattleMode();
-                GameController.instance.RestartDialogue();
+                if (_restartedDialogueFlag == false)
+                {
+                    GameController.instance.DisableBattleMode();
+                    GameController.instance.RestartDialogue();
+                    _restartedDialogueFlag = true;
+                }
             }, 2f));
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                if (outroTextStarted == false)
+                if (_outroTextStartedFlag == false)
                 {
                     outroTextBox.SetActive(true);
                     outroTextManager.SetActive(true);
-                    outroTextStarted = true;
+                    _outroTextStartedFlag = true;
                 }
             }, 6f));
         }

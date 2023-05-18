@@ -25,12 +25,12 @@ public class BattleLevelSetup : MonoBehaviour
         // Change background
         GameController.instance.ChangeBackground(backgroundName);
         
-        GameController.instance.NoDialogue();
+        //GameController.instance.EndDialogue();
         
         GameController.instance.changePlayerSprite();
         _deckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
         _handManager = GameObject.Find("Hand System").GetComponent<HandManager>();
-
+        
         StartTheBattle();
     }
 
