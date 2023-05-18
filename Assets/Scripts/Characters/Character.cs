@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
     private Animator _armorSpriteController;
     private string _armorTrueTrigger = "ArmorTrue";
     private string _armorFalseTrigger = "ArmorFalse";
-    public bool animArmor = false;
+    [HideInInspector] public bool animArmor = false;
 
     // For health checking
     double HPChangedFrom;

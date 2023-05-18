@@ -6,7 +6,6 @@ using TMPro;
 
 public class TextManager : MonoBehaviour
 {
-    public TutorialSetup tutorialSetup;
     public GameObject scroll;
     //public Text nameText;   //for NPCs
     public TMP_Text dialogueText;

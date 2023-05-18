@@ -771,7 +771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005b2888cc9ecf944925a9240320b59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialSetup: {fileID: 1612920530}
   scroll: {fileID: 230233882}
   dialogueText: {fileID: 249036564}
   dialogue:
@@ -1513,7 +1512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005b2888cc9ecf944925a9240320b59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialSetup: {fileID: 1612920530}
   scroll: {fileID: 463126651}
   dialogueText: {fileID: 1687530474}
   dialogue:
