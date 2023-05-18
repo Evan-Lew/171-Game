@@ -3878,16 +3878,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: -2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+    rgba: 2243522
+  m_fontColor: {r: 0.7607843, g: 0.23137255, b: 0.13333334, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4809,7 +4809,6 @@ MonoBehaviour:
   Enemy_armorCreate: 0
   Enemy_priorityInc: 0
   Enemy_permanantCostIncrease: 0
-  animatorInkGolem: {fileID: 1520371004}
   playerParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 5511052677990246615, guid: c1a79a3a095f1a148a6dc7b0bfde3712, type: 3}
@@ -8537,7 +8536,6 @@ GameObject:
   - component: {fileID: 1185248574}
   - component: {fileID: 1185248573}
   - component: {fileID: 1709709660}
-  - component: {fileID: 1709709661}
   m_Layer: 0
   m_Name: Deck System
   m_TagString: Untagged
@@ -9265,16 +9263,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: -2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 255
-  m_fontColor: {r: 1, g: 0, b: 0, a: 0}
+    rgba: 2243522
+  m_fontColor: {r: 0.7607843, g: 0.23137255, b: 0.13333334, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9327,7 +9325,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 24.732115, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.01070976, z: -0.06583977, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11876,26 +11874,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Notes: The Object is used as reference
   AsReferenceOf: []
---- !u!95 &1709709661
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185248572}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e92efadcd8337da439dc81dbf1e8dd25, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1711219749
 GameObject:
   m_ObjectHideFlags: 0
