@@ -3,25 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextManager : MonoBehaviour
 {
-    public TutorialSetup tutorialSetup;
     public GameObject scroll;
     //public Text nameText;   //for NPCs
     public TMP_Text dialogueText;
     public Queue<string> sentences;
     public Dialogue dialogue;
 
-    public int sentencesLength;
+    [HideInInspector] public int sentencesLength;
+    private bool _tutorialLevelLoaded = false;
+    private bool _storyIntroLoaded = false;
+    [SerializeField] GameObject mapButton;
+    
     void Start()
     {   
         sentences = new Queue<string>();
         StartDialogue(dialogue);
+        IsSceneLoaded();
     }
+
+    // Helper function to see if the TutorialLevel scene is loaded
+    private void IsSceneLoaded()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+
+            // Check if the scene is loaded and is not an empty scene
+            if (scene.isLoaded && !string.IsNullOrEmpty(scene.name))
+            {
+                if (scene.name == "TutorialLevel")
+                {
+                    _tutorialLevelLoaded = true;
+                }
+                else if (scene.name == "StoryIntro")
+                {
+                    _storyIntroLoaded = true;
+                }
+            }
+        }
+    }
+    
     public void StartDialogue(Dialogue moreDialogue)
     {
-       
         sentences.Clear(); 
         foreach (string sentence in moreDialogue.sentences)
         {
@@ -34,26 +61,33 @@ public class TextManager : MonoBehaviour
     {
         sentencesLength = sentences.Count;
         int count = 0;
-        if (sentences.Count == count){
-            scroll.SetActive(false);                //once all messages are read, hides button
         
+        // Disable the scroll after all sentences are read
+        if (sentences.Count == count)
+        {
+            scroll.SetActive(false);
         }
         if (sentences.Count == 0){
-            if (GameController.instance.tutorialIntroDialoguePlaying)
+            // Start the battle after the intro tutorial dialogue
+            if (GameController.instance.tutorialIntroDialoguePlaying && _tutorialLevelLoaded)
             {
                 GameController.instance.TutorialIntroDialogueDone();    
             }
 
-            if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd)
+            // End the battle after the end tutorial dialogue
+            if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd && _tutorialLevelLoaded)
             {
                 GameController.instance.TutorialOutroDialogueDone(); 
+            }
+
+            if (_storyIntroLoaded)
+            {
+                mapButton.SetActive(true);
             }
         }
         else
         {
-            
             string sentence = sentences.Dequeue();
-            count += 1;
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));    
         }

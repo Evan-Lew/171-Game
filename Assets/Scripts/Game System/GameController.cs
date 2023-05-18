@@ -149,13 +149,29 @@ public class GameController : MonoBehaviour
         }, 1f));
     }
 
-    // Helper function: Stop the dialogue by calling animators
-    public void StopDialogue()
+    // Helper function: Pause the dialogue bc you will restart later in the same scene
+    public void PauseDialogue()
     {
         animatorAspectRatioSwitch.SetTrigger("Out");
         animatorDarkenBackground.SetTrigger("Bright");
-        animatorXuXuanDialogue.SetTrigger("Disappear");
-        animatorFaHaiDialogue.SetTrigger("Disappear");
+
+        if (rightCharacter.activeSelf && leftCharacter.activeSelf)
+        {
+            animatorXuXuanDialogue.SetTrigger("Disappear");
+            animatorFaHaiDialogue.SetTrigger("Disappear");
+        }
+    }
+
+    // Helper function: End dialogue to set it back to it's original state
+    public void EndDialogue()
+    {
+        leftCharacter.SetActive(false);
+        rightCharacter.SetActive(false);
+        animatorXuXuanDialogue.SetTrigger("OffScreen");
+        animatorFaHaiDialogue.SetTrigger("OffScreen");
+        animatorFadeScene.SetTrigger("ClearScreen");
+        animatorAspectRatioSwitch.SetTrigger("StartWithNoRatio");
+        animatorDarkenBackground.SetTrigger("StartBright");
     }
 
     public void FadeOut()
@@ -172,7 +188,7 @@ public class GameController : MonoBehaviour
     {
         CharacterTalking("leftIsTalking", false);
         CharacterTalking("rightIsTalking", false);
-        StopDialogue();
+        PauseDialogue();
         tutorialIntroDialoguePlaying = false;
     }
     
@@ -180,7 +196,7 @@ public class GameController : MonoBehaviour
     {
         CharacterTalking("leftIsTalking", false);
         CharacterTalking("rightIsTalking", false);
-        StopDialogue();
+        PauseDialogue();
         tutorialOutroDialoguePlaying = false;
     }
     
@@ -216,17 +232,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
-    
-    public void NoDialogue()
-    {
-        StopDialogue();
-        leftCharacter.SetActive(false);
-        rightCharacter.SetActive(false);
-        animatorDarkenBackground.SetTrigger("StartBright");
-        //animatorFadeScene.SetTrigger("FadeIn");
-        animatorAspectRatioSwitch.SetTrigger("Out");
-    }
-    
+
     //=============================================================================================
     //                  GameController API
     //=============================================================================================

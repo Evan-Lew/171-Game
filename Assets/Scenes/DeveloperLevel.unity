@@ -157,7 +157,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
   - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
   playerName: Bai She Zhuan
-  enemyName: Ink Golem
+  enemyName: Peng Hou
   backgroundName: Mountaintop_BG
 --- !u!4 &146657063
 Transform:

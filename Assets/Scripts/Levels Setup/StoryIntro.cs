@@ -7,7 +7,6 @@ public class StoryIntro : MonoBehaviour
 {
      public void ToMap()
     {
-
         SceneManager.LoadScene("BattleMap");
     }
 

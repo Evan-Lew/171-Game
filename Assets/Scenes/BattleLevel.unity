@@ -171,7 +171,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
   listOfEnemies:
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
-  backgroundName: Village_Background
+  backgroundName: Village_BG
 --- !u!4 &1652796184
 Transform:
   m_ObjectHideFlags: 0

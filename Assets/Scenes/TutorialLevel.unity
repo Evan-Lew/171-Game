@@ -188,6 +188,37 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1986326727}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &129854090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129854091}
+  m_Layer: 0
+  m_Name: Placeholder (Does Nothing)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &129854091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129854090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1039492358}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &130860707
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005b2888cc9ecf944925a9240320b59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialSetup: {fileID: 1612920530}
   scroll: {fileID: 230233882}
   dialogueText: {fileID: 249036564}
   dialogue:
@@ -783,6 +813,7 @@ MonoBehaviour:
     - Ah, your hubris will one day catch up to you son. Just listen to what I have
       to say...
   sentencesLength: 0
+  mapButton: {fileID: 0}
 --- !u!1 &383565706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7749086859542336405, guid: 1ae28f30075fd374ca066c807bb2870c,
@@ -1513,7 +1544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005b2888cc9ecf944925a9240320b59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialSetup: {fileID: 1612920530}
   scroll: {fileID: 463126651}
   dialogueText: {fileID: 1687530474}
   dialogue:
@@ -1522,6 +1552,7 @@ MonoBehaviour:
     - Can I go now? I still need to talk with my wife before I make my trek
     - I have one last thing to tell you...
   sentencesLength: 0
+  mapButton: {fileID: 129854090}
 --- !u!4 &917028384
 Transform:
   m_ObjectHideFlags: 0
@@ -2094,6 +2125,7 @@ Transform:
   m_Children:
   - {fileID: 917028384}
   - {fileID: 463126654}
+  - {fileID: 129854091}
   m_Father: {fileID: 750346815}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

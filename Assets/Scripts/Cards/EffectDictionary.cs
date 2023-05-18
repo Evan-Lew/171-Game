@@ -90,14 +90,22 @@ public class EffectDictionary : MonoBehaviour
     
     [Header("Indicator Variables")]
     // Player Indicator
-    public TMP_Text playerIndicatorText;
-    [SerializeField] private GameObject playerIndicatorObj;
-    private Animator _playerIndicatorController;
+    public TMP_Text playerDamageIndicator;
+    [SerializeField] private GameObject playerDamageIndicatorObj;
+    private Animator _playerDamageIndicatorController;
+    
+    public TMP_Text playerHealIndicator;
+    [SerializeField] private GameObject playerHealIndicatorObj;
+    private Animator _playerHealIndicatorController;
 
     // Enemy Indicator
-    public TMP_Text enemyIndicatorText;
-    [SerializeField] private GameObject enemyIndicatorObj;
-    private Animator _enemyIndicatorController;
+    public TMP_Text enemyDamageIndicator;
+    [SerializeField] private GameObject enemyDamageIndicatorObj;
+    private Animator _enemyDamageIndicatorController;
+    
+    public TMP_Text enemyHealIndicator;
+    [SerializeField] private GameObject enemyHealIndicatorObj;
+    private Animator _enemyHealIndicatorController;
 
     private string damageTrigger = "Damage";
     private string healTrigger = "Heal";
@@ -112,10 +120,17 @@ public class EffectDictionary : MonoBehaviour
         enemy = enemyObj.GetComponent<Character>();
         
         // Assign variable GameObjects for the indicators
-        playerIndicatorText = playerIndicatorObj.GetComponent<TMP_Text>();
-        _playerIndicatorController = playerIndicatorObj.GetComponent<Animator>();
-        enemyIndicatorText = enemyIndicatorObj.GetComponent<TMP_Text>();
-        _enemyIndicatorController = enemyIndicatorObj.GetComponent<Animator>();
+        // Player indicators
+        playerDamageIndicator = playerDamageIndicatorObj.GetComponent<TMP_Text>();
+        _playerDamageIndicatorController = playerDamageIndicatorObj.GetComponent<Animator>();
+        playerHealIndicator = playerHealIndicatorObj.GetComponent<TMP_Text>();
+        _playerHealIndicatorController = playerHealIndicatorObj.GetComponent<Animator>();
+        
+        // Enemy indicators
+        enemyDamageIndicator = enemyDamageIndicatorObj.GetComponent<TMP_Text>();
+        _enemyDamageIndicatorController = enemyDamageIndicatorObj.GetComponent<Animator>();
+        enemyHealIndicator = enemyHealIndicator.GetComponent<TMP_Text>();
+        _enemyHealIndicatorController = enemyHealIndicatorObj.GetComponent<Animator>();
     }
     
     //=================================================================
@@ -152,13 +167,13 @@ public class EffectDictionary : MonoBehaviour
         // Check which target to use indicator for
         if (target == enemy)
         {
-            enemyIndicatorText.text = "-" + damageDealt.ToString();
-            _enemyIndicatorController.SetTrigger(damageTrigger);
+            enemyDamageIndicator.text = "-" + damageDealt.ToString();
+            _enemyDamageIndicatorController.SetTrigger(damageTrigger);
         }
         else if (target == player)
         {
-            playerIndicatorText.text = "-" + damageDealt.ToString();
-            _playerIndicatorController.SetTrigger(damageTrigger);
+            playerDamageIndicator.text = "-" + damageDealt.ToString();
+            _playerDamageIndicatorController.SetTrigger(damageTrigger);
         }
 
         // Check if the target has armor
@@ -218,18 +233,17 @@ public class EffectDictionary : MonoBehaviour
                 target.Health_Current += hpAdded;
             }
         }
-
         
         // Check which target to use indicator for
         if (target == enemy)
         {
-            enemyIndicatorText.text = "+" + healthText.ToString();
-            _enemyIndicatorController.SetTrigger(healTrigger);
+            enemyHealIndicator.text = "+" + healthText.ToString();
+            _enemyHealIndicatorController.SetTrigger(healTrigger);
         }
         else if (target == player)
         {
-            playerIndicatorText.text = "+" + healthText.ToString();
-            _playerIndicatorController.SetTrigger(healTrigger);
+            playerHealIndicator.text = "+" + healthText.ToString();
+            _playerHealIndicatorController.SetTrigger(healTrigger);
         }
     }
 
@@ -1868,7 +1882,7 @@ public class EffectDictionary : MonoBehaviour
         cardName = "Charge";
         descriptionLog = "Deal 6 Damage, Take 3 Damage";
         Enemy_damageDealing = 6f;
-        Enemy_healing = -3f;
+        Enemy_healing = 3f;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
@@ -1876,7 +1890,7 @@ public class EffectDictionary : MonoBehaviour
         // // Particle positioned under the enemy
         // ParticleEvent("Charge", 3, ParticleDuration, ExtraPositioning[3], false);
         // Particle positioned on the enemy
-        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[0], false);
+        ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
         
         // Animations
         // Trigger player damage anim
