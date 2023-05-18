@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
 using UnityEngine.U2D.Animation;
@@ -25,10 +26,15 @@ public class GameController : MonoBehaviour
     [Header("Animator Controllers")]
     [SerializeField] Animator animatorFadeScene;
     [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue;
-    
+
     [Header("Background Variables")] 
     public List<Texture> backgroundsList = new();
     public GameObject currBackground;
+    public GameObject currForeground;
+    
+    [Header("Cloud Objects")] 
+    [SerializeField] private Animator animatorCloud;
+    [SerializeField] private GameObject clouds;
     
     // Dialogue GameObjects
     [Header("Characters Talking")] 
@@ -472,6 +478,18 @@ public class GameController : MonoBehaviour
              if (newBackgroundName == backgroundsList[i].name)
              {
                  background = backgroundsList[i];
+                 
+                 // Edge Case: To set the foreground for the Mountaintop
+                 if (newBackgroundName == "Mountaintop_BG")
+                 {
+                     currForeground.GetComponent<RawImage>().texture = backgroundsList[7];
+                     clouds.SetActive(true);
+                 }
+                 else
+                 {
+                     currForeground.GetComponent<RawImage>().texture = backgroundsList[0];
+                     clouds.SetActive(false);
+                 }
              }
          }
         

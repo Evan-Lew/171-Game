@@ -41,6 +41,12 @@ TagManager:
   - name: Background
     uniqueID: 2402651301
     locked: 0
+  - name: In Between BG and FG
+    uniqueID: 1064750267
+    locked: 0
+  - name: Foreground
+    uniqueID: 2612226053
+    locked: 0
   - name: Behind UI
     uniqueID: 3648866509
     locked: 0
@@ -70,7 +76,4 @@ TagManager:
     locked: 0
   - name: Black Screen
     uniqueID: 2888901389
-    locked: 0
-  - name: New Layer 11
-    uniqueID: 2005082531
     locked: 0

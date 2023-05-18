@@ -33,12 +33,41 @@ public class BattleLog : MonoBehaviour
         //BattleLogScrollBar.onValueChanged.RemoveListener(OnScrollbarValueChanged);
     }
 
+    public void EnemyAttackPopup()
+    {
+        string tempLog;
+        string attackPopup;
+        
+        attackPopup = "<u>" + "<color=#2f617a>" + EffectDictionary.instance.cardName + "</color>" + "</u>" + "\n" + " costs " + EffectDictionary.instance.Enemy_priorityInc + "\n";
+        tempLog = "";
+
+        if (EffectDictionary.instance.descriptionLog != "")
+        {
+            tempLog = EffectDictionary.instance.descriptionLog;
+            attackPopup = attackPopup + " " + tempLog;
+        }
+        // Enemy Attack Popup
+        enemyAttackText.text = attackPopup;
+        animatorEnemyAttackPopup.SetTrigger("Appear");
+        
+        // Delay for the enemy attack popup to disappear
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            animatorEnemyAttackPopup.SetTrigger("Disappear");
+        }, 3.5f));
+        // Extra delay to clear the text
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            enemyAttackText.text = "";
+        }, 4.5f));
+    }
+    
     public void ProcessLog(string character)
     {
         //setScrollBar2Bottom = true;
         string BattleLog;
         string tempLog;
-        string attackPopup;
+        //string attackPopup;
 
         // Player actions
         if (character == "Player")
@@ -80,9 +109,9 @@ public class BattleLog : MonoBehaviour
         else
         {
             BattleLog = "<color=#df0074>" + character + "</color>" + " casts " + EffectDictionary.instance.cardName + ", costs " + EffectDictionary.instance.Enemy_priorityInc + ". ";
-            attackPopup = "<u>" + "<color=#2f617a>" + EffectDictionary.instance.cardName + "</color>" + "</u>" + "\n" + " costs " + EffectDictionary.instance.Enemy_priorityInc + "\n";
             tempLog = "";
             
+            // // Not used anymore
             // if (EffectDictionary.instance.Enemy_damageDealing != 0)
             // {
             //     tempLog = "Deal <color=#d16c64>{0}</color> damage";
@@ -96,26 +125,7 @@ public class BattleLog : MonoBehaviour
             //     string formattedText = string.Format(tempLog, EffectDictionary.instance.Enemy_armorCreate);
             //     BattleLog = BattleLog + formattedText;
             // }
-            
-            if (EffectDictionary.instance.descriptionLog != "")
-            {
-                tempLog = EffectDictionary.instance.descriptionLog;
-                BattleLog = BattleLog + " " + tempLog;
-                attackPopup = attackPopup + " " + tempLog;
-            }
-            // Enemy Attack Popup
-            enemyAttackText.text = attackPopup;
-            
-            animatorEnemyAttackPopup.SetTrigger("Appear");
         }
-        
-        // Delay for the enemy attack popup to disappear
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-        {
-            animatorEnemyAttackPopup.SetTrigger("Disappear");
-            enemyAttackText.text = "";
-        }, 3f));
-
         GameObject instance = Instantiate(Prefab_BattleLog, contentHolder.transform);
         instance.transform.SetAsFirstSibling();
         instance.GetComponent<TMP_Text>().text = BattleLog;
@@ -125,7 +135,7 @@ public class BattleLog : MonoBehaviour
         EffectDictionary.instance.descriptionLog = "";
         EffectDictionary.instance.cardName = "";
     }
-    
+
     private void UpdateLayout()
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentHolder.GetComponent<RectTransform>());

@@ -154,9 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerCards:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
   playerName: Bai She Zhuan
   enemyName: Ink Golem
-  backgroundName: Forest_Background
+  backgroundName: Mountaintop_BG
 --- !u!4 &146657063
 Transform:
   m_ObjectHideFlags: 0
