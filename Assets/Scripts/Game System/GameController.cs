@@ -154,8 +154,12 @@ public class GameController : MonoBehaviour
     {
         animatorAspectRatioSwitch.SetTrigger("Out");
         animatorDarkenBackground.SetTrigger("Bright");
-        animatorXuXuanDialogue.SetTrigger("Disappear");
-        animatorFaHaiDialogue.SetTrigger("Disappear");
+
+        if (rightCharacter.activeSelf && leftCharacter.activeSelf)
+        {
+            animatorXuXuanDialogue.SetTrigger("Disappear");
+            animatorFaHaiDialogue.SetTrigger("Disappear");
+        }
     }
 
     public void FadeOut()

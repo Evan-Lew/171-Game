@@ -14,17 +14,19 @@ public class TextManager : MonoBehaviour
     public Dialogue dialogue;
 
     [HideInInspector] public int sentencesLength;
-    private bool tutorialLevelLoaded = false;
+    private bool _tutorialLevelLoaded = false;
+    private bool _storyIntroLoaded = false;
+    [SerializeField] GameObject mapButton;
     
     void Start()
     {   
         sentences = new Queue<string>();
         StartDialogue(dialogue);
-        IsTutorialLoaded();
+        IsSceneLoaded();
     }
 
     // Helper function to see if the TutorialLevel scene is loaded
-    private void IsTutorialLoaded()
+    private void IsSceneLoaded()
     {
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
@@ -35,11 +37,14 @@ public class TextManager : MonoBehaviour
             {
                 if (scene.name == "TutorialLevel")
                 {
-                    tutorialLevelLoaded = true;
+                    _tutorialLevelLoaded = true;
+                }
+                else if (scene.name == "StoryIntro")
+                {
+                    _storyIntroLoaded = true;
                 }
             }
         }
-        Debug.Log(tutorialLevelLoaded);
     }
     
     public void StartDialogue(Dialogue moreDialogue)
@@ -64,15 +69,20 @@ public class TextManager : MonoBehaviour
         }
         if (sentences.Count == 0){
             // Start the battle after the intro tutorial dialogue
-            if (GameController.instance.tutorialIntroDialoguePlaying && tutorialLevelLoaded)
+            if (GameController.instance.tutorialIntroDialoguePlaying && _tutorialLevelLoaded)
             {
                 GameController.instance.TutorialIntroDialogueDone();    
             }
 
             // End the battle after the end tutorial dialogue
-            if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd && tutorialLevelLoaded)
+            if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd && _tutorialLevelLoaded)
             {
                 GameController.instance.TutorialOutroDialogueDone(); 
+            }
+
+            if (_storyIntroLoaded)
+            {
+                mapButton.SetActive(true);
             }
         }
         else
