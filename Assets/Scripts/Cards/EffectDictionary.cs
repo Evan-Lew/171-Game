@@ -66,8 +66,6 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public double Enemy_priorityInc = 0;
     [HideInInspector] public double Enemy_permanantCostIncrease = 0;
 
-    [SerializeField] Animator animatorInkGolem;
-    
     float ParticleDuration = 0;
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
 

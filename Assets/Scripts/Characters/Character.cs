@@ -75,12 +75,6 @@ public class Character : MonoBehaviour
         Priority_Current = CharacterData.Priority_Current;
 
         // Evan
-        // Deactivate all player sprite game objects
-        // for (int i = 0; i < GameController.instance.playerSpriteGameObjects.Count; i++)
-        // {
-        //     GameController.instance.playerSpriteGameObjects[i].SetActive(false);
-        // }
-        
         // Check what player is active and activate their sprite
         if (CharacterData.characterName == "Xu Xuan")
         {
@@ -94,12 +88,6 @@ public class Character : MonoBehaviour
             GameController.instance.playerSpriteGameObjects[0].SetActive(false);
             GameController.instance.currAnimatorPlayer = GameController.instance.animatorPlayerList[1];
         }
-        
-        // Deactivate all enemy sprite game objects
-        // for (int i = 0; i < GameController.instance.enemySpriteGameObjects.Count; i++)
-        // {
-        //     GameController.instance.enemySpriteGameObjects[i].SetActive(false);
-        // }
 
         // Check what enemy is active and activate their sprite
         if (CharacterData.characterName == "Peng Hou")
@@ -134,8 +122,7 @@ public class Character : MonoBehaviour
             GameController.instance.enemySpriteGameObjects[2].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[3];
         }
-        
-        
+
         //
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = CharacterData.characterSprite;
         
