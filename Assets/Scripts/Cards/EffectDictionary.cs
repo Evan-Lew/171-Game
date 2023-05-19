@@ -982,7 +982,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw a card. It costs +1
     public void ID3003_Hongbao()
     {        
@@ -995,6 +995,8 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            isCostingExtraPriority = true;
+            Player_extraPriorityCost += 1;
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
