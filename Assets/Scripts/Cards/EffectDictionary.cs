@@ -826,7 +826,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID2011_CausticTrail()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 4;
+        Player_priorityInc = 10;
         Player_damageDealing = player.Health_Current - 1;
         Enemy_damageDealing = Player_damageDealing;
         Manipulator_Player();
@@ -916,7 +916,7 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // IMPLEMENTED
-    // Env: Deal 3 damage to yourself, -2 Priority
+    // Deal 3 damage to yourself, -2 Priority
     public void ID2015_Intoxication()
     {
         ParticleDuration = 3f;
@@ -983,7 +983,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Draw a card. It costs +1
+    // Draw a card. Your next card costs +1.
     public void ID3003_Hongbao()
     {        
         ParticleDuration = 3f;
