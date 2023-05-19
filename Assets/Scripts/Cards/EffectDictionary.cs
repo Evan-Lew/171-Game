@@ -98,6 +98,9 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private GameObject playerHealIndicatorObj;
     private Animator _playerHealIndicatorController;
 
+    // Player Buffs
+    [SerializeField] private PlayerBuffs _script_PlayerBuffs;
+
     // Enemy Indicator
     public TMP_Text enemyDamageIndicator;
     [SerializeField] private GameObject enemyDamageIndicatorObj;
@@ -427,12 +430,12 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Deal 3 damage, cost 1
+    // Deal 4 damage, cost 1
     public void ID1002_Whack()
     {
         ParticleDuration = 1.5f;
         Player_priorityInc = 1;
-        Player_damageDealing = 3;
+        Player_damageDealing = 4;
         Manipulator_Player();
         
         // Play SFX with delay
@@ -461,12 +464,12 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Gain 2 armor, cost 1
+    // Gain 3 armor, cost 1
     public void ID1003_WhiteScales()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_armorCreate = 2;
+        Player_armorCreate = 3;
         Manipulator_Player();
         
         // Play SFX
@@ -593,6 +596,7 @@ public class EffectDictionary : MonoBehaviour
 
         // Particle positioned on the enemy
         ParticleEvent("SerpentCutlass", 2002, ParticleDuration, ExtraPositioning[2], true);
+        _script_PlayerBuffs.showExtraDamage();
         
         // Animations
         // Trigger player attack anim
@@ -612,8 +616,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2003_WisdomOfWisteria()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 3;
+        Player_priorityInc = 2;
         isDealingDoubleDmg = true;
+        _script_PlayerBuffs.showDoubleDamage();
         Manipulator_Player();
         
         //WithoutParticle(ParticleDuration);
@@ -633,7 +638,7 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 2f;
         Player_priorityInc = 1;
-        Player_damageDealing = 1;
+        Player_damageDealing = 2;
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -744,15 +749,15 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // IMPLEMENTED
-    // Deal 4 damage, if you health is lower than 10, deal 8 damage instead
+    // Deal 2 damage, if you health is lower than 20, deal 6 damage instead
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_damageDealing = 4;
+        Player_priorityInc = 1;
+        Player_damageDealing = 2;
         if (player.Health_Current < 10)
         {
-            Player_damageDealing = 8;
+            Player_damageDealing = 6;
             // Animations
             // Trigger player attack anim
             playerCharacterAttackAnim();
@@ -796,7 +801,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID2010_Savagery()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 5;
+        Player_priorityInc = 4;
         Player_damageDealing = 12;
         Enemy_damageDealing = 6;
         Manipulator_Player();
@@ -916,7 +921,7 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Player_priorityInc = -2;
-        Player_damageDealing = 3;
+        Enemy_damageDealing = 3;
         Manipulator_Player();
         
         // Animations
@@ -928,7 +933,8 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(player, Player_damageDealing);
+            // changed to Enemy_damageDealing to prevent buff activation
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1126,9 +1132,10 @@ public class EffectDictionary : MonoBehaviour
         int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_cardsDrawing = 0;
         Player_armorCreate = 0;
-        if (cardsInHand < 4)
+        if (cardsInHand <= 4)
         {
-            Player_cardsDrawing = 4 - cardsInHand;
+            // there was a bug where it was drawing one less than it should
+            Player_cardsDrawing = 5 - cardsInHand;
         }
         else
         {
@@ -2221,6 +2228,7 @@ public class EffectDictionary : MonoBehaviour
             Player_damageDealing += Player_extraDamage;
             isDealingExtraDmg = false;
             Player_extraDamage = 0;
+            _script_PlayerBuffs.hideExtraDamage();
         }
     }
 
@@ -2233,6 +2241,7 @@ public class EffectDictionary : MonoBehaviour
         {
             Player_damageDealing += Player_damageDealing;
             isDealingDoubleDmg = false;
+            _script_PlayerBuffs.hideDoubleDamage();
         }
     }
 
