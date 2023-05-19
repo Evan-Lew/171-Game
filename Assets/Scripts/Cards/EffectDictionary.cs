@@ -221,7 +221,7 @@ public class EffectDictionary : MonoBehaviour
         double healthText = hpAdded;
         
         if(target == player && isMalachiteChain){
-            enemy.Health_Current -= hpAdded;
+            enemy.Health_Current -= hpAdded*2;
         } else {
             if ((target.Health_Current + hpAdded) > target.Health_Total)
             {
@@ -1237,11 +1237,11 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
+    // Draw 2 cards and deal 3x damage(x equals to the number of cards in your hand)
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
-        Player_priorityInc = 5;
+        Player_priorityInc = 8;
         Player_cardsDrawing = 2;
         Manipulator_Player();
         
@@ -1256,25 +1256,25 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
-            Player_damageDealing = cardsInHand * 2;
+            Player_damageDealing = cardsInHand * 3;
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
     // IMPLEMENTED
-    // If your Armor is less than 10 gain 12 Armor, otherwise gain 6 Armor
+    // If your Armor is less than 10 gain 6 Armor, otherwise gain 2 Armor
     public void ID3015_BronzeAge()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         if (player.Armor_Current < 10)
         {
-            Player_armorCreate = 12;
+            Player_armorCreate = 6;
         }
         else
         {
-            Player_armorCreate = 6;
+            Player_armorCreate = 2;
         }
         Manipulator_Player();
         
@@ -1307,12 +1307,12 @@ public class EffectDictionary : MonoBehaviour
     //                      JADE CARDS
     //=================================================================
     // IMPLEMENTED
-    // Heal 6
+    // Heal 3
     public void ID4001_JadeSpirit()
     {
         ParticleDuration = 4f;
         Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_healing = 3;
         Manipulator_Player();
        
         PlaySound("sfx_Spirit", 1);
@@ -1344,12 +1344,12 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Draw 2, Heal 4 Health
+    // Draw 2, Heal 3 Health
     public void ID4003_DauntlessDraw()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 4;
-        Player_healing = 6;
+        Player_healing = 3;
         Player_cardsDrawing = 2;
         Manipulator_Player();
         
@@ -1434,11 +1434,11 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Env: All healing becomes damage instead
+    // Env: All healing becomes damage instead. Healing damage is doubled.
     public void ID4008_MalechiteChain()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 3;
+        Player_priorityInc = 6;
         Manipulator_Player();
         
         isMalachiteChain = true;

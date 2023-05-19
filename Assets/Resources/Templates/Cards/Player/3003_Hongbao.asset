@@ -17,8 +17,8 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Hongbao
   ID: 3003
-  description_Main: Draw a card. It costs +1
-  description_Log: Draw a card. It costs +1
+  description_Main: Draw a card. Your next card costs one more.
+  description_Log: Draw a card. Your next card costs one more.
   priorityCost: 0
   Card_Front: {fileID: 21300000, guid: a4347b74ade1f54449b707565d33c92e, type: 3}
   Card_Name: {fileID: 21300000, guid: 4b63f2a650e142b44adb8c922d5914cc, type: 3}

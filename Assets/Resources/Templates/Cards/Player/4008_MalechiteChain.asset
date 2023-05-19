@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 2
   rirty: 0
+  cardActivity: 0
   cardName: Malechite Chain
   ID: 4008
-  description_Main: 'Env: All healing becomes damage instead'
+  description_Main: 'Env: All healing becomes damage instead. Healing Damage is doubled.'
+  description_Log: 
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
   Card_Name: {fileID: 21300000, guid: d9b98d98c2e0d82468af1cda5e5a6083, type: 3}
