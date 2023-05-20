@@ -94,9 +94,11 @@ public class BattleLevelSetup : MonoBehaviour
             {
                 _levelEnd = false;
                 Debug.Log(BattleController.battleNum);
+                // For sprint 2
                 if (BattleController.battleNum == 3)
                 {
-                    SceneManager.LoadScene("MountainChallenge");
+                    SceneManager.LoadScene("EndScene");
+                    //SceneManager.LoadScene("MountainChallenge");
                 }
                 else if (BattleController.battleNum == 100)
                 {
