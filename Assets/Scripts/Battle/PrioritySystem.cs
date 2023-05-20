@@ -64,8 +64,9 @@ public class PrioritySystem : MonoBehaviour
         //priorityBar.moveBar();
     }
 
-    // Called in BattleContoller.clear
+    // Called in BattleController.clear
     public void ResetPriority(Character character){
+        character.Priority_Current = 0;
         priorityDict[character] = 0;
     }
 

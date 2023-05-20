@@ -365,7 +365,8 @@ public class EffectDictionary : MonoBehaviour
             // Set object to deactivate after it's been played (object pool idea)
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                newEffect.particleObj.SetActive(false);
+                // Commented out bc of error when fixing the looping between scenes - Evan 5/19
+                //newEffect.particleObj.SetActive(false);
                 BattleController.instance.enableCardActivation = true;
                 TurnManipulator();
             }, newEffect.totalPlayTime ));

@@ -92,6 +92,13 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     Debug.Log("Space");
+        //     DisableBattleMode();
+        //     
+        // }
+        
         //BattleConditionCheck();
         
         // if (isDeckELevel)
@@ -346,23 +353,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // Helper function: Setup for the developer scene/script
-    public void DeveloperBattleSetup(string playerName, string enemyName)
-    {
-        battleCondition = true;
-        SetCharacter(characterType.player, GetCharacter(playerName));
-        SetCharacter(characterType.enemy, GetCharacter(enemyName));
-        characters.SetActive(true);
-        
-        // Implement the character reassignment here
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), true);
-        _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
-        _script_HandManager.SetUp();
-        _script_DeckSystem.SetUp();
-        _script_BattleController.SetUp();
-        _script_EffectDictionary.SetUp();
-    }
-    
     // Setup function for tutorial only
     public void TutorialBattleSetup()
     {

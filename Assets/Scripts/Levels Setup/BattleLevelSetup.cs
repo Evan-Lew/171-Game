@@ -22,6 +22,7 @@ public class BattleLevelSetup : MonoBehaviour
     
     private void Start()
     {
+        GameController.instance.battleCondition = true;
         // Change background
         GameController.instance.ChangeBackground(backgroundName);
         
