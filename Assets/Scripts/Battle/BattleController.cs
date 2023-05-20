@@ -9,7 +9,7 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private HandManager _script_HandManager;
-    [HideInInspector]public bool startDrawingCards = true;
+    [HideInInspector] public bool startDrawingCards = true;
     public int startingCardsAmount;
     public float TurnChangeAnimationDuration = 1.5f;
     [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
@@ -74,6 +74,7 @@ public class BattleController : MonoBehaviour
         enemy = GameObject.Find("Enemy").GetComponent<Character>();
         if (startDrawingCards)
         {
+            Debug.Log("drawing");
             _script_DeckSystem.DrawMultipleCards(startingCardsAmount);
         }
         currentPhase = TurnOrder.start;

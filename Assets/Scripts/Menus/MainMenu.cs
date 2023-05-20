@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         SoundManager.PlaySound("bgm_Mountain_Ambient", 0.2f);
-        GameController.instance.EndDialogue();
+        //GameController.instance.EndDialogue();
     }
 
     public void PlayGame()
