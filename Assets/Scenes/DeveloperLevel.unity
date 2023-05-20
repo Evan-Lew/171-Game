@@ -159,8 +159,11 @@ MonoBehaviour:
   playerName: Bai She Zhuan
   enemyName: Ink Golem
   backgroundName: Mountaintop_BG
-  enemiesForDemo:
+  enemiesList:
+  - {fileID: 11400000, guid: 5c0ccff827ca5dd4791b2c9665748f3d, type: 2}
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
+  - {fileID: 11400000, guid: 85cc55650dd5ecf4086be893b04d83cd, type: 2}
+  - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
 --- !u!4 &146657063
 Transform:
   m_ObjectHideFlags: 0
