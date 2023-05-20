@@ -63,8 +63,6 @@ public class TutorialSetup : MonoBehaviour
             introTextManager.SetActive(true);
         }, 4f));
     }
-
-    
     
     void Update()
     {
@@ -207,16 +205,22 @@ public class TutorialSetup : MonoBehaviour
             }
         }
     }
-    
+
+    private bool _gameOverFlag = false;
 void LevelManagement()
     {
         // Player wins and the tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
         {
-            historyTutorial.SetActive(false);
-            tutorialEnd = true;
-            GameController.instance.tutorialLevelEnd = true;
-            GameController.instance.DisableBattleController();
+            if (_gameOverFlag == false)
+            {
+                historyTutorial.SetActive(false);
+                tutorialEnd = true;
+                GameController.instance.tutorialLevelEnd = true;
+                GameController.instance.DisableBattleController();
+                _gameOverFlag = true;
+            }
+            
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 if (_restartedDialogueFlag == false)
@@ -306,17 +310,17 @@ void LevelManagement()
         }, 5f));
     }
 
-    void Backupdata()
-    {
-        BattleController.instance.startingCardsAmount = Backup_StartDraw;
-        BattleController.instance.startDrawingCards = true;
-        _DeckSystem.enableDrawing = true;
-    }
-
-    private void OnDestroy()
-    {
-        //Backupdata();
-    }
+    // void Backupdata()
+    // {
+    //     BattleController.instance.startingCardsAmount = Backup_StartDraw;
+    //     BattleController.instance.startDrawingCards = true;
+    //     _DeckSystem.enableDrawing = true;
+    // }
+    //
+    // private void OnDestroy()
+    // {
+    //     //Backupdata();
+    // }
 
     public void NextButton()
     {

@@ -22,6 +22,7 @@ public class BattleLevelSetup : MonoBehaviour
     
     private void Start()
     {
+        GameController.instance.battleCondition = true;
         // Change background
         GameController.instance.ChangeBackground(backgroundName);
         
@@ -49,6 +50,8 @@ public class BattleLevelSetup : MonoBehaviour
             _deckSystem.deckToUse.Add(card);
         }
         
+        GameController.instance.battleCondition = true;
+        
         // listOfEnemies
         // 0, 1, 2 == fodder enemies
         // 3 == elite enemy
@@ -71,9 +74,10 @@ public class BattleLevelSetup : MonoBehaviour
         // Player wins
         if (BattleController.instance.enemy.Health_Current <= 0 && _levelEnd == false)
         {
+            BattleController.instance.enableTurnUpdate = false;
+            
             BattleController.battleNum++;
             BattleController.totalLevel++;
-
             _levelEnd = true;
         }
         
