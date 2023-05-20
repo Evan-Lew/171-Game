@@ -19,13 +19,14 @@ public class BattleLevelSetup : MonoBehaviour
     private bool _levelEnd = false;
     
     [SerializeField] String backgroundName;
-    
+    [SerializeField] List<String> backgroundsList;
+
     private void Start()
     {
         GameController.instance.EndDialogue();
         
         // Change background
-        GameController.instance.ChangeBackground(backgroundName);
+        GameController.instance.ChangeBackground(backgroundsList[BattleController.battleNum]);
         // Change sprite to Bai She Zhuan
         GameController.instance.changePlayerSprite();
         
