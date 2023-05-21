@@ -15,4 +15,8 @@ public class StoryIntro : MonoBehaviour
 
         SceneManager.LoadScene("BattleLevel");
     }
+    public void ChangeDecks()
+    {
+        SceneManager.LoadScene("PickDeckLevel_1");
+    }
 }
