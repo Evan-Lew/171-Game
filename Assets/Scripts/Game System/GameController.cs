@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue;
 
     [Header("Story Background Lists and Story Animators")]
+    public int storyScenesLeft = 4;
     [SerializeField] List<Animator> animatorScreenWipesList;
     [SerializeField] public List<GameObject> storyBackgroundsList;
 
