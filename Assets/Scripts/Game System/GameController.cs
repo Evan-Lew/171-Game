@@ -27,10 +27,15 @@ public class GameController : MonoBehaviour
     [SerializeField] Animator animatorFadeScene;
     [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue;
 
+    [Header("Background Controllers")]
+    [SerializeField] Animator animatorScreenWipe;
+    
     [Header("Background Variables")] 
     public List<Texture> backgroundsList = new();
+    public List<Texture> storyBackgroundsList = new();
     public GameObject currBackground;
     public GameObject currForeground;
+    public GameObject currStoryBackground;
     
     [Header("Cloud Objects")] 
     [SerializeField] private Animator animatorCloud;
@@ -496,9 +501,13 @@ public class GameController : MonoBehaviour
          currBackground.GetComponent<RawImage>().texture = background;
     }
 
-    public void ChangeStoryBackground()
+    public void ChangeStoryBackground(int currStoryBackgroundNum)
     {
-        
+        animatorScreenWipe.SetTrigger("Wipe");
+        // currBackground.GetComponent<RawImage>().texture = storyBackgroundsList[currStoryBackgroundNum];
+        //
+        // currForeground.GetComponent<RawImage>().texture = backgroundsList[0];
+        // clouds.SetActive(false);
     }
     
     

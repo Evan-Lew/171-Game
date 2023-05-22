@@ -17,8 +17,7 @@ public class StoryTextManager : MonoBehaviour
     public Dialogue dialogue;
 
     void Start()
-    {   
-        GameController.instance.FadeIn();
+    {
         _sentences = new Queue<string>();
         StartDialogue(dialogue);
     }
@@ -48,6 +47,7 @@ public class StoryTextManager : MonoBehaviour
                 textManagersList[0].SetActive(false);
                 textManagersList[1].SetActive(true);
                 textGroupGameObject.SetActive(true);
+                GameController.instance.ChangeStoryBackground(2);
             }, 3f));
         }
         else

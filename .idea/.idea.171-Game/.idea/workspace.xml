@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Controller.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Controller.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Left_To_Middle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Left_To_Middle.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/New/CaveatBrush-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/New/CaveatBrush-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Fonts/New/NerkoOne-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Fonts/New/NerkoOne-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StoryIntro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StoryIntro.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Scene_Fade_In.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Scene_Fade_In.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryIntro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryIntro.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +150,7 @@
       <workItem from="1683059328008" duration="3909000" />
       <workItem from="1683221856141" duration="10154000" />
       <workItem from="1684476677505" duration="3839000" />
-      <workItem from="1684688911148" duration="1431000" />
+      <workItem from="1684688911148" duration="3917000" />
     </task>
     <servers />
   </component>
