@@ -27,11 +27,17 @@ public class GameController : MonoBehaviour
     [SerializeField] Animator animatorFadeScene;
     [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue;
 
+    [Header("Story Background Lists and Story Animators")]
+    public int storyScenesLeft = 4;
+    public int scenesPlayed = 0;
+    [SerializeField] List<Animator> animatorScreenWipesList;
+    [SerializeField] public List<GameObject> storyBackgroundsList;
+
     [Header("Background Variables")] 
     public List<Texture> backgroundsList = new();
     public GameObject currBackground;
     public GameObject currForeground;
-    
+
     [Header("Cloud Objects")] 
     [SerializeField] private Animator animatorCloud;
     [SerializeField] private GameObject clouds;
@@ -181,6 +187,11 @@ public class GameController : MonoBehaviour
         animatorDarkenBackground.SetTrigger("StartBright");
     }
 
+    public void FadeIn()
+    {
+        animatorFadeScene.SetTrigger("FadeIn");
+    }
+    
     public void FadeOut()
     {
         animatorFadeScene.SetTrigger("FadeOut");
@@ -488,8 +499,15 @@ public class GameController : MonoBehaviour
                  }
              }
          }
-        
          currBackground.GetComponent<RawImage>().texture = background;
+    }
+
+    public void ChangeStoryBackground(int currStoryBackgroundNum)
+    {
+        animatorScreenWipesList[currStoryBackgroundNum].SetTrigger("Wipe");
+        // currBackground.GetComponent<RawImage>().texture = storyBackgroundsList[currStoryBackgroundNum];
+        currForeground.GetComponent<RawImage>().texture = backgroundsList[0];
+        clouds.SetActive(false);
     }
     
     
