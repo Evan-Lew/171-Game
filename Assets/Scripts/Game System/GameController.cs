@@ -181,6 +181,11 @@ public class GameController : MonoBehaviour
         animatorDarkenBackground.SetTrigger("StartBright");
     }
 
+    public void FadeIn()
+    {
+        animatorFadeScene.SetTrigger("FadeIn");
+    }
+    
     public void FadeOut()
     {
         animatorFadeScene.SetTrigger("FadeOut");
@@ -488,8 +493,12 @@ public class GameController : MonoBehaviour
                  }
              }
          }
-        
          currBackground.GetComponent<RawImage>().texture = background;
+    }
+
+    public void ChangeStoryBackground()
+    {
+        
     }
     
     
