@@ -66,7 +66,11 @@ public class PrioritySystem : MonoBehaviour
 
     // Called in BattleController.clear
     public void ResetPriority(Character character){
-        character.Priority_Current = 0;
+        // Delay is needed for the tutorial
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            character.Priority_Current = 0;
+        }, 3f));
         priorityDict[character] = 0;
     }
 

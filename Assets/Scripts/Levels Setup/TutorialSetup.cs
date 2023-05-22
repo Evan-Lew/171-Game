@@ -48,6 +48,7 @@ public class TutorialSetup : MonoBehaviour
     private bool _fadeSceneOutFlag = false;
     private bool _outroTextStartedFlag = false;
     private bool _restartedDialogueFlag = false;
+    private bool _gameOverFlag = false;
     
     void Start()
     {
@@ -96,7 +97,8 @@ public class TutorialSetup : MonoBehaviour
         {
             Tutorials();
             LevelManagement();
-
+            
+            
             if (tutorial01.activeSelf || tutorial02.activeSelf  || tutorial03.activeSelf)
             {
                 GameController.instance.enableMouseEffectOnCard = false;
@@ -121,7 +123,7 @@ public class TutorialSetup : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 GameController.instance.EndDialogue();
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("BattleLevel");
             }, 6f));    
         }
     }
@@ -205,15 +207,18 @@ public class TutorialSetup : MonoBehaviour
             }
         }
     }
-
-    private bool _gameOverFlag = false;
-void LevelManagement()
+    
+    void LevelManagement()
     {
         // Player wins and the tutorial is over
         if (BattleController.instance.enemy.Health_Current <= 0)
         {
             if (_gameOverFlag == false)
             {
+                // To stop the battle from going
+                _DeckSystem.enableDrawing = false;
+                BattleController.instance.enableTurnUpdate = false;
+                
                 historyTutorial.SetActive(false);
                 tutorialEnd = true;
                 GameController.instance.tutorialLevelEnd = true;

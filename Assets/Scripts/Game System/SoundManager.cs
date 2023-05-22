@@ -69,17 +69,17 @@ public class SoundManager : MonoBehaviour
         sfx_Multiple_Splash = Resources.Load<AudioClip>("SFX/Player/Multiple_Splash");
         
         // Loading enemy audio files
-        sfx_Action_01_Throw_Stone = Resources.Load<AudioClip>("SFX/Enemy/Golem/Throw_Stone");
-        sfx_Action_02_Body_Slam = Resources.Load<AudioClip>("SFX/Enemy/Golem/Body_Slam");
-        sfx_Action_03_Stubborn = Resources.Load<AudioClip>("SFX/Enemy/Golem/Snarl");
+        sfx_Action_01_Throw_Stone = Resources.Load<AudioClip>("SFX/Enemy/Throw_Stone");
+        sfx_Action_02_Body_Slam = Resources.Load<AudioClip>("SFX/Enemy/Body_Slam");
+        sfx_Action_03_Stubborn = Resources.Load<AudioClip>("SFX/Enemy/Snarl");
         sfx_Action_04_Drain = Resources.Load<AudioClip>("SFX/Enemy/Wind_Blow");
         sfx_Action_Rock_Smash = Resources.Load<AudioClip>("SFX/Enemy/Rock_Smash");
-        sfx_Action_Reverberate = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Reverberate");
-        sfx_Action_Breath = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Breath");
-        sfx_Action_Monsterize = Resources.Load<AudioClip>("SFX/Enemy/Stone RuiShi/Monsterize");
-        sfx_Action_Breeze = Resources.Load<AudioClip>("SFX/Enemy/Zhenniao/Breeze");
-        sfx_Action_Whoosh = Resources.Load<AudioClip>("SFX/Enemy/Zhenniao/Whoosh");
-        sfx_Action_Cyclone = Resources.Load<AudioClip>("SFX/Enemy/Zhenniao/Cyclone");
+        sfx_Action_Reverberate = Resources.Load<AudioClip>("SFX/Enemy/Reverberate");
+        sfx_Action_Breath = Resources.Load<AudioClip>("SFX/Enemy/Breath");
+        sfx_Action_Monsterize = Resources.Load<AudioClip>("SFX/Enemy/Monsterize");
+        sfx_Action_Breeze = Resources.Load<AudioClip>("SFX/Enemy/Breeze");
+        sfx_Action_Whoosh = Resources.Load<AudioClip>("SFX/Enemy/Whoosh");
+        sfx_Action_Cyclone = Resources.Load<AudioClip>("SFX/Enemy/Cyclone");
 
         // Loading misc audio files
         sfx_Page_Flip = Resources.Load<AudioClip>("SFX/Misc/Page_Flip");

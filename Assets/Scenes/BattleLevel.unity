@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,7 +171,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
   listOfEnemies:
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
+  - {fileID: 11400000, guid: 85cc55650dd5ecf4086be893b04d83cd, type: 2}
+  - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
   backgroundName: Village_BG
+  backgroundsList:
+  - Forest_BG
+  - Waterfall_BG
+  - Abandoned_Temple_BG
+  - Bamboo_Forest_BG
+  - Mountain_Top_BG
 --- !u!4 &1652796184
 Transform:
   m_ObjectHideFlags: 0

@@ -9,11 +9,11 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] private DeckSystem _script_DeckSystem;
     [SerializeField] private HandManager _script_HandManager;
-    [HideInInspector]public bool startDrawingCards = true;
+    [HideInInspector] public bool startDrawingCards = true;
     public int startingCardsAmount;
     public float TurnChangeAnimationDuration = 1.5f;
     [HideInInspector]public enum TurnOrder { start, playerPhase, playerEndPhase, EnemyPhase, EnemyEndPhase }
-    [HideInInspector]public enum TurnType { player, enemy}
+    [HideInInspector]public enum TurnType { player, enemy }
     [HideInInspector]public TurnOrder currentPhase;
     [HideInInspector]public TurnOrder lastPhase = TurnOrder.playerPhase;
     [HideInInspector]public TurnOrder nextPhase;
@@ -44,6 +44,13 @@ public class BattleController : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("Developer Tool: Change Enemy Health");
+            enemy.Health_Current = 1;
+        }
+        
+        
         // The battle controller will be enabled only if the battle is happened
         if (enable_BattleController)
         {
