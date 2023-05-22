@@ -19,54 +19,54 @@ public class StoryTextManager : MonoBehaviour
     void Awake()
     {
         _sentences = new Queue<string>();
+        
+        
+        
+        Debug.Log("Story scenes left: " + GameController.instance.storyScenesLeft);
+        Debug.Log("Scenes played: " + GameController.instance.scenesPlayed);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeIn");
+        }, 1.5f));
         StartDialogue(dialogue);
+        
+        
 
-        //animatorStoryTextFade[0].SetTrigger("FadeIn");
-        Debug.Log(GameController.instance.storyScenesLeft);
-  
-        // if (GameController.instance.storyScenesLeft >= 3)
+        // if (GameController.instance.storyScenesLeft == 4)
+        // {
+        //     StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        //     {
+        //         textBackgroundsList[0].SetActive(true);
+        //     }, 3f));
+        // }
+        // if (GameController.instance.storyScenesLeft == 4)
         // {
         //     StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         //     {
         //         animatorStoryTextFade[0].SetTrigger("FadeIn");
         //     }, 1.5f));    
         // }
-        // else if (GameController.instance.storyScenesLeft == 2)
+        // else if (GameController.instance.storyScenesLeft == 3)
         // {
         //     StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         //     {
         //         animatorStoryTextFade[1].SetTrigger("FadeIn");
         //     }, 1.5f));    
         // }
-        
-        if (GameController.instance.storyScenesLeft == 4)
-        {
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                animatorStoryTextFade[0].SetTrigger("FadeIn");
-            }, 1.5f));    
-        }
-        else if (GameController.instance.storyScenesLeft == 3)
-        {
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                animatorStoryTextFade[1].SetTrigger("FadeIn");
-            }, 1.5f));    
-        }
-        else if (GameController.instance.storyScenesLeft == 2)
-        {
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                animatorStoryTextFade[2].SetTrigger("FadeIn");
-            }, 1.5f));    
-        }
-        else if (GameController.instance.storyScenesLeft == 1)
-        {
-            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
-            {
-                animatorStoryTextFade[3].SetTrigger("FadeIn");
-            }, 1.5f));    
-        }
+        // else if (GameController.instance.storyScenesLeft == 2)
+        // {
+        //     StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        //     {
+        //         animatorStoryTextFade[2].SetTrigger("FadeIn");
+        //     }, 1.5f));    
+        // }
+        // else if (GameController.instance.storyScenesLeft == 1)
+        // {
+        //     StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        //     {
+        //         animatorStoryTextFade[3].SetTrigger("FadeIn");
+        //     }, 1.5f));    
+        // }
     }
 
     public void StartDialogue(Dialogue moreDialogue)
@@ -76,7 +76,11 @@ public class StoryTextManager : MonoBehaviour
         {
             _sentences.Enqueue(sentence);
         }
-        DisplayNext();
+        //DisplayNext();
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DisplayNext();
+        }, 2f));
     }
 
     public void DisplayNext()
@@ -86,24 +90,35 @@ public class StoryTextManager : MonoBehaviour
         }
         else if (_sentences.Count == 0)
         {
-            animatorStoryTextFade[0].SetTrigger("FadeOut");
+            animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeOut");
             GameController.instance.storyScenesLeft -= 1;
+            GameController.instance.scenesPlayed += 1;
 
-            if (GameController.instance.storyScenesLeft == 3)
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                TransitionFromImg1To2();    
-            }
-            else if (GameController.instance.storyScenesLeft == 2)
-            {
-                TransitionFromImg2To3();
-            }
-            else if (GameController.instance.storyScenesLeft == 1)
-            {
-                TransitionFromImg3To4();
-            }
+                textManagersList[GameController.instance.scenesPlayed - 1].SetActive(false);
+                textManagersList[GameController.instance.scenesPlayed].SetActive(true);
+                textBackgroundsList[GameController.instance.scenesPlayed - 1].SetActive(false);
+                textBackgroundsList[GameController.instance.scenesPlayed].SetActive(true);
+                GameController.instance.ChangeStoryBackground(GameController.instance.scenesPlayed - 1);
+            }, 1f));
+            
+            // if (GameController.instance.storyScenesLeft == 3)
+            // {
+            //     TransitionFromImg1To2();    
+            // }
+            // else if (GameController.instance.storyScenesLeft == 2)
+            // {
+            //     TransitionFromImg2To3();
+            // }
+            // else if (GameController.instance.storyScenesLeft == 1)
+            // {
+            //     TransitionFromImg3To4();
+            // }
         }
         else
         {
+            Debug.Log("typing");
             string sentence = _sentences.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));    

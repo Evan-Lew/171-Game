@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
 
     [Header("Story Background Lists and Story Animators")]
     public int storyScenesLeft = 4;
+    public int scenesPlayed = 0;
     [SerializeField] List<Animator> animatorScreenWipesList;
     [SerializeField] public List<GameObject> storyBackgroundsList;
 
