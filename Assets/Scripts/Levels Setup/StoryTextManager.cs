@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class StoryTextManager : MonoBehaviour
 {
-    public GameObject textGroupGameObject;
     public TMP_Text dialogueText;
     [SerializeField] GameObject mapButton;
     [SerializeField] List<GameObject> textManagersList;
+    [SerializeField] List<Animator> animatorStoryTextFade;
     private int _scenesLeft = 1;
     
     private Queue<string> _sentences;
@@ -39,16 +39,16 @@ public class StoryTextManager : MonoBehaviour
         }
         else if (_sentences.Count == 0)
         {
-            textGroupGameObject.SetActive(false);
+            animatorStoryTextFade[0].SetTrigger("FadeOut");
             
             _scenesLeft -= 1;
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 textManagersList[0].SetActive(false);
                 textManagersList[1].SetActive(true);
-                textGroupGameObject.SetActive(true);
-                GameController.instance.ChangeStoryBackground(2);
-            }, 3f));
+                GameController.instance.ChangeStoryBackground(0);
+                //animatorStoryTextFade[0].SetTrigger("FadeIn");
+            }, 2f));
         }
         else
         {
