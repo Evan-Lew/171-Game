@@ -634,7 +634,7 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Deal 1 damage, return card to hand
+    // Deal 2 damage, return card to hand
     public void ID2004_DemonFang()
     {
         ParticleDuration = 2f;
