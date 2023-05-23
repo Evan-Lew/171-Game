@@ -39,6 +39,22 @@ public class KarmaScale : MonoBehaviour
 
     }
 
+    public void resetScale() {
+        OrbDifference = 0.0f;
+        priorityDifference = 0.0f;
+        lerpMin = 0.0f;
+        lerpMax = 0.0f;
+        t = 0.0f;
+        angle = 0.0f;
+        MoveScales(0);
+
+    }
+
+    public void resetOrbs() {
+        playerOrbPrefab.transform.position = playerOrbSpawn.position;
+        enemyOrbPrefab.transform.position = enemyOrbSpawn.position;
+    }
+
     // Takes the karma difference and rotates the scales based on it
     public void MoveScales(float newRotation){
         // float newRotation = 10*karmaDiff;
@@ -79,6 +95,7 @@ public class KarmaScale : MonoBehaviour
     private void Update(){
 
         priorityDifference = (float)(player.Priority_Current - enemy.Priority_Current);
+
         setRotation(priorityDifference);
 
         if (t < 1.0f){
@@ -99,7 +116,7 @@ public class KarmaScale : MonoBehaviour
         // Debug.Log("Spawning new orb");
         GameObject newOrb = Instantiate(orbType, pos, Quaternion.identity, spawnPoint);
         
-        Destroy(newOrb, 5);
+        Destroy(newOrb, 1);
 
         if (OrbDifference < priorityDifference) {
             OrbDifference += 1;

@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Whack
   ID: 1002
-  description_Main: Deal 3 Damage
+  description_Main: Deal 4 Damage
   description_Log: 
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: d6913c6426874c14aa10152979b1b23b, type: 3}

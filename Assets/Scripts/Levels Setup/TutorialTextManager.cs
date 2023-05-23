@@ -12,9 +12,11 @@ public class TutorialTextManager : MonoBehaviour
     public TMP_Text dialogueText;
     public Queue<string> sentences;
     public Dialogue dialogue;
+    [SerializeField] GameObject mapButton;
 
     [HideInInspector] public int sentencesLength;
     private bool _tutorialLevelLoaded = false;
+    private bool _storyIntroLoaded = false;
 
     void Start()
     {   
@@ -36,6 +38,10 @@ public class TutorialTextManager : MonoBehaviour
                 if (scene.name == "TutorialLevel")
                 {
                     _tutorialLevelLoaded = true;
+                }
+                else if (scene.name == "StoryIntro")
+                {
+                    _storyIntroLoaded = true;
                 }
             }
         }
@@ -72,6 +78,11 @@ public class TutorialTextManager : MonoBehaviour
             if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd && _tutorialLevelLoaded)
             {
                 GameController.instance.TutorialOutroDialogueDone(); 
+            }
+            
+            if (_storyIntroLoaded)
+            {
+                mapButton.SetActive(true);
             }
         }
         else
