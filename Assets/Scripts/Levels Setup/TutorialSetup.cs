@@ -58,7 +58,7 @@ public class TutorialSetup : MonoBehaviour
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
         
-        
+        GameController.instance.ChangeBackground("Village_BG");
         GameController.instance.StartDialogue();
         GameController.instance.tutorialIntroDialoguePlaying = true;
         GameController.instance.tutorialOutroDialoguePlaying = true;
@@ -138,19 +138,29 @@ public class TutorialSetup : MonoBehaviour
     // Helper Function: highlight characters when talking (this is hardcoded to match the length of the TextManager's sentences)
     public void HighlightCharacterTalking()
     {
-        int introSentenceLength = introTextManager.GetComponent<TextManager>().sentencesLength;
-        int outroSentenceLength = outroTextManager.GetComponent<TextManager>().sentencesLength;
+        int introSentenceLength = introTextManager.GetComponent<TutorialTextManager>().sentencesLength;
+        int outroSentenceLength = outroTextManager.GetComponent<TutorialTextManager>().sentencesLength;
 
         // Intro Dialogue
-        if (introSentenceLength == 2)
+        if (introSentenceLength == 4)
         {
             GameController.instance.CharacterTalking("leftIsTalking", true);
             GameController.instance.CharacterTalking("rightIsTalking", false);
         }
-        else if (introSentenceLength == 1)
+        else if (introSentenceLength == 3)
         {
             GameController.instance.CharacterTalking("leftIsTalking", false);
             GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
+        else if (introSentenceLength == 2)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
+        else if (introSentenceLength == 1)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", true);
+            GameController.instance.CharacterTalking("rightIsTalking", false);
         }
         
         // Outro Dialogue

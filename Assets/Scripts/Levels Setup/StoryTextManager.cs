@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,24 +10,40 @@ public class StoryTextManager : MonoBehaviour
 {
     // Variables
     public TMP_Text dialogueText;
-    [SerializeField] GameObject mapButton;
     [SerializeField] List<GameObject> textManagersList;
     [SerializeField] List<GameObject> textBackgroundsList;
     [SerializeField] List<Animator> animatorStoryTextFade;
+    
+    // End Text
+    [SerializeField] GameObject endText;
+    [SerializeField] Animator animatorEndText;
 
     private Queue<string> _sentences;
     public Dialogue dialogue;
+
+    // Developer Tool
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SceneManager.LoadScene("TutorialLevel");
+        }
+    }
 
     void Awake()
     {
         _sentences = new Queue<string>();
         
-        Debug.Log("Story scenes left: " + GameController.instance.storyScenesLeft);
-        Debug.Log("Scenes played: " + GameController.instance.scenesPlayed);
-        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        //Debug.Log("Story scenes left: " + GameController.instance.storyScenesLeft);
+        //Debug.Log("Scenes played: " + GameController.instance.scenesPlayed);
+        if (GameController.instance.storyScenesLeft > 0)
         {
-            animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeIn");
-        }, 1.5f));
+            // Delay for the text box fade in
+            StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+            {
+                animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeIn");
+            }, 1.5f));    
+        }
         StartDialogue(dialogue);
     }
 
@@ -54,8 +71,19 @@ public class StoryTextManager : MonoBehaviour
             
             // Intro is over
             if (GameController.instance.storyScenesLeft == 0){
+                textBackgroundsList[3].SetActive(true);
                 //mapButton.SetActive(true);
                 GameController.instance.FadeOut();
+                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+                {
+                    animatorEndText.SetTrigger("FadeIn");
+                    textManagersList[4].SetActive(true);
+                }, 4f));   
+                StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+                {
+                    animatorEndText.SetTrigger("FadeOut");
+                    SceneManager.LoadScene("TutorialLevel");
+                }, 10f));   
             }
             else
             {

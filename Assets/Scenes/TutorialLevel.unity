@@ -188,37 +188,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1986326727}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &129854090
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 129854091}
-  m_Layer: 0
-  m_Name: Placeholder (Does Nothing)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &129854091
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129854090}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1039492358}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &130860707
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,14 +775,16 @@ MonoBehaviour:
   dialogueText: {fileID: 249036564}
   dialogue:
     sentences:
-    - Xu Xuan my friend, before you make your trek let me impart some lessons to
-      you.
-    - 'Fa Hai you know I am already a skilled warrior and I mean no offense, but
-      what can a monk teach me that I do not know already? '
-    - Ah, your hubris will one day catch up to you son. Just listen to what I have
-      to say...
+    - Wait, there it is, the legendary Guai Wu known as the Peng Hou, defeating it
+      can save our entire village Xu Xuan
+    - Are we absolutely certain we have to kill it ? What exactly do we need to save
+      the village
+    - "Why wouldn\u2019t - ? Nevermind. All you have to do is attack it enough times
+      until it drops some of it\u2019s leaves"
+    - "The leaves have the powers to heal anything, it can even break curses within
+      it\u2019s presence"
+    - Is there anything I should know before fighting the Guai Wu...
   sentencesLength: 0
-  mapButton: {fileID: 0}
 --- !u!1 &383565706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7749086859542336405, guid: 1ae28f30075fd374ca066c807bb2870c,
@@ -1552,7 +1523,6 @@ MonoBehaviour:
     - Can I go now? I still need to talk with my wife before I make my trek
     - I have one last thing to tell you...
   sentencesLength: 0
-  mapButton: {fileID: 129854090}
 --- !u!4 &917028384
 Transform:
   m_ObjectHideFlags: 0
@@ -2125,7 +2095,6 @@ Transform:
   m_Children:
   - {fileID: 917028384}
   - {fileID: 463126654}
-  - {fileID: 129854091}
   m_Father: {fileID: 750346815}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
