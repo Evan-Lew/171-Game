@@ -12133,7 +12133,7 @@ GameObject:
   - component: {fileID: 1532941470}
   - component: {fileID: 1532941469}
   m_Layer: 3
-  m_Name: Story Backround Image
+  m_Name: Story Backround Image (Dev)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12200,7 +12200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ed8f611f2472c4c48bd14cb4d362cc51, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2bb5f61308febfd439924d28db403e67, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

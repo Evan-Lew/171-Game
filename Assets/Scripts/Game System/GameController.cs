@@ -197,6 +197,12 @@ public class GameController : MonoBehaviour
         animatorFadeScene.SetTrigger("FadeOut");
     }
     
+    // For developer level to have no fade in
+    public void ClearScreen()
+    {
+        animatorFadeScene.SetTrigger("ClearScreen");
+    }
+    
     //=============================================================================================
     //                  Tutorial Helper Functions
     //=============================================================================================
