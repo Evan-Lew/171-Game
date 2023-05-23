@@ -2209,6 +2209,25 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset_ToxicTorment();
     }
 
+    // Call this at the start of a new battle
+    public void ManipulatorFullReset(){
+        Manipulator_Player_Reset();
+        Manipulator_Enemy_Reset();
+
+        isDealingExtraDmg = false;
+        isDealingDoubleDmg = false;
+        isCostingExtraPriority = false;
+        isDealingNoDmg = false;
+        isCostingNoPriority = false;
+        isDrawingExtraCard = false;
+        isHealingExtraHealth = false;
+
+        enemyIsDealingTripleDamage = false;
+        enemyIsDealingNoDamage = false;
+
+        _script_PlayerBuffs.ResetBuffs();
+    }
+
     void Manipulator_Player_Reset_ToxicTorment()
     {
         if (isToxicTorment == true)

@@ -13,6 +13,12 @@ public class PlayerBuffs : MonoBehaviour
     private bool doubleDamageShown = false;
     private bool extraDamageShown = false;
 
+    public void ResetBuffs(){
+        HideBuff(DoubleDamageBuff);
+        HideBuff(ExtraDamageBuff);
+        shownBuffCount = 0;
+    }
+
 
     public void HideBuff(GameObject buffToHide){
         buffToHide.SetActive(false);
