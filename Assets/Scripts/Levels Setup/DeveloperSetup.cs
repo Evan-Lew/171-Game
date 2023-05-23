@@ -20,6 +20,8 @@ public class DeveloperSetup : MonoBehaviour
     
     private void Start()
     {
+        GameController.instance.ClearScreen();
+        
         // Change background
         GameController.instance.ChangeBackground(backgroundName);
         

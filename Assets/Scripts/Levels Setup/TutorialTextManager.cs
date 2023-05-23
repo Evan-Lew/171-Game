@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class TextManager : MonoBehaviour
+public class TutorialTextManager : MonoBehaviour
 {
     public GameObject scroll;
     //public Text nameText;   //for NPCs
@@ -15,9 +15,7 @@ public class TextManager : MonoBehaviour
 
     [HideInInspector] public int sentencesLength;
     private bool _tutorialLevelLoaded = false;
-    private bool _storyIntroLoaded = false;
-    [SerializeField] GameObject mapButton;
-    
+
     void Start()
     {   
         sentences = new Queue<string>();
@@ -38,10 +36,6 @@ public class TextManager : MonoBehaviour
                 if (scene.name == "TutorialLevel")
                 {
                     _tutorialLevelLoaded = true;
-                }
-                else if (scene.name == "StoryIntro")
-                {
-                    _storyIntroLoaded = true;
                 }
             }
         }
@@ -78,11 +72,6 @@ public class TextManager : MonoBehaviour
             if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd && _tutorialLevelLoaded)
             {
                 GameController.instance.TutorialOutroDialogueDone(); 
-            }
-
-            if (_storyIntroLoaded)
-            {
-                mapButton.SetActive(true);
             }
         }
         else
