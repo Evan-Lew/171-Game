@@ -142,15 +142,25 @@ public class TutorialSetup : MonoBehaviour
         int outroSentenceLength = outroTextManager.GetComponent<TextManager>().sentencesLength;
 
         // Intro Dialogue
-        if (introSentenceLength == 2)
+        if (introSentenceLength == 4)
         {
             GameController.instance.CharacterTalking("leftIsTalking", true);
             GameController.instance.CharacterTalking("rightIsTalking", false);
         }
-        else if (introSentenceLength == 1)
+        else if (introSentenceLength == 3)
         {
             GameController.instance.CharacterTalking("leftIsTalking", false);
             GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
+        else if (introSentenceLength == 2)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
+        else if (introSentenceLength == 1)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", true);
+            GameController.instance.CharacterTalking("rightIsTalking", false);
         }
         
         // Outro Dialogue

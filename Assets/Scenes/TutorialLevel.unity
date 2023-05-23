@@ -806,12 +806,15 @@ MonoBehaviour:
   dialogueText: {fileID: 249036564}
   dialogue:
     sentences:
-    - Xu Xuan my friend, before you make your trek let me impart some lessons to
-      you.
-    - 'Fa Hai you know I am already a skilled warrior and I mean no offense, but
-      what can a monk teach me that I do not know already? '
-    - Ah, your hubris will one day catch up to you son. Just listen to what I have
-      to say...
+    - Wait, there it is, the legendary Guai Wu known as the Peng Hou, defeating it
+      can save our entire village Xu Xuan
+    - Are we absolutely certain we have to kill it ? What exactly do we need to save
+      the village
+    - "Why wouldn\u2019t - ? Nevermind. All you have to do is attack it enough times
+      until it drops some of it\u2019s leaves"
+    - "The leaves have the powers to heal anything, it can even break curses within
+      it\u2019s presence"
+    - Is there anything I should know before fighting the Guai Wu...
   sentencesLength: 0
   mapButton: {fileID: 0}
 --- !u!1 &383565706 stripped
