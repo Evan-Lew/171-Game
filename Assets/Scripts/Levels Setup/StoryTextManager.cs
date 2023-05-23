@@ -10,7 +10,6 @@ public class StoryTextManager : MonoBehaviour
 {
     // Variables
     public TMP_Text dialogueText;
-    [SerializeField] GameObject mapButton;
     [SerializeField] List<GameObject> textManagersList;
     [SerializeField] List<GameObject> textBackgroundsList;
     [SerializeField] List<Animator> animatorStoryTextFade;

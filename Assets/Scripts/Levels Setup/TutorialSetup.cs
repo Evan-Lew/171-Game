@@ -138,8 +138,8 @@ public class TutorialSetup : MonoBehaviour
     // Helper Function: highlight characters when talking (this is hardcoded to match the length of the TextManager's sentences)
     public void HighlightCharacterTalking()
     {
-        int introSentenceLength = introTextManager.GetComponent<TextManager>().sentencesLength;
-        int outroSentenceLength = outroTextManager.GetComponent<TextManager>().sentencesLength;
+        int introSentenceLength = introTextManager.GetComponent<TutorialTextManager>().sentencesLength;
+        int outroSentenceLength = outroTextManager.GetComponent<TutorialTextManager>().sentencesLength;
 
         // Intro Dialogue
         if (introSentenceLength == 4)
