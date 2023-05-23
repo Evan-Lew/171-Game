@@ -29,6 +29,7 @@ public class BattleLevelSetup : MonoBehaviour
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
 
+        GameController.instance.ClearScreen();
         GameController.instance.EndDialogue();
         
         // Change background
