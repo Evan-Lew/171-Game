@@ -2226,6 +2226,7 @@ public class EffectDictionary : MonoBehaviour
         enemyIsDealingNoDamage = false;
 
         _script_PlayerBuffs.ResetBuffs();
+        
     }
 
     void Manipulator_Player_Reset_ToxicTorment()

@@ -31,6 +31,8 @@ public class BattleController : MonoBehaviour
     
     // Reference to BattleLog
     public BattleLog battleLog;
+    // Reference to Karma Scale
+    public KarmaScale karmaScale;
 
     // Used in BattleLevelSetup
     public static int battleNum = 0;
@@ -103,6 +105,9 @@ public class BattleController : MonoBehaviour
         // Reset priority
         _script_PrioritySystem.ResetPriority(player);
         _script_PrioritySystem.ResetPriority(enemy);
+        // Reset Scale/Orbs
+        karmaScale.resetScale();
+        karmaScale.resetOrbs();
     }
     
     void TurnUpdate()

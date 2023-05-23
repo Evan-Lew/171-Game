@@ -71,6 +71,9 @@ public class PrioritySystem : MonoBehaviour
         {
             character.Priority_Current = 0;
         }, 3f));
+        
+        // removed delay
+        // character.Priority_Current = 0;
         priorityDict[character] = 0;
     }
 
