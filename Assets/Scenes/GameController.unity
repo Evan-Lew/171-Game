@@ -12539,6 +12539,7 @@ MonoBehaviour:
   animatorEnemyTurn: {fileID: 454805844}
   animatorFadeInOut: {fileID: 195012396}
   battleLog: {fileID: 1679645122}
+  karmaScale: {fileID: 2041753198}
 --- !u!114 &1558164863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15851,6 +15852,18 @@ Canvas:
   m_SortingLayerID: -1966901099
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2041753198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8122136715976680952, guid: 5c9dd4a1284a7874aa88f88eef328cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504661139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473853229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cb0b803473c27498466cbffae5578b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2043994781
 GameObject:
   m_ObjectHideFlags: 0
