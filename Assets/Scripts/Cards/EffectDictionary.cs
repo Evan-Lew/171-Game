@@ -98,6 +98,9 @@ public class EffectDictionary : MonoBehaviour
     [SerializeField] private GameObject playerHealIndicatorObj;
     private Animator _playerHealIndicatorController;
 
+    // Player Buffs
+    [SerializeField] private PlayerBuffs _script_PlayerBuffs;
+
     // Enemy Indicator
     public TMP_Text enemyDamageIndicator;
     [SerializeField] private GameObject enemyDamageIndicatorObj;
@@ -218,7 +221,7 @@ public class EffectDictionary : MonoBehaviour
         double healthText = hpAdded;
         
         if(target == player && isMalachiteChain){
-            enemy.Health_Current -= hpAdded;
+            enemy.Health_Current -= hpAdded*2;
         } else {
             if ((target.Health_Current + hpAdded) > target.Health_Total)
             {
@@ -428,12 +431,12 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Deal 3 damage, cost 1
+    // Deal 4 damage, cost 1
     public void ID1002_Whack()
     {
         ParticleDuration = 1.5f;
         Player_priorityInc = 1;
-        Player_damageDealing = 3;
+        Player_damageDealing = 4;
         Manipulator_Player();
         
         // Play SFX with delay
@@ -462,12 +465,12 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Gain 2 armor, cost 1
+    // Gain 3 armor, cost 1
     public void ID1003_WhiteScales()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_armorCreate = 2;
+        Player_armorCreate = 3;
         Manipulator_Player();
         
         // Play SFX
@@ -594,6 +597,7 @@ public class EffectDictionary : MonoBehaviour
 
         // Particle positioned on the enemy
         ParticleEvent("SerpentCutlass", 2002, ParticleDuration, ExtraPositioning[2], true);
+        _script_PlayerBuffs.showExtraDamage();
         
         // Animations
         // Trigger player attack anim
@@ -613,8 +617,9 @@ public class EffectDictionary : MonoBehaviour
     public void ID2003_WisdomOfWisteria()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 3;
+        Player_priorityInc = 2;
         isDealingDoubleDmg = true;
+        _script_PlayerBuffs.showDoubleDamage();
         Manipulator_Player();
         
         //WithoutParticle(ParticleDuration);
@@ -634,7 +639,7 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 2f;
         Player_priorityInc = 1;
-        Player_damageDealing = 1;
+        Player_damageDealing = 2;
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -745,15 +750,15 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // IMPLEMENTED
-    // Deal 4 damage, if you health is lower than 10, deal 8 damage instead
+    // Deal 2 damage, if you health is lower than 20, deal 6 damage instead
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_damageDealing = 4;
+        Player_priorityInc = 1;
+        Player_damageDealing = 2;
         if (player.Health_Current < 10)
         {
-            Player_damageDealing = 8;
+            Player_damageDealing = 6;
             // Animations
             // Trigger player attack anim
             playerCharacterAttackAnim();
@@ -797,7 +802,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID2010_Savagery()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 5;
+        Player_priorityInc = 4;
         Player_damageDealing = 12;
         Enemy_damageDealing = 6;
         Manipulator_Player();
@@ -822,7 +827,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID2011_CausticTrail()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 4;
+        Player_priorityInc = 10;
         Player_damageDealing = player.Health_Current - 1;
         Enemy_damageDealing = Player_damageDealing;
         Manipulator_Player();
@@ -912,12 +917,12 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // IMPLEMENTED
-    // Env: Deal 3 damage to yourself, -2 Priority
+    // Deal 3 damage to yourself, -2 Priority
     public void ID2015_Intoxication()
     {
         ParticleDuration = 3f;
         Player_priorityInc = -2;
-        Player_damageDealing = 3;
+        Enemy_damageDealing = 3;
         Manipulator_Player();
         
         // Animations
@@ -929,7 +934,8 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(player, Player_damageDealing);
+            // changed to Enemy_damageDealing to prevent buff activation
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -977,8 +983,8 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
-    // Draw a card. It costs +1
+    // IMPLEMENTED
+    // Draw a card. Your next card costs +1.
     public void ID3003_Hongbao()
     {        
         ParticleDuration = 3f;
@@ -990,6 +996,8 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            isCostingExtraPriority = true;
+            Player_extraPriorityCost += 1;
             DrawCards_Player(Player_cardsDrawing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
@@ -1127,9 +1135,10 @@ public class EffectDictionary : MonoBehaviour
         int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_cardsDrawing = 0;
         Player_armorCreate = 0;
-        if (cardsInHand < 4)
+        if (cardsInHand <= 4)
         {
-            Player_cardsDrawing = 4 - cardsInHand;
+            // there was a bug where it was drawing one less than it should
+            Player_cardsDrawing = 5 - cardsInHand;
         }
         else
         {
@@ -1229,11 +1238,11 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Draw 2 cards and deal x damage(x equals to the number of cards in your hand times 2)
+    // Draw 2 cards and deal 3x damage(x equals to the number of cards in your hand)
     public void ID3014_LeechingTreasure()
     {        
         ParticleDuration = 3f;
-        Player_priorityInc = 5;
+        Player_priorityInc = 8;
         Player_cardsDrawing = 2;
         Manipulator_Player();
         
@@ -1248,25 +1257,25 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
-            Player_damageDealing = cardsInHand * 2;
+            Player_damageDealing = cardsInHand * 3;
             DealDamage_ToTarget(enemy, Player_damageDealing);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
 
     // IMPLEMENTED
-    // If your Armor is less than 10 gain 12 Armor, otherwise gain 6 Armor
+    // If your Armor is less than 10 gain 6 Armor, otherwise gain 2 Armor
     public void ID3015_BronzeAge()
     {        
         ParticleDuration = 3f;
         Player_priorityInc = 2;
         if (player.Armor_Current < 10)
         {
-            Player_armorCreate = 12;
+            Player_armorCreate = 6;
         }
         else
         {
-            Player_armorCreate = 6;
+            Player_armorCreate = 2;
         }
         Manipulator_Player();
         
@@ -1299,12 +1308,12 @@ public class EffectDictionary : MonoBehaviour
     //                      JADE CARDS
     //=================================================================
     // IMPLEMENTED
-    // Heal 6
+    // Heal 3
     public void ID4001_JadeSpirit()
     {
         ParticleDuration = 4f;
         Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_healing = 3;
         Manipulator_Player();
        
         PlaySound("sfx_Spirit", 1);
@@ -1336,12 +1345,12 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Draw 2, Heal 4 Health
+    // Draw 2, Heal 3 Health
     public void ID4003_DauntlessDraw()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 4;
-        Player_healing = 6;
+        Player_healing = 3;
         Player_cardsDrawing = 2;
         Manipulator_Player();
         
@@ -1426,11 +1435,11 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Env: All healing becomes damage instead
+    // Env: All healing becomes damage instead. Healing damage is doubled.
     public void ID4008_MalechiteChain()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 3;
+        Player_priorityInc = 6;
         Manipulator_Player();
         
         isMalachiteChain = true;
@@ -2200,6 +2209,25 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Player_Reset_ToxicTorment();
     }
 
+    // Call this at the start of a new battle
+    public void ManipulatorFullReset(){
+        Manipulator_Player_Reset();
+        Manipulator_Enemy_Reset();
+
+        isDealingExtraDmg = false;
+        isDealingDoubleDmg = false;
+        isCostingExtraPriority = false;
+        isDealingNoDmg = false;
+        isCostingNoPriority = false;
+        isDrawingExtraCard = false;
+        isHealingExtraHealth = false;
+
+        enemyIsDealingTripleDamage = false;
+        enemyIsDealingNoDamage = false;
+
+        _script_PlayerBuffs.ResetBuffs();
+    }
+
     void Manipulator_Player_Reset_ToxicTorment()
     {
         if (isToxicTorment == true)
@@ -2222,6 +2250,7 @@ public class EffectDictionary : MonoBehaviour
             Player_damageDealing += Player_extraDamage;
             isDealingExtraDmg = false;
             Player_extraDamage = 0;
+            _script_PlayerBuffs.hideExtraDamage();
         }
     }
 
@@ -2234,6 +2263,7 @@ public class EffectDictionary : MonoBehaviour
         {
             Player_damageDealing += Player_damageDealing;
             isDealingDoubleDmg = false;
+            _script_PlayerBuffs.hideDoubleDamage();
         }
     }
 

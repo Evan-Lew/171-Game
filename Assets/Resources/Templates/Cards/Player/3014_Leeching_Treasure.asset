@@ -17,9 +17,9 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Leeching Treasure
   ID: 3014
-  description_Main: draw 2 cards and deal damage equal to twice your hand size.
+  description_Main: Draw 2 cards and deal damage equal to 3x the cards in your hand.
   description_Log: 
-  priorityCost: 5
+  priorityCost: 8
   Card_Front: {fileID: 21300000, guid: 255dbf67ebf93f34495991ac44af79f0, type: 3}
   Card_Name: {fileID: 21300000, guid: fd163c0e0da6f5948bf9327142dae171, type: 3}
   icon: {fileID: 0}

@@ -98,6 +98,7 @@ public class BattleController : MonoBehaviour
         enableTurnUpdate = false;
         _script_BattleLog.Clear();
         EffectDictionary.instance.ParticlesReset();
+        EffectDictionary.instance.ManipulatorFullReset();
         SetActive(false);
         // Reset priority
         _script_PrioritySystem.ResetPriority(player);
