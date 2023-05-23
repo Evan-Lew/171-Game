@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1643725507}
-  mapButton: {fileID: 295877487}
   textManagersList:
   - {fileID: 1967058045}
   - {fileID: 96126802}
@@ -170,6 +169,7 @@ MonoBehaviour:
   - {fileID: 1233699919}
   - {fileID: 842163507}
   - {fileID: 1336358796}
+  nextButton: {fileID: 395590878}
   endText: {fileID: 2029283622}
   animatorEndText: {fileID: 2029283624}
   dialogue:
@@ -1093,7 +1093,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2029283625}
-  mapButton: {fileID: 295877487}
   textManagersList:
   - {fileID: 1967058045}
   - {fileID: 96126802}
@@ -1110,6 +1109,7 @@ MonoBehaviour:
   - {fileID: 1233699919}
   - {fileID: 842163507}
   - {fileID: 1336358796}
+  nextButton: {fileID: 0}
   endText: {fileID: 2029283622}
   animatorEndText: {fileID: 2029283624}
   dialogue:
@@ -1359,7 +1359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2005936450}
-  mapButton: {fileID: 295877487}
   textManagersList:
   - {fileID: 1967058045}
   - {fileID: 96126802}
@@ -1376,6 +1375,7 @@ MonoBehaviour:
   - {fileID: 1233699919}
   - {fileID: 842163507}
   - {fileID: 1336358796}
+  nextButton: {fileID: 691156919}
   endText: {fileID: 2029283622}
   animatorEndText: {fileID: 2029283624}
   dialogue:
@@ -1828,7 +1828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1631110034}
-  mapButton: {fileID: 295877487}
   textManagersList:
   - {fileID: 1967058045}
   - {fileID: 96126802}
@@ -1845,6 +1844,7 @@ MonoBehaviour:
   - {fileID: 1233699919}
   - {fileID: 842163507}
   - {fileID: 1336358796}
+  nextButton: {fileID: 1855836345}
   endText: {fileID: 2029283622}
   animatorEndText: {fileID: 2029283624}
   dialogue:
@@ -2049,7 +2049,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2046945296}
-  mapButton: {fileID: 295877487}
   textManagersList:
   - {fileID: 1967058045}
   - {fileID: 96126802}
@@ -2066,6 +2065,7 @@ MonoBehaviour:
   - {fileID: 1233699919}
   - {fileID: 842163507}
   - {fileID: 1336358796}
+  nextButton: {fileID: 920868450}
   endText: {fileID: 2029283622}
   animatorEndText: {fileID: 2029283624}
   dialogue:

@@ -240,11 +240,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue Text Box
       objectReference: {fileID: 0}
+    - target: {fileID: 3522919328027615197, guid: aa5d43368fd0bb2478b746595c2d2285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522919328629841612, guid: aa5d43368fd0bb2478b746595c2d2285,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839097167}
+    - target: {fileID: 3522919328629841612, guid: aa5d43368fd0bb2478b746595c2d2285,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522919328629841612, guid: aa5d43368fd0bb2478b746595c2d2285,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StoryTextManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5d43368fd0bb2478b746595c2d2285, type: 3}
 --- !u!224 &306992655 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3522919328027615196, guid: aa5d43368fd0bb2478b746595c2d2285,
+    type: 3}
+  m_PrefabInstance: {fileID: 306992654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &306992656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3522919327971899347, guid: aa5d43368fd0bb2478b746595c2d2285,
+    type: 3}
+  m_PrefabInstance: {fileID: 306992654}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &306992657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522919328027615197, guid: aa5d43368fd0bb2478b746595c2d2285,
     type: 3}
   m_PrefabInstance: {fileID: 306992654}
   m_PrefabAsset: {fileID: 0}
@@ -290,13 +328,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839097166}
+  - component: {fileID: 839097167}
   m_Layer: 0
   m_Name: TextManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &839097166
 Transform:
   m_ObjectHideFlags: 0
@@ -312,6 +351,25 @@ Transform:
   m_Father: {fileID: 407996297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839097167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839097165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a077a261a3f6744ba40db3cc1a8cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollObj: {fileID: 306992657}
+  dialogueText: {fileID: 306992656}
+  dialogue:
+    sentences:
+    - 123567890
+    - 456555555555555555555555555
+  mapButton: {fileID: 0}
 --- !u!1 &1006387816
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6ca44f91b3008498a8425ec50f7728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBox: {fileID: 306992657}
+  textManager: {fileID: 839097165}
 --- !u!4 &1006387818
 Transform:
   m_ObjectHideFlags: 0

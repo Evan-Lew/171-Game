@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Dialogue Text Box.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Dialogue Text Box.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/IntroStoryTextManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/IntroStoryTextManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StoryLevelSetup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StoryLevelSetup.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StoryIntro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StoryIntro.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/StoryLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StoryLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +148,7 @@
       <workItem from="1684476677505" duration="3839000" />
       <workItem from="1684688911148" duration="6646000" />
       <workItem from="1684785041529" duration="19974000" />
-      <workItem from="1684871750801" duration="1969000" />
+      <workItem from="1684871750801" duration="2812000" />
     </task>
     <servers />
   </component>

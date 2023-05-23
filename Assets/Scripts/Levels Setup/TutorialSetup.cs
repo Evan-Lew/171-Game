@@ -58,7 +58,7 @@ public class TutorialSetup : MonoBehaviour
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
         
-        GameController.instance.ChangeBackground("Village_BG");
+        GameController.instance.ChangeBackground("Forest_BG");
         GameController.instance.StartDialogue();
         GameController.instance.tutorialIntroDialoguePlaying = true;
         GameController.instance.tutorialOutroDialoguePlaying = true;
