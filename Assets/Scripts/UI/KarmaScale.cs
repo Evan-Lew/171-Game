@@ -39,6 +39,16 @@ public class KarmaScale : MonoBehaviour
 
     }
 
+    public void resetScale() {
+        OrbDifference = 0.0f;
+        priorityDifference = 0.0f;
+        lerpMin = 0.0f;
+        lerpMax = 0.0f;
+        t = 0.0f;
+        angle = 0.0f;
+        MoveScales(0);
+    }
+
     // Takes the karma difference and rotates the scales based on it
     public void MoveScales(float newRotation){
         // float newRotation = 10*karmaDiff;
@@ -79,6 +89,11 @@ public class KarmaScale : MonoBehaviour
     private void Update(){
 
         priorityDifference = (float)(player.Priority_Current - enemy.Priority_Current);
+
+        if(player.Health_Current <= 0 || enemy.Health_Current <= 0){
+            resetScale();
+        }
+
         setRotation(priorityDifference);
 
         if (t < 1.0f){
