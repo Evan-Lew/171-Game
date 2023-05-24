@@ -57,8 +57,8 @@ public class TutorialSetup : MonoBehaviour
         {
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
-        
         GameController.instance.ChangeBackground("Village_BG");
+        //GameController.instance.ChangeBackground("Forest_BG");
         GameController.instance.StartDialogue();
         GameController.instance.tutorialIntroDialoguePlaying = true;
         GameController.instance.tutorialOutroDialoguePlaying = true;
@@ -131,7 +131,8 @@ public class TutorialSetup : MonoBehaviour
             {
                 GameController.instance.EndDialogue();
                 //SceneManager.LoadScene("StoryLevel");
-                SceneManager.LoadScene("BattleLevel");
+                //SceneManager.LoadScene("BattleLevel");
+                SceneManager.LoadScene("BattleMap");
             }, 6f));    
         }
     }
@@ -139,8 +140,8 @@ public class TutorialSetup : MonoBehaviour
     // Helper Function: highlight characters when talking (this is hardcoded to match the length of the TextManager's sentences)
     public void HighlightCharacterTalking()
     {
-        int introSentenceLength = introTextManager.GetComponent<TutorialTextManager>().sentencesLength;
-        int outroSentenceLength = outroTextManager.GetComponent<TutorialTextManager>().sentencesLength;
+        int introSentenceLength = introTextManager.GetComponent<TutorialTextManager>().numOfSentences;
+        int outroSentenceLength = outroTextManager.GetComponent<TutorialTextManager>().numOfSentences;
 
         // Intro Dialogue
         if (introSentenceLength == 4)
@@ -165,11 +166,6 @@ public class TutorialSetup : MonoBehaviour
         }
         
         // Outro Dialogue
-        else if (outroSentenceLength == 3)
-        {
-            GameController.instance.CharacterTalking("leftIsTalking", false);
-            GameController.instance.CharacterTalking("rightIsTalking", true);
-        }
         else if (outroSentenceLength == 2)
         {
             GameController.instance.CharacterTalking("leftIsTalking", true);
