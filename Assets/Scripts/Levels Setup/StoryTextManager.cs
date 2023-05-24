@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class StoryTextManager : MonoBehaviour
     public Queue<string> sentences;
     public Dialogue dialogue;
     [SerializeField] GameObject mapButton;
+
+    // Variables in order to skip the text typing
+    private bool _isTyping = false;
+    private string _currSentence;
 
     void Start()
     {   
@@ -31,12 +36,21 @@ public class StoryTextManager : MonoBehaviour
 
     public void DisplayNext()
     {
-        if (sentences.Count == 0){
+        // Check if the sentence is typing
+        if (_isTyping)
+        {
+            StopAllCoroutines();
+            dialogueText.text = _currSentence;
+            _isTyping = false;
+        }
+        else if (sentences.Count == 0){
             SceneManager.LoadScene("BattleLevel");
         }
         else
         {
+            _isTyping = true;
             string sentence = sentences.Dequeue();
+            _currSentence = sentence;
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));    
         }
@@ -49,5 +63,6 @@ public class StoryTextManager : MonoBehaviour
             dialogueText.text += letter;
             yield return null;
         }
+        _isTyping = false;
     }
 }

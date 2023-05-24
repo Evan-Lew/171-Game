@@ -57,8 +57,8 @@ public class TutorialSetup : MonoBehaviour
         {
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
-        
-        GameController.instance.ChangeBackground("Forest_BG");
+        GameController.instance.ChangeBackground("Village_BG");
+        //GameController.instance.ChangeBackground("Forest_BG");
         GameController.instance.StartDialogue();
         GameController.instance.tutorialIntroDialoguePlaying = true;
         GameController.instance.tutorialOutroDialoguePlaying = true;
@@ -130,8 +130,9 @@ public class TutorialSetup : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 GameController.instance.EndDialogue();
-                SceneManager.LoadScene("StoryLevel");
+                //SceneManager.LoadScene("StoryLevel");
                 //SceneManager.LoadScene("BattleLevel");
+                SceneManager.LoadScene("BattleMap");
             }, 6f));    
         }
     }

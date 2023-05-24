@@ -17,6 +17,10 @@ public class TutorialTextManager : MonoBehaviour
     [HideInInspector] public int sentencesLength;
     private bool _tutorialLevelLoaded = false;
     private bool _storyIntroLoaded = false;
+    
+    // Variables in order to skip the text typing
+    private bool _isTyping = false;
+    private string _currSentence;
 
     void Start()
     {   
@@ -59,37 +63,43 @@ public class TutorialTextManager : MonoBehaviour
 
     public void DisplayNext()
     {
-        sentencesLength = sentences.Count;
-        int count = 0;
-        
-        // Disable the scroll after all sentences are read
-        if (sentences.Count == count)
+        // Check if the sentence is typing
+        if (_isTyping)
         {
-            scroll.SetActive(false);
-        }
-        if (sentences.Count == 0){
-            // Start the battle after the intro tutorial dialogue
-            if (GameController.instance.tutorialIntroDialoguePlaying && _tutorialLevelLoaded)
-            {
-                GameController.instance.TutorialIntroDialogueDone();    
-            }
-
-            // End the battle after the end tutorial dialogue
-            if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd && _tutorialLevelLoaded)
-            {
-                GameController.instance.TutorialOutroDialogueDone(); 
-            }
-            
-            if (_storyIntroLoaded)
-            {
-                mapButton.SetActive(true);
-            }
+            StopAllCoroutines();
+            dialogueText.text = _currSentence;
+            _isTyping = false;
         }
         else
         {
-            string sentence = sentences.Dequeue();
-            StopAllCoroutines();
-            StartCoroutine(TypeSentence(sentence));    
+            sentencesLength = sentences.Count;
+            if (sentences.Count == 0){
+                scroll.SetActive(false);
+                // Start the battle after the intro tutorial dialogue
+                if (GameController.instance.tutorialIntroDialoguePlaying && _tutorialLevelLoaded)
+                {
+                    GameController.instance.TutorialIntroDialogueDone();    
+                }
+
+                // End the battle after the end tutorial dialogue
+                if (GameController.instance.tutorialOutroDialoguePlaying && GameController.instance.tutorialLevelEnd && _tutorialLevelLoaded)
+                {
+                    GameController.instance.TutorialOutroDialogueDone(); 
+                }
+            
+                if (_storyIntroLoaded)
+                {
+                    mapButton.SetActive(true);
+                }
+            }
+            else
+            {
+                _isTyping = true;
+                string sentence = sentences.Dequeue();
+                _currSentence = sentence;
+                StopAllCoroutines();
+                StartCoroutine(TypeSentence(sentence));    
+            }
         }
     }
     IEnumerator TypeSentence (string sentence)
@@ -100,5 +110,6 @@ public class TutorialTextManager : MonoBehaviour
             dialogueText.text += letter;
             yield return null;
         }
+        _isTyping = false;
     }
 }

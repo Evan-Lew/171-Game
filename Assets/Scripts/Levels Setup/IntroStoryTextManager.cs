@@ -21,6 +21,10 @@ public class IntroStoryTextManager : MonoBehaviour
 
     private Queue<string> _sentences;
     public Dialogue dialogue;
+    
+    // Variables in order to skip the text typing
+    private bool _isTyping = false;
+    private string _currSentence;
 
     // Developer Tool
     private void Update()
@@ -64,7 +68,14 @@ public class IntroStoryTextManager : MonoBehaviour
 
     public void DisplayNext()
     {
-        if (_sentences.Count == 0)
+        // Check if the sentence is typing
+        if (_isTyping)
+        {
+            StopAllCoroutines();
+            dialogueText.text = _currSentence;
+            _isTyping = false;
+        }
+        else if (_sentences.Count == 0)
         {
             nextButton.SetActive(false);
             animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeOut");
@@ -104,7 +115,9 @@ public class IntroStoryTextManager : MonoBehaviour
         }
         else
         {
+            _isTyping = true;
             string sentence = _sentences.Dequeue();
+            _currSentence = sentence;
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));    
         }
@@ -117,5 +130,6 @@ public class IntroStoryTextManager : MonoBehaviour
             dialogueText.text += letter;
             yield return null;
         }
+        _isTyping = false;
     }
 }

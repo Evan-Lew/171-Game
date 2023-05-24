@@ -12522,7 +12522,7 @@ MonoBehaviour:
   _script_DeckSystem: {fileID: 1185248573}
   _script_HandManager: {fileID: 409527556}
   startDrawingCards: 1
-  startingCardsAmount: 4
+  startingCardsAmount: 0
   TurnChangeAnimationDuration: 1.5
   currentPhase: 0
   lastPhase: 1
