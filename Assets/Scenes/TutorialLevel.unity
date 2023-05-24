@@ -340,6 +340,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TutorialTextManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3522919328629841615, guid: aa5d43368fd0bb2478b746595c2d2285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5d43368fd0bb2478b746595c2d2285, type: 3}
 --- !u!1 &230233882 stripped
@@ -1123,7 +1128,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1191,7 +1196,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8f3481c2fca80074d9849ad56a7045f5,
+      objectReference: {fileID: 21300000, guid: 7f98fb9f50d8fb045866bb9510732b72,
         type: 3}
     - target: {fileID: 1722104565279334108, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1201,22 +1206,22 @@ PrefabInstance:
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 129.6378
       objectReference: {fileID: 0}
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 103.7103
       objectReference: {fileID: 0}
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 82.7
+      value: 78.1
       objectReference: {fileID: 0}
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 7.199993
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 3552129652832083558, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -4299,6 +4304,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 380087239}
+    - target: {fileID: 3522919328629841615, guid: aa5d43368fd0bb2478b746595c2d2285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5d43368fd0bb2478b746595c2d2285, type: 3}
 --- !u!1001 &7749086859708919867

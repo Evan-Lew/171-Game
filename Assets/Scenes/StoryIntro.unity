@@ -174,13 +174,13 @@ MonoBehaviour:
   animatorEndText: {fileID: 2029283624}
   dialogue:
     sentences:
-    - With his remaining life he desperately wanted to protect his villagers and
-      found a magical Guai Wu in the form of a white serpent
-    - Though it was badly injured the perfect opportunity for Xu Xuan to kill it
-      presented itself
-    - "Yet he couldn\u2019t, and with the last of his strength he nursed the white
-      snake back to health"
-    - And with every ounce of life used up, he closed his eyes and there was darkness
+    - Desperate to obtain good Karma for his actions, Xu Xian searched the forest
+      and found a magical Guai Wu in the form of a white serpent.
+    - It was badly injured, granting Xu Xian the perfect opportunity to kill it.
+    - "Yet he couldn\u2019t, and used the last of his strength to nurse the white
+      snake back to good health."
+    - He collapsed, quickly feeling his life slip away, but Xu Xian had no regrets.
+    - He closed his eyes and there was only darkness.
 --- !u!4 &96126804
 Transform:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &395590879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &691156920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -849,7 +849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &920868451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1381,11 +1381,11 @@ MonoBehaviour:
   dialogue:
     sentences:
     - However a local monk named Fa Hai, knowledgeable on all Guai Wu, suspected
-      something was off about the woman in particular
+      something was off about the woman in particular.
     - "But he couldn\u2019t focus on that as there was a disease that swept the village,
-      not even Xu Xuan or Bai She Zhuan could cure"
+      not even Xu Xuan or Bai She Zhuan could cure."
     - "That\u2019s where Fa Hai told Xu Xuan of a legendary beast known as a Peng
-      Hou that can cure the disease if Xu Xuan defeated it"
+      Hou that can cure the disease if Xu Xuan defeated it."
 --- !u!4 &1496143532
 Transform:
   m_ObjectHideFlags: 0
@@ -1849,13 +1849,14 @@ MonoBehaviour:
   animatorEndText: {fileID: 2029283624}
   dialogue:
     sentences:
-    - When Xu Xuan opened his eyes again, he saw a beautiful woman in front of him
-    - "Surprised to find that he wasn\u2019t dead, he was delighted to hear that
-      it was the woman in front of him, Bai She Zhuan, who had healed him"
+    - When Xu Xian opened his eyes again, he saw a beautiful woman in front of him.
+    - "He was surprised to find that he wasn\u2019t dead, but was even more surprised
+      to hear that the woman had healed him."
+    - Her name was Bai She Zhuan.
     - They eventually found themselves in love with each other, and for the first
-      time in forever, a stranger entered their hidden village
+      time in forever, a stranger entered their hidden village.
     - Not everyone was accepting at first, but they eventually came around after
-      how much faster medicine production was in her presence
+      how much faster medicine production was in her presence.
 --- !u!4 &1846219022
 Transform:
   m_ObjectHideFlags: 0
@@ -1889,7 +1890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1855836346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2070,14 +2071,14 @@ MonoBehaviour:
   animatorEndText: {fileID: 2029283624}
   dialogue:
     sentences:
-    - Within a village hidden in a bamboo grove lived a youthful and talented herbalist
-      pioneer named Xu Xuan
-    - Whenever villagers fell ill he would use herbs to create medicines to cure
-      all types of illnesses, and was regarded a hero to them
-    - However one night he fell gravely ill, fearing that his life would end here,
-      he set out on a journey to look for Guai Wu
-    - "These monsters possess otherworldly powers, residing in this world to feast
-      on one\u2019s good Karma"
+    - Within a village hidden in a bamboo grove lived a young and talented herbalist
+      named Xu Xuan.
+    - Whenever villagers fell ill he would use herbs to create medicines that  cured 
+      any type of illness, making him a hero.
+    - However one night he fell gravely ill, and fearing that his life would end
+      here   he set out on a journey to look for Guai Wu.
+    - Killing a Guai Wu would give him good Karma in return, which would allow him
+      to reach the land of Buddha once he passed.
 --- !u!1 &2005936448
 GameObject:
   m_ObjectHideFlags: 0

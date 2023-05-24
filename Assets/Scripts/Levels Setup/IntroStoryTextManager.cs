@@ -25,6 +25,7 @@ public class IntroStoryTextManager : MonoBehaviour
     // Variables in order to skip the text typing
     private bool _isTyping = false;
     private string _currSentence;
+    private bool _transitioning = false;
 
     // Developer Tool
     private void Update()
@@ -33,6 +34,16 @@ public class IntroStoryTextManager : MonoBehaviour
         {
             SceneManager.LoadScene("TutorialLevel");
         }
+
+        // Boolean to ensure that the text box is active
+        if (_transitioning)
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                DisplayNext();
+            }    
+        }
+        
     }
 
     void Awake()
@@ -47,6 +58,7 @@ public class IntroStoryTextManager : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeIn");
+                _transitioning = true;
             }, 1.5f));    
         }
         StartDialogue(dialogue);
@@ -78,12 +90,14 @@ public class IntroStoryTextManager : MonoBehaviour
         else if (_sentences.Count == 0)
         {
             nextButton.SetActive(false);
+            _transitioning = false;
             animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeOut");
             GameController.instance.storyScenesLeft -= 1;
             GameController.instance.scenesPlayed += 1;
             
             // Intro is over
-            if (GameController.instance.storyScenesLeft == 0){
+            if (GameController.instance.storyScenesLeft == 0)
+            {
                 textBackgroundsList[3].SetActive(true);
                 //mapButton.SetActive(true);
                 GameController.instance.FadeOut();

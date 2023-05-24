@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,14 @@ public class TutorialTextManager : MonoBehaviour
     // Variables in order to skip the text typing
     private bool _isTyping = false;
     private string _currSentence;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            DisplayNext();
+        }
+    }
 
     void Start()
     {   
