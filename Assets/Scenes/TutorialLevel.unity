@@ -477,12 +477,12 @@ MonoBehaviour:
     - Are we absolutely certain we have to kill it ? What exactly do we need to save
       the village
     - "Why wouldn\u2019t - ? Nevermind. All you have to do is attack it enough times
-      until it drops some of it\u2019s leaves"
-    - "The leaves have the powers to heal anything, it can even break curses within
-      it\u2019s presence"
+      until it drops some of its leaves"
+    - The leaves have the powers to heal anything, it can even break curses within
+      its presence
     - Is there anything I should know before fighting the Guai Wu...
   mapButton: {fileID: 0}
-  sentencesLength: 0
+  numOfSentences: 0
 --- !u!1 &383565706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7749086859542336405, guid: 1ae28f30075fd374ca066c807bb2870c,
@@ -1165,11 +1165,10 @@ MonoBehaviour:
   dialogueText: {fileID: 407836487}
   dialogue:
     sentences:
-    - I guess you do remember a thing or two
-    - Can I go now? I still need to talk with my wife before I make my trek
-    - I have one last thing to tell you...
+    - Do you think it dropped enough of its leaves to save the village Fa Hai?
+    - "That\u2019s perfect."
   mapButton: {fileID: 0}
-  sentencesLength: 0
+  numOfSentences: 0
 --- !u!4 &917028384
 Transform:
   m_ObjectHideFlags: 0

@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine.SceneManagement;
 
 public class StoryTextManager : MonoBehaviour
 {
     public GameObject scrollObj;
     public TMP_Text dialogueText;
-    public Queue<string> sentences;
+    private Queue<string> _sentences;
     public Dialogue dialogue;
     [SerializeField] GameObject mapButton;
 
@@ -18,24 +19,36 @@ public class StoryTextManager : MonoBehaviour
     private bool _isTyping = false;
     private string _currSentence;
 
-    void Start()
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            DisplayNext();
+        }
+    }
+    
+    private void Start()
     {   
-        sentences = new Queue<string>();
+        _sentences = new Queue<string>();
         StartDialogue(dialogue);
     }
     
-    public void StartDialogue(Dialogue moreDialogue)
+    private void StartDialogue(Dialogue moreDialogue)
     {
-        sentences.Clear(); 
+        _sentences.Clear(); 
         foreach (string sentence in moreDialogue.sentences)
         {
-            sentences.Enqueue(sentence);
+            _sentences.Enqueue(sentence);
         }
         DisplayNext();
     }
 
     public void DisplayNext()
     {
+        Debug.Log(_sentences.Count);
+        HighlightCharacterTalking();
+        
+        
         // Check if the sentence is typing
         if (_isTyping)
         {
@@ -43,19 +56,19 @@ public class StoryTextManager : MonoBehaviour
             dialogueText.text = _currSentence;
             _isTyping = false;
         }
-        else if (sentences.Count == 0){
+        else if (_sentences.Count == 0){
             SceneManager.LoadScene("BattleLevel");
         }
         else
         {
             _isTyping = true;
-            string sentence = sentences.Dequeue();
+            string sentence = _sentences.Dequeue();
             _currSentence = sentence;
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));    
         }
     }
-    IEnumerator TypeSentence (string sentence)
+    private IEnumerator TypeSentence (string sentence)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
@@ -64,5 +77,19 @@ public class StoryTextManager : MonoBehaviour
             yield return null;
         }
         _isTyping = false;
+    }
+
+    public void HighlightCharacterTalking()
+    {
+        if (_sentences.Count == 2)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", true);
+            GameController.instance.CharacterTalking("rightIsTalking", false);
+        }
+        else if (_sentences.Count == 1)
+        {
+            GameController.instance.CharacterTalking("leftIsTalking", false);
+            GameController.instance.CharacterTalking("rightIsTalking", true);
+        }
     }
 }

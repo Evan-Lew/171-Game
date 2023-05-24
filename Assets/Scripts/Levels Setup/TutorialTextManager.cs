@@ -15,7 +15,7 @@ public class TutorialTextManager : MonoBehaviour
     public Dialogue dialogue;
     [SerializeField] GameObject mapButton;
 
-    [HideInInspector] public int sentencesLength;
+    [HideInInspector] public int numOfSentences;
     private bool _tutorialLevelLoaded = false;
     private bool _storyIntroLoaded = false;
     
@@ -81,7 +81,7 @@ public class TutorialTextManager : MonoBehaviour
         }
         else
         {
-            sentencesLength = sentences.Count;
+            numOfSentences = sentences.Count;
             if (sentences.Count == 0){
                 scroll.SetActive(false);
                 // Start the battle after the intro tutorial dialogue

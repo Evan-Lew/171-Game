@@ -260,6 +260,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StoryTextManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3522919328629841615, guid: aa5d43368fd0bb2478b746595c2d2285,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5d43368fd0bb2478b746595c2d2285, type: 3}
 --- !u!224 &306992655 stripped
