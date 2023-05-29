@@ -40,13 +40,13 @@ public class CreditsMenu : MonoBehaviour
         if (pageCount == 0)
         {
             titleText.text = "Team 10 - 171";
-            leftBodyText.text = "Producer<br>Lead Programmer<br>Programmers<br>Art Director<br>Artists<br>Environment Design<br><br>Writers<br>Card Designers";
-            rightBodyText.text = "Evan Lew<br>Laihong Xu<br>Alex Xie, Steven Ju, & Evan<br>Ed Gopez<br>Angela Yim & Lou Yonzon<br>Andy Eng<br><br>Laihong & Ed<br>Alex & Steven";
+            leftBodyText.text = "Producer<br>Lead Programmer<br>Programmers<br><br>Art Director<br>Artists<br>Environment Design<br>Sound<br>Writers<br>Card Designers";
+            rightBodyText.text = "Evan Lew<br>Laihong Xu<br>Alex Xie, Steven Ju,<br>Evan Lew, Chris Pau <br>Ed Gopez<br>Angela Yim & Lou Yonzon<br>Andy Eng<br>Derek Tran<br>Laihong & Ed<br>Alex & Steven";
             middleBodyText.text = "";
         }
         else if (pageCount == 1)
         {
-            titleText.text = "Legend of the White Snake Research";
+            titleText.text = " Research";
             middleBodyText.text = "https://en.wikipedia.org/wiki/Legend_of_the_White_Snake<br><br>https://youtu.be/eEeeClBoqK0<br><br>https://youtu.be/mO6eMTKalRE";
             leftBodyText.text = "";
             rightBodyText.text = "";
@@ -82,7 +82,7 @@ public class CreditsMenu : MonoBehaviour
         else if (pageCount == 6)
         {
             titleText.text = "Player Sound Effects";
-            middleBodyText.text = "Coin: https://pixabay.com/sound-effects/dropping-single-coin-on-floor-2-38987/<br>Hiss: https://pixabay.com/sound-effects/snake-hissing-6092/<br>Hit: https://pixabay.com/sound-effects/big-pillow-hit-101877/<br>Venom: https://www.zapsplat.com/music/snake-spit-venom-2/<br>Swing: https://pixabay.com/sound-effects/swing-6045/<br>Fortune: https://pixabay.com/sound-effects/fx-light-90387/<br>Spirit: https://pixabay.com/sound-effects/shine-21448/<br>Stab: https://pixabay.com/sound-effects/knife-stab-sound-effect-36354/";
+            middleBodyText.text = "Coin: https://pixabay.com/sound-effects/dropping-single-coin-on-floor-2-38987/<br>Hiss: https://pixabay.com/sound-effects/snake-hissing-6092/<br>Hit: https://pixabay.com/sound-effects/big-pillow-hit-101877/<br>Venom: https://www.zapsplat.com/music/snake-spit-venom-2/<br>Fortune: https://pixabay.com/sound-effects/fx-light-90387/<br>Stab: https://pixabay.com/sound-effects/knife-stab-sound-effect-36354/";
             leftBodyText.text = "";
             rightBodyText.text = "";
         }

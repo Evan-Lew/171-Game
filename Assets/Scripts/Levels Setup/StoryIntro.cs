@@ -16,6 +16,13 @@ public class StoryIntro : MonoBehaviour
             GameController.instance.storyBackgroundsList[i].SetActive(true);
         }
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab)) 
+        {
+            SceneManager.LoadScene("BattleMap");
+        }
+    }
 
     public void ToMap()
     {
