@@ -44,10 +44,10 @@ public class GameController : MonoBehaviour
     
     // Dialogue GameObjects
     [Header("Characters Talking")] 
-    [SerializeField] GameObject leftCharacter;
-    [SerializeField] GameObject rightCharacter;
-    private SpriteRenderer _leftCharacterSprite;
-    private SpriteRenderer _rightCharacterSprite;
+    [SerializeField] GameObject xuXianGameObj;
+    [SerializeField] GameObject faHaiGameObj;
+    private SpriteRenderer _xuXianSprite;
+    private SpriteRenderer _faHaiSprite;
     
     // List for all the characters (don't know what this is for -Evan)
     public List<Character_Basedata> CharactersList = new();
@@ -92,8 +92,8 @@ public class GameController : MonoBehaviour
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), false);
         
         // Assign sprites used for the dialogue
-        _leftCharacterSprite = leftCharacter.GetComponent<SpriteRenderer>();
-        _rightCharacterSprite = rightCharacter.GetComponent<SpriteRenderer>();
+        _xuXianSprite = xuXianGameObj.GetComponent<SpriteRenderer>();
+        _faHaiSprite = faHaiGameObj.GetComponent<SpriteRenderer>();
     }
     
     void Update()
@@ -141,45 +141,62 @@ public class GameController : MonoBehaviour
     //=============================================================================================
     
     // Helper function: Start dialogue at the start of a scene
-    public void StartDialogue()
+    public void StartDialogue(string sceneName)
     {
         animatorFadeScene.SetTrigger("FadeIn");
         animatorAspectRatioSwitch.SetTrigger("StartWithRatio");
         animatorDarkenBackground.SetTrigger("StartDark");
-        leftCharacter.SetActive(true);
-        rightCharacter.SetActive(true);
+
+        if (sceneName == "Tutorial")
+        {
+            xuXianGameObj.SetActive(true);
+            faHaiGameObj.SetActive(true);
+        }
+        // else if (sceneName == "Village")
+        // {
+        //     xuXianGameObj.SetActive(true);
+        //     faHaiGameObj.SetActive(true);
+        // }
     }
 
     // Helper function: Restart the dialogue during an active scene
-    public void RestartDialogue()
+    public void RestartDialogue(string sceneName)
     {
         animatorAspectRatioSwitch.SetTrigger("In");
         animatorDarkenBackground.SetTrigger("Dark");
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            animatorXuXuanDialogue.SetTrigger("Appear");
-            animatorFaHaiDialogue.SetTrigger("Appear");
+            if (sceneName == "Tutorial")
+            {
+                animatorXuXuanDialogue.SetTrigger("AppearLeft");
+                animatorFaHaiDialogue.SetTrigger("AppearRight");    
+            }
         }, 1f));
     }
 
     // Helper function: Pause the dialogue bc you will restart later in the same scene
-    public void PauseDialogue()
+    public void PauseDialogue(string sceneName)
     {
         animatorAspectRatioSwitch.SetTrigger("Out");
         animatorDarkenBackground.SetTrigger("Bright");
 
-        if (rightCharacter.activeSelf && leftCharacter.activeSelf)
+        if (sceneName == "Tutorial")
         {
-            animatorXuXuanDialogue.SetTrigger("Disappear");
-            animatorFaHaiDialogue.SetTrigger("Disappear");
+            CharacterTalking("Xu Xian", false);
+            CharacterTalking("Fa Hai", false);
+            if (xuXianGameObj.activeSelf && faHaiGameObj.activeSelf)
+            {
+                animatorXuXuanDialogue.SetTrigger("DisappearLeft");
+                animatorFaHaiDialogue.SetTrigger("DisappearRight");
+            }    
         }
     }
 
     // Helper function: End dialogue to set it back to it's original state
     public void EndDialogue()
     {
-        leftCharacter.SetActive(false);
-        rightCharacter.SetActive(false);
+        xuXianGameObj.SetActive(false);
+        faHaiGameObj.SetActive(false);
         animatorXuXuanDialogue.SetTrigger("OffScreen");
         animatorFaHaiDialogue.SetTrigger("OffScreen");
         //animatorFadeScene.SetTrigger("ClearScreen");
@@ -210,49 +227,44 @@ public class GameController : MonoBehaviour
     // Helper Function: for the tutorial dialogue
     public void TutorialIntroDialogueDone()
     {
-        CharacterTalking("leftIsTalking", false);
-        CharacterTalking("rightIsTalking", false);
-        PauseDialogue();
+        PauseDialogue("Tutorial");
         tutorialIntroDialoguePlaying = false;
     }
     
     public void TutorialOutroDialogueDone()
     {
-        CharacterTalking("leftIsTalking", false);
-        CharacterTalking("rightIsTalking", false);
-        PauseDialogue();
+        PauseDialogue("Tutorial");
         tutorialOutroDialoguePlaying = false;
     }
     
     //=============================================================================================
 
     // Helper Function: Call this function to bring a sprite above the darken background during dialogue
-    public void CharacterTalking(string whoIsTalking, bool brightenCharacter)
+    public void CharacterTalking(string character, bool brightenCharacter)
     {
-        if (whoIsTalking == "leftIsTalking")
+        // Xu Xian
+        if (character == "Xu Xian")
         {
-            // Brighten the left character when talking
+            // Brighten the Xu Xian
             if (brightenCharacter)
             {
-                _leftCharacterSprite.sortingOrder = 2;        
+                _xuXianSprite.sortingOrder = 2;        
             }
-            // Darken the left character when talking
+            // Darken the Xu Xian
             else
             {
-                _leftCharacterSprite.sortingOrder = 0;
+                _xuXianSprite.sortingOrder = 0;
             }
         }
-        else if (whoIsTalking == "rightIsTalking")
+        else if (character == "Fa Hai")
         {
-            // Brighten the right character when talking
             if (brightenCharacter)
             {
-                _rightCharacterSprite.sortingOrder = 2;        
+                _faHaiSprite.sortingOrder = 2;        
             }
-            // Darken the right character when talking
             else
             {
-                _rightCharacterSprite.sortingOrder = 0;
+                _faHaiSprite.sortingOrder = 0;
             }
         }
     }
@@ -434,25 +446,29 @@ public class GameController : MonoBehaviour
         {
             Character enemyCharacter = enemy.GetComponent<Character>();
             enemyCharacter.CharacterData = newCharacter;
-
-            // does not scale, only works in 16:9
-            if (enemyCharacter.CharacterData.characterName == "Ink Golem")
+            
+            if (enemyCharacter.CharacterData.characterName == "Peng Hou")
             {
-                // ??? i don't know why but if the Z isn't set to 50 then it becomes -50, temp fix
-                enemy.transform.position = new Vector3(12.61F, -7.66F, 50.0F);
-                enemy.transform.localScale = new Vector3(1.02F, 1.02F, 1.02F);
+                // If the Z isn't set to 50 then it becomes -50
+                enemy.transform.position = new Vector3(4F, -12.75F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.7F, 1.7F, 1.7F);
             } 
-            if (enemyCharacter.CharacterData.characterName == "Ink Chimera")
+            else if (enemyCharacter.CharacterData.characterName == "Ink Golem")
             {
-                enemy.transform.position = new Vector3(8.84F, -9.1F, 50.0F);
-                enemy.transform.localScale = new Vector3(1.38F, 1.38F, 1.38F);
-            }
-            if (enemyCharacter.CharacterData.characterName == "Zhenniao")
+                enemy.transform.position = new Vector3(8F, -12F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.4F, 1.4F, 1.4F);
+            } 
+            else if (enemyCharacter.CharacterData.characterName == "Ink Chimera")
             {
-                enemy.transform.position = new Vector3(3.01F, -15.09F, 50.0F);
-                enemy.transform.localScale = new Vector3(1.72F, 1.72F, 1.72F);
+                enemy.transform.position = new Vector3(5F, -12.75F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.7F, 1.7F, 1.7F);
             }
-            if (enemyCharacter.CharacterData.characterName == "Stone Rui Shi")
+            else if (enemyCharacter.CharacterData.characterName == "Zhenniao")
+            {
+                enemy.transform.position = new Vector3(0F, -15F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.85F, 1.85F, 1.85F);
+            }
+            else if (enemyCharacter.CharacterData.characterName == "Stone Rui Shi")
             {
                 enemy.transform.position = new Vector3(5.3F, -14.5F, 50.0F);
                 enemy.transform.localScale = new Vector3(1.78F, 1.78F, 1.78F);

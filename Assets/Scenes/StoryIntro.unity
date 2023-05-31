@@ -1114,8 +1114,8 @@ MonoBehaviour:
   animatorEndText: {fileID: 2029283624}
   dialogue:
     sentences:
-    - "Eagerly with the limited time left, Xu Xuan & Fa Hai leave in search of the
-      Peng Hou. Until\u2026"
+    - "Determined to save the village, Xu Xian & Fa Hai quickly set out to search
+      for the Peng Hou until\u2026"
 --- !u!4 &980665701
 Transform:
   m_ObjectHideFlags: 0
@@ -1380,12 +1380,16 @@ MonoBehaviour:
   animatorEndText: {fileID: 2029283624}
   dialogue:
     sentences:
-    - However a local monk named Fa Hai, knowledgeable on all Guai Wu, suspected
-      something was off about the woman in particular.
-    - "But he couldn\u2019t focus on that as there was a disease that swept the village,
-      not even Xu Xuan or Bai She Zhuan could cure."
-    - "That\u2019s where Fa Hai told Xu Xuan of a legendary beast known as a Peng
-      Hou that can cure the disease if Xu Xuan defeated it."
+    - One day, a monk named Fa Hai visits the village after sensing the presence
+      of Guai Wu in the area. When he arrives at the herbalist shop he suspects something
+      is off about Bai Suzhen.
+    - "However, he turns his attention towards Xu Xian who asks for the monk\u2019s
+      help to assist him in another matter."
+    - He explains to Fa Hai a powerful plague has swept the village that not even
+      Xu Xian or Bai Suzhen could cure.
+    - "Fa Hai explains that the disease is mystical in nature, and normal remedies
+      wouldn\u2019t work. He tells Xu Xian that a legendary beast known as a Peng
+      Hou can cure the mystical plague if Xu Xian defeats it."
 --- !u!4 &1496143532
 Transform:
   m_ObjectHideFlags: 0
@@ -1852,11 +1856,14 @@ MonoBehaviour:
     - When Xu Xian opened his eyes again, he saw a beautiful woman in front of him.
     - "He was surprised to find that he wasn\u2019t dead, but was even more surprised
       to hear that the woman had healed him."
-    - Her name was Bai She Zhuan.
-    - They eventually found themselves in love with each other, and for the first
-      time in forever, a stranger entered their hidden village.
-    - Not everyone was accepting at first, but they eventually came around after
-      how much faster medicine production was in her presence.
+    - Her name was Bai Suzhen, an herbalist from the mountains that came across a
+      collapsed Xu Xian during her search for healing herbs.
+    - Xu Xian quickly fell in love with the beautiful woman who saved his life and
+      took her back to his village to get married.
+    - "Bai Suzhen was equally enamored by Xu Xian\u2019s personality and agreed to
+      stay with him."
+    - Not everyone accepted her at first, but they eventually came around after seeing
+      how much faster medicine was made with her help.
 --- !u!4 &1846219022
 Transform:
   m_ObjectHideFlags: 0
@@ -2072,11 +2079,13 @@ MonoBehaviour:
   dialogue:
     sentences:
     - Within a village hidden in a bamboo grove lived a young and talented herbalist
-      named Xu Xuan.
-    - Whenever villagers fell ill he would use herbs to create medicines that  cured 
+      named Xu Xian.
+    - Whenever villagers fell ill he would use herbs to create medicines that cured
       any type of illness, making him a hero.
     - However one night he fell gravely ill, and fearing that his life would end
-      here   he set out on a journey to look for Guai Wu.
+      here he set out on a journey to look for Guai Wu.
+    - "These monsters possessed otherworldly powers, residing in this world to feast
+      on one\u2019s good Karma."
     - Killing a Guai Wu would give him good Karma in return, which would allow him
       to reach the land of Buddha once he passed.
 --- !u!1 &2005936448
@@ -2114,7 +2123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 10}
   m_SizeDelta: {x: 600, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005936450
@@ -2322,8 +2331,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2430,8 +2439,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Whenever villagers fell ill he would use herbs to create medicines to cure
-    all types of illnesses, and was regarded a hero to them
+  m_text: Within a village hidden in a bamboo grove lived a young and talented herbalist
+    named Xu Xian.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b5c4f7b0b713d447b65cad0054741e5, type: 2}
   m_sharedMaterial: {fileID: 5392364061241504842, guid: 6b5c4f7b0b713d447b65cad0054741e5,

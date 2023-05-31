@@ -472,15 +472,13 @@ MonoBehaviour:
   dialogueText: {fileID: 249036564}
   dialogue:
     sentences:
-    - Wait, there it is, the legendary Guai Wu known as the Peng Hou, defeating it
-      can save our entire village Xu Xuan
-    - Are we absolutely certain we have to kill it ? What exactly do we need to save
-      the village
-    - "Why wouldn\u2019t - ? Nevermind. All you have to do is attack it enough times
-      until it drops some of its leaves"
-    - The leaves have the powers to heal anything, it can even break curses within
-      its presence
-    - Is there anything I should know before fighting the Guai Wu...
+    - "There it is Xu Xian! If you can defeat this monster and harvest its leaves
+      you\u2019ll be able to save the entire village."
+    - Must I kill it? What do I need its leaves for?
+    - "Why wouldn\u2019t-? Nevermind. You must  attack it until it drops its leaves."
+    - The leaves hold magical powers that can heal anything, and they can even break
+      nearby curses in its presence.
+    - Alright then, how do I fight this thing?
   mapButton: {fileID: 0}
   numOfSentences: 0
 --- !u!1 &383565706 stripped
@@ -1165,8 +1163,9 @@ MonoBehaviour:
   dialogueText: {fileID: 407836487}
   dialogue:
     sentences:
-    - Do you think it dropped enough of its leaves to save the village Fa Hai?
-    - "That\u2019s perfect."
+    - "It\u2019s gone, but are these enough leaves to make a cure?"
+    - "Yes, that much will most certainly cure the villagers of this plague. Let\u2019s
+      return to the village."
   mapButton: {fileID: 0}
   numOfSentences: 0
 --- !u!4 &917028384
@@ -1205,22 +1204,22 @@ PrefabInstance:
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 129.6378
+      value: 92.4775
       objectReference: {fileID: 0}
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 103.7103
+      value: 73.9821
       objectReference: {fileID: 0}
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 78.1
+      value: 98.410774
       objectReference: {fileID: 0}
     - target: {fileID: 2888304446967722891, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.8
+      value: 23.1
       objectReference: {fileID: 0}
     - target: {fileID: 3552129652832083558, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1293,19 +1292,19 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7749086858650015056, guid: 1ae28f30075fd374ca066c807bb2870c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: 'The karma between you and your enemy is represent by a scale
-
-
-        Playing
-        cards will <color=red>increase</color> your karma; same with the enemy
-
-
-        Your
-        turn <color=blue>automatically ends</color> when your karma is <color=blue>higher
-        than your enemy''s</color> and vice versa'
+      value: "The karma balance between you and your \nenemy is represented by a
+        scale and indicates \nthe weight of one\u2019s actions.\n\nIf your karma
+        is <color=#A2C3FA>higher</color> than your enemy\u2019s \nkarma, your turn
+        automatically ends and vice versa. \n\nWhen karma values <color=#A2C3FA>match</color>
+        you have the advantage to keep your turn.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1365,22 +1364,22 @@ PrefabInstance:
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 215.9113
+      value: 329.6613
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 211.5091
+      value: 236.4509
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: -10.9
       objectReference: {fileID: 0}
     - target: {fileID: 7749086859302156342, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1808,18 +1807,23 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6116175047514459679, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 323.9077
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116175047514459679, guid: 1ae28f30075fd374ca066c807bb2870c,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18
+      value: 78
       objectReference: {fileID: 0}
     - target: {fileID: 6116175047514459679, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -107
+      value: -34.3
       objectReference: {fileID: 0}
     - target: {fileID: 6590216650369186903, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6812954557710527074, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1829,18 +1833,34 @@ PrefabInstance:
     - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: It is up to you of how you plan for future consequences for the cards
-        you play
+      value: '- <color=#856CDD>Purple</color> cards offer more offensive options.
+
+        -
+        <color=#FFC982>Gold</color> cards allow for balance between drawing cards
+        and attacking.
+
+        - <color=#00CB98>Jade</color> cards grant buffs and
+        healing for lost HP.'
       objectReference: {fileID: 0}
     - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_fontSize
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 12
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1855,17 +1875,8 @@ PrefabInstance:
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: 'This <color=green>tree spirit</color> is nothing compared to the creatures
-        you will encounter near the <i><b>mountain</b></i>
-
-
-        You may already
-        know everything I just went over, but it is always important to practice
-        the fundamentals in this world
-
-
-        You <i><b>never</b></i> know when
-        a threat could be standing right in front of you'
+      value: "In addition to the standard silver cards, you\u2019ll encounter\n Purple,
+        Gold, and Green cards.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1900,7 +1911,7 @@ PrefabInstance:
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -1925,22 +1936,22 @@ PrefabInstance:
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 359.1083
+      value: 367.8282
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 237.5124
+      value: 57.4721
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 82.3
+      value: 72.25998
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.4
+      value: 58.2
       objectReference: {fileID: 0}
     - target: {fileID: 7749086859302156342, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -2150,7 +2161,7 @@ PrefabInstance:
     - target: {fileID: 7749086860467802669, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: DECISION MAKING
+      value: COLORED CARDS
       objectReference: {fileID: 0}
     - target: {fileID: 7749086860467802671, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -2379,15 +2390,10 @@ PrefabInstance:
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: 'Karma is a fundamental concept of Buddhism, where every action comes
-        with a consequence
-
-
-        This rule applies to even you
-
-
-        Every
-        card you play has its <color=red>karma cost</color> in the top left'
+      value: "Karma is a fundamental concept of Buddhism, where every action comes
+        with a consequence. \n\nEvery card has a <color=#A2C3FA>karma cost</color>
+        on the top left. \n\nPlaying cards will increase your karma; same with the
+        enemy.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -2447,22 +2453,22 @@ PrefabInstance:
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 205.2335
+      value: 216.9671
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 189.6297
+      value: 204.5044
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 155.6
+      value: 153.7
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.4
+      value: -14.9
       objectReference: {fileID: 0}
     - target: {fileID: 7749086859302156336, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -2825,11 +2831,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
   tutorialCards_P3:
-  - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
   - {fileID: 11400000, guid: fa6d7c435e43b7348a5a5e9ac65cd30c, type: 2}
-  levelEnd: 0
+  - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
 --- !u!4 &1612920531
 Transform:
   m_ObjectHideFlags: 0
@@ -3304,9 +3310,9 @@ PrefabInstance:
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: "The cards you have used so far have used the <color=blue>standard</color>
+      value: "The cards you have used so far have used the <color=#BEBEBE>standard</color>
         card effects:\n\n <u>Armor</u>, <u>Damage</u>, and  <u>Card Draw</u> \n\nAs
-        your adventure continues you will encounter more card effects"
+        your adventure progresses you will encounter more card colors and card effects"
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -3381,7 +3387,7 @@ PrefabInstance:
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.9
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7749086859302156336, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -3745,6 +3751,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6812954557710527074, guid: 1ae28f30075fd374ca066c807bb2870c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -3753,11 +3764,16 @@ PrefabInstance:
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: 'Click a card to select it and then click it again on top of your enemies
+      value: 'Left click a card to select it and then left click again on top of
+        your enemy.
 
 
-        Let''s
-        start with the whack card which will deal 3 damage to the enemy'
+        Right click to deselect a card when you are unsure
+        of your decision.
+
+
+        Let''s start with the <color=#BEBEBE>whack card</color>
+        which will deal 3 damage to the enemy.'
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -3797,7 +3813,7 @@ PrefabInstance:
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 184.0514
+      value: 236.5936
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -3807,7 +3823,7 @@ PrefabInstance:
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 148
+      value: 157.8
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015063, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -4386,11 +4402,11 @@ PrefabInstance:
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: 'Defeat enemies on your journey by playing cards
+      value: 'Defeat enemies on your journey by playing cards.
 
 
-        You win battles
-        when the enemy''s HP reaches 0'
+        You win
+        battles when the enemy''s HP reaches 0.'
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}

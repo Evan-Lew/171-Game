@@ -83,13 +83,13 @@ public class StoryTextManager : MonoBehaviour
     {
         if (_sentences.Count == 2)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", true);
-            GameController.instance.CharacterTalking("rightIsTalking", false);
+            GameController.instance.CharacterTalking("Xu Xian", true);
+            GameController.instance.CharacterTalking("Fa Hai", false);
         }
         else if (_sentences.Count == 1)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", false);
-            GameController.instance.CharacterTalking("rightIsTalking", true);
+            GameController.instance.CharacterTalking("Xu Xian", false);
+            GameController.instance.CharacterTalking("Fa Hai", true);
         }
     }
 }
