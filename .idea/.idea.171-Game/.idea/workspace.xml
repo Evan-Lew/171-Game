@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Left.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Left.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Right.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Right.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Left.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Left.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Right.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Right.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Right.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Right.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Right.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Right.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai Suzhen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai Suzhen.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai_Suzhen_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai_Suzhen_Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Dialogue_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Dialogue_Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Left.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Left.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Xu Xian Dialogue/Xu_Xian_Dialogue_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Xu Xian Dialogue/Xu_Xian_Dialogue_Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,12 +12,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/IntroStoryTextManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/PickDeckLevel_1Setup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/StartDeckInteraction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryIntro.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/IntroStoryTextManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryCaveLevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryCaveTextManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryForestLevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryForestTextManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/CreditsMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StoryLevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@7.0.10/Editor/SpritePostProcess.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.9/Runtime/UniversalAdditionalCameraData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -173,6 +147,7 @@
       <workItem from="1684871750801" duration="4158000" />
       <workItem from="1684896773416" duration="5851000" />
       <workItem from="1685466046194" duration="11678000" />
+      <workItem from="1685560111412" duration="30093000" />
     </task>
     <servers />
   </component>

@@ -30,7 +30,7 @@ public class BattleLevelSetup : MonoBehaviour
         }
 
         GameController.instance.ClearScreen();
-        GameController.instance.EndDialogue();
+        GameController.instance.EndDialogue("BattleLevel");
         
         // Change background
         GameController.instance.ChangeBackground(backgroundsList[BattleController.battleNum]);

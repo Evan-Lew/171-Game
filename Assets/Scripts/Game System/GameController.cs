@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     
     [Header("Animator Controllers")]
     [SerializeField] Animator animatorFadeScene;
-    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue;
+    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue, animatorBaiSuzhenDialogue, animatorBiZiDialogue;
 
     [Header("Story Background Lists and Story Animators")]
     public int storyScenesLeft = 4;
@@ -46,8 +46,12 @@ public class GameController : MonoBehaviour
     [Header("Characters Talking")] 
     [SerializeField] GameObject xuXianGameObj;
     [SerializeField] GameObject faHaiGameObj;
+    [SerializeField] GameObject baiSuzhenGameObj;
+    [SerializeField] GameObject biZiGameObj;
     private SpriteRenderer _xuXianSprite;
     private SpriteRenderer _faHaiSprite;
+    private SpriteRenderer _baiSuzhenSprite;
+    private SpriteRenderer _biZiSprite;
     
     // List for all the characters (don't know what this is for -Evan)
     public List<Character_Basedata> CharactersList = new();
@@ -94,6 +98,8 @@ public class GameController : MonoBehaviour
         // Assign sprites used for the dialogue
         _xuXianSprite = xuXianGameObj.GetComponent<SpriteRenderer>();
         _faHaiSprite = faHaiGameObj.GetComponent<SpriteRenderer>();
+        _baiSuzhenSprite = baiSuzhenGameObj.GetComponent<SpriteRenderer>();
+        _biZiSprite = biZiGameObj.GetComponent<SpriteRenderer>();
     }
     
     void Update()
@@ -144,19 +150,55 @@ public class GameController : MonoBehaviour
     public void StartDialogue(string sceneName)
     {
         animatorFadeScene.SetTrigger("FadeIn");
-        animatorAspectRatioSwitch.SetTrigger("StartWithRatio");
-        animatorDarkenBackground.SetTrigger("StartDark");
+        
 
         if (sceneName == "Tutorial")
         {
+            animatorAspectRatioSwitch.SetTrigger("StartWithRatio");
+            animatorDarkenBackground.SetTrigger("StartDark");
             xuXianGameObj.SetActive(true);
             faHaiGameObj.SetActive(true);
         }
-        // else if (sceneName == "Village")
-        // {
-        //     xuXianGameObj.SetActive(true);
-        //     faHaiGameObj.SetActive(true);
-        // }
+        else if (sceneName == "Village")
+        {
+            // Start animations for starting the scene by itself
+            animatorAspectRatioSwitch.SetTrigger("In");
+            animatorDarkenBackground.SetTrigger("Dark");
+            
+            // Activate character objs
+            xuXianGameObj.SetActive(true);
+            faHaiGameObj.SetActive(true);
+            baiSuzhenGameObj.SetActive(true);
+            
+            // Start character animations
+            animatorXuXuanDialogue.SetTrigger("AppearLeftSide");
+            animatorFaHaiDialogue.SetTrigger("AppearLeft");
+            animatorBaiSuzhenDialogue.SetTrigger("AppearRight");
+        }
+        else if (sceneName == "Forest")
+        {
+            // Start animations for starting the scene by itself
+            animatorAspectRatioSwitch.SetTrigger("In");
+            animatorDarkenBackground.SetTrigger("Dark");
+            
+            baiSuzhenGameObj.SetActive(true);
+            biZiGameObj.SetActive(true);
+            
+            animatorBaiSuzhenDialogue.SetTrigger("AppearLeft");
+            animatorBiZiDialogue.SetTrigger("OffScreenRight");
+        }
+        else if (sceneName == "Cave")
+        {
+            // Start animations for starting the scene by itself
+            animatorAspectRatioSwitch.SetTrigger("In");
+            animatorDarkenBackground.SetTrigger("Dark");
+            
+            baiSuzhenGameObj.SetActive(true);
+            biZiGameObj.SetActive(true);
+            
+            animatorBaiSuzhenDialogue.SetTrigger("AppearLeft");
+            animatorBiZiDialogue.SetTrigger("AppearMiddle");
+        }
     }
 
     // Helper function: Restart the dialogue during an active scene
@@ -168,7 +210,7 @@ public class GameController : MonoBehaviour
         {
             if (sceneName == "Tutorial")
             {
-                animatorXuXuanDialogue.SetTrigger("AppearLeft");
+                animatorXuXuanDialogue.SetTrigger("AppearMiddleLeft");
                 animatorFaHaiDialogue.SetTrigger("AppearRight");    
             }
         }, 1f));
@@ -178,30 +220,37 @@ public class GameController : MonoBehaviour
     public void PauseDialogue(string sceneName)
     {
         animatorAspectRatioSwitch.SetTrigger("Out");
-        animatorDarkenBackground.SetTrigger("Bright");
+        
 
         if (sceneName == "Tutorial")
         {
+            animatorDarkenBackground.SetTrigger("Bright");
             CharacterTalking("Xu Xian", false);
             CharacterTalking("Fa Hai", false);
             if (xuXianGameObj.activeSelf && faHaiGameObj.activeSelf)
             {
-                animatorXuXuanDialogue.SetTrigger("DisappearLeft");
+                animatorXuXuanDialogue.SetTrigger("DisappearMiddleLeft");
                 animatorFaHaiDialogue.SetTrigger("DisappearRight");
             }    
         }
     }
 
     // Helper function: End dialogue to set it back to it's original state
-    public void EndDialogue()
+    public void EndDialogue(string sceneName)
     {
-        xuXianGameObj.SetActive(false);
-        faHaiGameObj.SetActive(false);
-        animatorXuXuanDialogue.SetTrigger("OffScreen");
-        animatorFaHaiDialogue.SetTrigger("OffScreen");
+        if (sceneName == "Tutorial" || sceneName == "Village")
+        {
+            // Reset the characters
+            // animatorXuXuanDialogue.SetTrigger("OffScreenLeft");
+            // animatorFaHaiDialogue.SetTrigger("OffScreenRight");
+            xuXianGameObj.SetActive(false);
+            faHaiGameObj.SetActive(false);
+            baiSuzhenGameObj.SetActive(false);
+        }
+        
         //animatorFadeScene.SetTrigger("ClearScreen");
-        animatorAspectRatioSwitch.SetTrigger("StartWithNoRatio");
-        animatorDarkenBackground.SetTrigger("StartBright");
+        //animatorAspectRatioSwitch.SetTrigger("Out");
+        //animatorDarkenBackground.SetTrigger("Bright");
     }
 
     public void FadeIn()
@@ -218,6 +267,12 @@ public class GameController : MonoBehaviour
     public void ClearScreen()
     {
         animatorFadeScene.SetTrigger("ClearScreen");
+    }
+
+    public void ResetAnimations()
+    {
+        animatorAspectRatioSwitch.ResetTrigger("Out");
+        animatorDarkenBackground.ResetTrigger("Bright");
     }
     
     //=============================================================================================
@@ -236,6 +291,79 @@ public class GameController : MonoBehaviour
         PauseDialogue("Tutorial");
         tutorialOutroDialoguePlaying = false;
     }
+
+    //=============================================================================================
+    //                  Story Village Level Helper Functions
+    //=============================================================================================
+    public void TurnToSnakeDialogue()
+    {
+        animatorBaiSuzhenDialogue.SetTrigger("TurnToSnake");
+    }
+
+    public void FlashOfLightAppearDialogue()
+    {
+        animatorDarkenBackground.SetTrigger("FlashOfLightAppear");
+    }
+
+    public void FlashOfLightDisappearDialogue()
+    {
+        animatorDarkenBackground.SetTrigger("FlashOfLightDisappear");
+    }
+
+    public void HurtBackgroundDialogue()
+    {
+        animatorDarkenBackground.SetTrigger("Hurt");
+    }
+    
+    public void XuXianMoveRightDialogue()
+    {
+        animatorXuXuanDialogue.SetTrigger("MoveRight");
+    }
+
+    public void XuXianHurtDialogue()
+    {
+        animatorXuXuanDialogue.SetTrigger("Hurt");
+    }
+
+    public void BaiSuzhenRunDialogue()
+    {
+        animatorBaiSuzhenDialogue.SetTrigger("Run");
+    }
+
+    public void FaHaiAttackDialogue()
+    {
+        animatorFaHaiDialogue.SetTrigger("Attack");
+    }
+
+    public void FaHaiDisappearLeftDialogue()
+    {
+        animatorFaHaiDialogue.SetTrigger("DisappearLeft");
+    }
+    
+    //=============================================================================================
+    //                  Story Forest Level Helper Functions
+    //=============================================================================================
+
+    public void BiZiAppearRightDialogue()
+    {
+        animatorBiZiDialogue.SetTrigger("AppearRight");
+    }
+
+    public void BiZiBaiSuzhenDisappearRightDialogue()
+    {
+        animatorBiZiDialogue.SetTrigger("DisappearRight");
+        animatorBaiSuzhenDialogue.SetTrigger("DisappearLeftToRight");
+    }
+    
+    //=============================================================================================
+    //                  Story Cave Level Helper Functions
+    //=============================================================================================
+
+    public void BiZiAppearMiddleDialogue()
+    {
+        animatorBiZiDialogue.SetTrigger("AppearMiddle");
+    }
+    
     
     //=============================================================================================
 
@@ -265,6 +393,28 @@ public class GameController : MonoBehaviour
             else
             {
                 _faHaiSprite.sortingOrder = 0;
+            }
+        }
+        else if (character == "Bai Suzhen")
+        {
+            if (brightenCharacter)
+            {
+                _baiSuzhenSprite.sortingOrder = 2;        
+            }
+            else
+            {
+                _baiSuzhenSprite.sortingOrder = 0;
+            }
+        }
+        else if (character == "Bi Zi")
+        {
+            if (brightenCharacter)
+            {
+                _biZiSprite.sortingOrder = 2;        
+            }
+            else
+            {
+                _biZiSprite.sortingOrder = 0;
             }
         }
     }
