@@ -390,6 +390,12 @@ public class GameController : MonoBehaviour
         animatorBiZiDialogue.SetTrigger("DisappearRight");
         animatorBaiSuzhenDialogue.SetTrigger("DisappearLeftToRight");
     }
+
+    public void BaiSuzhenOffScreenLeft()
+    {
+        baiSuzhenGameObj.SetActive(false);
+        animatorBaiSuzhenDialogue.SetTrigger("OffScreenLeft");
+    }
     
     //=============================================================================================
     //                  Story Cave Level Helper Functions

@@ -23,6 +23,13 @@ public class StoryForestTextManager : MonoBehaviour
         {
             DisplayNext();
         }
+        if (Input.GetKeyDown(KeyCode.Tab)) 
+        {
+            // Need this to not make Bai Suzhen jump to the left
+            GameController.instance.BaiSuzhenOffScreenLeft();
+            GameController.instance.EndDialogue("Forest");
+            SceneManager.LoadScene("StoryCaveLevel");
+        }
     }
     
     private void Start()

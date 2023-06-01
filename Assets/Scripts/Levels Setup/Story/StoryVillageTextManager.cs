@@ -24,6 +24,11 @@ public class StoryVillageTextManager : MonoBehaviour
         {
             DisplayNext();
         }
+        if (Input.GetKeyDown(KeyCode.Tab)) 
+        {
+            GameController.instance.EndDialogue("Village");
+            SceneManager.LoadScene("StoryForestLevel");
+        }
     }
     
     private void Start()
