@@ -60,13 +60,14 @@ public class StoryCaveTextManager : MonoBehaviour
             {
                 textBox.SetActive(false);
                 GameController.instance.FadeOut();
-                GameController.instance.FaHaiDisappearLeftDialogue();
+                GameController.instance.RatioOutandBrightenScreen();
+                GameController.instance.CharacterTalking("Bai Suzhen", false);
 
                 // Delay for the fade out
                 StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
                 {
                     GameController.instance.EndDialogue("Cave");
-                    SceneManager.LoadScene("BattleLevel");
+                    SceneManager.LoadScene("BattleMap");
                 }, 7f));
             }
             else
@@ -92,29 +93,37 @@ public class StoryCaveTextManager : MonoBehaviour
 
     public void HighlightCharacterTalking()
     {
-        if (_sentences.Count == 18)
+        if (_sentences.Count == 19)
         {
             GameController.instance.CharacterTalking("Bai Suzhen", false);
+        }
+        else if (_sentences.Count == 18)
+        {
+            GameController.instance.CharacterTalking("Xuan Wu", true);
         }
         else if (_sentences.Count == 17)
         {
-            
+            GameController.instance.CharacterTalking("Bi Zi", true);
+            GameController.instance.CharacterTalking("Xuan Wu", false);
         }
         else if (_sentences.Count == 16)
         {
-            GameController.instance.CharacterTalking("Bi Zi", true);
+            GameController.instance.CharacterTalking("Bi Zi", false);
+            GameController.instance.CharacterTalking("Xuan Wu", true);
         }
         else if (_sentences.Count == 15)
         {
-            GameController.instance.CharacterTalking("Bi Zi", false);
+            GameController.instance.CharacterTalking("Bai Suzhen", true);
+            GameController.instance.CharacterTalking("Xuan Wu", false);
         }
         else if (_sentences.Count == 14)
         {
-            GameController.instance.CharacterTalking("Bai Suzhen", true);
+            GameController.instance.CharacterTalking("Bai Suzhen", false);
+            GameController.instance.CharacterTalking("Xuan Wu", true);
         }
         else if (_sentences.Count == 13)
         {
-            GameController.instance.CharacterTalking("Bai Suzhen", false);
+            
         }
         else if (_sentences.Count == 12)
         {
@@ -122,15 +131,17 @@ public class StoryCaveTextManager : MonoBehaviour
         }
         else if (_sentences.Count == 11)
         {
-            
+            GameController.instance.CharacterTalking("Bai Suzhen", true);
+            GameController.instance.CharacterTalking("Xuan Wu", false);
         }
         else if (_sentences.Count == 10)
         {
-            GameController.instance.CharacterTalking("Bai Suzhen", true);
+            GameController.instance.CharacterTalking("Bai Suzhen", false);
+            GameController.instance.CharacterTalking("Xuan Wu", true);
         }
         else if (_sentences.Count == 9)
         {
-            GameController.instance.CharacterTalking("Bai Suzhen", false);
+            
         }
         else if (_sentences.Count == 8)
         {
@@ -138,32 +149,40 @@ public class StoryCaveTextManager : MonoBehaviour
         }
         else if (_sentences.Count == 7)
         {
-            
+            GameController.instance.CharacterTalking("Bai Suzhen", true);
+            GameController.instance.CharacterTalking("Xuan Wu", false);
         }
         else if (_sentences.Count == 6)
         {
-            GameController.instance.CharacterTalking("Bai Suzhen", true);
+            GameController.instance.CharacterTalking("Bai Suzhen", false);
+            GameController.instance.CharacterTalking("Xuan Wu", true);
         }
         else if (_sentences.Count == 5)
         {
-            GameController.instance.CharacterTalking("Bai Suzhen", false);
+            GameController.instance.BiZiLookAroundDialogue();
+            GameController.instance.CharacterTalking("Bi Zi", true);
+            GameController.instance.CharacterTalking("Xuan Wu", false);
         }
         else if (_sentences.Count == 4)
-        {
-            GameController.instance.CharacterTalking("Bi Zi", true);
-        }
-        else if (_sentences.Count == 3)
         {
             GameController.instance.CharacterTalking("Bai Suzhen", true);
             GameController.instance.CharacterTalking("Bi Zi", false);
         }
-        else if (_sentences.Count == 2)
+        else if (_sentences.Count == 3)
         {
             GameController.instance.CharacterTalking("Bai Suzhen", false);
+            GameController.instance.CharacterTalking("Xuan Wu", true);
+        }
+        else if (_sentences.Count == 2)
+        {
+            GameController.instance.CharacterTalking("Xuan Wu", false);
+            GameController.instance.XuanWuDisappearLeftDialogue();
         }
         else if (_sentences.Count == 1)
         {
+            GameController.instance.BiZiBaiSuzhenDisappearLeftDialogue();
             GameController.instance.CharacterTalking("Bai Suzhen", true);
+            GameController.instance.CharacterTalking("Xuan Wu", false);
         }
     }
 }

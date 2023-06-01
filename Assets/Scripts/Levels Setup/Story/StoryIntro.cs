@@ -23,19 +23,4 @@ public class StoryIntro : MonoBehaviour
             SceneManager.LoadScene("BattleMap");
         }
     }
-
-    public void ToMap()
-    {
-        SceneManager.LoadScene("BattleMap");
-    }
-
-    public void StartBattle()
-    {
-
-        SceneManager.LoadScene("BattleLevel");
-    }
-    public void ChangeDecks()
-    {
-        SceneManager.LoadScene("PickDeckLevel_1");
-    }
 }

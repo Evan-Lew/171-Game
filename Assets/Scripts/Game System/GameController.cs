@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     
     [Header("Animator Controllers")]
     [SerializeField] Animator animatorFadeScene;
-    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue, animatorBaiSuzhenDialogue, animatorBiZiDialogue;
+    [SerializeField] private Animator animatorAspectRatioSwitch, animatorDarkenBackground, animatorXuXuanDialogue, animatorFaHaiDialogue, animatorBaiSuzhenDialogue, animatorBiZiDialogue, animatorXuanWuDialogue;
 
     [Header("Story Background Lists and Story Animators")]
     public int storyScenesLeft = 4;
@@ -43,15 +43,18 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject clouds;
     
     // Dialogue GameObjects
-    [Header("Characters Talking")] 
+    [Header("Characters Talking")]
     [SerializeField] GameObject xuXianGameObj;
     [SerializeField] GameObject faHaiGameObj;
     [SerializeField] GameObject baiSuzhenGameObj;
     [SerializeField] GameObject biZiGameObj;
+    [SerializeField] GameObject xuanWuGameObj;
+    
     private SpriteRenderer _xuXianSprite;
     private SpriteRenderer _faHaiSprite;
     private SpriteRenderer _baiSuzhenSprite;
     private SpriteRenderer _biZiSprite;
+    private SpriteRenderer _xuanWuSprite;
     
     // List for all the characters (don't know what this is for -Evan)
     public List<Character_Basedata> CharactersList = new();
@@ -100,6 +103,7 @@ public class GameController : MonoBehaviour
         _faHaiSprite = faHaiGameObj.GetComponent<SpriteRenderer>();
         _baiSuzhenSprite = baiSuzhenGameObj.GetComponent<SpriteRenderer>();
         _biZiSprite = biZiGameObj.GetComponent<SpriteRenderer>();
+        _xuanWuSprite = xuanWuGameObj.GetComponent<SpriteRenderer>();
     }
     
     void Update()
@@ -195,9 +199,11 @@ public class GameController : MonoBehaviour
             
             baiSuzhenGameObj.SetActive(true);
             biZiGameObj.SetActive(true);
+            xuanWuGameObj.SetActive(true);
             
             animatorBaiSuzhenDialogue.SetTrigger("AppearLeft");
             animatorBiZiDialogue.SetTrigger("AppearMiddle");
+            animatorXuanWuDialogue.SetTrigger("OnScreenRight");
         }
     }
 
@@ -247,6 +253,20 @@ public class GameController : MonoBehaviour
             faHaiGameObj.SetActive(false);
             baiSuzhenGameObj.SetActive(false);
         }
+        else if (sceneName == "Cave")
+        {
+            xuXianGameObj.SetActive(false);
+            faHaiGameObj.SetActive(false);
+            baiSuzhenGameObj.SetActive(false);
+            biZiGameObj.SetActive(false);
+            xuanWuGameObj.SetActive(false);
+        }
+        else if (sceneName == "BattleLevel")
+        {
+            animatorFadeScene.SetTrigger("ClearScreen");
+            animatorAspectRatioSwitch.SetTrigger("Out");
+            animatorDarkenBackground.SetTrigger("Bright");
+        }
         
         //animatorFadeScene.SetTrigger("ClearScreen");
         //animatorAspectRatioSwitch.SetTrigger("Out");
@@ -261,6 +281,20 @@ public class GameController : MonoBehaviour
     public void FadeOut()
     {
         animatorFadeScene.SetTrigger("FadeOut");
+    }
+
+    public void RatioOutandBrightenScreen()
+    {
+        animatorAspectRatioSwitch.SetTrigger("Out");
+        animatorDarkenBackground.SetTrigger("Bright");
+    }
+
+    public void UIAnimationsOffScreen()
+    {
+        animatorFadeScene.SetTrigger("ClearScreen");
+        animatorFadeScene.ResetTrigger("FadeOut");
+        animatorAspectRatioSwitch.SetTrigger("NoRatio");
+        animatorDarkenBackground.SetTrigger("StartBright");
     }
     
     // For developer level to have no fade in
@@ -359,11 +393,21 @@ public class GameController : MonoBehaviour
     //                  Story Cave Level Helper Functions
     //=============================================================================================
 
-    public void BiZiAppearMiddleDialogue()
+    public void XuanWuDisappearLeftDialogue()
     {
-        animatorBiZiDialogue.SetTrigger("AppearMiddle");
+        animatorXuanWuDialogue.SetTrigger("DisappearRight");
     }
-    
+
+    public void BiZiLookAroundDialogue()
+    {
+        animatorBiZiDialogue.SetTrigger("LookAround");
+    }
+
+    public void BiZiBaiSuzhenDisappearLeftDialogue()
+    {
+        animatorBiZiDialogue.SetTrigger("DisappearMiddle");
+        animatorBaiSuzhenDialogue.SetTrigger("DisappearLeft");
+    }
     
     //=============================================================================================
 
@@ -415,6 +459,17 @@ public class GameController : MonoBehaviour
             else
             {
                 _biZiSprite.sortingOrder = 0;
+            }
+        }
+        else if (character == "Xuan Wu")
+        {
+            if (brightenCharacter)
+            {
+                _xuanWuSprite.sortingOrder = 2;        
+            }
+            else
+            {
+                _xuanWuSprite.sortingOrder = 0;
             }
         }
     }

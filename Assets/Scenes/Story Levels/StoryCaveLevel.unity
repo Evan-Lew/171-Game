@@ -396,7 +396,8 @@ MonoBehaviour:
     - Ba ba ba ba ba!!
     - Thank you, I appreciate your help.
     - "One more thing, take this map so you don\u2019t get lost. I\u2019ll be waiting
-      to see your progress up the mountain. Farewell, White Snake."
+      to see your progress up the mountain."
+    - Farewell, White Snake.
     - "What a strange man. Oh well, let\u2019s look at this map\u2026"
 --- !u!1 &1006387816
 GameObject:

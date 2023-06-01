@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &67228213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7990,13 +7990,14 @@ GameObject:
   - component: {fileID: 955333039}
   - component: {fileID: 955333041}
   - component: {fileID: 955333040}
+  - component: {fileID: 955333042}
   m_Layer: 8
-  m_Name: Fa Hai Sprite (1)
+  m_Name: Xuan Wu Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &955333039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8006,7 +8007,7 @@ RectTransform:
   m_GameObject: {fileID: 955333038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 22.5, y: 22.5, z: 22.5}
+  m_LocalScale: {x: 75, y: 75, z: 75}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507914033}
@@ -8014,7 +8015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 175, y: -80}
+  m_AnchoredPosition: {x: 210, y: -200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &955333040
@@ -8058,7 +8059,7 @@ SpriteRenderer:
   m_SortingLayerID: 2088765635
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -857552672, guid: f59826b3693f4234eb6633dde51a4a50, type: 3}
+  m_Sprite: {fileID: 1855490894, guid: f312d6a0aee9ca443a0a9e070c5907e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8077,6 +8078,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955333038}
   m_CullTransparentMesh: 1
+--- !u!95 &955333042
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955333038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc926ed34a5ae0640ab7c642e44c575c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &987881471
 GameObject:
   m_ObjectHideFlags: 0
@@ -16962,6 +16983,7 @@ MonoBehaviour:
   animatorFaHaiDialogue: {fileID: 2008620574}
   animatorBaiSuzhenDialogue: {fileID: 1075178191}
   animatorBiZiDialogue: {fileID: 67228214}
+  animatorXuanWuDialogue: {fileID: 955333042}
   storyScenesLeft: 4
   scenesPlayed: 0
   animatorScreenWipesList:
@@ -16992,6 +17014,7 @@ MonoBehaviour:
   faHaiGameObj: {fileID: 2008620570}
   baiSuzhenGameObj: {fileID: 1075178187}
   biZiGameObj: {fileID: 67228212}
+  xuanWuGameObj: {fileID: 955333038}
   CharactersList:
   - {fileID: 11400000, guid: 5b1b9016051e2a9478866d5e706b49a2, type: 2}
   - {fileID: 11400000, guid: 85cc55650dd5ecf4086be893b04d83cd, type: 2}

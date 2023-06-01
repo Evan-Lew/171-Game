@@ -49,7 +49,7 @@ public class BattleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             Debug.Log("Developer Tool: Change Enemy Health");
-            enemy.Health_Current = 1;
+            enemy.Health_Current = 0;
         }
         
         

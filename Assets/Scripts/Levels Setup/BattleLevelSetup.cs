@@ -28,9 +28,9 @@ public class BattleLevelSetup : MonoBehaviour
         {
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
-
-        GameController.instance.ClearScreen();
+        
         GameController.instance.EndDialogue("BattleLevel");
+        //GameController.instance.FadeIn();
         
         // Change background
         GameController.instance.ChangeBackground(backgroundsList[BattleController.battleNum]);
@@ -96,7 +96,7 @@ public class BattleLevelSetup : MonoBehaviour
         {
             BattleController.end_HP = BattleController.instance.player.Health_Current;
             GameController.instance.DisableBattleMode();
-            
+            GameController.instance.FadeOut();
             // SceneManager.UnloadSceneAsync("BattleLevel");
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
@@ -115,10 +115,9 @@ public class BattleLevelSetup : MonoBehaviour
                 // Move to the next enemy
                 else
                 {
-                    SceneManager.LoadScene("BattleMap");     
+                    SceneManager.LoadScene("BattleMap");
                 }
-
-            }, 1f));
+            }, 5f));
         }
         
         // Player loses
