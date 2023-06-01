@@ -117,7 +117,7 @@ public class BattleLevelSetup : MonoBehaviour
                 {
                     SceneManager.LoadScene("BattleMap");
                 }
-            }, 5f));
+            }, 4f));
         }
         
         // Player loses

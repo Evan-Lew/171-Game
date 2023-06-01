@@ -162,6 +162,8 @@ public class GameController : MonoBehaviour
             animatorDarkenBackground.SetTrigger("StartDark");
             xuXianGameObj.SetActive(true);
             faHaiGameObj.SetActive(true);
+            animatorXuXuanDialogue.SetTrigger("OnScreenMiddleLeft");
+            animatorFaHaiDialogue.SetTrigger("OnScreenRight");
         }
         else if (sceneName == "Village")
         {

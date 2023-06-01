@@ -29,10 +29,6 @@ public class BattleMapSetup : MonoBehaviour
         //     button.SetActive(false);
         //     deckbutton.SetActive(true);
         // }
-        if (Input.GetKeyDown(KeyCode.Tab)) 
-        {
-            SceneManager.LoadScene("BattleMap");
-        }
     }
 
     public void ToMap()

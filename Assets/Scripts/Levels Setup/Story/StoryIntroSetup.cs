@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StoryIntro : MonoBehaviour
+public class StoryIntroSetup : MonoBehaviour
 {
     private void Awake()
     {
@@ -16,11 +16,8 @@ public class StoryIntro : MonoBehaviour
             GameController.instance.storyBackgroundsList[i].SetActive(true);
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab)) 
-        {
-            SceneManager.LoadScene("BattleMap");
-        }
+    
+    private void Update() {
+        
     }
 }

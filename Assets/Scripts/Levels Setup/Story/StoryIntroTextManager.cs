@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class IntroStoryTextManager : MonoBehaviour
+public class StoryIntroTextManager : MonoBehaviour
 {
     // Variables
     public TMP_Text dialogueText;
@@ -41,7 +41,16 @@ public class IntroStoryTextManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
                 DisplayNext();
-            }    
+            }
+            if (Input.GetKeyDown(KeyCode.Tab)) 
+            {
+                for (int i = 0; i < GameController.instance.storyBackgroundsList.Count; i++)
+                {
+                    GameController.instance.storyBackgroundsList[i].SetActive(false);
+                }
+                SceneManager.LoadScene("StoryVillageLevel");
+            
+            }
         }
         
     }
