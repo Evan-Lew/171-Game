@@ -49,19 +49,22 @@ public class BattleLevelSetup : MonoBehaviour
 
     void StartTheBattle()
     {
-        // Resetting the hand draw
+        // Resetting the hand draw (in case if it is disabled from the tutorial)
         _deckSystem.enableDrawing = true;
-        _deckSystem.deckToUse.Clear();
-        _deckSystem.deckForCurrentBattle.Clear();
-        _handManager.Clear();
+        BattleController.instance.startDrawingCards = true;
         
-        // Add the cards specified in the list to the deck to be used
-        foreach (Card_Basedata card in startingCards)
-        {
-            _deckSystem.deckToUse.Add(card);
-            _deckSystem.deckForCurrentBattle.Add(card);
-        }
-        _deckSystem.DrawMultipleCards(5);
+        // --Not used anymore--
+        // _deckSystem.deckToUse.Clear();
+        // _deckSystem.deckForCurrentBattle.Clear();
+        // _handManager.Clear();
+        //
+        // // Add the cards specified in the list to the deck to be used
+        // foreach (Card_Basedata card in startingCards)
+        // {
+        //     _deckSystem.deckToUse.Add(card);
+        //     _deckSystem.deckForCurrentBattle.Add(card);
+        // }
+        //_deckSystem.DrawMultipleCards(5);
 
         // listOfEnemies
         // 0, 1, 2 == fodder enemies
@@ -95,7 +98,7 @@ public class BattleLevelSetup : MonoBehaviour
         if (_levelEnd)
         {
             BattleController.end_HP = BattleController.instance.player.Health_Current;
-            GameController.instance.DisableBattleMode();
+            GameController.instance.DisableBattleMode(false);
             GameController.instance.FadeOut();
             // SceneManager.UnloadSceneAsync("BattleLevel");
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -123,7 +126,7 @@ public class BattleLevelSetup : MonoBehaviour
         // Player loses
         if (BattleController.instance.player.Health_Current <= 0)
         {
-            GameController.instance.DisableBattleMode();
+            GameController.instance.DisableBattleMode(true);
             BattleController.battleNum = 100;
             SceneManager.LoadScene("EndScene");
         }

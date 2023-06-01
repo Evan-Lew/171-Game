@@ -37,7 +37,7 @@ public class DeveloperSetup : MonoBehaviour
             BattleController.instance.enableTurnUpdate = false;
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                GameController.instance.DisableBattleMode();
+                GameController.instance.DisableBattleMode(true);
                 SceneManager.LoadScene("DeveloperLevel");
             }, 3f));
         }

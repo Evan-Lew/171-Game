@@ -37,7 +37,6 @@ public class DeckEditSystem : MonoBehaviour
         {
             //DestroyACardFromList(testCardList, "Payment");
         }
-
     }
 
     //===========================================================
@@ -47,7 +46,7 @@ public class DeckEditSystem : MonoBehaviour
     /*  Function that instantiate a card based on the given cardData, transform, and state
      *  Parameter:  Argument1:  CardList that used to hold new generated card
      *              Argument2:  CardData is which card you want to generate
-     *              Argument3:  TargetTransform where you want the tartget been generated, include rotation. To change Scaling, Adjust the Y value on Spawning Point
+     *              Argument3:  TargetTransform where you want the target been generated, include rotation. To change Scaling, Adjust the Y value on Spawning Point
      *              Argument4:  Card.state state, state determines the card behavior, state.DeckDisplay is static card, state.DeckCandidate allows you to pick
      *  Example Call:   InstantiateACard(testCardList, testCardData, testPos, Card.state.DeckDisplay);                                             
      */
@@ -80,7 +79,7 @@ public class DeckEditSystem : MonoBehaviour
      */
     public void DestroyACardFromList(List<Card> CardList, string targetCardName)
     {
-        if(CardList.Count != 0)
+        if (CardList.Count != 0)
         {
             int index = CardList.FindIndex(card => card.cardName == targetCardName);
             if (index == -1)
@@ -150,7 +149,7 @@ public class DeckEditSystem : MonoBehaviour
      */
     void SpawnCardsForPick(int totalCandidateNum, List<Card_Basedata> CandidatesList, Transform DisplayFrom, Transform MinPos, Transform MaxPos)
     {
-        if(_script_DeckSystem.deckToUse.Count != 10)
+        if (_script_DeckSystem.deckToUse.Count != 10)
         {
             isCardPicked = false;
             DestroyCurrentCardsForPick();

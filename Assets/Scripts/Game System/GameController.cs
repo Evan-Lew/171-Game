@@ -111,7 +111,7 @@ public class GameController : MonoBehaviour
         // if (Input.GetKeyDown(KeyCode.Space))
         // {
         //     Debug.Log("Space");
-        //     DisableBattleMode();
+        //     DisableBattleMode(true);
         //     
         // }
         
@@ -128,10 +128,10 @@ public class GameController : MonoBehaviour
         // }
         //
         // //--Legacy: Not used--
-        // if (Input.GetKeyDown(KeyCode.R))
-        // {
-        //     StartTheCamp();
-        // }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartTheCamp();
+        }
         
         // if (Input.GetKeyDown(KeyCode.T))
         // {
@@ -492,7 +492,7 @@ public class GameController : MonoBehaviour
         // Switch scenes if player dies
         if (player.GetComponent<Character>().Health_Current <= 0)
         {
-            DisableBattleMode();
+            DisableBattleMode(true);
             
             // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
             SceneManager.LoadScene("EndScene");
@@ -501,7 +501,7 @@ public class GameController : MonoBehaviour
         // Switch scene if player wins
         if (enemy.GetComponent<Character>().Health_Current <= 0 && battleCondition)
         {
-            DisableBattleMode();
+            DisableBattleMode(true);
 
             // player.GetComponent<Character>().Health_Current = player.GetComponent<Character>().Health_Total;
             battleCondition = false;
@@ -622,10 +622,13 @@ public class GameController : MonoBehaviour
         _script_BattleController.Clear();
     }
     
-    public void DisableBattleMode()
+    public void DisableBattleMode(bool clearDeck)
     {
-        _script_DeckSystem.deckToUse.Clear();
-        _script_DeckSystem.Clear();
+        if (clearDeck)
+        {
+            _script_DeckSystem.deckToUse.Clear();
+            _script_DeckSystem.Clear();    
+        }
         _script_HandManager.Clear();
         _script_BattleController.Clear();
         
@@ -640,14 +643,19 @@ public class GameController : MonoBehaviour
     *   Parameters: Argument1:  Target Character Group game object's transform
     *               Argument2:  Target Environment Camera's transform                         
     */
-    void CampSystemSetUp()
+    public void CampSystemSetUp()
     {
         characters.SetActive(false);
-        _script_BattleController.Clear();
+        //_script_BattleController.Clear();
         _script_DeckSystem.Clear();
         _script_HandManager.Clear();
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Battle Camera").SingleOrDefault().GetComponent<Camera>(), false);
         _script_CameraUtil.SetUIActive(CamerasObj.Where(obj => obj.name == "UI Camp Camera").SingleOrDefault().GetComponent<Camera>(), true);
+    }
+
+    public void StartBattleLevelButton()
+    {
+        SceneManager.LoadScene("BattleLevel");
     }
 
     public enum characterType {player, enemy}
