@@ -39,8 +39,6 @@ public class TutorialSetup : MonoBehaviour
     bool tutorialEnd = false;
     private bool _historyTutorialStarted = false;
 
-    public bool levelEnd = false;
-    
     private bool _dialoguePlaying = true;
     private bool _introDialoguePlayed = false;
 
@@ -57,16 +55,15 @@ public class TutorialSetup : MonoBehaviour
         {
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
-        GameController.instance.ChangeBackground("Village_BG");
-        //GameController.instance.ChangeBackground("Forest_BG");
-        GameController.instance.StartDialogue();
+        GameController.instance.ChangeBackground("Forest_BG");
+        GameController.instance.StartDialogue("Tutorial");
         GameController.instance.tutorialIntroDialoguePlaying = true;
         GameController.instance.tutorialOutroDialoguePlaying = true;
         
         // Time delay to activate the dialogue text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            GameController.instance.CharacterTalking("rightIsTalking", true);
+            GameController.instance.CharacterTalking("Fa Hai", true);
             introTextBox.SetActive(true);
             introTextManager.SetActive(true);
         }, 4f));
@@ -80,6 +77,9 @@ public class TutorialSetup : MonoBehaviour
         if (_introDialoguePlayed == false && GameController.instance.tutorialIntroDialoguePlaying == false)
         {
             _introDialoguePlayed = true;
+            
+            // Disable the TextManager
+            introTextManager.SetActive(false);
             introTextBox.SetActive(false);
 
             // Time delay to start the music
@@ -121,7 +121,7 @@ public class TutorialSetup : MonoBehaviour
         {
             if (_fadeSceneOutFlag == false)
             {
-                GameController.instance.CharacterTalking("rightIsTalking", false);
+                GameController.instance.CharacterTalking("Fa Hai", false);
                 outroTextBox.SetActive(false);
                 GameController.instance.FadeOut();
                 _fadeSceneOutFlag = true;
@@ -146,35 +146,35 @@ public class TutorialSetup : MonoBehaviour
         // Intro Dialogue
         if (introSentenceLength == 4)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", true);
-            GameController.instance.CharacterTalking("rightIsTalking", false);
+            GameController.instance.CharacterTalking("Xu Xian", true);
+            GameController.instance.CharacterTalking("Fa Hai", false);
         }
         else if (introSentenceLength == 3)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", false);
-            GameController.instance.CharacterTalking("rightIsTalking", true);
+            GameController.instance.CharacterTalking("Xu Xian", false);
+            GameController.instance.CharacterTalking("Fa Hai", true);
         }
         else if (introSentenceLength == 2)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", false);
-            GameController.instance.CharacterTalking("rightIsTalking", true);
+            GameController.instance.CharacterTalking("Xu Xian", false);
+            GameController.instance.CharacterTalking("Fa Hai", true);
         }
         else if (introSentenceLength == 1)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", true);
-            GameController.instance.CharacterTalking("rightIsTalking", false);
+            GameController.instance.CharacterTalking("Xu Xian", true);
+            GameController.instance.CharacterTalking("Fa Hai", false);
         }
         
         // Outro Dialogue
         else if (outroSentenceLength == 2)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", true);
-            GameController.instance.CharacterTalking("rightIsTalking", false);
+            GameController.instance.CharacterTalking("Xu Xian", true);
+            GameController.instance.CharacterTalking("Fa Hai", false);
         }
         else if (outroSentenceLength == 1)
         {
-            GameController.instance.CharacterTalking("leftIsTalking", false);
-            GameController.instance.CharacterTalking("rightIsTalking", true);
+            GameController.instance.CharacterTalking("Xu Xian", false);
+            GameController.instance.CharacterTalking("Fa Hai", true);
         }
     }
 
@@ -245,7 +245,7 @@ public class TutorialSetup : MonoBehaviour
                 if (_restartedDialogueFlag == false)
                 {
                     GameController.instance.DisableBattleMode();
-                    GameController.instance.RestartDialogue();
+                    GameController.instance.RestartDialogue("Tutorial");
                     _restartedDialogueFlag = true;
                 }
             }, 2f));
@@ -305,7 +305,7 @@ public class TutorialSetup : MonoBehaviour
         {
             Time.timeScale = 0;
             tutorial02.SetActive(true);
-        }, 9f));
+        }, 13f));
     }
 
     void Phase_3_Setup()
@@ -326,7 +326,7 @@ public class TutorialSetup : MonoBehaviour
         {
             Time.timeScale = 0;
             tutorial03.SetActive(true);
-        }, 5f));
+        }, 4f));
     }
 
     // void Backupdata()

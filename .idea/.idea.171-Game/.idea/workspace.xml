@@ -5,11 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Left.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Left.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Right.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear_Right.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Left.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Left.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Right.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear_Right.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Right.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Right.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Right.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Right.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StoryLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StoryLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryTextManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialTextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai Suzhen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai Suzhen.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai_Suzhen_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Characters/Bai She Zhuan Assets/Bai_Suzhen_Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Appear.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Dialogue_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Dialogue_Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Disappear.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_Off_Screen_Left.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Left.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Fa Hai Dialogue Controller/Fa_Hai_On_Screen_Left.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Xu Xian Dialogue/Xu_Xian_Dialogue_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Xu Xian Dialogue/Xu_Xian_Dialogue_Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +172,7 @@
       <workItem from="1684785041529" duration="19974000" />
       <workItem from="1684871750801" duration="4158000" />
       <workItem from="1684896773416" duration="5851000" />
+      <workItem from="1685466046194" duration="11678000" />
     </task>
     <servers />
   </component>

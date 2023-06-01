@@ -11,13 +11,12 @@ public class StoryLevelSetup : MonoBehaviour
     void Start()
     {
         GameController.instance.ChangeBackground("Village_BG");
+        GameController.instance.StartDialogue("Village");
         
-        
-        GameController.instance.StartDialogue();
         // Time delay to activate the dialogue text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            GameController.instance.CharacterTalking("rightIsTalking", true);
+            GameController.instance.CharacterTalking("Xu Xian", true);
             textBox.SetActive(true);
             textManager.SetActive(true);
         }, 4f));

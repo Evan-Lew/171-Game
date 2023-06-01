@@ -21,7 +21,7 @@ public class DeveloperSetup : MonoBehaviour
     private void Start()
     {
         GameController.instance.ClearScreen();
-        
+        GameController.instance.changePlayerSprite();
         // Change background
         GameController.instance.ChangeBackground(backgroundName);
         
@@ -51,7 +51,7 @@ public class DeveloperSetup : MonoBehaviour
         {
             _deckSystem.deckToUse.Add(card);
         }
-        GameController.instance.StartTheBattle(enemiesList[0], true);
+        GameController.instance.StartTheBattle(enemiesList[3], true);
         GameController.instance.battleCondition = true;
     }
 }
