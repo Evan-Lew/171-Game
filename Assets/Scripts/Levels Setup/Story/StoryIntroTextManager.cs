@@ -49,10 +49,8 @@ public class StoryIntroTextManager : MonoBehaviour
                     GameController.instance.storyBackgroundsList[i].SetActive(false);
                 }
                 SceneManager.LoadScene("StoryVillageLevel");
-            
             }
         }
-        
     }
 
     void Awake()

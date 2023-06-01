@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Story Levels/StoryIntro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Story Levels/StoryIntro.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/IntroStoryTextManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/IntroStoryTextManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryIntro.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryIntro.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/BattleMapSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/BattleMapSetup.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,7 +149,7 @@
       <workItem from="1684896773416" duration="5851000" />
       <workItem from="1685466046194" duration="11678000" />
       <workItem from="1685560111412" duration="30093000" />
-      <workItem from="1685639840790" duration="8617000" />
+      <workItem from="1685639840790" duration="9209000" />
     </task>
     <servers />
   </component>
