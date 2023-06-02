@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         
         pauseMenuUI.SetActive(false);
-        GameController.instance.DisableBattleMode();
+        GameController.instance.DisableBattleMode(true);
         // Load main menu
         SceneManager.LoadScene("MainMenu");
     }

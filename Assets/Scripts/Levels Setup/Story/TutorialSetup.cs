@@ -132,6 +132,7 @@ public class TutorialSetup : MonoBehaviour
             {
                 GameController.instance.EndDialogue("Tutorial");
                 SceneManager.LoadScene("StoryVillageLevel");
+                //SceneManager.LoadScene("BattleMap");
             }, 6f));    
         }
     }
@@ -243,7 +244,7 @@ public class TutorialSetup : MonoBehaviour
             {
                 if (_restartedDialogueFlag == false)
                 {
-                    GameController.instance.DisableBattleMode();
+                    GameController.instance.DisableBattleMode(true);
                     GameController.instance.RestartDialogue("Tutorial");
                     _restartedDialogueFlag = true;
                 }
@@ -262,7 +263,7 @@ public class TutorialSetup : MonoBehaviour
         // Player loses
         if (BattleController.instance.player.Health_Current <= 0)
         {
-            GameController.instance.DisableBattleMode();
+            GameController.instance.DisableBattleMode(true);
             SceneManager.LoadScene("EndScene");
         }
     }

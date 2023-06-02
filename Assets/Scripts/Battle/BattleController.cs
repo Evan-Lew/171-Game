@@ -52,7 +52,6 @@ public class BattleController : MonoBehaviour
             enemy.Health_Current = 0;
         }
         
-        
         // The battle controller will be enabled only if the battle is happened
         if (enable_BattleController)
         {

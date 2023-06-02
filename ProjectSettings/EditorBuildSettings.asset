@@ -33,9 +33,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Story Levels/StoryForestLevel.unity
     guid: fd4e335d84933634c8f27068c87fb2a4
   - enabled: 1
+    path: Assets/Scenes/Story Levels/StoryCaveLevel.unity
+    guid: 10921bca3a797884cb00f160ea845358
+  - enabled: 1
     path: Assets/Scenes/BattleMap.unity
     guid: 706569c6d7eceb441a863352eb2b4db9
   - enabled: 1
+    path: Assets/Scenes/DeckEditLevel.unity
+    guid: abb7217f494fd4d4c920aa95388105ea
+  - enabled: 1
+    path: Assets/Scenes/BattleLevel.unity
+    guid: 819a27e6646201f42ba43b5a9415293a
+  - enabled: 0
     path: Assets/Scenes/DeveloperLevel.unity
     guid: 14c451a29f05f4f44adc1616d648d0d1
   - enabled: 1
@@ -47,9 +56,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: cd6eaf45c26fa1846bfd815d7f455127
-  - enabled: 1
-    path: Assets/Scenes/BattleLevel.unity
-    guid: 819a27e6646201f42ba43b5a9415293a
   - enabled: 1
     path: Assets/Scenes/MountainChallenge.unity
     guid: b52b19c5263a2864e978a04cbfb3c991

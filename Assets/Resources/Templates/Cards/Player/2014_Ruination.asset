@@ -20,6 +20,6 @@ MonoBehaviour:
   description_Main: Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
   description_Log: Deal 2 damage to yourself.  Return
   priorityCost: 0
-  Card_Front: {fileID: 21300000, guid: 898dc6d096308ba4e97c58a4d99c8978, type: 3}
+  Card_Front: {fileID: 21300000, guid: 24c7c16939660464b9992dd8486ed4a0, type: 3}
   Card_Name: {fileID: 21300000, guid: b15bf0e66ce5c764fa51d9a4c88fde89, type: 3}
   icon: {fileID: 0}

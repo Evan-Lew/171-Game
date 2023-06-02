@@ -17,6 +17,7 @@ public class BattleMapSetup : MonoBehaviour
     }
     public void Start()
     {
+        Debug.Log("Battle Num" + BattleController.battleNum);
         // Reset animations
         GameController.instance.UIAnimationsOffScreen();
         SoundManager.PlaySound("bgm_Mountain_Ambient", 0.5f);
@@ -38,12 +39,25 @@ public class BattleMapSetup : MonoBehaviour
 
     public void StartBattle()
     {
-
-        SceneManager.LoadScene("BattleLevel");
+        // The first time at the map switch to the deck edit level
+        if (BattleController.battleNum == 0)
+        {
+            SceneManager.LoadScene("DeckEditLevel");
+        }
+        else
+        {
+            SceneManager.LoadScene("BattleLevel");
+        }
+        
     }
     public void ChangeDecks()
     {
         SceneManager.LoadScene("PickDeckLevel_1");
+    }
+
+    public void PickDeck()
+    {
+        SceneManager.LoadScene("DeckEditLevel");
     }
 
 } 

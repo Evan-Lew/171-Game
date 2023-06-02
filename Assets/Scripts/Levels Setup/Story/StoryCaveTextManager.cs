@@ -23,6 +23,11 @@ public class StoryCaveTextManager : MonoBehaviour
         {
             DisplayNext();
         }
+        if (Input.GetKeyDown(KeyCode.Tab)) 
+        {
+            GameController.instance.EndDialogue("Cave");
+            SceneManager.LoadScene("BattleMap");
+        }
     }
     
     private void Start()

@@ -1839,7 +1839,7 @@ PrefabInstance:
         <color=#FFC982>Gold</color> cards allow for balance between drawing cards
         and attacking.
 
-        - <color=#00CB98>Jade</color> cards grant buffs and
+        - <color=#189642>Jade</color> cards grant buffs and
         healing for lost HP.'
       objectReference: {fileID: 0}
     - target: {fileID: 6818231022110478535, guid: 1ae28f30075fd374ca066c807bb2870c,
@@ -3310,7 +3310,7 @@ PrefabInstance:
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
       propertyPath: m_text
-      value: "The cards you have used so far have used the <color=#BEBEBE>standard</color>
+      value: "The cards you have used so far have used the <color=#A4A4A4>standard</color>
         card effects:\n\n <u>Armor</u>, <u>Damage</u>, and  <u>Card Draw</u> \n\nAs
         your adventure progresses you will encounter more card colors and card effects"
       objectReference: {fileID: 0}
@@ -3772,7 +3772,7 @@ PrefabInstance:
         of your decision.
 
 
-        Let''s start with the <color=#BEBEBE>whack card</color>
+        Let''s start with the <color=#A4A4A4>whack card</color>
         which will deal 3 damage to the enemy.'
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
