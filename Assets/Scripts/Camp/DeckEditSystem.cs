@@ -112,7 +112,6 @@ public class DeckEditSystem : MonoBehaviour
     // Function that adding a Card_Basedata to deck. Note the deck will be modified until you call RemoveCardFromDeck
     public void AddCardToDeck(Card_Basedata card)
     {
-        Debug.Log(_script_DeckSystem.deckToUse.Count);
         _script_DeckSystem.deckToUse.Add(card);
         isCardPicked = true;
     }
