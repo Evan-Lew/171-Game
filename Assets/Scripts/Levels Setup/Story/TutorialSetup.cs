@@ -342,7 +342,7 @@ public class TutorialSetup : MonoBehaviour
 
     public void NextButton()
     {
-        SoundManager.PlaySound("sfx_Scroll_Open", 1);
+        SoundManager.PlaySound("sfx_Paper_Rustle", 0.5f); 
         // Tutorial01
         if (tutorial01.activeSelf)
         {
@@ -382,7 +382,7 @@ public class TutorialSetup : MonoBehaviour
 
     public void PrevButton()
     {
-        SoundManager.PlaySound("sfx_Scroll_Open", 1);
+        SoundManager.PlaySound("sfx_Paper_Rustle", 0.5f); 
         // Tutorial01
         if (tutorial01.activeSelf)
         {

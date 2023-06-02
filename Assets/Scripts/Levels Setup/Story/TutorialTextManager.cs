@@ -107,7 +107,11 @@ public class TutorialTextManager : MonoBehaviour
                 string sentence = sentences.Dequeue();
                 _currSentence = sentence;
                 StopAllCoroutines();
-                StartCoroutine(TypeSentence(sentence));    
+                StartCoroutine(TypeSentence(sentence));  
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+                    {
+                        SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                    }  
             }
         }
     }

@@ -51,7 +51,6 @@ public class StoryForestTextManager : MonoBehaviour
             StopAllCoroutines();
             dialogueText.text = _currSentence;
             _isTyping = false;
-            
         }
         else
         {
@@ -75,6 +74,10 @@ public class StoryForestTextManager : MonoBehaviour
                 _currSentence = sentence;
                 StopAllCoroutines();
                 StartCoroutine(TypeSentence(sentence));
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+                    {
+                        SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                    }
             }
         }
     }
