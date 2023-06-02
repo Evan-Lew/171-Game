@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae09ec5cd8022e4fa3b568e2e162fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleButton: {fileID: 0}
 --- !u!4 &1490158513
 Transform:
   m_ObjectHideFlags: 0

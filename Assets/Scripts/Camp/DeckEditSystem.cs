@@ -27,6 +27,8 @@ public class DeckEditSystem : MonoBehaviour
     public Transform testPos;
     public Card_Basedata testCardData;
 
+    [SerializeField] GameObject battleButton;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -36,6 +38,11 @@ public class DeckEditSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             //DestroyACardFromList(testCardList, "Payment");
+        }
+
+        if (_script_DeckSystem.deckToUse.Count == 10)
+        {
+            battleButton.SetActive(true);
         }
     }
 
@@ -105,6 +112,7 @@ public class DeckEditSystem : MonoBehaviour
     // Function that adding a Card_Basedata to deck. Note the deck will be modified until you call RemoveCardFromDeck
     public void AddCardToDeck(Card_Basedata card)
     {
+        Debug.Log(_script_DeckSystem.deckToUse.Count);
         _script_DeckSystem.deckToUse.Add(card);
         isCardPicked = true;
     }
@@ -125,14 +133,15 @@ public class DeckEditSystem : MonoBehaviour
     // Function displaying all totally deck amount. Move DeckTotalText GameObject to adjust location
     public void UpdateText()
     {
-        DeckTotalText.text = _script_DeckSystem.deckToUse.Count + " /" + " 10";
+        DeckTotalText.text = "Selected " + _script_DeckSystem.deckToUse.Count + "/" + "10 Cards";
     }
 
 
     // This is the function called by the button under UI Camp => button pick Card, once hit, this will be call one time
     // Using this as example as how SpawnCardsForPick() works
-    public void TestSpawnCandidateForPick()
+    public void SpawnCandidateForPick()
     {
+        Debug.Log("Spawning");
         SpawnCardsForPick(numberCandidate, CardCandidatesList, Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax);
     }
     

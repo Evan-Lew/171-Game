@@ -47,6 +47,8 @@ public class Card : MonoBehaviour
 
     // From deck Edit System
     private DeckEditSystem _script_DeckEditSystem;
+    
+    private DeckSystem _script_DeckSystem;
 
     // Hovering
     bool enableOverEffect;
@@ -119,6 +121,7 @@ public class Card : MonoBehaviour
         enableOverEffect = true;
         _script_BattleController = GameObject.Find("Battle Controller").GetComponent<BattleController>();
         _script_DeckEditSystem = GameObject.Find("Deck Edit Manager").GetComponent<DeckEditSystem>();
+        _script_DeckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
         if (cardState == state.Handcard)
         {
             Enemy = GameObject.Find("Enemy").GetComponent<Character>();
@@ -314,6 +317,12 @@ public class Card : MonoBehaviour
                     _script_DeckEditSystem.AddCardToDeck(this.cardData);
                     _script_DeckEditSystem.DestroyCurrentCardsForPick();
                     _script_DeckEditSystem.UpdateText();
+                    
+                    // For deck editting
+                    if (_script_DeckSystem.deckToUse.Count != 10)
+                    {
+                        DeckEditSystem.instance.SpawnCandidateForPick();
+                    }
                 }
             }
         }

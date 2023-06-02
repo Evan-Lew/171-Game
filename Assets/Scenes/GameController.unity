@@ -3857,12 +3857,12 @@ GameObject:
   - component: {fileID: 529227464}
   - component: {fileID: 529227463}
   m_Layer: 10
-  m_Name: Button Pick Card
+  m_Name: Pick Card Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &529227462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3930,7 +3930,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2146040466}
         m_TargetAssemblyTypeName: DeckEditSystem, Assembly-CSharp
-        m_MethodName: TestSpawnCandidateForPick
+        m_MethodName: SpawnCandidateForPick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4979,12 +4979,12 @@ GameObject:
   - component: {fileID: 621701853}
   - component: {fileID: 621701852}
   m_Layer: 10
-  m_Name: Button Battle
+  m_Name: To Battle Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &621701851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5003,8 +5003,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 130, y: -130}
-  m_SizeDelta: {x: 103.65, y: 35.526}
+  m_AnchoredPosition: {x: -12, y: 26}
+  m_SizeDelta: {x: 338.42, y: 118.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &621701852
 MonoBehaviour:
@@ -9918,7 +9918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.4000015, y: -0.8999996}
+  m_AnchoredPosition: {x: 12, y: -0.8999901}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359192343
@@ -9941,7 +9941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BATTLE
+  m_text: TO BATTLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
   m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
@@ -9969,8 +9969,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11476,8 +11476,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -130}
-  m_SizeDelta: {x: 163.31, y: 50}
+  m_AnchoredPosition: {x: 0, y: -140}
+  m_SizeDelta: {x: 380, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492492626
 MonoBehaviour:
@@ -11499,7 +11499,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Selected 0/10 Cards
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
   m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
@@ -11527,8 +11527,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17326,3 +17326,4 @@ MonoBehaviour:
   - {fileID: 0}
   testPos: {fileID: 1382298579}
   testCardData: {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
+  battleButton: {fileID: 621701850}
