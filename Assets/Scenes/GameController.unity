@@ -2959,7 +2959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pick Card
+  m_text: PICK CARD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
   m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
@@ -2969,8 +2969,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3881,8 +3881,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312.348, y: 52.8}
-  m_SizeDelta: {x: 103.65, y: 35.526}
+  m_AnchoredPosition: {x: -135, y: -130}
+  m_SizeDelta: {x: 103.649994, y: 35.526}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529227463
 MonoBehaviour:
@@ -3960,7 +3960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1023091669, guid: 73fe6390ccdde974991a312adf4a9ac7, type: 3}
+  m_Sprite: {fileID: 1874970677, guid: a7a2a2a160cfb7345bab3ff2d76d8580, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4565,7 +4565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567042293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.601, y: 0.201, z: -220.1}
+  m_LocalPosition: {x: 4.2, y: 0, z: -220}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4979,7 +4979,7 @@ GameObject:
   - component: {fileID: 621701853}
   - component: {fileID: 621701852}
   m_Layer: 10
-  m_Name: Button Start
+  m_Name: Button Battle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5003,7 +5003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312.348, y: -9.700005}
+  m_AnchoredPosition: {x: 130, y: -130}
   m_SizeDelta: {x: 103.65, y: 35.526}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &621701852
@@ -5082,7 +5082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1023091669, guid: 73fe6390ccdde974991a312adf4a9ac7, type: 3}
+  m_Sprite: {fileID: 1874970677, guid: a7a2a2a160cfb7345bab3ff2d76d8580, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9941,7 +9941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: BATTLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
   m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
@@ -9951,8 +9951,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10625,7 +10625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428656070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.236, y: 0.442, z: -220.25}
+  m_LocalPosition: {x: 2.2, y: 0, z: -220}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11476,7 +11476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315.4, y: 111.1}
+  m_AnchoredPosition: {x: -0, y: -130}
   m_SizeDelta: {x: 163.31, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492492626
@@ -11509,8 +11509,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12571,7 +12571,7 @@ GameObject:
   - component: {fileID: 1532941470}
   - component: {fileID: 1532941469}
   m_Layer: 3
-  m_Name: Story Backround Image (Dev)
+  m_Name: Story Background Image (Dev)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12638,7 +12638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2bb5f61308febfd439924d28db403e67, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1310924fc75cc034db430230819d3505, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -15041,7 +15041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943491509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.749, y: 0.201, z: -220.1}
+  m_LocalPosition: {x: 0.15, y: 0, z: -220}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17004,6 +17004,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 58faad8fa0ee91f409565cd93433ed0c, type: 3}
   - {fileID: 2800000, guid: f5f93bce35322d8439d430b6569eba99, type: 3}
   - {fileID: 2800000, guid: da3797397cc75494ab87cb98953445c1, type: 3}
+  - {fileID: 2800000, guid: 1310924fc75cc034db430230819d3505, type: 3}
   currBackground: {fileID: 497643016}
   currForeground: {fileID: 173057226}
   animatorCloud: {fileID: 1744089834}
@@ -17306,16 +17307,15 @@ MonoBehaviour:
   CardPrefab: {fileID: 466712306461907816, guid: fea39146c50699f4bb494c630585c051,
     type: 3}
   CardCandidatesList:
-  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
+  - {fileID: 11400000, guid: fa6d7c435e43b7348a5a5e9ac65cd30c, type: 2}
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
   - {fileID: 11400000, guid: 8ec9f2669d88abf4392e1a5fbdacd664, type: 2}
-  - {fileID: 11400000, guid: be30832cd3536f94c82bf9b4564dde56, type: 2}
-  - {fileID: 11400000, guid: fa6d7c435e43b7348a5a5e9ac65cd30c, type: 2}
-  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
-  - {fileID: 11400000, guid: a8a0ba0effcd3dd4fa26c2676e09cd57, type: 2}
-  - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
-  - {fileID: 11400000, guid: 2494a8498474f3545be024ac195e74f5, type: 2}
+  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
   Cards_ForPick: []
   numberCandidate: 3
   CardForPickPositionList: []

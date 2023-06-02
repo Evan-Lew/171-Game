@@ -209,7 +209,11 @@ public class DeckEditSystem : MonoBehaviour
     //SpawnCardsForPick()
     void InstantiateCandidateCard(Card cardPrefab, Card_Basedata cardData, Transform SpawnTransform)
     {
+        //GameObject instantiatedObject = Instantiate(prefabReference);
+        //instantiatedObject.transform.localScale = new Vector3(newScale, newScale, newScale);
+        
         Card newCard = Instantiate(cardPrefab, SpawnTransform.position, SpawnTransform.rotation);
+        newCard.transform.localScale = new Vector3(150, 150, 150);
         newCard.cardData = cardData;
         newCard.cardState = Card.state.DeckCandidate;
         newCard.loadCard();

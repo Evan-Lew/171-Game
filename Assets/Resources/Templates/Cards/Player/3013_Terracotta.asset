@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 1
   rirty: 0
+  cardActivity: 0
   cardName: Terracotta
   ID: 3013
   description_Main: cost 8 Armor deal 6 damage (if you don't have enough armor, nothing
     will happen)
+  description_Log: 
   priorityCost: 0
-  Card_Front: {fileID: 21300000, guid: fb3a7d4fe1cdf7448ba9c08f84dc6669, type: 3}
+  Card_Front: {fileID: 21300000, guid: 807ba83443ba75f49b7addfa322d680b, type: 3}
   Card_Name: {fileID: 21300000, guid: 9a19402d255e071458a818fad5ef1f55, type: 3}
   icon: {fileID: 0}

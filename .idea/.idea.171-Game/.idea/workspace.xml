@@ -5,16 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Credits_BG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Credits_BG.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DeckEditSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DeckEditSetup.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BattleMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BattleMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DeckEditSetup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DeckEditSetup.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Feint Strike Card.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Feint Strike Card.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Last Stand Card.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Cards Names/Gold Card Names/Unbreaking Emperor Name.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Cards Names/Gold Card Names/Unbreaking Emperor Name.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Cards Names/Gold Card Names/Unbreaking Emperor Name.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/2D Art/Cards/Cards Names/Gold Card Names/Unbreaking Emperor Name.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Backgrounds/credits screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Backgrounds/credits screen.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2005_Last_Stand.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2005_Last_Stand.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2008_Feint_Strike.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2008_Feint_Strike.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2014_Ruination.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2014_Ruination.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3006_Unbreaking_Emperor.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3006_Unbreaking_Emperor.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3008_Royal_Gambit.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3008_Royal_Gambit.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3011_Balanced_Bounty.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3011_Balanced_Bounty.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3013_Terracotta.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3013_Terracotta.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3015_Bronze_Age.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3015_Bronze_Age.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DeveloperLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DeveloperLevel.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camp/DeckEditSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camp/DeckEditSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/DeveloperSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/DeveloperSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/BattleMapSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/BattleMapSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/PauseMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +176,7 @@
       <workItem from="1684896773416" duration="5851000" />
       <workItem from="1685466046194" duration="11678000" />
       <workItem from="1685560111412" duration="30093000" />
-      <workItem from="1685639840790" duration="15885000" />
+      <workItem from="1685639840790" duration="18767000" />
     </task>
     <servers />
   </component>

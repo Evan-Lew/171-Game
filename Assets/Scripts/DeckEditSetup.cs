@@ -8,7 +8,7 @@ public class DeckEditSetup : MonoBehaviour
 {
     private void Start()
     {
-        GameController.instance.ChangeBackground("Cave_BG");
+        GameController.instance.ChangeBackground("Credits_BG");
         GameController.instance.CampSystemSetUp();
     }
 
