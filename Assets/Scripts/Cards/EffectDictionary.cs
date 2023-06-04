@@ -2510,5 +2510,6 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Enemies.Add(11, Action_11_Solidify);
         effectDictionary_Enemies.Add(12, Action_12_BreathOfLife);
         effectDictionary_Enemies.Add(13, Action_13_Monsterize);
+        effectDictionary_Enemies.Add(14, Action_14_Claw);
     }
 }

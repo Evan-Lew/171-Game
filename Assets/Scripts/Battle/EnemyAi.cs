@@ -22,6 +22,11 @@ public class EnemyAi : MonoBehaviour
     
     [HideInInspector] public Dictionary<string, List<List<int>>> EnemyDictionary = new Dictionary<string, List<List<int>>>();
     List<int> attackPattern;
+    List<int> attackPattern0;
+    List<int> attackPattern1;
+    List<int> attackPattern2;
+    List<int> attackPattern3;
+    List<int> attackPattern4;
     List<List<int>> enemysPatterns;
     int currentPatternIndex = 0;
 
@@ -51,9 +56,23 @@ public class EnemyAi : MonoBehaviour
         // 3 -> (3) Gain 5 armor
         // 11 -> (6) Gain 11 armor
         // 13 -> (5) Next attack deals triple damage
-        attackPattern = new List<int>() { 1, 3, 1, 3, 13, 1, 11, 2, 13, 1 };
+        attackPattern0 = new List<int>() { 1, 3, 1, 3, 13, 1, 11, 2, 13, 1 };
+        attackPattern1 = new List<int>() { 1, 1, 1, 1, 11, 3, 2, 1, 1, 3, 3, 1 };
+        attackPattern2 = new List<int>() { 1, 11, 13, 1, 2, 1, 1, 3, 3, 2, 2, 1 };
+        attackPattern3 = new List<int>() { 1, 1, 3, 3, 2, 1, 1, 13, 1, 3, 3, 2, 2 };
+        attackPattern4 = new List<int>() { 3, 3, 2, 2, 3, 2, 1, 1, 13, 1, 3, 2, 2, 2 };
+
         enemysPatterns = new List<List<int>>();
-        enemysPatterns.Add(attackPattern);
+        enemysPatterns.Add(attackPattern0);
+        enemysPatterns.Add(attackPattern1);
+        enemysPatterns.Add(attackPattern2);
+        enemysPatterns.Add(attackPattern3);
+        enemysPatterns.Add(attackPattern4);
+
+        while (enemysPatterns.Count > 1)
+        {
+            enemysPatterns.RemoveAt(Random.Range(0, enemysPatterns.Count));
+        }
 
         EnemyDictionary.Add("Ink Golem", enemysPatterns);
     }

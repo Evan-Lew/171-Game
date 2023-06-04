@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Bai She Zhuan
   description_Main: 
   Health_Total: 35
-  Health_Current: 35
+  Health_Current: 10000000000
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0
