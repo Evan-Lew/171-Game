@@ -173,7 +173,7 @@ public class EnemyAi : MonoBehaviour
         // Xiao Qing v.01
         // 15 -> (7) Deal 6 Heal 6
         // 4 -> (5) Deal 3 damage and heal 3
-        // 16 -> (3) Player's next card costs 6 more
+        // 16 -> (3) Player's next card costs 4 more
         // 17 -> (2) Deal 5 Damage
         // 18 -> (5) Heal 10
         // 19 -> (4) Gain 2 armor, deal 1 damage
@@ -201,10 +201,19 @@ public class EnemyAi : MonoBehaviour
     void Add_FaHai()
     {
         // Fa Hai v.01
-        // 1 -> (3) Deal 4 damage
-        // 4 -> (5) Deal 3 damage and heal 3
-        // 5 -> (4) Deal 7 Damage, Take 3 Damage
-        attackPattern = new List<int>() { 5, 4, 1, 4, 1, 5, 4, 1, 1, 5, 4, 1, 1};
+        // 17 -> (2) Deal 5 damage
+        // 6 -> (7) Deal 4 Damage, Player's next card costs 3 more
+        // 12 -> (7) Heal 7, Gain 7 Armor
+        // 13 -> (5) Next attack deals triple damage
+        // 11 -> (6) Gain 11 armor
+        // 16 -> (3) Player's next card costs 4 more
+        // 10 -> (7) Deal 12 Damage, next enemy attack costs 3 more
+        // 19 -> (4) Gain 2 armor, deal 1 damage
+        // 7 -> (5) Deal 7
+        attackPattern = new List<int>() { 13, 6, 6, 6, 12, 16, 17, 16, 6, 19, 17, 17 };
+        attackPattern = new List<int>() { 17, 7, 7, 11, 16, 10, 19, 19, 17, 10, 19, 19, 7 };
+        attackPattern = new List<int>() { 11, 16, 11, 7, 7, 6, 7, 7, 16, 19, 19, 13, 7 };
+
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Fa Hai", enemysPatterns);

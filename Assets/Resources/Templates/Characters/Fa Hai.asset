@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Fa Hai
   description_Main: 
-  Health_Total: 60
-  Health_Current: 60
+  Health_Total: 45
+  Health_Current: 45
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0

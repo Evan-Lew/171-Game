@@ -2224,8 +2224,8 @@ public class EffectDictionary : MonoBehaviour
         ParticleDuration = 4f;
         cardName = "Concuss";
         isCostingExtraPriority = true;
-        Player_extraPriorityCost = 6;
-        descriptionLog = "Player's next card costs 6 more";
+        Player_extraPriorityCost = 4;
+        descriptionLog = "Player's next card costs 4 more";
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Breeze", 1f);

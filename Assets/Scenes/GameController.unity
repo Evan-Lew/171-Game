@@ -5178,6 +5178,7 @@ MonoBehaviour:
   Enemy_armorCreate: 0
   Enemy_priorityInc: 0
   Enemy_permanantCostIncrease: 0
+  Enemy_extraPriorityCost: 0
   playerParticlePrefabsList:
   - {fileID: 6915112631747330158, guid: 33d44ebd57c406e4987543ecf7bc84e2, type: 3}
   - {fileID: 5511052677990246615, guid: c1a79a3a095f1a148a6dc7b0bfde3712, type: 3}

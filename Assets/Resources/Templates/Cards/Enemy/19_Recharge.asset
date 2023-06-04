@@ -15,11 +15,11 @@ MonoBehaviour:
   cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Rapid Regeneration
-  ID: 18
-  description_Main: Heal for 10 HP
+  cardName: Recharge
+  ID: 19
+  description_Main: Deal 1 Damage, Gain 2 Armor
   description_Log: 
-  priorityCost: 5
+  priorityCost: 4
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
   icon: {fileID: 0}

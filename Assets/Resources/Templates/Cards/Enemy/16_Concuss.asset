@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Concuss
   ID: 16
-  description_Main: Player's next card costs 6 more
+  description_Main: Player's next card costs 4 more
   description_Log: 
   priorityCost: 3
   Card_Front: {fileID: 0}
