@@ -45,7 +45,7 @@ public class EnemyAi : MonoBehaviour
         Add_InkChimera();
         Add_Zhenniao();
 
-        Add_StoneRuishi();
+        // Add_StoneRuishi();
 
         Add_XiaoQing();
         Add_FaHai();
@@ -158,25 +158,43 @@ public class EnemyAi : MonoBehaviour
         EnemyDictionary.Add("Zhenniao", enemysPatterns);
     }
 
-    void Add_StoneRuishi()
-    {
-        attackPattern = new List<int>() { 10, 11, 10, 11 };
-        enemysPatterns = new List<List<int>>();
-        enemysPatterns.Add(attackPattern);
-        // attackPattern = new List<int>() { 13, 12};
-        // enemysPatterns.Add(attackPattern);
-        EnemyDictionary.Add("Stone Rui Shi", enemysPatterns);
-    }
+    // void Add_StoneRuishi()
+    // {
+    //     attackPattern = new List<int>() { 10, 11, 10, 11 };
+    //     enemysPatterns = new List<List<int>>();
+    //     enemysPatterns.Add(attackPattern);
+    //     // attackPattern = new List<int>() { 13, 12};
+    //     // enemysPatterns.Add(attackPattern);
+    //     EnemyDictionary.Add("Stone Rui Shi", enemysPatterns);
+    // }
 
     void Add_XiaoQing()
     {
         // Xiao Qing v.01
-        // 1 -> (3) Deal 4 damage
+        // 15 -> (7) Deal 6 Heal 6
         // 4 -> (5) Deal 3 damage and heal 3
-        // 5 -> (4) Deal 7 Damage, Take 3 Damage
-        attackPattern = new List<int>() { 5, 4, 1, 4, 1, 5, 4, 1, 1, 5, 4, 1, 1};
+        // 16 -> (3) Player's next card costs 6 more
+        // 17 -> (2) Deal 5 Damage
+        // 18 -> (5) Heal 10
+        // 19 -> (4) Gain 2 armor, deal 1 damage
+        attackPattern0 = new List<int>() { 16, 17, 16, 17, 17, 15, 4, 19, 19, 18 };
+        attackPattern1 = new List<int>() { 19, 19, 16, 15, 15, 18, 4, 4, 17, 16, 19 };
+        attackPattern2 = new List<int>() { 17, 16, 4, 4, 15, 4, 4, 19, 19, 18, 17, 16 };
+        attackPattern3 = new List<int>() { 4, 15, 4, 15, 19, 19, 18, 17, 17, 16, 4, 4 };
+        attackPattern4 = new List<int>() { 16, 4, 15, 16, 4, 15, 18, 19, 19, 17, 19, 19, 18};
+        
         enemysPatterns = new List<List<int>>();
-        enemysPatterns.Add(attackPattern);
+        enemysPatterns.Add(attackPattern0);
+        enemysPatterns.Add(attackPattern1);
+        enemysPatterns.Add(attackPattern2);
+        enemysPatterns.Add(attackPattern3);
+        enemysPatterns.Add(attackPattern4);
+
+        while (enemysPatterns.Count > 1)
+        {
+            enemysPatterns.RemoveAt(Random.Range(0, enemysPatterns.Count));
+        }
+
         EnemyDictionary.Add("Xiao Qing", enemysPatterns);
     }
 

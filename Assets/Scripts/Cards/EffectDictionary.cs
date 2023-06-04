@@ -2157,6 +2157,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
+    // wrong anims
     public void Action_14_Claw()
     {
         // Card Description
@@ -2189,6 +2190,151 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Enemy_damageDealing);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // wrong anims
+    public void Action_15_Purity()
+    {
+        Enemy_priorityInc = 7f;
+        ParticleDuration = 2f;
+        cardName = "Purity";
+        descriptionLog = "Deal 6 damage, Heal 6 HP";
+        Enemy_damageDealing = 6f;
+        Enemy_healing = 6;
+        Manipulator_Enemy();
+        
+        PlaySound("sfx_Action_Monsterize", 0.8f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("Monsterize", 9, ParticleDuration, ExtraPositioning[3], false);
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(enemy, Enemy_healing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // no anims
+    public void Action_16_Concuss(){
+        Enemy_priorityInc = 3f;
+        ParticleDuration = 4f;
+        cardName = "Concuss";
+        isCostingExtraPriority = true;
+        Player_extraPriorityCost = 6;
+        descriptionLog = "Player's next card costs 6 more";
+        Manipulator_Enemy();
+        
+        PlaySound("sfx_Action_Breeze", 1f);
+        
+        // Particle positioned under the enemy
+        ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    public void Action_17_SharpFangs()
+    {
+        // Card Description
+        ParticleDuration = 3f;
+        Enemy_priorityInc = 2;
+        Enemy_damageDealing = 5;
+        cardName = "Sharp Fangs";
+        descriptionLog = "Deal 5 damage";
+
+        Manipulator_Enemy();
+        
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
+        }, 1f));
+
+        // Play SFX
+        SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
+
+        // Particle positioned under the player
+        ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[1], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    public void Action_18_RapidRegeneration()
+    {
+        Enemy_priorityInc = 5f;
+        ParticleDuration = 3f;
+        cardName = "RapidRegeneraion";
+        descriptionLog = "Heal 10";
+        // Enemy_damageDealing = 3;
+        Enemy_healing = 10;
+        Manipulator_Enemy();
+        
+        PlaySound("sfx_Action_Breath", 1);
+        
+        // Particle positioned on the player
+        ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            Heal_ToTarget(enemy, Enemy_healing);
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // no animations
+    public void Action_19_Recharge()
+    {
+        Enemy_priorityInc = 4f;
+        ParticleDuration = 3f;
+        cardName = "Recharge";
+        descriptionLog = "Deal 1 Damage, Gain 2 Armor";
+        Enemy_damageDealing = 1;
+        Enemy_armorCreate = 2;
+        Manipulator_Enemy();
+        
+        PlaySound("sfx_Action_Breath", 1);
+        
+        // Particle positioned on the player
+        ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            CreateArmor_ToTarget(enemy, Enemy_armorCreate);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
@@ -2527,5 +2673,10 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Enemies.Add(12, Action_12_BreathOfLife);
         effectDictionary_Enemies.Add(13, Action_13_Monsterize);
         effectDictionary_Enemies.Add(14, Action_14_Claw);
+        effectDictionary_Enemies.Add(15, Action_15_Purity);
+        effectDictionary_Enemies.Add(16, Action_16_Concuss);
+        effectDictionary_Enemies.Add(17, Action_17_SharpFangs);
+        effectDictionary_Enemies.Add(18, Action_18_RapidRegeneration);
+        effectDictionary_Enemies.Add(19, Action_19_Recharge);
     }
 }
