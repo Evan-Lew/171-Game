@@ -39,6 +39,8 @@ public class EnemyAi : MonoBehaviour
         Add_Zhenniao();
         Add_StoneRuishi();
         Add_InkChimera();
+        Add_XiaoQing();
+        Add_FaHai();
     }
 
     void Add_Golem()
@@ -58,8 +60,8 @@ public class EnemyAi : MonoBehaviour
 
     void Add_Penghou()
     {
-        // Add Penghou Pattern  Drain #4 -> Charge #5
-        attackPattern = new List<int>() { 4, 5 };
+        // Add Penghou Pattern  Drain #4 -> Charge #5 -> Claw #14
+        attackPattern = new List<int>() { 4, 14, 14, 14, 4, 14, 5 };
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Peng Hou", enemysPatterns);
@@ -101,6 +103,31 @@ public class EnemyAi : MonoBehaviour
         enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Ink Chimera", enemysPatterns);
     }
+
+    void Add_XiaoQing()
+    {
+        // Xiao Qing v.01
+        // 1 -> (3) Deal 4 damage
+        // 4 -> (5) Deal 3 damage and heal 3
+        // 5 -> (4) Deal 7 Damage, Take 3 Damage
+        attackPattern = new List<int>() { 5, 4, 1, 4, 1, 5, 4, 1, 1, 5, 4, 1, 1};
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        EnemyDictionary.Add("Xiao Qing", enemysPatterns);
+    }
+
+    void Add_FaHai()
+    {
+        // Fa Hai v.01
+        // 1 -> (3) Deal 4 damage
+        // 4 -> (5) Deal 3 damage and heal 3
+        // 5 -> (4) Deal 7 Damage, Take 3 Damage
+        attackPattern = new List<int>() { 5, 4, 1, 4, 1, 5, 4, 1, 1, 5, 4, 1, 1};
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        EnemyDictionary.Add("Fa Hai", enemysPatterns);
+    }
+
     
     public void CastUniqueAbility_Golem()
     {

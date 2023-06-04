@@ -18,5 +18,5 @@ MonoBehaviour:
   Health_Current: 60
   Priority_Initial: 0
   Priority_Current: 0
-  Pattern: 3
+  Pattern: 0
   characterSprite: {fileID: -857552672, guid: f59826b3693f4234eb6633dde51a4a50, type: 3}

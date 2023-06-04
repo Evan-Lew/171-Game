@@ -1892,7 +1892,7 @@ public class EffectDictionary : MonoBehaviour
         cardName = "Charge";
         descriptionLog = "Deal 6 Damage, Take 3 Damage";
         Enemy_damageDealing = 6f;
-        Enemy_healing = 3f;
+        Enemy_healing = -3f;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 1);
@@ -2150,6 +2150,42 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             enemyIsDealingTripleDamage = true;
+            Manipulator_Enemy_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    public void Action_14_Claw()
+    {
+        // Card Description
+        ParticleDuration = 3f;
+        Enemy_priorityInc = 3;
+        Enemy_damageDealing = 5f;
+        cardName = "Claw";
+        descriptionLog = "Deal 5 damage";
+
+        Manipulator_Enemy();
+        
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
+        }, 1f));
+
+        // Play SFX
+        SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
+
+        // Particle positioned under the player
+        ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[1], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
+        
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(player, Enemy_damageDealing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3c1dec4005ccb4381e6c4e48afc7a9, type: 3}
-  m_Name: Xu Xuan
+  m_Name: XiaoQing
   m_EditorClassIdentifier: 
-  characterName: Xu Xuan
+  characterName: Fa Hai
   description_Main: 
-  Health_Total: 35
-  Health_Current: 35
+  Health_Total: 50
+  Health_Current: 50
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0
-  characterSprite: {fileID: 79340415, guid: 16a30591394ccac40b5629a4bdca08aa, type: 3}
+  characterSprite: {fileID: 21300000, guid: ed859a4da481c364da1278aa64d74c90, type: 3}
