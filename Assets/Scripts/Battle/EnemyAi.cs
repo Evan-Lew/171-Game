@@ -39,13 +39,39 @@ public class EnemyAi : MonoBehaviour
 
     void Load()
     {
-        Add_Golem();
         Add_Penghou();
-        Add_Zhenniao();
-        Add_StoneRuishi();
+
+        Add_Golem();
         Add_InkChimera();
+        Add_Zhenniao();
+
+        Add_StoneRuishi();
+
         Add_XiaoQing();
         Add_FaHai();
+    }
+
+    void Add_Penghou()
+    {
+        // Penghou Pattern  
+        // Drain #4
+        // Charge #5
+        // Claw #14
+        attackPattern0 = new List<int>() { 14, 14, 14, 4, 14, 5 };
+        attackPattern1 = new List<int>() { 14, 4, 14, 5, 4, 5 };
+        attackPattern2 = new List<int>() { 5, 4, 4, 5, 14, 14, 4 };
+
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern0);
+        enemysPatterns.Add(attackPattern1);
+        enemysPatterns.Add(attackPattern2);
+
+        while (enemysPatterns.Count > 1)
+        {
+            enemysPatterns.RemoveAt(Random.Range(0, enemysPatterns.Count));
+        }
+
+        EnemyDictionary.Add("Peng Hou", enemysPatterns);
     }
 
     void Add_Golem()
@@ -77,37 +103,45 @@ public class EnemyAi : MonoBehaviour
         EnemyDictionary.Add("Ink Golem", enemysPatterns);
     }
 
-    void Add_Penghou()
+    void Add_InkChimera()
     {
-        // Add Penghou Pattern  Drain #4 -> Charge #5 -> Claw #14
-        attackPattern0 = new List<int>() { 14, 14, 14, 4, 14, 5 };
-        attackPattern1 = new List<int>() { 14, 4, 14, 5, 4, 5 };
-        attackPattern2 = new List<int>() { 5, 4, 4, 5, 14, 14, 4 };
+        // Chimera Pattern v.01
+        // 1 -> (3) Deal 4 damage
+        // 4 -> (5) Deal 3 damage and heal 3
+        // 5 -> (4) Deal 6 Damage, Take 3 Damage
+        attackPattern = new List<int>() { 5, 4, 1, 4, 1, 5, 4, 1, 1, 5, 4, 1, 1};
+        enemysPatterns = new List<List<int>>();
+        enemysPatterns.Add(attackPattern);
+        EnemyDictionary.Add("Ink Chimera", enemysPatterns);
+    }
+
+    // IMPLEMENTED
+    void Add_Zhenniao(){
+        // Zhenniao Pattern v.01
+        // 14 -> (3) Deal 5 damage
+        // 6 -> (7) Deal 4 Damage, Player's next card costs 3 more
+        // 7 -> (5) Deal 7
+        // 9 -> (3) Heal 1
+        // 12 -> (7) Heal 7, Gain 7 Armor
+        // 5 -> (4) Deal 6 Damage, Take 3 Damage
+        attackPattern0 = new List<int>() { 6, 7, 7, 6, 12, 9, 9, 12, 9, 9, 14 };
+        attackPattern1 = new List<int>() { 14, 14, 12, 9, 9, 7, 6, 14, 12, 9, 9 };
+        attackPattern2 = new List<int>() { 7, 6, 12, 9, 9, 12, 9, 9, 6, 7, 14 };
+        attackPattern3 = new List<int>() { 5, 5, 5, 14, 12, 9, 9, 6, 12, 9, 9, 5, 5, 6 };
+        attackPattern4 = new List<int>() { 14, 6, 14, 6, 7, 12, 9, 9, 5, 5, 7, 5, 12, 9, 9 };
 
         enemysPatterns = new List<List<int>>();
         enemysPatterns.Add(attackPattern0);
         enemysPatterns.Add(attackPattern1);
         enemysPatterns.Add(attackPattern2);
+        enemysPatterns.Add(attackPattern3);
+        enemysPatterns.Add(attackPattern4);
 
         while (enemysPatterns.Count > 1)
         {
             enemysPatterns.RemoveAt(Random.Range(0, enemysPatterns.Count));
         }
 
-        EnemyDictionary.Add("Peng Hou", enemysPatterns);
-    }
-
-    // IMPLEMENTED
-    void Add_Zhenniao(){
-        // Zhenniao Pattern v.01
-        // 1 -> (3) Deal 4 damage
-        // 6 -> (7) Deal 5 Damage, Player's next card costs 3 more
-        // 7 -> (5) Deal 7
-        // 9 -> (3) Heal 1
-        // 12 -> (7) Heal 7, Gain 7 Armor
-        attackPattern = new List<int>() { 6, 7, 7, 6, 12, 9, 9, 12, 9, 9, 1};
-        enemysPatterns = new List<List<int>>();
-        enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Zhenniao", enemysPatterns);
     }
 
@@ -120,18 +154,6 @@ public class EnemyAi : MonoBehaviour
         // attackPattern = new List<int>() { 13, 12};
         // enemysPatterns.Add(attackPattern);
         EnemyDictionary.Add("Stone Rui Shi", enemysPatterns);
-    }
-
-    void Add_InkChimera()
-    {
-        // Chimera Pattern v.01
-        // 1 -> (3) Deal 4 damage
-        // 4 -> (5) Deal 3 damage and heal 3
-        // 5 -> (4) Deal 7 Damage, Take 3 Damage
-        attackPattern = new List<int>() { 5, 4, 1, 4, 1, 5, 4, 1, 1, 5, 4, 1, 1};
-        enemysPatterns = new List<List<int>>();
-        enemysPatterns.Add(attackPattern);
-        EnemyDictionary.Add("Ink Chimera", enemysPatterns);
     }
 
     void Add_XiaoQing()

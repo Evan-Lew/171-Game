@@ -1924,7 +1924,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_priorityInc = 7f;
         ParticleDuration = 4f;
         cardName = "Blinding Fog";
-        Enemy_damageDealing = 5f;
+        Enemy_damageDealing = 6f;
         isCostingExtraPriority = true;
         Player_extraPriorityCost = 3;
         descriptionLog = "Deal 5 Damage, Player's next card costs 3 more";
