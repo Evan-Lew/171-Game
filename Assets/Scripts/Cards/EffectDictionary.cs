@@ -65,6 +65,7 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public double Enemy_armorCreate = 0;
     [HideInInspector] public double Enemy_priorityInc = 0;
     [HideInInspector] public double Enemy_permanantCostIncrease = 0;
+    [HideInInspector] public double Enemy_extraPriorityCost = 0;
 
     float ParticleDuration = 0;
     enum specialHandling { CastAt_playerEnd, CastAt_enemyEnd }
@@ -2049,15 +2050,17 @@ public class EffectDictionary : MonoBehaviour
     // --Stone Rui Shi---
     
     // IMPLEMENTED
-    // Deal 4 damage
     public void Action_10_Stomp()
     {
-        Enemy_priorityInc = 5f;
+        Enemy_priorityInc = 7f;
         ParticleDuration = 1f;
         cardName = "Stomp";
-        descriptionLog = "Deal 7 Damage";
-        Enemy_damageDealing = 7;
+        descriptionLog = "Deal 12 Damage, Next move costs 3 more";
+        Enemy_damageDealing = 12;
         Manipulator_Enemy();
+
+        E_isCostingExtraPriority = true;
+        Enemy_extraPriorityCost = 3;
         
         PlaySound("sfx_Action_Rock_Smash", 1);
         
@@ -2260,6 +2263,7 @@ public class EffectDictionary : MonoBehaviour
 
         enemyIsDealingTripleDamage = false;
         enemyIsDealingNoDamage = false;
+        E_isCostingExtraPriority = false;
 
         _script_PlayerBuffs.ResetBuffs();
         
@@ -2364,6 +2368,7 @@ public class EffectDictionary : MonoBehaviour
     //------------Enemy-------------------------------------------------
     bool enemyIsDealingTripleDamage = false;
     bool enemyIsDealingNoDamage = false;
+    bool E_isCostingExtraPriority = false;
 
     void Manipulator_Enemy()
     {
@@ -2374,6 +2379,7 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Enemy_DealingTriple();
         Manipulator_Enemy_DealingNone();
+        Manipulator_Enemy_CostExtra();
 
         // from card 4002 
         Enemy_priorityInc += Enemy_permanantCostIncrease;
@@ -2417,6 +2423,16 @@ public class EffectDictionary : MonoBehaviour
         {
             Enemy_damageDealing = 0;
             enemyIsDealingNoDamage = false;
+        }
+    }
+
+    void Manipulator_Enemy_CostExtra()
+    {
+        if(E_isCostingExtraPriority && Enemy_extraPriorityCost != 0)
+        {
+            Enemy_priorityInc += Enemy_extraPriorityCost;
+            E_isCostingExtraPriority = false;
+            Enemy_extraPriorityCost = 0;
         }
     }
 
