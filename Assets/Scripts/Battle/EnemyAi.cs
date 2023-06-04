@@ -80,9 +80,20 @@ public class EnemyAi : MonoBehaviour
     void Add_Penghou()
     {
         // Add Penghou Pattern  Drain #4 -> Charge #5 -> Claw #14
-        attackPattern = new List<int>() { 4, 14, 14, 14, 4, 14, 5 };
+        attackPattern0 = new List<int>() { 14, 14, 14, 4, 14, 5 };
+        attackPattern1 = new List<int>() { 14, 4, 14, 5, 4, 5 };
+        attackPattern2 = new List<int>() { 5, 4, 4, 5, 14, 14, 4 };
+
         enemysPatterns = new List<List<int>>();
-        enemysPatterns.Add(attackPattern);
+        enemysPatterns.Add(attackPattern0);
+        enemysPatterns.Add(attackPattern1);
+        enemysPatterns.Add(attackPattern2);
+
+        while (enemysPatterns.Count > 1)
+        {
+            enemysPatterns.RemoveAt(Random.Range(0, enemysPatterns.Count));
+        }
+
         EnemyDictionary.Add("Peng Hou", enemysPatterns);
     }
 
