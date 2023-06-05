@@ -210,12 +210,20 @@ public class EnemyAi : MonoBehaviour
         // 10 -> (7) Deal 12 Damage, next enemy attack costs 3 more
         // 19 -> (4) Gain 2 armor, deal 1 damage
         // 7 -> (5) Deal 7
-        attackPattern = new List<int>() { 13, 6, 6, 6, 12, 16, 17, 16, 6, 19, 17, 17 };
-        attackPattern = new List<int>() { 17, 7, 7, 11, 16, 10, 19, 19, 17, 10, 19, 19, 7 };
-        attackPattern = new List<int>() { 11, 16, 11, 7, 7, 6, 7, 7, 16, 19, 19, 13, 7 };
+        attackPattern0 = new List<int>() { 13, 6, 6, 6, 12, 16, 17, 16, 6, 19, 17, 17 };
+        attackPattern1 = new List<int>() { 17, 7, 7, 11, 16, 10, 19, 19, 17, 10, 19, 19, 7 };
+        attackPattern2 = new List<int>() { 11, 16, 11, 7, 7, 6, 7, 7, 16, 19, 19, 13, 7 };
 
         enemysPatterns = new List<List<int>>();
-        enemysPatterns.Add(attackPattern);
+        enemysPatterns.Add(attackPattern0);
+        enemysPatterns.Add(attackPattern1);
+        enemysPatterns.Add(attackPattern2);
+
+        while (enemysPatterns.Count > 1)
+        {
+            enemysPatterns.RemoveAt(Random.Range(0, enemysPatterns.Count));
+        }
+
         EnemyDictionary.Add("Fa Hai", enemysPatterns);
     }
 

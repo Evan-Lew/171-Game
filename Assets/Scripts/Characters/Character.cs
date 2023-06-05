@@ -130,7 +130,7 @@ public class Character : MonoBehaviour
             GameController.instance.enemySpriteGameObjects[5].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[3];
         }
-        else if (CharacterData.characterName == "Zhenniao")
+        else if (CharacterData.characterName == "xiaoqing")
         {
             GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[0].SetActive(false);
@@ -140,7 +140,7 @@ public class Character : MonoBehaviour
             GameController.instance.enemySpriteGameObjects[5].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[4];
         }
-        else if (CharacterData.characterName == "Zhenniao")
+        else if (CharacterData.characterName == "Fa Hai")
         {
             GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[0].SetActive(false);
