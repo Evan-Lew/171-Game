@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 1
   rirty: 0
+  cardActivity: 0
   cardName: Unbreaking Emperor
   ID: 3006
   description_Main: Gain 2 Armor for each card you have in hand.
+  description_Log: 
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: 5d43ae2afa017434ab677e9793460d7b, type: 3}
-  Card_Name: {fileID: 21300000, guid: c236a44f440f3784db77b90cb1915e0e, type: 3}
+  Card_Name: {fileID: 21300000, guid: e387ff9ca507dea42b63205e4f1bba16, type: 3}
   icon: {fileID: 0}

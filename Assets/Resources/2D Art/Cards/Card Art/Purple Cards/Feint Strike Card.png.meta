@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Feint Strike Card.png.meta
 guid: 4a4a7a03b5351c4459710cd052be70b3
-========
-guid: 6931e15fc84c057469b4e12611f5f8ef
->>>>>>>> evan-4/20:Assets/Resources/2D Art/Characters/Fahai.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,32 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Feint Strike Card.png.meta
     sprites: []
-========
-    sprites:
-    - serializedVersion: 2
-      name: Fahai_0
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 11
-        width: 552
-        height: 617
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d07bce287ccea44299b0bdefa1e6ede
-      internalID: 696029509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
->>>>>>>> evan-4/20:Assets/Resources/2D Art/Characters/Fahai.png.meta
     outline: []
     physicsShape: []
     bones: []
@@ -143,12 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<<< HEAD:Assets/Resources/2D Art/Cards/Card Art/Purple Cards/Feint Strike Card.png.meta
     nameFileIdTable: {}
-========
-    nameFileIdTable:
-      Fahai_0: 696029509
->>>>>>>> evan-4/20:Assets/Resources/2D Art/Characters/Fahai.png.meta
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

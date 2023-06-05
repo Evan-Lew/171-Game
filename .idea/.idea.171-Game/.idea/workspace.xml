@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Game_Over_BG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Game_Over_BG.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BattleMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BattleMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Left_To_Middle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Left_To_Middle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Stay_Off_Screen.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/Story BG/Screen_Wipe_Stay_Off_Screen.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Card.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EndScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EndScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game System/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels Setup/TutorialTextManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camp/DeckEditSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camp/DeckEditSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +24,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyAttackDescription.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DeckEditSetuo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/BattleLevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/PickDeckLevel_1Setup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/StartDeckInteraction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/StoryIntro.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryCaveLevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryCaveTextManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryForestLevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryForestTextManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryIntroSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels Setup/Story/StoryIntroTextManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/CreditsMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@7.0.10/Editor/SpritePostProcess.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.9/Runtime/UniversalAdditionalCameraData.cs" root0="SKIP_HIGHLIGHTING" />
@@ -150,6 +159,11 @@
       <workItem from="1684476677505" duration="3839000" />
       <workItem from="1684688911148" duration="6646000" />
       <workItem from="1684785041529" duration="19974000" />
+      <workItem from="1684871750801" duration="4158000" />
+      <workItem from="1684896773416" duration="5851000" />
+      <workItem from="1685466046194" duration="11678000" />
+      <workItem from="1685560111412" duration="30093000" />
+      <workItem from="1685639840790" duration="25775000" />
     </task>
     <servers />
   </component>
