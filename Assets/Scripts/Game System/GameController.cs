@@ -182,7 +182,7 @@ public class GameController : MonoBehaviour
         rightCharacter.SetActive(false);
         animatorXuXuanDialogue.SetTrigger("OffScreen");
         animatorFaHaiDialogue.SetTrigger("OffScreen");
-        animatorFadeScene.SetTrigger("ClearScreen");
+        //animatorFadeScene.SetTrigger("ClearScreen");
         animatorAspectRatioSwitch.SetTrigger("StartWithNoRatio");
         animatorDarkenBackground.SetTrigger("StartBright");
     }

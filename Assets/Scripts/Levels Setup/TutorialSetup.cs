@@ -130,7 +130,7 @@ public class TutorialSetup : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 GameController.instance.EndDialogue();
-                SceneManager.LoadScene("BattleLevel");
+                SceneManager.LoadScene("StoryLevel");
             }, 6f));    
         }
     }

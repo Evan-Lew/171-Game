@@ -863,8 +863,8 @@ MonoBehaviour:
     - ' '
     - Journey to the top of the mountain
     - FaHai awaits you, good luck hero
-  sentencesLength: 0
   mapButton: {fileID: 0}
+  sentencesLength: 0
 --- !u!1 &255380976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,8 +1401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3d8431bb04d5a47b02296175b30b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scroll: {fileID: 0}
-  button: {fileID: 0}
+  scroll: {fileID: 460220549}
+  button: {fileID: 887734086}
   deckbutton: {fileID: 887734086}
 --- !u!1 &909095416
 GameObject:
@@ -2485,8 +2485,8 @@ MonoBehaviour:
   dialogue:
     sentences:
     - This is the Map to FaHai
-  sentencesLength: 0
   mapButton: {fileID: 0}
+  sentencesLength: 0
 --- !u!4 &1967058047
 Transform:
   m_ObjectHideFlags: 0
@@ -2874,8 +2874,8 @@ MonoBehaviour:
   dialogueText: {fileID: 0}
   dialogue:
     sentences: []
-  sentencesLength: 0
   mapButton: {fileID: 0}
+  sentencesLength: 0
 --- !u!114 &2143076557
 MonoBehaviour:
   m_ObjectHideFlags: 0

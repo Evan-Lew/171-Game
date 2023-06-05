@@ -23,6 +23,12 @@ public class BattleLevelSetup : MonoBehaviour
 
     private void Start()
     {
+        // Deactivate all story background game objects (just to make sure they're deactivated)
+        for (int i = 0; i < GameController.instance.storyBackgroundsList.Count; i++)
+        {
+            GameController.instance.storyBackgroundsList[i].SetActive(false);
+        }
+
         GameController.instance.EndDialogue();
         
         // Change background
