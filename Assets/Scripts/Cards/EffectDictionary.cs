@@ -38,6 +38,17 @@ public class EffectDictionary : MonoBehaviour
     public List<Card_Basedata> SacredHerbPool;
     [Header("List of Perils")]
     public List<Card_Basedata> PerilPool;
+    [Header("List of Clone Cards")]
+    public List<Card_Basedata> ClonePool;
+    private Dictionary<int, int> cloneReferenceDictionary = new Dictionary<int, int>(){
+        //DemonFang 2004 -> 2999
+        {2004, 2999},
+        //Ruination 2014 -> 2998
+        {2014, 2998}
+    };
+    [Header("List of all Status Cards")]
+    // currently just holds Blood
+    public List<Card_Basedata> StatusPool;
 
     [HideInInspector] public delegate void funcHolder();
     [HideInInspector] public funcHolder funcHolder_EffectFunc;
@@ -57,6 +68,7 @@ public class EffectDictionary : MonoBehaviour
     [HideInInspector] public int Player_extraCardsDrawing = 0;
     [HideInInspector] public double Player_priorityInc = 0;
     [HideInInspector] public double Player_extraPriorityCost = 0;
+    [HideInInspector] public double Player_priorityDiscount = 0;
     [HideInInspector] public int Player_herbsInTotal = 0;
     [HideInInspector] public int Player_statusInTotal = 0;
 
@@ -195,6 +207,9 @@ public class EffectDictionary : MonoBehaviour
     
     private void DrawCards_Player(int cardAmount)
     {
+        if(isTitansWrath){
+            DealDamage_ToTarget(enemy, cardAmount);
+        }
         _script_DeckSystem.DrawMultipleCards(cardAmount);
     }
 
@@ -213,8 +228,7 @@ public class EffectDictionary : MonoBehaviour
         }
     }
 
-    bool isJadeResolve = false;
-    bool isMalachiteChain = false;
+
     private void Heal_ToTarget(Character target, double hpAdded)
     {
         // Variable to display health text
@@ -266,6 +280,15 @@ public class EffectDictionary : MonoBehaviour
     private void AddPerilToDeck(Card_Basedata targetCard){
         Player_statusInTotal += 1;
         _script_DeckSystem.activeCards.Insert(Random.Range(0, _script_DeckSystem.activeCards.Count), SacredHerbPool[SacredHerbPool.IndexOf(targetCard)]);
+    }
+
+    private void CloneCard(int ID) {
+        ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == cloneReferenceDictionary[ID]));
+    }
+
+    private void AddStatusToHand(Card_Basedata targetCard){
+        _script_DeckSystem.activeCards.Insert(0, StatusPool[StatusPool.IndexOf(targetCard)]);
+        _script_DeckSystem.DrawCardToHand();
     }
 
     private void PriorityIncrement(Character target, double cost)
@@ -634,12 +657,12 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // IMPLEMENTED
-    // Deal 2 damage, return card to hand
+    // Deal 5 damage, Clone
     public void ID2004_DemonFang()
     {
         ParticleDuration = 2f;
-        Player_priorityInc = 1;
-        Player_damageDealing = 2;
+        Player_priorityInc = 2;
+        Player_damageDealing = 5;
         Manipulator_Player();
 
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -670,24 +693,24 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
-            ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2004));
+            CloneCard(2004);
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
     
     // IMPLEMENTED
-    // If your deck has less than 10 cards, deal 6 damage
+    // If your hand has less than 2 cards, deal 6 damage. Otherwise do nothing.
     public void ID2005_LastStand()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        int cardsInDeck = _script_DeckSystem.activeCards.Count();
+        int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_damageDealing = 6;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
 
-        if (cardsInDeck < 10)
+        if (cardsInHand < 2)
         {
             // Animations
             // Trigger player attack anim
@@ -698,7 +721,7 @@ public class EffectDictionary : MonoBehaviour
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            if (cardsInDeck < 10)
+            if (cardsInHand < 2)
             {
                 DealDamage_ToTarget(enemy, Player_damageDealing);
             }
@@ -730,7 +753,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Draw 1 card. Banish this card. Add a Blood* to your hand.
     public void ID2007_BloodCrash()
     {
@@ -744,6 +767,7 @@ public class EffectDictionary : MonoBehaviour
         {
             DrawCards_Player(Player_cardsDrawing);
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2007));
+            AddStatusToHand(StatusPool.Find(cardBase => cardBase.ID == 5009));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
 
@@ -847,19 +871,18 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
     
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // Env: Whenever you deal damage to yourself, your next card deals +2 damage
     public void ID2012_VenomLace()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        Player_damageDealing = 6;
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
+            isVenomLace = true;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -891,13 +914,13 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // IMPLEMENTED
-    // Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
+    // Deal 6 damage to yourself. Deal 4 damage to the enemy. Clone
     public void ID2014_Ruination()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 0;
-        Player_damageDealing = 1;
-        Enemy_damageDealing = 2;
+        Player_damageDealing = 4;
+        Enemy_damageDealing = 6;
         Manipulator_Player();
         
         // Animations
@@ -911,8 +934,13 @@ public class EffectDictionary : MonoBehaviour
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
             DealDamage_ToTarget(player, Enemy_damageDealing);
-            ReturnHand_Card(ReturnPool.Find(cardBase => cardBase.ID == 2014));
+            CloneCard(2014);
+            if(isVenomLace){
+                isDealingExtraDmg = true;
+                Player_extraDamage += 2;
+            }
             Manipulator_Player_Reset();
+            Enemy_damageDealing = 0;
         }, ParticleDuration / 2));
     }
     
@@ -936,10 +964,82 @@ public class EffectDictionary : MonoBehaviour
         {
             // changed to Enemy_damageDealing to prevent buff activation
             DealDamage_ToTarget(player, Enemy_damageDealing);
+            if(isVenomLace){
+                isDealingExtraDmg = true;
+                Player_extraDamage += 2;
+            }
+            Enemy_damageDealing = 0;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
     
+    // Same as Demon Fang but banishes self
+    public void ID2999_DemonFangClone()
+    {
+        ParticleDuration = 2f;
+        Player_priorityInc = 2;
+        Player_damageDealing = 5;
+        Manipulator_Player();
+
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Crunch", 1);
+            PlaySound("sfx_Venom", 0.3f);
+        }, 0.3f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Crunch", 1);
+            PlaySound("sfx_Venom", 0.3f);
+        }, 0.6f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Crunch", 1);
+            PlaySound("sfx_Venom", 0.3f);
+        }, 0.9f));
+        SoundManager.PlaySound("sfx_Crunch", 1);
+        
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
+        enemyCharacterDamageAnim();
+        
+        // Particle positioned on the enemy
+        ParticleEvent("DemonFang", 2004, ParticleDuration, ExtraPositioning[2], true);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2999));
+            Manipulator_Player_Reset();
+        }, ParticleDuration / 2));
+    }
+
+    // Deal 6 self damage, 4 damage to enemy, Banish
+    public void ID2998_RuinationClone()
+    {
+        ParticleDuration = 3f;
+        Player_priorityInc = 0;
+        Player_damageDealing = 4;
+        Enemy_damageDealing = 6;
+        Manipulator_Player();
+        
+        // Animations
+        // Trigger player attack anim
+        playerCharacterAttackAnim();
+        // Trigger enemy damage anim
+        enemyCharacterDamageAnim();
+        
+        WithoutParticle(ParticleDuration);
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            DealDamage_ToTarget(enemy, Player_damageDealing);
+            DealDamage_ToTarget(player, Enemy_damageDealing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2998));
+            Manipulator_Player_Reset();
+            Enemy_damageDealing = 0;
+        }, ParticleDuration / 2));
+    }
+
     //-----------------------------------------------------------------
     //                      GOLD CARDS
     //=================================================================
@@ -966,19 +1066,18 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
     
-    // NOT IMPLEMENTED
-    // Env: Every time you draw a card, deal one damage
+    // IMPLEMENTED
+    // Env: Every time you draw a cards from a card effect, deal one damage
     public void ID3002_TitansWrath()
     {
         ParticleDuration = 3f;
         Player_priorityInc = 3;
-        Player_damageDealing = 1;
         Manipulator_Player();
        
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            DealDamage_ToTarget(enemy, Player_damageDealing);
+            isTitansWrath = true;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1035,17 +1134,20 @@ public class EffectDictionary : MonoBehaviour
     }
 
     // NOT IMPLEMENTED
-    // Every card you have played this combat costs one less for the rest of combat. Banish this card.
+    // The next card you play is dicounted by the amount of cards in hand. Banish this card.
     public void ID3005_RedThread()
     {        
         ParticleDuration = 3f;
-        Player_priorityInc = 4;
+        Player_priorityInc = 2;
+        int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Manipulator_Player();
 
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3005));
+            Player_priorityDiscount += cardsInHand;
+            isPriorityDiscount = true;
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1741,19 +1843,23 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED, needs bug check on a full hand
     // Deal 3 damage to yourself. Draw one card. Banish this card. Add one Blood to your hand.
     public void ID5009_Blood()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
-        Player_healing = 6;
+        Player_priorityInc = 1;
+        Player_healing = -3;
+        Player_cardsDrawing = 1;
         Manipulator_Player();
 
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(player, Player_healing);
+            DrawCards_Player(Player_cardsDrawing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5009));
+            AddStatusToHand(StatusPool.Find(cardBase => cardBase.ID == 5009));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -2166,10 +2272,17 @@ public class EffectDictionary : MonoBehaviour
     bool isDealingExtraDmg = false;
     bool isDealingDoubleDmg = false;
     bool isCostingExtraPriority = false;
+    bool isPriorityDiscount = false;
     bool isDealingNoDmg = false;
     bool isCostingNoPriority = false;
     bool isDrawingExtraCard = false;
     bool isHealingExtraHealth = false;
+    
+    // environment booleans
+    bool isVenomLace = false;
+    bool isJadeResolve = false;
+    bool isMalachiteChain = false;
+    bool isTitansWrath = false;
     // bool isDamageReflected = false;
 
     //------------Player-------------------------------------------------
@@ -2185,6 +2298,7 @@ public class EffectDictionary : MonoBehaviour
         }
         Manipulator_Player_DealingExtra();
         Manipulator_Player_CostExtra();
+        Manipulator_Player_CostDiscount();
         Manipulator_Player_CostNone();
         Manipulator_Player_DealingNone();
         Manipulator_Player_DealingDouble();
@@ -2200,6 +2314,7 @@ public class EffectDictionary : MonoBehaviour
         _script_BattleLog.ProcessLog("Player");
         Player_damageDealing = 0;
         Player_priorityInc = 0;
+        Player_priorityDiscount = 0;
         Player_cardsDrawing = 0;
         Player_armorCreate = 0;
         Player_healing = 0;
@@ -2217,10 +2332,16 @@ public class EffectDictionary : MonoBehaviour
         isDealingExtraDmg = false;
         isDealingDoubleDmg = false;
         isCostingExtraPriority = false;
+        isPriorityDiscount = false;
         isDealingNoDmg = false;
         isCostingNoPriority = false;
         isDrawingExtraCard = false;
         isHealingExtraHealth = false;
+
+        //env cards
+        isVenomLace = false;
+        isMalachiteChain = false;
+        isJadeResolve = false;
 
         enemyIsDealingTripleDamage = false;
         enemyIsDealingNoDamage = false;
@@ -2279,6 +2400,17 @@ public class EffectDictionary : MonoBehaviour
         }
     }
     
+    void Manipulator_Player_CostDiscount()
+    {
+        if(isPriorityDiscount){
+            isPriorityDiscount = false;
+            Player_priorityInc -= Player_priorityDiscount;
+            if(Player_priorityInc < 0){
+                Player_priorityInc = 0;
+            }
+        }
+    }
+
     // Helper function: Next Card costing zero
     void Manipulator_Player_CostNone()
     {
@@ -2412,6 +2544,8 @@ public class EffectDictionary : MonoBehaviour
         effectDictionary_Players.Add(2013, ID2013_Siphon);
         effectDictionary_Players.Add(2014, ID2014_Ruination);
         effectDictionary_Players.Add(2015, ID2015_Intoxication);
+        effectDictionary_Players.Add(2999, ID2999_DemonFangClone);
+        effectDictionary_Players.Add(2998, ID2998_RuinationClone);
         
         // Gold Cards
         effectDictionary_Players.Add(3001, ID3001_ForetoldFortune);

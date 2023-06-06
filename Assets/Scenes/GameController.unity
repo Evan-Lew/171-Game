@@ -5152,6 +5152,13 @@ MonoBehaviour:
   BanishPool:
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   - {fileID: 11400000, guid: 3299428caea94fc4e91564f5029a0daf, type: 2}
+  - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
+  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: 601490b461d555e41875ae961464f04c, type: 2}
+  - {fileID: 11400000, guid: ba7c3ddf46810c249b495583b030c292, type: 2}
+  - {fileID: 11400000, guid: 626c6b52cf5a3d14bb191be8ddbb26f7, type: 2}
+  - {fileID: 11400000, guid: dbde3468d29962f46af08400acb38bfb, type: 2}
+  - {fileID: 11400000, guid: ab741af5e7e3fbb48833ba3e376b02e5, type: 2}
   ReturnPool:
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
   - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
@@ -5159,7 +5166,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a0fcfd2bd83695408bb7515683523f1, type: 2}
   - {fileID: 11400000, guid: ec65df614a480bc4788bbf6cd278446c, type: 2}
   - {fileID: 11400000, guid: 905f02384c65ccd4f868c19d6809e04b, type: 2}
-  PerilPool: []
+  PerilPool:
+  - {fileID: 11400000, guid: 601490b461d555e41875ae961464f04c, type: 2}
+  - {fileID: 11400000, guid: ba7c3ddf46810c249b495583b030c292, type: 2}
+  - {fileID: 11400000, guid: 626c6b52cf5a3d14bb191be8ddbb26f7, type: 2}
+  - {fileID: 11400000, guid: dbde3468d29962f46af08400acb38bfb, type: 2}
+  ClonePool:
+  - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
+  StatusPool:
+  - {fileID: 11400000, guid: f2ec0b2c5275aaf4c95a838a86b8a41a, type: 2}
+  - {fileID: 11400000, guid: 4a0fcfd2bd83695408bb7515683523f1, type: 2}
+  - {fileID: 11400000, guid: ec65df614a480bc4788bbf6cd278446c, type: 2}
+  - {fileID: 11400000, guid: 905f02384c65ccd4f868c19d6809e04b, type: 2}
+  - {fileID: 11400000, guid: 601490b461d555e41875ae961464f04c, type: 2}
+  - {fileID: 11400000, guid: ba7c3ddf46810c249b495583b030c292, type: 2}
+  - {fileID: 11400000, guid: 626c6b52cf5a3d14bb191be8ddbb26f7, type: 2}
+  - {fileID: 11400000, guid: dbde3468d29962f46af08400acb38bfb, type: 2}
+  - {fileID: 11400000, guid: ab741af5e7e3fbb48833ba3e376b02e5, type: 2}
   cardName: Test
   descriptionLog: 
   Player_damageDealing: 0
@@ -5171,6 +5195,7 @@ MonoBehaviour:
   Player_extraCardsDrawing: 0
   Player_priorityInc: 0
   Player_extraPriorityCost: 0
+  Player_priorityDiscount: 0
   Player_herbsInTotal: 0
   Player_statusInTotal: 0
   Enemy_damageDealing: 0
