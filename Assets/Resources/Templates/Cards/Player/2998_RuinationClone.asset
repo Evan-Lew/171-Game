@@ -16,7 +16,7 @@ MonoBehaviour:
   rirty: 0
   cardActivity: 0
   cardName: Ruination
-  ID: 2014
+  ID: 2998
   description_Main: Deal 2 damage to yourself. Deal 1 damage to the enemy. Banish.
   description_Log: Deal 2 damage to yourself.  Return
   priorityCost: 0
