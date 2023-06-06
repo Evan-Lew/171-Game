@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Last Stand
   ID: 2005
-  description_Main: If your deck has less than 10 cards, deal 6 damage
+  description_Main: If your hand has less than 2 cards, deal 6 damage
   description_Log: 
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: 85f634a423f0acb42933e8deed8649db, type: 3}
