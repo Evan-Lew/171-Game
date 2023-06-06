@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Feint Strike
   ID: 2008
-  description_Main: Deal 2 damage. If you health is lower than 20, deal 6 damage
+  description_Main: Deal 4 damage. If your health is lower than 10, deal 6 damage
     instead.
   description_Log: 
   priorityCost: 1

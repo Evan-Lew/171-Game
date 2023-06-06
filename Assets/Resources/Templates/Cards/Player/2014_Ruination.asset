@@ -17,8 +17,8 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Ruination
   ID: 2014
-  description_Main: Deal 2 damage to yourself. Deal 1 damage to the enemy. Return
-  description_Log: Deal 2 damage to yourself.  Return
+  description_Main: Deal 6 damage to yourself. Deal 4 damage to the enemy. Clone.
+  description_Log: Deal 6 damage to yourself. Deal 4 damage to the enemy. Clone.
   priorityCost: 0
   Card_Front: {fileID: 21300000, guid: 24c7c16939660464b9992dd8486ed4a0, type: 3}
   Card_Name: {fileID: 21300000, guid: b15bf0e66ce5c764fa51d9a4c88fde89, type: 3}
