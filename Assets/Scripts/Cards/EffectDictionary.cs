@@ -1488,7 +1488,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID4005_HiddenGrotto()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
+        Player_priorityInc = 1;
         Player_healing = 6;
         Manipulator_Player();
         
