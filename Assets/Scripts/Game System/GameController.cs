@@ -428,7 +428,8 @@ public class GameController : MonoBehaviour
             // Brighten the Xu Xian
             if (brightenCharacter)
             {
-                _xuXianSprite.sortingOrder = 2;        
+                _xuXianSprite.sortingOrder = 2;
+                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);          
             }
             // Darken the Xu Xian
             else
@@ -440,7 +441,8 @@ public class GameController : MonoBehaviour
         {
             if (brightenCharacter)
             {
-                _faHaiSprite.sortingOrder = 2;        
+                _faHaiSprite.sortingOrder = 2;
+                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -451,7 +453,8 @@ public class GameController : MonoBehaviour
         {
             if (brightenCharacter)
             {
-                _baiSuzhenSprite.sortingOrder = 2;        
+                _baiSuzhenSprite.sortingOrder = 2;
+                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -462,7 +465,8 @@ public class GameController : MonoBehaviour
         {
             if (brightenCharacter)
             {
-                _biZiSprite.sortingOrder = 2;        
+                _biZiSprite.sortingOrder = 2;
+                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -473,7 +477,8 @@ public class GameController : MonoBehaviour
         {
             if (brightenCharacter)
             {
-                _xuanWuSprite.sortingOrder = 2;        
+                _xuanWuSprite.sortingOrder = 2;
+                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {

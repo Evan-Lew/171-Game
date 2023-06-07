@@ -14,6 +14,7 @@ public class TutorialTextManager : MonoBehaviour
     public Queue<string> sentences;
     public Dialogue dialogue;
     [SerializeField] GameObject mapButton;
+    [SerializeField] bool isIntro;
 
     [HideInInspector] public int numOfSentences;
     private bool _tutorialLevelLoaded = false;
@@ -81,6 +82,7 @@ public class TutorialTextManager : MonoBehaviour
         }
         else
         {
+            HighlightCharacterTalking();
             numOfSentences = sentences.Count;
             if (sentences.Count == 0){
                 scroll.SetActive(false);
@@ -107,7 +109,11 @@ public class TutorialTextManager : MonoBehaviour
                 string sentence = sentences.Dequeue();
                 _currSentence = sentence;
                 StopAllCoroutines();
-                StartCoroutine(TypeSentence(sentence));    
+                StartCoroutine(TypeSentence(sentence));  
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+                    {
+                        SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                    }  
             }
         }
     }
@@ -120,5 +126,45 @@ public class TutorialTextManager : MonoBehaviour
             yield return null;
         }
         _isTyping = false;
+    }
+
+    public void HighlightCharacterTalking()
+    {
+        if (isIntro)
+        {
+            if (sentences.Count == 4)
+            {
+                GameController.instance.CharacterTalking("Xu Xian", true);
+                GameController.instance.CharacterTalking("Fa Hai", false);
+            }
+            else if (sentences.Count == 3)
+            {
+                GameController.instance.CharacterTalking("Xu Xian", false);
+                GameController.instance.CharacterTalking("Fa Hai", true);
+            }
+            else if (sentences.Count == 2)
+            {
+                GameController.instance.CharacterTalking("Xu Xian", false);
+                GameController.instance.CharacterTalking("Fa Hai", true);
+            }
+            else if (sentences.Count == 1)
+            {
+                GameController.instance.CharacterTalking("Xu Xian", false);
+                GameController.instance.CharacterTalking("Fa Hai", true);
+            }    
+        }
+        else
+        {
+            if (sentences.Count == 2)
+            {
+                GameController.instance.CharacterTalking("Xu Xian", true);
+                GameController.instance.CharacterTalking("Fa Hai", false);
+            }
+            else if (sentences.Count == 1)
+            {
+                GameController.instance.CharacterTalking("Xu Xian", false);
+                GameController.instance.CharacterTalking("Fa Hai", true);
+            }
+        }
     }
 }
