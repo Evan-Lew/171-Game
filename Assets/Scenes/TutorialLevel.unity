@@ -480,6 +480,7 @@ MonoBehaviour:
       nearby curses in its presence.
     - Alright then, how do I fight this thing?
   mapButton: {fileID: 0}
+  isIntro: 1
   numOfSentences: 0
 --- !u!1 &383565706 stripped
 GameObject:
@@ -1167,6 +1168,7 @@ MonoBehaviour:
     - "Yes, that much will most certainly cure the villagers of this plague. Let\u2019s
       return to the village."
   mapButton: {fileID: 0}
+  isIntro: 0
   numOfSentences: 0
 --- !u!4 &917028384
 Transform:

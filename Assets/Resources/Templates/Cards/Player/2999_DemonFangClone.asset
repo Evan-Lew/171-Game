@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 05_Charge
+  m_Name: 2999_DemonFangClone
   m_EditorClassIdentifier: 
-  cardColor: 0
+  cardColor: 3
   rirty: 0
   cardActivity: 0
-  cardName: Charge
-  ID: 5
-  description_Main: Deal 6 Damage, Take 3 Damage
-  description_Log: 
-  priorityCost: 4
-  Card_Front: {fileID: 0}
-  Card_Name: {fileID: 0}
+  cardName: Demon Fang (Clone)
+  ID: 2999
+  description_Main: Deal 2 damage, Banish.
+  description_Log: Clone.
+  priorityCost: 1
+  Card_Front: {fileID: 21300000, guid: ffeb98bdbaf60bc4c9cf2fa5ba7f5785, type: 3}
+  Card_Name: {fileID: 21300000, guid: acdb6a15b939fd64a88b5b5284abda8f, type: 3}
   icon: {fileID: 0}
