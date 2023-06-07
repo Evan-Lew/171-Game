@@ -21,7 +21,7 @@ public class BattleMapSetup : MonoBehaviour
         // Reset animations
         GameController.instance.UIAnimationsOffScreen();
         SoundManager.PlaySound("bgm_Mountain_Ambient", 0.5f);
-        deckbutton.SetActive(false);
+        //deckbutton.SetActive(false);
     }
     public void Update()
     {
