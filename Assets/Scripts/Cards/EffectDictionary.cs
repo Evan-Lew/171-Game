@@ -774,7 +774,7 @@ public class EffectDictionary : MonoBehaviour
     }
     
     // IMPLEMENTED
-    // Deal 2 damage, if you health is lower than 20, deal 6 damage instead
+    // Deal 4 damage, if you health is lower than 10, deal 6 damage instead
     public void ID2008_FeintStrike()
     {
         ParticleDuration = 3f;
@@ -1133,7 +1133,7 @@ public class EffectDictionary : MonoBehaviour
         }, ParticleDuration / 2));
     }
 
-    // NOT IMPLEMENTED
+    // IMPLEMENTED
     // The next card you play is dicounted by the amount of cards in hand. Banish this card.
     public void ID3005_RedThread()
     {        
@@ -1487,7 +1487,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID4005_HiddenGrotto()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
+        Player_priorityInc = 1;
         Player_healing = 6;
         Manipulator_Player();
         
@@ -2345,6 +2345,7 @@ public class EffectDictionary : MonoBehaviour
 
         enemyIsDealingTripleDamage = false;
         enemyIsDealingNoDamage = false;
+        Enemy_permanantCostIncrease = 0;
 
         _script_PlayerBuffs.ResetBuffs();
         
