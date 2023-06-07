@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f7d34b0a0b0ab4c855580f0f49168f, type: 3}
-  m_Name: 05_Charge
+  m_Name: 16_Concuss
   m_EditorClassIdentifier: 
-  cardColor: 0
+  cardColor: 4
   rirty: 0
   cardActivity: 0
-  cardName: Charge
-  ID: 5
-  description_Main: Deal 6 Damage, Take 3 Damage
+  cardName: Concuss
+  ID: 16
+  description_Main: Player's next card costs 4 more
   description_Log: 
-  priorityCost: 4
+  priorityCost: 3
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
   icon: {fileID: 0}
