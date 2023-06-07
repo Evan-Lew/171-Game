@@ -8,7 +8,7 @@ public class BattleMapSetup : MonoBehaviour
 {
     public GameObject scroll;
     public GameObject button;
-    //public GameObject deckbutton;
+    public GameObject deckbutton;
     
     public void ShowBox()
     {
@@ -20,7 +20,7 @@ public class BattleMapSetup : MonoBehaviour
         //Debug.Log("Battle Num" + BattleController.battleNum);
         // Reset animations
         GameController.instance.UIAnimationsOffScreen();
-        SoundManager.PlaySound("bgm_Mountain_Ambient", 0.5f);
+        SoundManager.PlaySound("bgm_Mountain_Ambient", 0.3f);
         deckbutton.SetActive(false);
     }
     public void Update()
