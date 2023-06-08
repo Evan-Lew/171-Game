@@ -102,50 +102,50 @@ public class Character : MonoBehaviour
         }
         else if (CharacterData.characterName == "Ink Golem")
         {
+            GameController.instance.enemySpriteGameObjects[0].SetActive(false);
             GameController.instance.enemySpriteGameObjects[1].SetActive(true);
             GameController.instance.enemySpriteGameObjects[2].SetActive(false);
             GameController.instance.enemySpriteGameObjects[3].SetActive(false);
-            GameController.instance.enemySpriteGameObjects[0].SetActive(false);
             GameController.instance.enemySpriteGameObjects[4].SetActive(false);
             GameController.instance.enemySpriteGameObjects[5].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[1];
         }
         else if (CharacterData.characterName == "Ink Chimera")
         {
-            GameController.instance.enemySpriteGameObjects[2].SetActive(true);
-            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[0].SetActive(false);
             GameController.instance.enemySpriteGameObjects[1].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[2].SetActive(true);
+            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[4].SetActive(false);
             GameController.instance.enemySpriteGameObjects[5].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[2];
         }
         else if (CharacterData.characterName == "Zhenniao")
         {
-            GameController.instance.enemySpriteGameObjects[3].SetActive(true);
             GameController.instance.enemySpriteGameObjects[0].SetActive(false);
             GameController.instance.enemySpriteGameObjects[1].SetActive(false);
             GameController.instance.enemySpriteGameObjects[2].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[3].SetActive(true);
             GameController.instance.enemySpriteGameObjects[4].SetActive(false);
             GameController.instance.enemySpriteGameObjects[5].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[3];
         }
-        else if (CharacterData.characterName == "xiaoqing")
+        else if (CharacterData.characterName == "Xiao Qing")
         {
-            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[0].SetActive(false);
             GameController.instance.enemySpriteGameObjects[1].SetActive(false);
             GameController.instance.enemySpriteGameObjects[2].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[4].SetActive(true);
             GameController.instance.enemySpriteGameObjects[5].SetActive(false);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[4];
         }
         else if (CharacterData.characterName == "Fa Hai")
         {
-            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[0].SetActive(false);
             GameController.instance.enemySpriteGameObjects[1].SetActive(false);
             GameController.instance.enemySpriteGameObjects[2].SetActive(false);
+            GameController.instance.enemySpriteGameObjects[3].SetActive(false);
             GameController.instance.enemySpriteGameObjects[4].SetActive(false);
             GameController.instance.enemySpriteGameObjects[5].SetActive(true);
             GameController.instance.currAnimatorEnemy = GameController.instance.animatorEnemyList[5];

@@ -153,9 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerCards:
-  - {fileID: 11400000, guid: cd09dfccaaa4f2b4d9e0066aca4ac21c, type: 2}
-  - {fileID: 11400000, guid: 52eb4468d9db3f140afeba1ec330bdaf, type: 2}
-  - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
   playerName: Bai She Zhuan
   enemyName: Ink Golem
   backgroundName: Mountaintop_BG
@@ -163,6 +162,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c0ccff827ca5dd4791b2c9665748f3d, type: 2}
   - {fileID: 11400000, guid: d3f849bb3c2b9684a87b05813b452bcf, type: 2}
   - {fileID: 11400000, guid: 85cc55650dd5ecf4086be893b04d83cd, type: 2}
+  - {fileID: 11400000, guid: c9be17359a2e2f54c87e4a2a8ac7a77a, type: 2}
   - {fileID: 11400000, guid: c6b61f0321b8f2b49a6d28a7fc4cdb39, type: 2}
   - {fileID: 11400000, guid: b68f9ec429993a04abd103fd83a44103, type: 2}
 --- !u!4 &146657063

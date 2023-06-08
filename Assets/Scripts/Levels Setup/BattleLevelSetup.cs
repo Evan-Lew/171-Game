@@ -106,7 +106,7 @@ public class BattleLevelSetup : MonoBehaviour
                 _levelEnd = false;
                 Debug.Log(BattleController.battleNum);
                 // For sprint 2
-                if (BattleController.battleNum == 4)
+                if (BattleController.battleNum == 5)
                 {
                     SceneManager.LoadScene("EndScene");
                     //SceneManager.LoadScene("MountainChallenge");

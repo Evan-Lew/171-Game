@@ -51,7 +51,7 @@ public class DeveloperSetup : MonoBehaviour
         {
             _deckSystem.deckToUse.Add(card);
         }
-        GameController.instance.StartTheBattle(enemiesList[3], true);
+        GameController.instance.StartTheBattle(enemiesList[5], true);
         GameController.instance.battleCondition = true;
     }
 }
