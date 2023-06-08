@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
      */
     
     // BGM
-    [HideInInspector] public static AudioClip bgm_Mountain_Of_Myths, bgm_Mountain_Ambient, bgm_River_Ambient, bgm_Mountain_Ambience ;
+    [HideInInspector] public static AudioClip bgm_Mountain_Of_Myths, bgm_Mountain_Ambient, bgm_River_Ambient, bgm_Mountain_Ambience, bgm_Finale, bgm_Sebastian, bgm_Tea, bgm_Yugen;
     
     // Cards
     [HideInInspector] public static AudioClip sfx_Card_Draw, sfx_Card_Place, sfx_Card_Pick;
@@ -48,6 +48,10 @@ public class SoundManager : MonoBehaviour
         bgm_Mountain_Ambient = Resources.Load<AudioClip>("SFX/Background Music/Mountain_Ambient");
         bgm_River_Ambient = Resources.Load<AudioClip>("SFX/Background Music/River_Ambient");
         bgm_Mountain_Ambience = Resources.Load<AudioClip>("SFX/Background Music/Mountain_Ambience");
+        bgm_Finale = Resources.Load<AudioClip>("SFX/Background Music/Finale");
+        bgm_Sebastian = Resources.Load<AudioClip>("SFX/Background Music/Sebastian");
+        bgm_Tea = Resources.Load<AudioClip>("SFX/Background Music/Tea");
+        bgm_Yugen = Resources.Load<AudioClip>("SFX/Background Music/Yugen");
         
         // Loading card audio files
         sfx_Card_Draw = Resources.Load<AudioClip>("SFX/Card Sounds/Card_Draw");
@@ -126,8 +130,25 @@ public class SoundManager : MonoBehaviour
                 bgmAudioSource.Play();
                 break;
 
-            case "bgm_Mountain_Ambience":
-                bgmAudioSource.clip = bgm_Mountain_Ambience;
+            case "bgm_Finale":
+                bgmAudioSource.clip = bgm_Finale;
+                bgmAudioSource.volume = volumn;
+                bgmAudioSource.Play();
+                break;
+
+            case "bgm_Sebastian":
+                bgmAudioSource.clip = bgm_Sebastian;
+                bgmAudioSource.volume = volumn;
+                bgmAudioSource.Play();
+                break; 
+
+            case "bgm_Tea":
+                bgmAudioSource.clip = bgm_Tea;
+                bgmAudioSource.volume = volumn;
+                bgmAudioSource.Play();
+                break;
+            case "bgm_Yugen":
+                bgmAudioSource.clip = bgm_Yugen;
                 bgmAudioSource.volume = volumn;
                 bgmAudioSource.Play();
                 break;

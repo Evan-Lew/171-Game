@@ -11,7 +11,7 @@ public class StoryForestLevelSetup : MonoBehaviour
     {
         GameController.instance.ChangeBackground("Forest_BG");
         GameController.instance.StartDialogue("Forest");
-        
+        SoundManager.PlaySound("bgm_Tea", 0.3f);
         // Time delay to activate the dialogue text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {

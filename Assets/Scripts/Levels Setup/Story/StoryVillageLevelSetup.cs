@@ -12,7 +12,7 @@ public class StoryVillageLevelSetup : MonoBehaviour
     {
         GameController.instance.ChangeBackground("Village_BG");
         GameController.instance.StartDialogue("Village");
-        
+        SoundManager.PlaySound("bgm_Tea", 0.3f);
         // Time delay to activate the dialogue text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {

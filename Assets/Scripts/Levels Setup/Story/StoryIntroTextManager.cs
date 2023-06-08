@@ -28,6 +28,7 @@ public class StoryIntroTextManager : MonoBehaviour
     private bool _transitioning = false;
 
     // Developer Tool
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))

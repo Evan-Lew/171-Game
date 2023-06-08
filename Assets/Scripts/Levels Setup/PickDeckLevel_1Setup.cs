@@ -8,6 +8,7 @@ public class PickDeckLevel_1Setup : MonoBehaviour
     private void Start()
     {
         //GameController.instance.SetCharacter(GameController.characterType.player, GameController.instance.GetCharacter("Bai Suzhen"));
+        SoundManager.PlaySound("bgm_Yugen", 0.3f);
     }
 
     private void Update()
