@@ -110,26 +110,27 @@ public class HandManager : MonoBehaviour
         }
     }
 
-    // Hovering animation
+    // Hovering animation (removed bc of index error)
     public void MoveOtherCardAtHovering(Card cardIsHovering)
     {
-        player_hands_holdsCardsPositionsHovering.AddRange(player_hands_holdsCardsPositions);
-        for (int i = 0; i < player_hands_holdsCardsPositionsHovering.Count; i++)
-        {
-            // Move to left
-            if (i < cardIsHovering.handPosition)
-            {
-                player_hands_holdsCardsPositionsHovering[i] += hoveringAdjustment;
-                // Move card &&  adjust the angle to make it layered sorted
-                player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositionsHovering[i], minPos.rotation);
-            }
-            else if (i > cardIsHovering.handPosition)
-            {
-                player_hands_holdsCardsPositionsHovering[i] -= hoveringAdjustment;
-                // Move card && adjust the angle to make it layered sorted
-                player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositionsHovering[i], minPos.rotation);
-            }
-        }
+        // player_hands_holdsCardsPositionsHovering.AddRange(player_hands_holdsCardsPositions);
+        // for (int i = 0; i < player_hands_holdsCardsPositionsHovering.Count; i++)
+        // {
+        //     // Move to left
+        //     if (i < cardIsHovering.handPosition)
+        //     {
+        //         player_hands_holdsCardsPositionsHovering[i] += hoveringAdjustment;
+        //         // Move card &&  adjust the angle to make it layered sorted
+        //         player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositionsHovering[i], minPos.rotation);
+        //     }
+        //     else if (i > cardIsHovering.handPosition)
+        //     {
+        //         player_hands_holdsCardsPositionsHovering[i] -= hoveringAdjustment;
+        //         // Move card && adjust the angle to make it layered sorted
+        //         Debug.Log(player_hands_holdsCardsPositionsHovering[i]);
+        //         player_hands_holdCards[i].MoveToPoint(player_hands_holdsCardsPositionsHovering[i], minPos.rotation);
+        //     }
+        // }
     }
 
     public void MoveOtherCardAtHovering_Reset()

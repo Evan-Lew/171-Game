@@ -128,10 +128,10 @@ public class GameController : MonoBehaviour
         // }
         //
         // //--Legacy: Not used--
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartTheCamp();
-        }
+        // if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     StartTheCamp();
+        // }
         
         // if (Input.GetKeyDown(KeyCode.T))
         // {
