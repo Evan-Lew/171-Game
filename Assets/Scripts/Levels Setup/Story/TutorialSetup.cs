@@ -53,6 +53,7 @@ public class TutorialSetup : MonoBehaviour
         // Deactivate all story background game objects (just to make sure they're deactivated)
         for (int i = 0; i < GameController.instance.storyBackgroundsList.Count; i++)
         {
+            SoundManager.PlaySound("bgm_Mountain_Ambient", 0.15f);
             GameController.instance.storyBackgroundsList[i].SetActive(false);
         }
         GameController.instance.ChangeBackground("Forest_BG");
@@ -83,7 +84,7 @@ public class TutorialSetup : MonoBehaviour
             // Time delay to start the music
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
-                SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.1f);
+                SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.05f);
             
             }, 3f));
         
@@ -300,7 +301,7 @@ public class TutorialSetup : MonoBehaviour
 
     public void NextButton()
     {
-        SoundManager.PlaySound("sfx_Paper_Rustle", 0.5f); 
+        SoundManager.PlaySound("sfx_Paper_Rustle", 0.6f); 
         // Tutorial01
         if (tutorial01.activeSelf)
         {
@@ -340,7 +341,7 @@ public class TutorialSetup : MonoBehaviour
 
     public void PrevButton()
     {
-        SoundManager.PlaySound("sfx_Paper_Rustle", 0.5f); 
+        SoundManager.PlaySound("sfx_Paper_Rustle", 0.6f); 
         // Tutorial01
         if (tutorial01.activeSelf)
         {

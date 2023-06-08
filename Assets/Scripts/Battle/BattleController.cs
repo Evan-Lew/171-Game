@@ -211,7 +211,7 @@ public class BattleController : MonoBehaviour
 
     void TurnChangeAnimation(TurnType type)
     {
-        SoundManager.PlaySound("sfx_Transition", 0.1f);
+        SoundManager.PlaySound("sfx_Transition", 0.05f);
         if (type == TurnType.player)
         {
             animatorFadeInOut.SetTrigger("Play");

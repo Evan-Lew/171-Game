@@ -10,10 +10,6 @@ public class DeveloperSetup : MonoBehaviour
     [Header("List of Cards for the Deck")]
     [SerializeField] List<Card_Basedata> developerCards;
 
-    [Header("Character Names")]
-    [SerializeField] String playerName;
-    [SerializeField] String enemyName;
-    
     [SerializeField] String backgroundName;
     
     [SerializeField] Character_Basedata[] enemiesList;
@@ -24,6 +20,7 @@ public class DeveloperSetup : MonoBehaviour
         GameController.instance.changePlayerSprite();
         // Change background
         GameController.instance.ChangeBackground(backgroundName);
+        SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.05f);
         
         _deckSystem = GameObject.Find("Deck System").GetComponent<DeckSystem>();
         //_handManager = GameObject.Find("Hand System").GetComponent<HandManager>();
@@ -51,7 +48,7 @@ public class DeveloperSetup : MonoBehaviour
         {
             _deckSystem.deckToUse.Add(card);
         }
-        GameController.instance.StartTheBattle(enemiesList[5], true);
+        GameController.instance.StartTheBattle(enemiesList[0], true);
         GameController.instance.battleCondition = true;
     }
 }

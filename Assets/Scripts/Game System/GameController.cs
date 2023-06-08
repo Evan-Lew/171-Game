@@ -429,7 +429,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _xuXianSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);          
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);          
             }
             // Darken the Xu Xian
             else
@@ -442,7 +442,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _faHaiSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -454,7 +454,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _baiSuzhenSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -466,7 +466,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _biZiSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -478,7 +478,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _xuanWuSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -569,6 +569,7 @@ public class GameController : MonoBehaviour
      */
     void BattleSystemSetUp(Character_Basedata enemy)
     {
+        enableMouseEffectOnCard = false;
         // Don't change order of call
         SetCharacter(characterType.enemy,enemy);
         characters.SetActive(true);
@@ -579,6 +580,12 @@ public class GameController : MonoBehaviour
         _script_DeckSystem.SetUp();
         _script_BattleController.SetUp();
         _script_EffectDictionary.SetUp();
+        
+        // This is to avoid an index error when drawing cards at the beginning of a battle
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            enableMouseEffectOnCard = true;
+        }, 2.25f));
     }
 
     /*  Function that will get Enemy From the Enemy List by Name

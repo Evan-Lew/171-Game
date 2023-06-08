@@ -5033,7 +5033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.8, y: 0}
+  m_AnchoredPosition: {x: 27.5, y: -13.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &560597031
@@ -5702,6 +5702,7 @@ MonoBehaviour:
   runtimeParticleParentObj: {fileID: 1368477314}
   BanishPool:
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
+  - {fileID: 11400000, guid: 40d2458c7cba7d845b1a093533564758, type: 2}
   - {fileID: 11400000, guid: 3299428caea94fc4e91564f5029a0daf, type: 2}
   - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
@@ -8309,7 +8310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4, y: -13.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &940061333
@@ -8849,8 +8850,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.85
+  m_fontSizeBase: 0.85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15529,8 +15530,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.85
+  m_fontSizeBase: 0.85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16113,7 +16114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233.5, y: -127.4}
+  m_AnchoredPosition: {x: -240, y: -127.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923789106
@@ -18438,7 +18439,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
   - {fileID: 11400000, guid: 8ec9f2669d88abf4392e1a5fbdacd664, type: 2}
   - {fileID: 11400000, guid: 37ef1034457fe904399d3eb5f7b99619, type: 2}
+  - {fileID: 11400000, guid: abe6cc296e6f86e4c964de474ec72a0d, type: 2}
+  - {fileID: 11400000, guid: 40d2458c7cba7d845b1a093533564758, type: 2}
+  - {fileID: 11400000, guid: 52eb4468d9db3f140afeba1ec330bdaf, type: 2}
+  - {fileID: 11400000, guid: 2f41b4429d041f243ac5eecebc4b2d8c, type: 2}
+  - {fileID: 11400000, guid: 2494a8498474f3545be024ac195e74f5, type: 2}
+  - {fileID: 11400000, guid: 4e7e76afbc1630d4fa05b7333b60191b, type: 2}
+  - {fileID: 11400000, guid: 6e54a540a4614b04f84626b84f7349a8, type: 2}
+  - {fileID: 11400000, guid: 7be75cac9e0571d4eacf8e46020c7e26, type: 2}
   - {fileID: 11400000, guid: ec5d98154d069bd428af810f72edba30, type: 2}
+  - {fileID: 11400000, guid: 28a3e663179a76c43b716591616a7feb, type: 2}
+  - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
+  - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
   Cards_ForPick: []
   numberCandidate: 3
   CardForPickPositionList: []

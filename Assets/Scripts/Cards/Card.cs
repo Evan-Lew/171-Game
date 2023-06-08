@@ -299,7 +299,7 @@ public class Card : MonoBehaviour
 
         if (GameController.instance.enableMouseEffectOnCard)
         {
-            SoundManager.PlaySound("sfx_Card_Pick", 0.25f);
+            SoundManager.PlaySound("sfx_Card_Pick", 0.15f);
             // Only activated in player turn
             if (cardState == Card.state.Handcard)
             {

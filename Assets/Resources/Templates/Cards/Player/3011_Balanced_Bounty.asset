@@ -17,8 +17,8 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Balanced Bounty
   ID: 3011
-  description_Main: Draw x amount of cards(x equals to cards in your hand)
-  description_Log: 
+  description_Main: Draw the number of cards in your hand
+  description_Log: Draw the number of cards in your hand
   priorityCost: 5
   Card_Front: {fileID: 21300000, guid: 91c6e0412eb8347488904f6e754b8b90, type: 3}
   Card_Name: {fileID: 21300000, guid: e0b55a71c3e873346b92fbb02508ef52, type: 3}
