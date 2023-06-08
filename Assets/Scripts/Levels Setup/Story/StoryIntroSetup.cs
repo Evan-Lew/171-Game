@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StoryIntroSetup : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         GameController.instance.FadeIn();
         SoundManager.PlaySound("bgm_Sebastian", 0.3f);
