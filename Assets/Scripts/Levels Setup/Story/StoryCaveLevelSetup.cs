@@ -11,7 +11,7 @@ public class StoryCaveLevelSetup : MonoBehaviour
     {
         GameController.instance.ChangeBackground("Cave_BG");
         GameController.instance.StartDialogue("Cave");
-        SoundManager.PlaySound("bgm_Tea", 0.2f);
+        //SoundManager.PlaySound("bgm_Tea", 0.15f);
         // Time delay to activate the dialogue text box
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {

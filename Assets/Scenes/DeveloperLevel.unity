@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
   - {fileID: 11400000, guid: 2f41b4429d041f243ac5eecebc4b2d8c, type: 2}
   - {fileID: 11400000, guid: 37ef1034457fe904399d3eb5f7b99619, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   backgroundName: Mountaintop_BG
   enemiesList:
   - {fileID: 11400000, guid: 5c0ccff827ca5dd4791b2c9665748f3d, type: 2}

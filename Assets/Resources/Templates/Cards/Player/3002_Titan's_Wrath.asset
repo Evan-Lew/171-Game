@@ -18,7 +18,7 @@ MonoBehaviour:
   cardName: Titan's Wrath
   ID: 3002
   description_Main: 'Environment: Every card you draw deals one damage'
-  description_Log: 'Environment: Every card you draw deals one damage'
+  description_Log: Every card you draw from now on deals one damage
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: 93b702625d6951b4586bf4c9ed93ba7a, type: 3}
   Card_Name: {fileID: 21300000, guid: 73f015e46e07b8440b8cb94f7f98d54d, type: 3}

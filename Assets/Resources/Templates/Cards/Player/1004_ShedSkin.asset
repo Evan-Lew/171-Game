@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardColor: 0
   rirty: 0
+  cardActivity: 0
   cardName: Shed Skin
   ID: 1004
-  description_Main: Draw 2 Cards ; Gain 3 Armor
+  description_Main: Draw 2 Cards; Gain 3 Armor
+  description_Log: Draw 2 Cards; Gain 3 Armor.
   priorityCost: 4
   Card_Front: {fileID: 21300000, guid: 4a046c09fdb77d7489b2146ce3eaa00b, type: 3}
   Card_Name: {fileID: 21300000, guid: 1782089dd7544bc44a7f1a1e6a0e59cb, type: 3}
