@@ -223,4 +223,11 @@ public class BattleController : MonoBehaviour
             animatorEnemyTurn.SetTrigger("Play");
         }
     }
+
+    public void playerEndTurn()
+    {
+        currentPhase = TurnOrder.EnemyPhase;
+        lastPhase = TurnOrder.playerPhase;
+        BattleController.instance.enableTurnUpdate = true;
+    }
 }

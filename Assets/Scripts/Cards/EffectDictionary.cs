@@ -2377,10 +2377,16 @@ public class EffectDictionary : MonoBehaviour
         Enemy_healing = 6;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Monsterize", 0.8f);
+        PlaySound("sfx_Action_04_Drain", 0.3f);
+
+        // Particle positioned under the player
+        ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
         
-        // Particle positioned under the enemy
-        ParticleEvent("Monsterize", 9, ParticleDuration, ExtraPositioning[3], false);
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
@@ -2492,16 +2498,10 @@ public class EffectDictionary : MonoBehaviour
         Enemy_armorCreate = 2;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Breath", 1);
+        PlaySound("sfx_Action_Cyclone", 0.25f);
         
-        // Particle positioned on the player
-        ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
-        
-        // Animations
-        // Trigger player damage anim
-        playerCharacterDamageAnim();
-        // Trigger enemy damage anim
-        enemyCharacterAttackAnim();
+        // Particle positioned under the enemy
+        ParticleEvent("Roost", 12, ParticleDuration, ExtraPositioning[3], false);
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
