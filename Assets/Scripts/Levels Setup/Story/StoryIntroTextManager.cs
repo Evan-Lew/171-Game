@@ -28,6 +28,7 @@ public class StoryIntroTextManager : MonoBehaviour
     private bool _transitioning = false;
 
     // Developer Tool
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
@@ -101,7 +102,7 @@ public class StoryIntroTextManager : MonoBehaviour
             animatorStoryTextFade[GameController.instance.scenesPlayed].SetTrigger("FadeOut");
             GameController.instance.storyScenesLeft -= 1;
             GameController.instance.scenesPlayed += 1;
-            
+
             // Intro is over
             if (GameController.instance.storyScenesLeft == 0)
             {
@@ -117,10 +118,14 @@ public class StoryIntroTextManager : MonoBehaviour
                 {
                     animatorEndText.SetTrigger("FadeOut");
                     SceneManager.LoadScene("TutorialLevel");
-                }, 10f));   
+                }, 10f));  
             }
             else
             {
+                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+                {
+                    SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                }
                 StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
                 {
                     // Remove the current textManager and activate the next textManager
@@ -131,7 +136,7 @@ public class StoryIntroTextManager : MonoBehaviour
                     textBackgroundsList[GameController.instance.scenesPlayed].SetActive(true);
                     // Change the background
                     GameController.instance.ChangeStoryBackground(GameController.instance.scenesPlayed - 1);
-                }, 1f));    
+                }, 1f));       
             }
         }
         else
@@ -139,8 +144,12 @@ public class StoryIntroTextManager : MonoBehaviour
             _isTyping = true;
             string sentence = _sentences.Dequeue();
             _currSentence = sentence;
-            StopAllCoroutines();
-            StartCoroutine(TypeSentence(sentence));    
+            StopAllCoroutines(); 
+                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+                {
+                    SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                }
+            StartCoroutine(TypeSentence(sentence)); 
         }
     }
     IEnumerator TypeSentence (string sentence)

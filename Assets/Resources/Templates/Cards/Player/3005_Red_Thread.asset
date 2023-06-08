@@ -21,7 +21,7 @@ MonoBehaviour:
     rest of combat. Banish this card.
   description_Log: Every card you have played this combat costs one less for the
     rest of combat. Banish this card.
-  priorityCost: 4
+  priorityCost: 2
   Card_Front: {fileID: 21300000, guid: 807ba83443ba75f49b7addfa322d680b, type: 3}
   Card_Name: {fileID: 21300000, guid: 3300060fd9fbc4a4fb33c0d7406adcf7, type: 3}
   icon: {fileID: 0}

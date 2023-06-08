@@ -17,8 +17,8 @@ MonoBehaviour:
   cardActivity: 2
   cardName: Venom Lace
   ID: 2012
-  description_Main: ' Whenever you deal damage to yourself, your next card deals
-    +2 damage'
+  description_Main: 'Environment: Whenever you deal damage to yourself, your next
+    card deals +2 damage'
   description_Log: ' Whenever you deal damage to yourself, your next card deals +2
     damage'
   priorityCost: 1

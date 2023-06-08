@@ -71,8 +71,6 @@ public class TutorialSetup : MonoBehaviour
     
     void Update()
     {
-        HighlightCharacterTalking();
-        
         // If the tutorial dialogue intro is over then start the battle 
         if (_introDialoguePlayed == false && GameController.instance.tutorialIntroDialoguePlaying == false)
         {
@@ -134,47 +132,6 @@ public class TutorialSetup : MonoBehaviour
                 SceneManager.LoadScene("StoryVillageLevel");
                 //SceneManager.LoadScene("BattleMap");
             }, 6f));    
-        }
-    }
-    
-    // Helper Function: highlight characters when talking (this is hardcoded to match the length of the TextManager's sentences)
-    public void HighlightCharacterTalking()
-    {
-        int introSentenceLength = introTextManager.GetComponent<TutorialTextManager>().numOfSentences;
-        int outroSentenceLength = outroTextManager.GetComponent<TutorialTextManager>().numOfSentences;
-
-        // Intro Dialogue
-        if (introSentenceLength == 4)
-        {
-            GameController.instance.CharacterTalking("Xu Xian", true);
-            GameController.instance.CharacterTalking("Fa Hai", false);
-        }
-        else if (introSentenceLength == 3)
-        {
-            GameController.instance.CharacterTalking("Xu Xian", false);
-            GameController.instance.CharacterTalking("Fa Hai", true);
-        }
-        else if (introSentenceLength == 2)
-        {
-            GameController.instance.CharacterTalking("Xu Xian", false);
-            GameController.instance.CharacterTalking("Fa Hai", true);
-        }
-        else if (introSentenceLength == 1)
-        {
-            GameController.instance.CharacterTalking("Xu Xian", true);
-            GameController.instance.CharacterTalking("Fa Hai", false);
-        }
-        
-        // Outro Dialogue
-        else if (outroSentenceLength == 2)
-        {
-            GameController.instance.CharacterTalking("Xu Xian", true);
-            GameController.instance.CharacterTalking("Fa Hai", false);
-        }
-        else if (outroSentenceLength == 1)
-        {
-            GameController.instance.CharacterTalking("Xu Xian", false);
-            GameController.instance.CharacterTalking("Fa Hai", true);
         }
     }
 
@@ -343,7 +300,7 @@ public class TutorialSetup : MonoBehaviour
 
     public void NextButton()
     {
-        SoundManager.PlaySound("sfx_Scroll_Open", 1);
+        SoundManager.PlaySound("sfx_Paper_Rustle", 0.5f); 
         // Tutorial01
         if (tutorial01.activeSelf)
         {
@@ -383,7 +340,7 @@ public class TutorialSetup : MonoBehaviour
 
     public void PrevButton()
     {
-        SoundManager.PlaySound("sfx_Scroll_Open", 1);
+        SoundManager.PlaySound("sfx_Paper_Rustle", 0.5f); 
         // Tutorial01
         if (tutorial01.activeSelf)
         {

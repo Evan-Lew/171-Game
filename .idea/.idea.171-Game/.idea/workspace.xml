@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Fade_Scene_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/High UI/Scene Fade/Fade_Scene_Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/BattleMapSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/BattleMapSetup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +154,8 @@
       <workItem from="1685466046194" duration="11678000" />
       <workItem from="1685560111412" duration="30093000" />
       <workItem from="1685639840790" duration="25775000" />
-      <workItem from="1686083346457" duration="705000" />
+      <workItem from="1686114549848" duration="342000" />
+      <workItem from="1686181866801" duration="341000" />
     </task>
     <servers />
   </component>

@@ -17,9 +17,9 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Blood Crash
   ID: 2007
-  description_Main: Draw 1 card. Banish this card. Add a Blood* to your hand.
+  description_Main: 'Draw 1 card. Add a Blood* to your hand. Banish. '
   description_Log: Banish this card. Add a Blood* to your hand.
-  priorityCost: 2
+  priorityCost: 1
   Card_Front: {fileID: 21300000, guid: 898dc6d096308ba4e97c58a4d99c8978, type: 3}
   Card_Name: {fileID: 21300000, guid: 3a1914f2c652473488a1d2d074ea07a4, type: 3}
   icon: {fileID: 0}

@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Charge
   ID: 5
-  description_Main: Deal 7 Damage, Take 2 Damage
+  description_Main: Deal 6 Damage, Take 3 Damage
   description_Log: 
   priorityCost: 4
   Card_Front: {fileID: 0}
