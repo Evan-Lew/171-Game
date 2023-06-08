@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 1
   cardName: Wisdom Of Wisteria
   ID: 2003
-  description_Main: The next card's damage x2.
+  description_Main: The next card deals double damage.
   description_Log: The next card's damage x2.
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: b432afffd429da341821c1597d0bb545, type: 3}

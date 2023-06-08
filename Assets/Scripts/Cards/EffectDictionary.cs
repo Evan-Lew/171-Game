@@ -1452,7 +1452,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID4003_DauntlessDraw()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 4;
+        Player_priorityInc = 3;
         Player_healing = 3;
         Player_cardsDrawing = 2;
         Manipulator_Player();

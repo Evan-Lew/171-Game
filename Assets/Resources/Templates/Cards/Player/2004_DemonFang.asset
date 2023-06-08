@@ -17,7 +17,8 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Demon Fang
   ID: 2004
-  description_Main: Deal 5 Damage. Clone
+  description_Main: Deal 5 Damage. Clone. (Make a copy of this card in your hand
+    with Banish)
   description_Log: Clone.
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: ffeb98bdbaf60bc4c9cf2fa5ba7f5785, type: 3}

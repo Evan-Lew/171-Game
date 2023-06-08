@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 2
   cardName: Toxic Torment
   ID: 2009
-  description_Main: 'Environment: Everytime you banish a card, Draw a card.'
+  description_Main: 'Environment: Everytime you banish a card, Draw a card. '
   description_Log: Everytime you banish a card, you draw a card
   priorityCost: 4
   Card_Front: {fileID: 21300000, guid: ed068f1a39c2bac4abe261008418cc23, type: 3}
