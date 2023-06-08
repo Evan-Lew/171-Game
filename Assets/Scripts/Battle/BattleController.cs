@@ -1,4 +1,7 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
 {
@@ -33,6 +36,9 @@ public class BattleController : MonoBehaviour
     public BattleLog battleLog;
     // Reference to Karma Scale
     public KarmaScale karmaScale;
+
+    [SerializeField] GameObject EndTurnText;
+    [SerializeField] GameObject EnemyTurnText;
 
     // Used in BattleLevelSetup
     public static int battleNum = 0;
@@ -128,6 +134,8 @@ public class BattleController : MonoBehaviour
             TurnChangeAnimation(TurnType.player);
             lastPhase = TurnOrder.playerPhase;
             currentPhase = TurnOrder.playerPhase;
+            EndTurnText.SetActive(true);
+            EnemyTurnText.SetActive(false);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _script_DeckSystem.DrawCardToHand();
@@ -156,6 +164,8 @@ public class BattleController : MonoBehaviour
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 TurnChangeAnimation(TurnType.player);
+                EndTurnText.SetActive(true);
+                EnemyTurnText.SetActive(false);
             }, TurnChangeAnimationDuration + 0.5f));
             
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -183,6 +193,8 @@ public class BattleController : MonoBehaviour
             enableUsingCard = false;
             enableCardActivation = false;
             TurnChangeAnimation(TurnType.enemy);
+            EndTurnText.SetActive(false);
+            EnemyTurnText.SetActive(true);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _script_EnemyAI.isActioned = false;
