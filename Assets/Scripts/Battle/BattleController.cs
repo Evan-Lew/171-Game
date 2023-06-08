@@ -51,7 +51,17 @@ public class BattleController : MonoBehaviour
             Debug.Log("Developer Tool: Change Enemy Health");
             enemy.Health_Current = 0;
         }
-        
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Debug.Log("Developer Tool: Draw a Card");
+            _script_DeckSystem.DrawCardToHand();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("Developer Tool: Remove");
+            _script_HandManager.Clear();
+        }
+
         // The battle controller will be enabled only if the battle is happened
         if (enable_BattleController)
         {
@@ -153,6 +163,9 @@ public class BattleController : MonoBehaviour
         // Player turn and previous turn was the enemy
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.EnemyPhase)
         {
+            // Disable mouse hover
+            //GameController.instance.enableMouseEffectOnCard = false;
+            
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 TurnChangeAnimation(TurnType.player);
@@ -163,6 +176,7 @@ public class BattleController : MonoBehaviour
                 _script_DeckSystem.DrawCardToHand();
                 enableUsingCard = true;
                 enableCardActivation = true;
+                //GameController.instance.enableMouseEffectOnCard = true;
             }, TurnChangeAnimationDuration + 1.5f));
         }
         // Enemy turn and previous turn was the enemy
