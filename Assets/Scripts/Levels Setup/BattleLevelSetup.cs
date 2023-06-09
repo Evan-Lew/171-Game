@@ -23,6 +23,7 @@ public class BattleLevelSetup : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.PlaySound("bgm_Mountain_Of_Myths", 0.05f);
         // Deactivate all story background game objects (just to make sure they're deactivated)
         for (int i = 0; i < GameController.instance.storyBackgroundsList.Count; i++)
         {
@@ -100,13 +101,15 @@ public class BattleLevelSetup : MonoBehaviour
             BattleController.end_HP = BattleController.instance.player.Health_Current;
             GameController.instance.DisableBattleMode(false);
             GameController.instance.FadeOut();
+            BattleController.instance.ResetArmorSymbol();
             // SceneManager.UnloadSceneAsync("BattleLevel");
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _levelEnd = false;
-                Debug.Log(BattleController.battleNum);
-                // For sprint 2
-                if (BattleController.battleNum == 4)
+                
+                //Debug.Log(BattleController.battleNum);
+                
+                if (BattleController.battleNum == 5)
                 {
                     SceneManager.LoadScene("EndScene");
                     //SceneManager.LoadScene("MountainChallenge");

@@ -27,7 +27,7 @@ public class PlayerBuffs : MonoBehaviour
 
     public void ShowBuff(GameObject buffToShow){
         buffToShow.SetActive(true);
-        buffToShow.transform.localPosition = new Vector3(shownBuffCount * 40, 0, 0);
+        buffToShow.transform.localPosition = new Vector3(shownBuffCount * 30, -13f, 0);
         shownBuffCount += 1;
     }
 

@@ -52,6 +52,14 @@ public class FollowPosition : MonoBehaviour
         {
             targetObject = enemySpriteGameObjects[3];
         }
+        else if (enemyCharacter.CharacterData.characterName == "Xiao Qing" && characterIs == TypeOfCharacter.Enemy)
+        {
+            targetObject = enemySpriteGameObjects[4];
+        }
+        else if (enemyCharacter.CharacterData.characterName == "Fa Hai" && characterIs == TypeOfCharacter.Enemy)
+        {
+            targetObject = enemySpriteGameObjects[5];
+        }
         
         // Get the center of the sprite
         if (targetPoint == spritePos.center)

@@ -124,7 +124,7 @@ public class StoryIntroTextManager : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
                 {
-                    SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                    SoundManager.PlaySound("sfx_Wood_Fish", 0.025f); 
                 }
                 StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
                 {
@@ -147,7 +147,7 @@ public class StoryIntroTextManager : MonoBehaviour
             StopAllCoroutines(); 
                 if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
                 {
-                    SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                    SoundManager.PlaySound("sfx_Wood_Fish", 0.025f); 
                 }
             StartCoroutine(TypeSentence(sentence)); 
         }

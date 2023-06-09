@@ -112,7 +112,7 @@ public class TutorialTextManager : MonoBehaviour
                 StartCoroutine(TypeSentence(sentence));  
                     if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
                     {
-                        SoundManager.PlaySound("sfx_Wood_Fish", 0.1f); 
+                        SoundManager.PlaySound("sfx_Wood_Fish", 0.025f); 
                     }  
             }
         }
@@ -134,21 +134,25 @@ public class TutorialTextManager : MonoBehaviour
         {
             if (sentences.Count == 4)
             {
+                SoundManager.PlaySound("sfx_Calligraphy", 0.05f);
                 GameController.instance.CharacterTalking("Xu Xian", true);
                 GameController.instance.CharacterTalking("Fa Hai", false);
             }
             else if (sentences.Count == 3)
             {
+                SoundManager.PlaySound("sfx_Calligraphy", 0.05f);
                 GameController.instance.CharacterTalking("Xu Xian", false);
                 GameController.instance.CharacterTalking("Fa Hai", true);
             }
             else if (sentences.Count == 2)
             {
+                SoundManager.PlaySound("sfx_Calligraphy", 0.05f);
                 GameController.instance.CharacterTalking("Xu Xian", false);
                 GameController.instance.CharacterTalking("Fa Hai", true);
             }
             else if (sentences.Count == 1)
             {
+                SoundManager.PlaySound("sfx_Calligraphy", 0.05f);
                 GameController.instance.CharacterTalking("Xu Xian", false);
                 GameController.instance.CharacterTalking("Fa Hai", true);
             }    
@@ -157,11 +161,13 @@ public class TutorialTextManager : MonoBehaviour
         {
             if (sentences.Count == 2)
             {
+                SoundManager.PlaySound("sfx_Calligraphy", 0.05f);
                 GameController.instance.CharacterTalking("Xu Xian", true);
                 GameController.instance.CharacterTalking("Fa Hai", false);
             }
             else if (sentences.Count == 1)
             {
+                SoundManager.PlaySound("sfx_Calligraphy", 0.05f);
                 GameController.instance.CharacterTalking("Xu Xian", false);
                 GameController.instance.CharacterTalking("Fa Hai", true);
             }

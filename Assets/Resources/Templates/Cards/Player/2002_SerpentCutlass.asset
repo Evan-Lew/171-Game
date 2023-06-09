@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 1
   cardName: Serpent Cutlass
   ID: 2002
-  description_Main: Deal 6 damage. Next card +4 damage.
+  description_Main: Deal 6 damage. Next card +4 damage
   description_Log: Next card +4 damage.
   priorityCost: 5
   Card_Front: {fileID: 21300000, guid: 292bdd2b3c24f4b48ba52f0e8d0f3599, type: 3}

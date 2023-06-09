@@ -475,7 +475,7 @@ MonoBehaviour:
     - "There it is Xu Xian! If you can defeat this monster and harvest its leaves
       you\u2019ll be able to save the entire village."
     - Must I kill it? What do I need its leaves for?
-    - "Why wouldn\u2019t-? Nevermind. You must  attack it until it drops its leaves."
+    - "Why wouldn\u2019t-? Nevermind. You must attack it until it drops its leaves."
     - The leaves hold magical powers that can heal anything, and they can even break
       nearby curses in its presence.
     - Alright then, how do I fight this thing?
@@ -1878,7 +1878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "In addition to the standard silver cards, you\u2019ll encounter\n Purple,
-        Gold, and Green cards.\n"
+        Gold, and Jade cards.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7749086858650015062, guid: 1ae28f30075fd374ca066c807bb2870c,
         type: 3}
@@ -3768,10 +3768,6 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Left click a card to select it and then left click again on top of
         your enemy.
-
-
-        Right click to deselect a card when you are unsure
-        of your decision.
 
 
         Let''s start with the <color=#A4A4A4>whack card</color>

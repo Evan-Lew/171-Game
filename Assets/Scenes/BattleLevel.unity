@@ -181,7 +181,7 @@ MonoBehaviour:
   - Waterfall_BG
   - Abandoned_Temple_BG
   - Bamboo_Forest_BG
-  - Mountain_Top_BG
+  - Mountaintop_BG
 --- !u!4 &1652796184
 Transform:
   m_ObjectHideFlags: 0

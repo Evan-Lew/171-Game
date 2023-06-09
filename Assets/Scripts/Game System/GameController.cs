@@ -128,10 +128,10 @@ public class GameController : MonoBehaviour
         // }
         //
         // //--Legacy: Not used--
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartTheCamp();
-        }
+        // if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     StartTheCamp();
+        // }
         
         // if (Input.GetKeyDown(KeyCode.T))
         // {
@@ -429,7 +429,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _xuXianSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);          
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);          
             }
             // Darken the Xu Xian
             else
@@ -442,7 +442,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _faHaiSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -454,7 +454,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _baiSuzhenSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -466,7 +466,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _biZiSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -478,7 +478,7 @@ public class GameController : MonoBehaviour
             if (brightenCharacter)
             {
                 _xuanWuSprite.sortingOrder = 2;
-                SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
+                //SoundManager.PlaySound("sfx_Calligraphy", 0.1f);            
             }
             else
             {
@@ -569,6 +569,7 @@ public class GameController : MonoBehaviour
      */
     void BattleSystemSetUp(Character_Basedata enemy)
     {
+        enableMouseEffectOnCard = false;
         // Don't change order of call
         SetCharacter(characterType.enemy,enemy);
         characters.SetActive(true);
@@ -579,6 +580,12 @@ public class GameController : MonoBehaviour
         _script_DeckSystem.SetUp();
         _script_BattleController.SetUp();
         _script_EffectDictionary.SetUp();
+        
+        // This is to avoid an index error when drawing cards at the beginning of a battle
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            enableMouseEffectOnCard = true;
+        }, 2.25f));
     }
 
     /*  Function that will get Enemy From the Enemy List by Name
@@ -694,25 +701,21 @@ public class GameController : MonoBehaviour
                 enemy.transform.position = new Vector3(0F, -15F, 50.0F);
                 enemy.transform.localScale = new Vector3(1.85F, 1.85F, 1.85F);
             }
+            else if (enemyCharacter.CharacterData.characterName == "Xiao Qing")
+            {
+                enemy.transform.position = new Vector3(22F, -12F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.25F, 1.25F, 1.25F);
+            }
+            else if (enemyCharacter.CharacterData.characterName == "Fa Hai")
+            {
+                enemy.transform.position = new Vector3(19F, -12F, 50.0F);
+                enemy.transform.localScale = new Vector3(1.3F, 1.3F, 1.3F);
+            }
+            // Not used
             else if (enemyCharacter.CharacterData.characterName == "Stone Rui Shi")
             {
                 enemy.transform.position = new Vector3(5.3F, -14.5F, 50.0F);
                 enemy.transform.localScale = new Vector3(1.78F, 1.78F, 1.78F);
-            }
-            else if (enemyCharacter.CharacterData.characterName == "Xiao Qing")
-            {
-                enemy.transform.position = new Vector3(20.8F, 3.5F, 50.0F);
-                enemy.transform.localScale = new Vector3(1.22F, 1.22F, 1.22F);
-            }
-            else if (enemyCharacter.CharacterData.characterName == "Xiao Qing")
-            {
-                enemy.transform.position = new Vector3(20.8F, 3.5F, 50.0F);
-                enemy.transform.localScale = new Vector3(1.22F, 1.22F, 1.22F);
-            }
-            else if (enemyCharacter.CharacterData.characterName == "Fa Hai")
-            {
-                enemy.transform.position = new Vector3(19.9F, 3.1F, 50.0F);
-                enemy.transform.localScale = new Vector3(1.56F, 1.23F, 1.23F);
             }
             enemyCharacter.SetUp();
         }

@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
     
     // Player Silver/Purple Cards
     [HideInInspector] public static AudioClip sfx_Coin_Drop, sfx_Hiss, sfx_Hit, sfx_Venom, sfx_Swing, sfx_Crunch, 
-        sfx_Wisdom, sfx_Stab, sfx_Fortune, sfx_Tea_Pour, sfx_Gavel, sfx_Multiple_Splash;
+        sfx_Wisdom, sfx_Stab, sfx_Fortune, sfx_Tea_Pour, sfx_Gavel, sfx_Multiple_Splash, sfx_Shield;
 
     // Player Jade Cards
     [HideInInspector] public static AudioClip sfx_Spirit;
@@ -72,6 +72,7 @@ public class SoundManager : MonoBehaviour
         sfx_Tea_Pour = Resources.Load<AudioClip>("SFX/Player/Tea_Pour");
         sfx_Gavel = Resources.Load<AudioClip>("SFX/Player/Gavel");
         sfx_Multiple_Splash = Resources.Load<AudioClip>("SFX/Player/Multiple_Splash");
+        sfx_Shield = Resources.Load<AudioClip>("SFX/Player/Shield");
         
         // Loading enemy audio files
         sfx_Action_01_Throw_Stone = Resources.Load<AudioClip>("SFX/Enemy/Throw_Stone");
@@ -248,6 +249,12 @@ public class SoundManager : MonoBehaviour
             
             case "sfx_Multiple_Splash":
                 sfxAudioSource.clip = sfx_Multiple_Splash;
+                sfxAudioSource.volume = volumn;
+                sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
+                break;
+            
+            case "sfx_Shield":
+                sfxAudioSource.clip = sfx_Shield;
                 sfxAudioSource.volume = volumn;
                 sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
                 break;

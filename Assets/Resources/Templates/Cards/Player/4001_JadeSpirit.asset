@@ -17,8 +17,8 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Jade Spirit
   ID: 4001
-  description_Main: Heal 3.
-  description_Log: 
+  description_Main: Heal 3
+  description_Log: Heal 3.
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: 077bebeb08ac8634380ac235a9ae45f7, type: 3}
   Card_Name: {fileID: 21300000, guid: 5d8f39c76fe199b45a0ad87b572a14fe, type: 3}

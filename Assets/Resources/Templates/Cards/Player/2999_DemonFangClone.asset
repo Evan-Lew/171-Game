@@ -21,5 +21,5 @@ MonoBehaviour:
   description_Log: Clone.
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: ffeb98bdbaf60bc4c9cf2fa5ba7f5785, type: 3}
-  Card_Name: {fileID: 21300000, guid: acdb6a15b939fd64a88b5b5284abda8f, type: 3}
+  Card_Name: {fileID: 21300000, guid: 8c75e671ccd42c34986fec0a60609b50, type: 3}
   icon: {fileID: 0}

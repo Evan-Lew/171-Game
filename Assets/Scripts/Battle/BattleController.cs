@@ -1,4 +1,7 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
 {
@@ -34,6 +37,9 @@ public class BattleController : MonoBehaviour
     // Reference to Karma Scale
     public KarmaScale karmaScale;
 
+    [SerializeField] GameObject EndTurnText;
+    [SerializeField] GameObject EnemyTurnText;
+
     // Used in BattleLevelSetup
     public static int battleNum = 0;
     public static int totalLevel = 0;
@@ -51,7 +57,17 @@ public class BattleController : MonoBehaviour
             Debug.Log("Developer Tool: Change Enemy Health");
             enemy.Health_Current = 0;
         }
-        
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Debug.Log("Developer Tool: Draw a Card");
+            _script_DeckSystem.DrawCardToHand();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("Developer Tool: Remove");
+            _script_HandManager.Clear();
+        }
+
         // The battle controller will be enabled only if the battle is happened
         if (enable_BattleController)
         {
@@ -128,6 +144,8 @@ public class BattleController : MonoBehaviour
             TurnChangeAnimation(TurnType.player);
             lastPhase = TurnOrder.playerPhase;
             currentPhase = TurnOrder.playerPhase;
+            EndTurnText.SetActive(true);
+            EnemyTurnText.SetActive(false);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _script_DeckSystem.DrawCardToHand();
@@ -153,9 +171,14 @@ public class BattleController : MonoBehaviour
         // Player turn and previous turn was the enemy
         else if (currentPhase == TurnOrder.playerPhase && lastPhase == TurnOrder.EnemyPhase)
         {
+            // Disable mouse hover
+            //GameController.instance.enableMouseEffectOnCard = false;
+            
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 TurnChangeAnimation(TurnType.player);
+                EndTurnText.SetActive(true);
+                EnemyTurnText.SetActive(false);
             }, TurnChangeAnimationDuration + 0.5f));
             
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
@@ -163,6 +186,7 @@ public class BattleController : MonoBehaviour
                 _script_DeckSystem.DrawCardToHand();
                 enableUsingCard = true;
                 enableCardActivation = true;
+                //GameController.instance.enableMouseEffectOnCard = true;
             }, TurnChangeAnimationDuration + 1.5f));
         }
         // Enemy turn and previous turn was the enemy
@@ -183,6 +207,8 @@ public class BattleController : MonoBehaviour
             enableUsingCard = false;
             enableCardActivation = false;
             TurnChangeAnimation(TurnType.enemy);
+            EndTurnText.SetActive(false);
+            EnemyTurnText.SetActive(true);
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _script_EnemyAI.isActioned = false;
@@ -211,7 +237,7 @@ public class BattleController : MonoBehaviour
 
     void TurnChangeAnimation(TurnType type)
     {
-        SoundManager.PlaySound("sfx_Transition", 0.1f);
+        SoundManager.PlaySound("sfx_Transition", 0.05f);
         if (type == TurnType.player)
         {
             animatorFadeInOut.SetTrigger("Play");
@@ -222,5 +248,18 @@ public class BattleController : MonoBehaviour
             animatorFadeInOut.SetTrigger("Play");
             animatorEnemyTurn.SetTrigger("Play");
         }
+    }
+
+    public void playerEndTurn()
+    {
+        currentPhase = TurnOrder.EnemyPhase;
+        lastPhase = TurnOrder.playerPhase;
+        BattleController.instance.enableTurnUpdate = true;
+    }
+
+    public void ResetArmorSymbol()
+    {
+        enemy.ResetArmorSymbol();
+        player.ResetArmorSymbol();
     }
 }

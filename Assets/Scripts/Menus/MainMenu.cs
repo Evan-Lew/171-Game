@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 0.1f);
         SoundManager.bgmAudioSource.Stop();
         
         //LevelLoader.instance.LoadALevel("Environment");
@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayTutorial()
     {
-        SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 0.1f);
         SoundManager.bgmAudioSource.Stop();
         
         // --Legacy: Not used--
@@ -51,14 +51,14 @@ public class MainMenu : MonoBehaviour
     
     public void CreditsScene()
     {
-        SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 0.1f);
         SoundManager.bgmAudioSource.Stop();
         SceneManager.LoadScene("CreditsScene");
     }
 
     public void QuitGame()
     {
-        SoundManager.PlaySound("sfx_Page_Flip", 1);
+        SoundManager.PlaySound("sfx_Page_Flip", 0.1f);
         Application.Quit();
     }
 }
