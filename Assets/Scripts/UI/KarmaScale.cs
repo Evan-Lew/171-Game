@@ -83,10 +83,10 @@ public class KarmaScale : MonoBehaviour
             t = 0.0f;
             if(OrbDifference < karmaDiff) {
                 StartCoroutine(spawnOrb(playerOrbSpawn, playerOrbPrefab));
-                playerOrbPrefab.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                // playerOrbPrefab.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
             } else if (OrbDifference > karmaDiff) {
                 StartCoroutine(spawnOrb(enemyOrbSpawn, enemyOrbPrefab));
-                enemyOrbPrefab.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                // enemyOrbPrefab.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
             }
         }
 

@@ -219,12 +219,17 @@ public class EffectDictionary : MonoBehaviour
         target.Armor_Current += armorAdded;
     }
 
-    bool isCardBanished = false;
+    // bool isCardBanished = false;
     private void Banish_TheCard(Card_Basedata targetCard)
     {
         if(_script_DeckSystem.deckForCurrentBattle.Contains(targetCard))
         {
-            isCardBanished = true;
+            // isCardBanished = true;
+
+            //Card effect for toxic torment (Draw one card when you banish a card)
+            if(isToxicTorment){
+                DrawCards_Player(1);
+            }
             _script_DeckSystem.deckForCurrentBattle.RemoveAt(_script_DeckSystem.deckForCurrentBattle.IndexOf(targetCard));
         }
     }
@@ -824,7 +829,6 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 5f;
         Player_priorityInc = 4;
-        isToxicTorment = true;
         Manipulator_Player();
         
         PlaySound("sfx_Multiple_Splash", 0.01f);
@@ -835,6 +839,10 @@ public class EffectDictionary : MonoBehaviour
         ParticleEvent("ToxicTorment", 2009, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2009));
+            isToxicTorment = true;
+
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -915,6 +923,8 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             isVenomLace = true;
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 2012));
+
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1118,6 +1128,8 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             isTitansWrath = true;
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3002));
+
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1193,6 +1205,7 @@ public class EffectDictionary : MonoBehaviour
             Player_priorityDiscount += cardsInHand;
             isPriorityDiscount = true;
             Manipulator_Player_Reset();
+
         }, ParticleDuration / 2));
     }
 
@@ -1201,7 +1214,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID3006_UnbreakingEmperor()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 2;
+        Player_priorityInc = 3;
         int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_armorCreate = cardsInHand * 2;
         Manipulator_Player();
@@ -1239,6 +1252,7 @@ public class EffectDictionary : MonoBehaviour
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 3007));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1488,6 +1502,7 @@ public class EffectDictionary : MonoBehaviour
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 4002));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -1582,13 +1597,14 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Player_priorityInc = 1;
-        isJadeResolve = true;
+
         Manipulator_Player();
         
         WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            
+            isJadeResolve = true;
+            Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 4007));
             Manipulator_Player_Reset();
         }, ParticleDuration / 2));
     }
@@ -2571,7 +2587,6 @@ public class EffectDictionary : MonoBehaviour
         _script_BattleLog.ProcessLog("Player");
         Player_damageDealing = 0;
         Player_priorityInc = 0;
-        Player_priorityDiscount = 0;
         Player_cardsDrawing = 0;
         Player_armorCreate = 0;
         Player_healing = 0;
@@ -2595,10 +2610,14 @@ public class EffectDictionary : MonoBehaviour
         isDrawingExtraCard = false;
         isHealingExtraHealth = false;
 
+        Player_priorityDiscount = 0;
+
+
         //env cards
         isVenomLace = false;
         isMalachiteChain = false;
         isJadeResolve = false;
+        isToxicTorment = false;
 
         enemyIsDealingTripleDamage = false;
         enemyIsDealingNoDamage = false;
@@ -2610,14 +2629,14 @@ public class EffectDictionary : MonoBehaviour
 
     void Manipulator_Player_Reset_ToxicTorment()
     {
-        if (isToxicTorment == true)
-        {
-            if (isCardBanished == true)
-            {
-                isCardBanished = false;
-                DrawCards_Player(1);
-            }
-        }
+        // if (isToxicTorment == true)
+        // {
+        //     if (isCardBanished == true)
+        //     {
+        //         isCardBanished = false;
+        //         DrawCards_Player(1);
+        //     }
+        // }
     }
 
     // Helper function: Next Card dealing extra
@@ -2663,6 +2682,7 @@ public class EffectDictionary : MonoBehaviour
         if(isPriorityDiscount){
             isPriorityDiscount = false;
             Player_priorityInc -= Player_priorityDiscount;
+            Player_priorityDiscount = 0;
             if(Player_priorityInc < 0){
                 Player_priorityInc = 0;
             }
