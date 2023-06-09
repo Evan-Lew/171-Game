@@ -8,7 +8,8 @@ public class BattleMapSetup : MonoBehaviour
 {
     public GameObject scroll;
     public GameObject button;
-    public GameObject deckbutton;
+    public GameObject deckButton;
+    public GameObject deckButtonBackground;
     
     public void ShowBox()
     {
@@ -18,6 +19,12 @@ public class BattleMapSetup : MonoBehaviour
     public void Start()
     {
         //Debug.Log("Battle Num" + BattleController.battleNum);
+        if (BattleController.battleNum > 0 || GameController.instance.restartedTheGame)
+        {
+            deckButton.SetActive(true);
+            deckButtonBackground.SetActive(true);
+        }
+
         // Reset animations
         GameController.instance.UIAnimationsOffScreen();
         SoundManager.PlaySound("bgm_Mountain_Ambient", 0.15f);
@@ -40,7 +47,7 @@ public class BattleMapSetup : MonoBehaviour
     {
         SoundManager.PlaySound("sfx_Page_Flip", 0.1f);
         // The first time at the map switch to the deck edit level
-        if (BattleController.battleNum == 0)
+        if (BattleController.battleNum == 0 && GameController.instance.restartedTheGame == false)
         {
             SceneManager.LoadScene("DeckEditLevel");
         }
@@ -57,6 +64,7 @@ public class BattleMapSetup : MonoBehaviour
 
     public void PickDeck()
     {
+        GameController.instance.DisableBattleMode(true);
         SoundManager.PlaySound("sfx_Page_Flip", 0.1f);
         SceneManager.LoadScene("DeckEditLevel");
     }

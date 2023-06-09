@@ -913,17 +913,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261030571}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -268.73694}
-  m_LocalScale: {x: 0.896625, y: 0.896625, z: 0.896625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.90000004, y: 0.90000004, z: 0.90000004}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 645866563}
-  m_Father: {fileID: 1025842035}
-  m_RootOrder: 3
+  m_Father: {fileID: 1730295780}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 929.89526, y: -268.85916}
+  m_AnchoredPosition: {x: 289.99988, y: -160}
   m_SizeDelta: {x: 225, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261030573
@@ -1189,7 +1189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scroll: {fileID: 460220549}
   button: {fileID: 2114450353}
-  deckbutton: {fileID: 0}
+  deckButton: {fileID: 0}
+  deckButtonBackground: {fileID: 0}
 --- !u!1 &530399198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1280,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deck
+  m_text: 'Draft a
+
+    New Deck'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
   m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
@@ -1590,16 +1593,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693422620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -268.73694}
-  m_LocalScale: {x: 0.9962499, y: 0.9962499, z: 0.9962499}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1025842035}
-  m_RootOrder: 2
+  m_Father: {fileID: 1730295780}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 922.9215, y: -271.4629}
+  m_AnchoredPosition: {x: 282.99994, y: -162.61351}
   m_SizeDelta: {x: 167.2507, y: 75.6496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693422622
@@ -1920,10 +1923,8 @@ Transform:
   m_Children:
   - {fileID: 2114450354}
   - {fileID: 460220550}
-  - {fileID: 693422621}
-  - {fileID: 261030572}
   m_Father: {fileID: 1730295780}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029669425
 GameObject:
@@ -2980,6 +2981,8 @@ RectTransform:
   - {fileID: 681508087}
   - {fileID: 1933045543}
   - {fileID: 722951711}
+  - {fileID: 693422621}
+  - {fileID: 261030572}
   - {fileID: 1025842035}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3003,7 +3006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scroll: {fileID: 460220549}
   button: {fileID: 2114450353}
-  deckbutton: {fileID: 0}
+  deckButton: {fileID: 261030571}
+  deckButtonBackground: {fileID: 693422620}
 --- !u!1 &1933045542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3755,7 +3759,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scroll: {fileID: 460220549}
   button: {fileID: 2114450353}
-  deckbutton: {fileID: 0}
+  deckButton: {fileID: 0}
+  deckButtonBackground: {fileID: 0}
 --- !u!114 &2114450356
 MonoBehaviour:
   m_ObjectHideFlags: 0

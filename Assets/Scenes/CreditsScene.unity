@@ -830,8 +830,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -856,8 +856,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -966,8 +966,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -992,8 +992,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1177,34 +1177,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Evan Lew
-
-    Laihong Xu
-
-    Alex Xie, Steven Ji,
-
-    Evan Lew, Chris
-    Pau
-
-    Ed Gopez
-
-    Angela Yim & Lou Yonzon
-
-    Andy Eng
-
-    Derek Tran
-
-    Laihong
-    & Ed
-
-    Alex & Steven
-
-
-
-'
+  m_text: "Evan Lew\nAndy Eng, Alex Xie, \nEvan, Derek Tran, Chris Pau\nEd Gopez\nAngela
+    Yim, Lou Yonzon,\nLee Coronilia\nLee\nAngela & Lou\nLee & Ed\nEvan & Derek\nSteven
+    Ji & Laihong Xu\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1387,7 +1365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -9}
   m_SizeDelta: {x: 800, y: 75}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1751960582
@@ -1548,8 +1526,6 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Producer
 
-    Lead Programmer
-
     Programmers
 
 
@@ -1557,21 +1533,24 @@ MonoBehaviour:
 
     Artists
 
-    Environment
-    Design
 
-    Sound
+    Backgrounds
+
+    Characters
 
     Writers
 
-    Card Designers
+    Sound
+
+    Special
+    Thanks
 
 
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1681,8 +1660,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -27.200016}
-  m_SizeDelta: {x: 800, y: 300}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 950, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1949214924
 MonoBehaviour:
@@ -1704,12 +1683,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c4a473a26459366488635573f192b444, type: 2}
-  m_sharedMaterial: {fileID: 8113551991253287191, guid: c4a473a26459366488635573f192b444,
+  m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
+  m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1770,7 +1747,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -121.59924, y: 0, z: -121.115845, w: 23.500778}
+  m_margin: {x: 1.6645813, y: 0, z: -0.6927795, w: 23.500778}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

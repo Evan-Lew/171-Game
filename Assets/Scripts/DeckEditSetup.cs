@@ -11,6 +11,8 @@ public class DeckEditSetup : MonoBehaviour
         GameController.instance.ChangeBackground("Credits_BG");
         GameController.instance.CampSystemSetUp();
         
+        DeckEditSystem.instance.RestartDeckSelecting();
+        
         // Start with 3 cards to be selected
         DeckEditSystem.instance.SpawnCandidateForPick();
     }

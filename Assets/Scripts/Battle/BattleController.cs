@@ -57,6 +57,11 @@ public class BattleController : MonoBehaviour
             Debug.Log("Developer Tool: Change Enemy Health");
             enemy.Health_Current = 0;
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("Developer Tool: Change Player Health");
+            player.Health_Current = 0;
+        }
         if (Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log("Developer Tool: Draw a Card");

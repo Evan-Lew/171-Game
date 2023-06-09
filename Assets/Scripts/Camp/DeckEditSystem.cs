@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class DeckEditSystem : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class DeckEditSystem : MonoBehaviour
     public Card_Basedata testCardData;
 
     [SerializeField] GameObject battleButton;
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -238,6 +240,12 @@ public class DeckEditSystem : MonoBehaviour
             Destroy(card.gameObject);
         }
         Cards_ForPick.Clear();
+    }
+    
+    public void RestartDeckSelecting()
+    {
+        DeckTotalText.text = "Selected 0/10 Cards";
+        battleButton.SetActive(false);
     }
     //                  Helper Function End
     //===========================================================

@@ -91,6 +91,10 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool tutorialOutroDialoguePlaying = false;
     [HideInInspector] public bool tutorialLevelEnd = false;
     
+    // End Scene
+    [HideInInspector] public bool beatTheGame = false;
+    [HideInInspector] public bool restartedTheGame = false;
+    
     private void Awake()
     {
         instance = this;

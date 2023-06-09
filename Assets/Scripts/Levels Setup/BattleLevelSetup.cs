@@ -111,13 +111,14 @@ public class BattleLevelSetup : MonoBehaviour
                 
                 if (BattleController.battleNum == 5)
                 {
+                    GameController.instance.beatTheGame = true;
                     SceneManager.LoadScene("EndScene");
                     //SceneManager.LoadScene("MountainChallenge");
                 }
-                else if (BattleController.battleNum == 100)
-                {
-                    SceneManager.LoadScene("EndScene");
-                }
+                // else if (BattleController.battleNum == 100)
+                // {
+                //     SceneManager.LoadScene("EndScene");
+                // }
                 // Move to the next enemy
                 else
                 {
@@ -129,8 +130,8 @@ public class BattleLevelSetup : MonoBehaviour
         // Player loses
         if (BattleController.instance.player.Health_Current <= 0)
         {
-            GameController.instance.DisableBattleMode(true);
-            BattleController.battleNum = 100;
+            GameController.instance.DisableBattleMode(false);
+            //BattleController.battleNum = 100;
             SceneManager.LoadScene("EndScene");
         }
     }
