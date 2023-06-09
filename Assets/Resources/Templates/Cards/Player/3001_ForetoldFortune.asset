@@ -17,8 +17,8 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Foretold Fortune
   ID: 3001
-  description_Main: Draw 2
-  description_Log: Draw 2.
+  description_Main: Draw 2 Cards
+  description_Log: Draw 2 Cards.
   priorityCost: 2
   Card_Front: {fileID: 21300000, guid: f8dd25f251650e640a9388df3597dcbb, type: 3}
   Card_Name: {fileID: 21300000, guid: bb11733cb790e6948b8ba47eab9d383f, type: 3}

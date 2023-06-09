@@ -6,33 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d5757a-89bb-40a5-b74a-16031d5d5a37" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.171-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/02_Body Slam.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/02_Body Slam.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/03_Stubborn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/03_Stubborn.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/04_Siphon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/04_Siphon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/05_Charge.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/05_Charge.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/06_BlindingFog.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/06_BlindingFog.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/09_Roost.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/09_Roost.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/11_Solidify.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/11_Solidify.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/12_BreathOfLife.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/12_BreathOfLife.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/13_Monsterize.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/13_Monsterize.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/15_Purity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/15_Purity.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/16_Concuss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/16_Concuss.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/18_RapidRegeneration.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/18_RapidRegeneration.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/19_Recharge.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/19_Recharge.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1001_Payment.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1001_Payment.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1003_WhiteScales.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1003_WhiteScales.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1004_ShedSkin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1004_ShedSkin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2010_Savagery.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2010_Savagery.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2012_Venom_Lace.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2012_Venom_Lace.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2998_RuinationClone.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2998_RuinationClone.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4001_JadeSpirit.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4001_JadeSpirit.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4003_DauntlessDraw.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4003_DauntlessDraw.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4005_HiddenGrotto.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4005_HiddenGrotto.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Card.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3001_ForetoldFortune.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/3001_ForetoldFortune.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +66,7 @@
 }</component>
   <component name="RunManager" selected="Standalone Player.Start Unity">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Desktop/Sprint 2\171 Game.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Desktop/June 9th\171 Game.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\evanm\OneDrive\Desktop\Sprint 2" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -182,6 +156,7 @@
       <workItem from="1685639840790" duration="25775000" />
       <workItem from="1686114549848" duration="342000" />
       <workItem from="1686181866801" duration="341000" />
+      <workItem from="1686341359889" duration="649000" />
     </task>
     <servers />
   </component>
