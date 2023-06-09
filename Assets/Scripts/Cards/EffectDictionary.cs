@@ -1533,7 +1533,7 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 4f;
         Player_priorityInc = 2;
-        Player_healing = 3;
+        Player_healing = 4;
         Manipulator_Player();
        
         PlaySound("sfx_Spirit", 0.5f);
@@ -1574,7 +1574,7 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 4f;
         Player_priorityInc = 3;
-        Player_healing = 3;
+        Player_healing = 4;
         Player_cardsDrawing = 2;
         Manipulator_Player();
         

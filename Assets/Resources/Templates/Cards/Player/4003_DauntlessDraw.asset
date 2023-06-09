@@ -17,8 +17,8 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Dauntless Draw
   ID: 4003
-  description_Main: Draw 2, Heal 3 Health
-  description_Log: Draw 2 and heal 3 Health.
+  description_Main: Draw 2, Heal 4 Health
+  description_Log: Draw 2 and heal 4 Health.
   priorityCost: 3
   Card_Front: {fileID: 21300000, guid: f1452f6e0af4c084295a789faf5047d7, type: 3}
   Card_Name: {fileID: 21300000, guid: 8449d75c231c95642965bc8938b89b93, type: 3}
