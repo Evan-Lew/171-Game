@@ -30,7 +30,6 @@ public class MainMenu : MonoBehaviour
         SoundManager.PlaySound("sfx_Page_Flip", 0.1f);
         SoundManager.bgmAudioSource.Stop();
         
-        //LevelLoader.instance.LoadALevel("Environment");
         //fade animation plays 
         //animatorFadeScene.SetTrigger("FadeIn");
         //StartCoroutine(FadeScreen());
@@ -43,10 +42,10 @@ public class MainMenu : MonoBehaviour
         SoundManager.bgmAudioSource.Stop();
         
         // --Legacy: Not used--
-        _script_GameController.isDeckELevel = true;
+        //_script_GameController.isDeckELevel = true;
         //
         
-        SceneManager.LoadScene("TutorialLevel");
+        SceneManager.LoadScene("BattleMap");
     }
     
     public void CreditsScene()

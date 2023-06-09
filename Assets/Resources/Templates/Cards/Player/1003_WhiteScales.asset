@@ -18,7 +18,7 @@ MonoBehaviour:
   cardName: White Scales
   ID: 1003
   description_Main: Gain 3 Armor
-  description_Log: Gain 3 Armor.
+  description_Log: 
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: ae2df38368560dd48ae186e7068a72e7, type: 3}
   Card_Name: {fileID: 21300000, guid: 799946a1b5125ca49a057fa57fb49e37, type: 3}

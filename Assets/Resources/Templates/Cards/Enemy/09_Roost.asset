@@ -18,7 +18,7 @@ MonoBehaviour:
   cardName: Roost
   ID: 9
   description_Main: Heal 1
-  description_Log: Charging Up
+  description_Log: 
   priorityCost: 3
   Card_Front: {fileID: 0}
   Card_Name: {fileID: 0}
