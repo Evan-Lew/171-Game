@@ -703,7 +703,7 @@ public class EffectDictionary : MonoBehaviour
     public void ID2005_LastStand()
     {
         ParticleDuration = 3f;
-        Player_priorityInc = 1;
+        Player_priorityInc = 3;
         int cardsInHand = _script_HandSystem.player_hands_holdCards.Count();
         Player_damageDealing = 6;
         Manipulator_Player();

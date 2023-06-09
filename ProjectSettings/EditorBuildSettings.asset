@@ -47,16 +47,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DeveloperLevel.unity
     guid: 14c451a29f05f4f44adc1616d648d0d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PickDeckLevel_1.unity
     guid: c049dc7646211214dbeec3c75dd692f4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PickDeckLevel_2.unity
     guid: bd590fe595717b24eaa80475759687b7
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: cd6eaf45c26fa1846bfd815d7f455127
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MountainChallenge.unity
     guid: b52b19c5263a2864e978a04cbfb3c991
   - enabled: 1
