@@ -2058,7 +2058,7 @@ public class EffectDictionary : MonoBehaviour
         cardName = "Charge";
         descriptionLog = "Deal 6 Damage, Take 3 Damage";
         Enemy_damageDealing = 6f;
-        Enemy_healing = -3f;
+        Enemy_healing = 3f;
         Manipulator_Enemy();
         
         PlaySound("sfx_Action_Rock_Smash", 0.25f);
@@ -2351,7 +2351,7 @@ public class EffectDictionary : MonoBehaviour
         }, 0.9f));
         SoundManager.PlaySound("sfx_Crunch", 0.5f);
 
-        ParticleEvent("DemonFang", 2004, ParticleDuration, ExtraPositioning[0], true);
+        ParticleEvent("Claw", 13, ParticleDuration, ExtraPositioning[0], false);
 
         // Animations
         // Trigger player damage anim
