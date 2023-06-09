@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Xiao Qing
   description_Main: 
-  Health_Total: 40
-  Health_Current: 40
+  Health_Total: 25
+  Health_Current: 25
   Priority_Initial: 0
   Priority_Current: 0
   Pattern: 0

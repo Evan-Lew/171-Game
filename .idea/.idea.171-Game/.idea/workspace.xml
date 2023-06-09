@@ -19,7 +19,19 @@
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/16_Concuss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/16_Concuss.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/18_RapidRegeneration.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/18_RapidRegeneration.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/19_Recharge.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Enemy/19_Recharge.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1001_Payment.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1001_Payment.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1003_WhiteScales.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1003_WhiteScales.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1004_ShedSkin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/1004_ShedSkin.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2010_Savagery.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2010_Savagery.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2012_Venom_Lace.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2012_Venom_Lace.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2998_RuinationClone.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/2998_RuinationClone.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4001_JadeSpirit.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4001_JadeSpirit.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4003_DauntlessDraw.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4003_DauntlessDraw.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4005_HiddenGrotto.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Cards/Player/4005_HiddenGrotto.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Templates/Prefabs/Card.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/BattleLog/BattleLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MainMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

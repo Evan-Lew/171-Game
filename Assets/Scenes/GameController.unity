@@ -3832,7 +3832,7 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: 2c341a156424eaf42b9f05012fb08715,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7851238297137297284, guid: 2c341a156424eaf42b9f05012fb08715,
         type: 3}
@@ -14232,7 +14232,7 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: c36873a6500884049bde6c477bbf5530,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8069365368482824280, guid: c36873a6500884049bde6c477bbf5530,
         type: 3}
@@ -18820,6 +18820,8 @@ MonoBehaviour:
   tutorialIntroDialoguePlaying: 1
   tutorialOutroDialoguePlaying: 0
   tutorialLevelEnd: 0
+  beatTheGame: 0
+  restartedTheGame: 0
   battleCondition: 0
 --- !u!114 &2137971098
 MonoBehaviour:
@@ -19095,6 +19097,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28a3e663179a76c43b716591616a7feb, type: 2}
   - {fileID: 11400000, guid: 8ca6d1e2c50a48749b1076bfe61a9245, type: 2}
   - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
+  - {fileID: 11400000, guid: 37ef1034457fe904399d3eb5f7b99619, type: 2}
+  - {fileID: 11400000, guid: 76821b0040bfa8c46bba7001526a1e69, type: 2}
+  - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
   Cards_ForPick: []
   numberCandidate: 3
   CardForPickPositionList: []

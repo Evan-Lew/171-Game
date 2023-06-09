@@ -98,7 +98,7 @@ public class BattleLevelSetup : MonoBehaviour
         
         if (_levelEnd)
         {
-            BattleController.end_HP = BattleController.instance.player.Health_Current;
+            //BattleController.end_HP = BattleController.instance.player.Health_Current;
             GameController.instance.DisableBattleMode(false);
             GameController.instance.FadeOut();
             BattleController.instance.ResetArmorSymbol();
