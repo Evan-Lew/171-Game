@@ -154,9 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerCards:
   - {fileID: 11400000, guid: de917538cbde6da479eaf190bdad644a, type: 2}
-  - {fileID: 11400000, guid: 2f41b4429d041f243ac5eecebc4b2d8c, type: 2}
+  - {fileID: 11400000, guid: 6db2bc490d27c06488b37a55a7ddc0de, type: 2}
   - {fileID: 11400000, guid: 37ef1034457fe904399d3eb5f7b99619, type: 2}
   - {fileID: 11400000, guid: 7bd97b94f4312cb40813272de23c66fb, type: 2}
+  - {fileID: 11400000, guid: 40d2458c7cba7d845b1a093533564758, type: 2}
   backgroundName: Mountaintop_BG
   enemiesList:
   - {fileID: 11400000, guid: 5c0ccff827ca5dd4791b2c9665748f3d, type: 2}

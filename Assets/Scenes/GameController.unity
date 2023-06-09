@@ -5837,9 +5837,16 @@ MonoBehaviour:
   BanishPool:
   - {fileID: 11400000, guid: ad5551a711404e0458a0edfd4a5eddc0, type: 2}
   - {fileID: 11400000, guid: 40d2458c7cba7d845b1a093533564758, type: 2}
+  - {fileID: 11400000, guid: 52eb4468d9db3f140afeba1ec330bdaf, type: 2}
+  - {fileID: 11400000, guid: fdcbb38b310931f47b411d3d4ec24b19, type: 2}
   - {fileID: 11400000, guid: 3299428caea94fc4e91564f5029a0daf, type: 2}
   - {fileID: 11400000, guid: 2b16889359e5d78419fc07d2e4b568c5, type: 2}
   - {fileID: 11400000, guid: 24f0fcbcff68c8647b0bb44d209d0a16, type: 2}
+  - {fileID: 11400000, guid: 4e7e76afbc1630d4fa05b7333b60191b, type: 2}
+  - {fileID: 11400000, guid: 6db2bc490d27c06488b37a55a7ddc0de, type: 2}
+  - {fileID: 11400000, guid: e6fedad286f368c448dde0c6942fb69d, type: 2}
+  - {fileID: 11400000, guid: 195e288c012f67147b7204d875599662, type: 2}
+  - {fileID: 11400000, guid: 7aef1870435d6ac43b6e5abc28bdaaf3, type: 2}
   - {fileID: 11400000, guid: 601490b461d555e41875ae961464f04c, type: 2}
   - {fileID: 11400000, guid: ba7c3ddf46810c249b495583b030c292, type: 2}
   - {fileID: 11400000, guid: 626c6b52cf5a3d14bb191be8ddbb26f7, type: 2}

@@ -19,7 +19,7 @@ MonoBehaviour:
   ID: 3006
   description_Main: Gain 2 Armor for each card you have in hand
   description_Log: Gained 2 Armor for each card you have in hand.
-  priorityCost: 2
+  priorityCost: 3
   Card_Front: {fileID: 21300000, guid: 5d43ae2afa017434ab677e9793460d7b, type: 3}
   Card_Name: {fileID: 21300000, guid: e387ff9ca507dea42b63205e4f1bba16, type: 3}
   icon: {fileID: 0}
