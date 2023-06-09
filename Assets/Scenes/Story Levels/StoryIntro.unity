@@ -2439,8 +2439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Within a village hidden in a bamboo grove lived a young and talented herbalist
-    named Xu Xian.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b5c4f7b0b713d447b65cad0054741e5, type: 2}
   m_sharedMaterial: {fileID: 5392364061241504842, guid: 6b5c4f7b0b713d447b65cad0054741e5,
