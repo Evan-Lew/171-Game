@@ -140,7 +140,7 @@ public class DeckEditSystem : MonoBehaviour
     // Using this as example as how SpawnCardsForPick() works
     public void SpawnCandidateForPick()
     {
-        Debug.Log("Spawning");
+        //Debug.Log("Spawning");
         SpawnCardsForPick(numberCandidate, CardCandidatesList, Pos_DisplayCardCandidates, Pos_CandidatesMin, Pos_CandidatesMax);
     }
     

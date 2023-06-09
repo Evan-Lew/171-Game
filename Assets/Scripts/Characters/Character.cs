@@ -170,6 +170,12 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void ResetArmorSymbol()
+    {
+        animArmor = false;
+        _armorSpriteController.SetTrigger("NoArmor");
+    }
+
     void DynamicHealthColorUpdate()
     {
         double HealthRatio = Health_Current / Health_Total;

@@ -101,12 +101,14 @@ public class BattleLevelSetup : MonoBehaviour
             BattleController.end_HP = BattleController.instance.player.Health_Current;
             GameController.instance.DisableBattleMode(false);
             GameController.instance.FadeOut();
+            BattleController.instance.ResetArmorSymbol();
             // SceneManager.UnloadSceneAsync("BattleLevel");
             StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
             {
                 _levelEnd = false;
-                Debug.Log(BattleController.battleNum);
-                // For sprint 2
+                
+                //Debug.Log(BattleController.battleNum);
+                
                 if (BattleController.battleNum == 5)
                 {
                     SceneManager.LoadScene("EndScene");

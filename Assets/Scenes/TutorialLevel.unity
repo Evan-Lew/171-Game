@@ -3770,10 +3770,6 @@ PrefabInstance:
         your enemy.
 
 
-        Right click to deselect a card when you are unsure
-        of your decision.
-
-
         Let''s start with the <color=#A4A4A4>whack card</color>
         which will deal 3 damage to the enemy.'
       objectReference: {fileID: 0}
