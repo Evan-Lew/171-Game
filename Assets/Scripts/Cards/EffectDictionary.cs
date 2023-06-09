@@ -1946,11 +1946,11 @@ public class EffectDictionary : MonoBehaviour
         // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            PlaySound("sfx_Action_01_Throw_Stone", 0.1f);
+            PlaySound("sfx_Action_01_Throw_Stone", 0.15f);
         }, 1f));
 
         // Play SFX
-        SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.1f);
+        SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.15f);
 
         // Particle positioned under the player
         ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[1], false);
@@ -1980,7 +1980,7 @@ public class EffectDictionary : MonoBehaviour
         Manipulator_Enemy();
 
         // Play SFX
-        PlaySound("sfx_Action_02_Body_Slam", 1);
+        PlaySound("sfx_Action_02_Body_Slam", 0.5f);
         
         // Particle positioned on the player
         ParticleEvent("BodySlam", 2, ParticleDuration, ExtraPositioning[0], false);
@@ -2007,7 +2007,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Gain 5 armor";
         Manipulator_Enemy();
 
-        PlaySound("sfx_Action_03_Stubborn", 0.25f);
+        PlaySound("sfx_Action_03_Stubborn", 0.1f);
         
         // Particle positioned under the enemy
         ParticleEvent("Stubborn", 3, ParticleDuration, ExtraPositioning[3], false);
@@ -2031,7 +2031,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Deal 3 Damage and Heal 3";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_04_Drain", 0.1f);
+        PlaySound("sfx_Action_04_Drain", 0.2f);
 
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
@@ -2096,7 +2096,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Deal 5 Damage, Player's next card costs 3 more";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Breeze", 1f);
+        PlaySound("sfx_Action_Breeze", 0.5f);
         
         // Particle positioned under the enemy
         ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
@@ -2125,7 +2125,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Deal 7 Damage";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_03_Stubborn", 0.25f);
+        PlaySound("sfx_Action_03_Stubborn", 0.1f);
         
         // Particle positioned under the player
         ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
@@ -2173,7 +2173,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Deal 1 Damage";
         Enemy_damageDealing = 1;
         
-        PlaySound("sfx_Action_Cough", 1f);
+        PlaySound("sfx_Action_Cough", 0.5f);
 
         // No manipulator because static
         ParticleEvent("PurpleHaze", 11, ParticleDuration, ExtraPositioning[1], false);
@@ -2227,7 +2227,7 @@ public class EffectDictionary : MonoBehaviour
         E_isCostingExtraPriority = true;
         Enemy_extraPriorityCost = 3;
         
-        PlaySound("sfx_Action_Rock_Smash", 1);
+        PlaySound("sfx_Action_Rock_Smash", 0.25f);
         
         // Particle positioned under the player
         ParticleEvent("Stomp", 6, ParticleDuration, ExtraPositioning[1], false);
@@ -2256,7 +2256,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_armorCreate = 11;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Reverberate", 0.4f);
+        PlaySound("sfx_Action_Reverberate", 0.3f);
         
         // Particle positioned under the enemy
         ParticleEvent("Solidify", 7, ParticleDuration, ExtraPositioning[3], false);
@@ -2280,7 +2280,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_armorCreate = 7;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Breath", 1);
+        PlaySound("sfx_Action_Breath", 0.5f);
         
         // Particle positioned on the player
         ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
@@ -2310,7 +2310,7 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Next attack does triple damage";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Monsterize", 0.8f);
+        PlaySound("sfx_Action_Monsterize", 0.75f);
         
         // Particle positioned under the enemy
         ParticleEvent("Monsterize", 9, ParticleDuration, ExtraPositioning[3], false);
@@ -2377,7 +2377,7 @@ public class EffectDictionary : MonoBehaviour
         Enemy_healing = 6;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_04_Drain", 0.3f);
+        PlaySound("sfx_Drain", 0.2f);
 
         // Particle positioned under the player
         ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
@@ -2406,11 +2406,11 @@ public class EffectDictionary : MonoBehaviour
         descriptionLog = "Player's next card costs 4 more";
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Breeze", 1f);
+        PlaySound("sfx_Action_Reverberate", 0.3f);
         
-        // Particle positioned under the enemy
-        ParticleEvent("BlindingFog", 10, ParticleDuration, ExtraPositioning[3], false);
-        
+        // Particle positioned under the player
+        ParticleEvent("Drain", 4, ParticleDuration, ExtraPositioning[1], false);
+
         // Animations
         // Trigger player damage anim
         playerCharacterDamageAnim();
@@ -2434,17 +2434,24 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Enemy();
         
-        // Play SFX with delay
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
-            PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
-        }, 1f));
+            PlaySound("sfx_Crunch", 0.5f);
+            PlaySound("sfx_Venom", 0.1f);
+        }, 0.3f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Crunch", 0.5f);
+            PlaySound("sfx_Venom", 0.1f);
+        }, 0.6f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        {
+            PlaySound("sfx_Crunch", 0.5f);
+            PlaySound("sfx_Venom", 0.1f);
+        }, 0.9f));
+        SoundManager.PlaySound("sfx_Crunch", 0.5f);
 
-        // Play SFX
-        SoundManager.PlaySound("sfx_Action_01_Throw_Stone", 0.5f);
-
-        // Particle positioned under the player
-        ParticleEvent("ThrowStone", 1, ParticleDuration, ExtraPositioning[1], false);
+        ParticleEvent("Claw", 13, ParticleDuration, ExtraPositioning[0], false);
         
         // Animations
         // Trigger player damage anim
@@ -2463,31 +2470,24 @@ public class EffectDictionary : MonoBehaviour
     {
         Enemy_priorityInc = 5f;
         ParticleDuration = 3f;
-        cardName = "RapidRegeneraion";
+        cardName = "Rapid Regeneration";
         descriptionLog = "Heal 10";
         // Enemy_damageDealing = 3;
         Enemy_healing = 10;
         Manipulator_Enemy();
         
-        PlaySound("sfx_Action_Breath", 1);
+        PlaySound("sfx_Action_Breath", 0.5f);
         
-        // Particle positioned on the player
-        ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
-        
-        // Animations
-        // Trigger player damage anim
-        playerCharacterDamageAnim();
-        // Trigger enemy damage anim
-        enemyCharacterAttackAnim();
-        
+        // Particle positioned under the enemy
+        ParticleEvent("Monsterize", 9, ParticleDuration, ExtraPositioning[3], false);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Heal_ToTarget(enemy, Enemy_healing);
             Manipulator_Enemy_Reset();
         }, ParticleDuration / 2));
     }
-
-    // no animations
+    
     public void Action_19_Recharge()
     {
         Enemy_priorityInc = 4f;
@@ -2500,8 +2500,14 @@ public class EffectDictionary : MonoBehaviour
         
         PlaySound("sfx_Action_Cyclone", 0.25f);
         
-        // Particle positioned under the enemy
-        ParticleEvent("Roost", 12, ParticleDuration, ExtraPositioning[3], false);
+        // Particle positioned on the player
+        ParticleEvent("BreathOfLife", 8, ParticleDuration, ExtraPositioning[0], false);
+        
+        // Animations
+        // Trigger player damage anim
+        playerCharacterDamageAnim();
+        // Trigger enemy damage anim
+        enemyCharacterAttackAnim();
         
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
