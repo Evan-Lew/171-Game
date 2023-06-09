@@ -631,7 +631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: STORY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
   m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
@@ -912,7 +912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TUTORIAL
+  m_text: BATTLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5351c99d18ea41846b79b7d3ed7bd503, type: 2}
   m_sharedMaterial: {fileID: -2412469216106721076, guid: 5351c99d18ea41846b79b7d3ed7bd503,
@@ -1507,7 +1507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: -15}
+  m_AnchoredPosition: {x: 2, y: -50}
   m_SizeDelta: {x: 190, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681200122
@@ -1856,7 +1856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1854143953
 RectTransform:
   m_ObjectHideFlags: 0

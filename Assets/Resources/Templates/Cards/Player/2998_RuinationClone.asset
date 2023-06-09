@@ -18,7 +18,7 @@ MonoBehaviour:
   cardName: Ruination
   ID: 2998
   description_Main: Deal 6 damage to yourself. Deal 4 damage to the enemy. Banish.
-  description_Log: Deal 6 damage to yourself. Deal 4 damage to the enemy. Banish.
+  description_Log: Deal 6 damage to yourself. Banish.
   priorityCost: 0
   Card_Front: {fileID: 21300000, guid: 24c7c16939660464b9992dd8486ed4a0, type: 3}
   Card_Name: {fileID: 21300000, guid: b6d322607ff3f4a46b63283a894978be, type: 3}

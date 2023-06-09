@@ -17,7 +17,7 @@ MonoBehaviour:
   cardActivity: 0
   cardName: Rapid Regeneration
   ID: 18
-  description_Main: Heal for 10 HP
+  description_Main: Heal 10 HP
   description_Log: 
   priorityCost: 5
   Card_Front: {fileID: 0}

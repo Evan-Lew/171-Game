@@ -52,26 +52,26 @@ public class BattleController : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Developer Tool: Change Enemy Health");
-            enemy.Health_Current = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log("Developer Tool: Change Player Health");
-            player.Health_Current = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Debug.Log("Developer Tool: Draw a Card");
-            _script_DeckSystem.DrawCardToHand();
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Debug.Log("Developer Tool: Remove");
-            _script_HandManager.Clear();
-        }
+        // if (Input.GetKeyDown(KeyCode.L))
+        // {
+        //     Debug.Log("Developer Tool: Change Enemy Health");
+        //     enemy.Health_Current = 0;
+        // }
+        // if (Input.GetKeyDown(KeyCode.K))
+        // {
+        //     Debug.Log("Developer Tool: Change Player Health");
+        //     player.Health_Current = 0;
+        // }
+        // if (Input.GetKeyDown(KeyCode.D))
+        // {
+        //     Debug.Log("Developer Tool: Draw a Card");
+        //     _script_DeckSystem.DrawCardToHand();
+        // }
+        // if (Input.GetKeyDown(KeyCode.C))
+        // {
+        //     Debug.Log("Developer Tool: Remove");
+        //     _script_HandManager.Clear();
+        // }
 
         // The battle controller will be enabled only if the battle is happened
         if (enable_BattleController)

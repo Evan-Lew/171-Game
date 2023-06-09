@@ -19,8 +19,8 @@ MonoBehaviour:
   ID: 2012
   description_Main: 'Environment: Whenever you deal damage to yourself, your next
     card deals +2 damage'
-  description_Log: ' Whenever you deal damage to yourself, your next card deals +2
-    damage'
+  description_Log: Whenever you deal damage to yourself, your next card deals +2
+    damage
   priorityCost: 1
   Card_Front: {fileID: 21300000, guid: e1224813a0fbe2f41a1940537b2692eb, type: 3}
   Card_Name: {fileID: 21300000, guid: 350a54aa43cf26d40b7cfb524cc6cde9, type: 3}

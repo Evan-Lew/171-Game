@@ -76,25 +76,25 @@ public class BattleLog : MonoBehaviour
             tempLog = "";
             if (EffectDictionary.instance.Player_damageDealing != 0)
             {
-                tempLog = "Deal <color=#f9303f>{0}</color> damage";
+                tempLog = "Deal <color=#f9303f>{0}</color> damage. ";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Player_damageDealing);
                 BattleLog = BattleLog + formattedText;
             }
             if (EffectDictionary.instance.Player_armorCreate != 0)
             {
-                tempLog = "Create <color=#d16c64>{0}</color> armors";
+                tempLog = "Create <color=#d16c64>{0}</color> armors. ";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Player_armorCreate);
                 BattleLog = BattleLog + formattedText;
             }
             if (EffectDictionary.instance.Player_cardsDrawing != 0)
             {
-                tempLog = "Draw <color=#d16c64>{0}</color> cards";
+                tempLog = "Draw <color=#d16c64>{0}</color> cards. ";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Player_cardsDrawing);
                 BattleLog = BattleLog + formattedText;
             }
             if (EffectDictionary.instance.Player_healing != 0)
             {
-                tempLog = "Heal <color=#76f300>{0}</color> HP";
+                tempLog = "Heal <color=#76f300>{0}</color> HP. ";
                 string formattedText = string.Format(tempLog, EffectDictionary.instance.Player_healing);
                 BattleLog = BattleLog + formattedText;
             }
