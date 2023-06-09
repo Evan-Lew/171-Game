@@ -747,13 +747,24 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = banishedCards * 2;
         Manipulator_Player();
         
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Stab", 0.25f);
+        }, 0.15f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Swing", 0.25f);
+        }, 0.05f));
+        
         // Animations
         // Trigger player attack anim
         playerCharacterAttackAnim();
         // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
-        WithoutParticle(ParticleDuration);
+        // Particle positioned on the enemy
+        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -857,13 +868,25 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = 6;
         Manipulator_Player();
         
+         // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Stab", 0.25f);
+        }, 0.15f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Swing", 0.25f);
+        }, 0.05f));
+        
         // Animations
         // Trigger player attack anim
         playerCharacterAttackAnim();
         // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
-        WithoutParticle(ParticleDuration);
+        // Particle positioned on the enemy
+        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -882,13 +905,24 @@ public class EffectDictionary : MonoBehaviour
         Enemy_damageDealing = Player_damageDealing;
         Manipulator_Player();
         
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Stab", 0.25f);
+        }, 0.15f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Swing", 0.25f);
+        }, 0.05f));
+        
         // Animations
         // Trigger player attack anim
         playerCharacterAttackAnim();
         // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
-        WithoutParticle(ParticleDuration);
+        // Particle positioned on the enemy
+        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -938,13 +972,25 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 3;
         Manipulator_Player();
         
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Stab", 0.25f);
+        }, 0.15f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Swing", 0.25f);
+        }, 0.05f));
+        
         // Animations
         // Trigger player attack anim
         playerCharacterAttackAnim();
         // Trigger enemy damage anim
         enemyCharacterDamageAnim();
         
-        WithoutParticle(ParticleDuration);
+        // Particle positioned on the enemy
+        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
+        
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -1384,13 +1430,25 @@ public class EffectDictionary : MonoBehaviour
         }
         Manipulator_Player();
         
+        // Play SFX with delay
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Stab", 0.25f);
+        }, 0.15f));
+        StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
+        { 
+            PlaySound("sfx_Swing", 0.25f);
+        }, 0.05f));
+        
         // Animations
         // Trigger player attack anim
         playerCharacterAttackAnim();
         // Trigger enemy damage anim
         enemyCharacterDamageAnim();
+        
+        // Particle positioned on the enemy
+        ParticleEvent("Whack", 1002, ParticleDuration, ExtraPositioning[2], true);
 
-        WithoutParticle(ParticleDuration);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             CreateArmor_ToTarget(player, Player_armorCreate);
@@ -1497,9 +1555,12 @@ public class EffectDictionary : MonoBehaviour
     {
         ParticleDuration = 3f;
         Enemy_permanantCostIncrease += 1;
-        Manipulator_Player();
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
         
-        WithoutParticle(ParticleDuration);
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 4002));
@@ -1600,7 +1661,12 @@ public class EffectDictionary : MonoBehaviour
 
         Manipulator_Player();
         
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             isJadeResolve = true;
@@ -1619,7 +1685,12 @@ public class EffectDictionary : MonoBehaviour
         
         isMalachiteChain = true;
 
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Manipulator_Player_Reset();
@@ -1796,7 +1867,12 @@ public class EffectDictionary : MonoBehaviour
 
         isCostingNoPriority = true;
         
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Manipulator_Player_Reset();
@@ -1815,7 +1891,13 @@ public class EffectDictionary : MonoBehaviour
         Player_extraDamage += 3;
         isDealingExtraDmg = true;
 
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Manipulator_Player_Reset();
@@ -1836,7 +1918,13 @@ public class EffectDictionary : MonoBehaviour
         isDrawingExtraCard = true;
         isHealingExtraHealth = true;
         
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Manipulator_Player_Reset();
@@ -1851,7 +1939,12 @@ public class EffectDictionary : MonoBehaviour
         Player_damageDealing = 4;
         Manipulator_Player();
         
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(enemy, Player_damageDealing);
@@ -1869,7 +1962,13 @@ public class EffectDictionary : MonoBehaviour
         Player_cardsDrawing = 3;
         Manipulator_Player();
         
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DrawCards_Player(Player_cardsDrawing);
@@ -1888,7 +1987,13 @@ public class EffectDictionary : MonoBehaviour
         Player_healing = 6;
         Manipulator_Player();
 
-        WithoutParticle(ParticleDuration);
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
+        
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
+
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             Banish_TheCard(BanishPool.Find(cardBase => cardBase.ID == 5007));
@@ -1905,8 +2010,12 @@ public class EffectDictionary : MonoBehaviour
         Player_priorityInc = 0;
         Player_damageDealing = 3;
         Manipulator_Player();
+        PlaySound("sfx_Spirit", 0.5f);
+
+        //WithoutParticle(ParticleDuration);
         
-        WithoutParticle(ParticleDuration);
+        // Particle positioned under the player
+        ParticleEvent("JadeSpirit", 4001, ParticleDuration, ExtraPositioning[1], true);
         StartCoroutine(CoroutineUtil.instance.WaitNumSeconds(() =>
         {
             DealDamage_ToTarget(player, Player_damageDealing);
